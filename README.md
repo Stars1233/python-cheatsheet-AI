@@ -62,7 +62,7 @@ flatter_list     = list(itertools.chain.from_iterable(<list>))
 ```
 * **For details about sort(), sorted(), min() and max() see [Sortable](#sortable).**
 * **Module [operator](#operator) has function itemgetter() that can replace listed [lambdas](#lambda).**
-* **This text uses the term collection instead of [iterable](#abstract-base-classes). For rationale see [duck types](#collection).**
+* **This text uses the term collection instead of [iterable](#abstract-base-classes). For rationale see [duck types](#iterable-duck-types).**
 
 ```python
 <int> = len(<list/dict/set/…>)  # Returns number of items. Doesn't accept iterators.
@@ -1287,7 +1287,7 @@ class MySequence:
 ### ABC Sequence
 * **It's a richer interface than the basic sequence that also requires just getitem() and len().**
 * **Extending it generates iter(), contains(), reversed(), index() and count() special methods.**
-* **Unlike `'abc.Iterable'` and `'abc.Collection'`, it is not a duck type. That is why exp. `'issubclass(MySequence, abc.Sequence)'` would return False even if MySequence had all the methods defined. It however recognizes list, tuple, range, str, bytes, bytearray, array, memoryview and deque, since they are registered as Sequence's virtual subclasses.**
+* **Unlike `'abc.Iterable'` and `'abc.Collection'`, it is not a duck type. That is why exp. `'issubclass(MySequence, abc.Sequence)'` would return False even if MySequence had all methods defined. It however recognizes list, tuple, range, string, bytes, bytearray, array, memoryview and deque, since they are registered as Sequence's virtual subclasses.**
 ```python
 from collections import abc
 
@@ -2676,7 +2676,7 @@ import numpy as np
 <array> = np.tile/repeat(<array>, <int/s> [, axis])   # Tiles the array or repeats elements.
 ```
 * **Shape is a tuple of dimension sizes. A 100x50 RGB image has shape (50, 100, 3).**
-* **Axis is an index of a dimension. Leftmost dimension has index 0. Summing the RGB image along axis 2 will return a greyscale image with shape (50, 100).**
+* **Axis is an index of a dimension. Leftmost dimension has index 0. Summing the RGB&nbsp;image along axis 2 will return a greyscale image with shape (50, 100).**
 
 ### Indexing
 ```perl
@@ -2697,9 +2697,10 @@ import numpy as np
 <2d_bools> = <2d> > <el/1d/2d>                        # A 1d object must be a size of a row.
 <1/2d_arr> = <2d>[<2d/1d_bools>]                      # A 1d object must be a size of a col.
 ```
-* **`':'` returns a slice of all dimension's indices. Omitted dimensions default to `':'`.**
+* **`':'` returns a slice of all dimension's indices. If dimension is omitted, it defaults to `':'`.**
+* **Indexing with two slices (line 4) is identical to indexing with a slice and 1d array (line 7).**
 * **Python converts `'obj[i, j]'` to `'obj[(i, j)]'`. This makes `'<2d>[row_i, col_i]'` and `'<2d>[row_indices]'` indistinguishable to NumPy if tuple of two indices is passed!**
-* **`'ix_([1, 2], [3, 4])'` returns `'[[1], [2]]'` and `'[[3, 4]]'`. Due to broadcasting rules, this is the same as using `'[[1, 1], [2, 2]]'` and `'[[3, 4], [3, 4]]'`.**
+* **`'ix_([1, 2], [3, 4])'` returns `'[[1], [2]]'` and `'[[3, 4]]'`. Due to broadcasting rules, this is same as indexing with `'[[1, 1], [2, 2]]'` and `'[[3, 4], [3, 4]]'`.**
 * **Any value that is broadcastable to the indexed shape can be assigned to the selection.**
 
 ### Broadcasting

@@ -56,7 +56,7 @@
 
 <body>
   <header>
-    <aside>February 14, 2026</aside>
+    <aside>February 15, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -136,7 +136,7 @@ flatter_list     = list(itertools.chain.from_iterable(&lt;list&gt;))
 <ul>
 <li><strong>For details about sort(), sorted(), min() and max() see <a href="#sortable">Sortable</a>.</strong></li>
 <li><strong>Module <a href="#operator">operator</a> has function itemgetter() that can replace listed <a href="#lambda">lambdas</a>.</strong></li>
-<li><strong>This text uses the term collection instead of <a href="#abstractbaseclasses">iterable</a>. For rationale see <a href="#collection">duck types</a>.</strong></li>
+<li><strong>This text uses the term collection instead of <a href="#abstractbaseclasses">iterable</a>. For rationale see <a href="#iterableducktypes">duck types</a>.</strong></li>
 </ul>
 <pre><code class="python language-python hljs">&lt;int&gt; = len(&lt;list/dict/set/…&gt;)  <span class="hljs-comment"># Returns number of items. Doesn't accept iterators.</span>
 &lt;int&gt; = &lt;list&gt;.count(&lt;el&gt;)      <span class="hljs-comment"># Counts occurrences. Also `if &lt;el&gt; in &lt;coll&gt;: ...`.</span>
@@ -1115,7 +1115,7 @@ Hello World!
 <div><h3 id="abcsequence">ABC Sequence</h3><ul>
 <li><strong>It's a richer interface than the basic sequence that also requires just getitem() and len().</strong></li>
 <li><strong>Extending it generates iter(), contains(), reversed(), index() and count() special methods.</strong></li>
-<li><strong>Unlike <code class="python hljs"><span class="hljs-string">'abc.Iterable'</span></code> and <code class="python hljs"><span class="hljs-string">'abc.Collection'</span></code>, it is not a duck type. That is why exp. <code class="python hljs"><span class="hljs-string">'issubclass(MySequence, abc.Sequence)'</span></code> would return False even if MySequence had all the methods defined. It however recognizes list, tuple, range, str, bytes, bytearray, array, memoryview and deque, since they are registered as Sequence's virtual subclasses.</strong></li>
+<li><strong>Unlike <code class="python hljs"><span class="hljs-string">'abc.Iterable'</span></code> and <code class="python hljs"><span class="hljs-string">'abc.Collection'</span></code>, it is not a duck type. That is why exp. <code class="python hljs"><span class="hljs-string">'issubclass(MySequence, abc.Sequence)'</span></code> would return False even if MySequence had all methods defined. It however recognizes list, tuple, range, string, bytes, bytearray, array, memoryview and deque, since they are registered as Sequence's virtual subclasses.</strong></li>
 </ul><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> abc
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAbcSequence</span><span class="hljs-params">(abc.Sequence)</span>:</span>
@@ -2198,7 +2198,7 @@ $ snakeviz test.prof                                       <span class="hljs-com
 </code></pre>
 <ul>
 <li><strong>Shape is a tuple of dimension sizes. A 100x50 RGB image has shape (50, 100, 3).</strong></li>
-<li><strong>Axis is an index of a dimension. Leftmost dimension has index 0. Summing the RGB image along axis 2 will return a greyscale image with shape (50, 100).</strong></li>
+<li><strong>Axis is an index of a dimension. Leftmost dimension has index 0. Summing the RGB&nbsp;image along axis 2 will return a greyscale image with shape (50, 100).</strong></li>
 </ul>
 <div><h3 id="indexing">Indexing</h3><pre><code class="bash hljs">&lt;el&gt;       = &lt;2d&gt;[row_index, col_index]               <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int&gt;, &lt;int&gt;, &lt;int&gt;]`.</span>
 &lt;1d_view&gt;  = &lt;2d&gt;[row_index]                          <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int&gt;, &lt;int&gt;, &lt;slice&gt;]`.</span>
@@ -2215,9 +2215,10 @@ $ snakeviz test.prof                                       <span class="hljs-com
 &lt;1/2d_arr&gt; = &lt;2d&gt;[&lt;2d/1d_bools&gt;]                      <span class="hljs-comment"># A 1d object must be a size of a col.</span>
 </code></pre>
 <ul>
-<li><strong><code class="python hljs"><span class="hljs-string">':'</span></code> returns a slice of all dimension's indices. Omitted dimensions default to <code class="python hljs"><span class="hljs-string">':'</span></code>.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">':'</span></code> returns a slice of all dimension's indices. If dimension is omitted, it defaults to <code class="python hljs"><span class="hljs-string">':'</span></code>.</strong></li>
+<li><strong>Indexing with two slices (line 4) is identical to indexing with a slice and 1d array (line 7).</strong></li>
 <li><strong>Python converts <code class="python hljs"><span class="hljs-string">'obj[i, j]'</span></code> to <code class="python hljs"><span class="hljs-string">'obj[(i, j)]'</span></code>. This makes <code class="python hljs"><span class="hljs-string">'&lt;2d&gt;[row_i, col_i]'</span></code> and <code class="python hljs"><span class="hljs-string">'&lt;2d&gt;[row_indices]'</span></code> indistinguishable to NumPy if tuple of two indices is passed!</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'ix_([1, 2], [3, 4])'</span></code> returns <code class="python hljs"><span class="hljs-string">'[[1], [2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4]]'</span></code>. Due to broadcasting rules, this is the same as using <code class="python hljs"><span class="hljs-string">'[[1, 1], [2, 2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4], [3, 4]]'</span></code>.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'ix_([1, 2], [3, 4])'</span></code> returns <code class="python hljs"><span class="hljs-string">'[[1], [2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4]]'</span></code>. Due to broadcasting rules, this is same as indexing with <code class="python hljs"><span class="hljs-string">'[[1, 1], [2, 2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4], [3, 4]]'</span></code>.</strong></li>
 <li><strong>Any value that is broadcastable to the indexed shape can be assigned to the selection.</strong></li>
 </ul>
 <div><h3 id="broadcasting">Broadcasting</h3><p><strong>A set of rules by which NumPy functions operate on arrays of different shapes.</strong></p><pre><code class="python language-python hljs">left  = np.array([<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>])                   <span class="hljs-comment"># I.e. `left.shape  == (3,)`.</span>
@@ -2933,7 +2934,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>February 14, 2026</aside>
+    <aside>February 15, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 
