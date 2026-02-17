@@ -1562,14 +1562,14 @@ Open
 * **`'newline="\r\n"'` breaks input only on '\r\n' and converts every '\n' to '\r\n' on write.**
 
 ### Modes
-* **`'r'`  - Read text from the file (the default option).**
-* **`'w'`  - Write to the file. Deletes existing contents.**
-* **`'x'`  - Write or raise FileExistsError if file exists.**
-* **`'a'`  - Append. Creates new file if it doesn't exist.**
-* **`'w+'` - Read and write. Deletes existing contents.**
-* **`'r+'` - Read and write from the start of the file.**
-* **`'a+'` - Read and write from the end of the file.**
-* **`'rb'` - Read bytes objects. Also `'wb'`, `'xb'`, etc.**
+* **`'r'`  - Reads text from the file (the default option).**
+* **`'w'`  - Writes to the file. Deletes existing contents.**
+* **`'x'`  - Writes or raises FileExistsError if file exists.**
+* **`'a'`  - Appends. Creates new file if it doesn't exist.**
+* **`'w+'` - Reads and writes. Deletes existing contents.**
+* **`'r+'` - Reads and writes from the start of the file.**
+* **`'a+'` - Reads and writes from the end of the file.**
+* **`'rb'` - Reads [bytes objects](#bytes). Also `'wb'`, `'xb'`, etc.**
 
 ### Exceptions
 * **`'FileNotFoundError'` can be raised when reading with `'r'` or `'r+'`.**
@@ -2700,7 +2700,7 @@ import numpy as np
 * **`':'` returns a slice of all dimension's indices. If dimension is omitted, it defaults to `':'`.**
 * **Indexing with two slices (line 4) is identical to indexing with a slice and 1d array (line 7).**
 * **Python converts `'obj[i, j]'` to `'obj[(i, j)]'`. This makes `'<2d>[row_i, col_i]'` and `'<2d>[row_indices]'` indistinguishable to NumPy if tuple of two indices is passed!**
-* **`'ix_([1, 2], [3, 4])'` returns `'[[1], [2]]'` and `'[[3, 4]]'`. Due to broadcasting rules, this is same as indexing with `'[[1, 1], [2, 2]]'` and `'[[3, 4], [3, 4]]'`.**
+* **`'ix_([1, 2], [3, 4])'` returns `'[[1], [2]]'` and `'[[3, 4]]'`. Due to broadcasting rules, this is the same as indexing via `'[[1, 1], [2, 2]]'` and `'[[3, 4], [3, 4]]'`.**
 * **Any value that is broadcastable to the indexed shape can be assigned to the selection.**
 
 ### Broadcasting
@@ -3006,8 +3006,8 @@ pg.quit()
 ```
 
 ```python
-<bool> = <Rect>.collidepoint((x, y))            # Checks whether rectangle contains the point.
-<bool> = <Rect>.colliderect(<Rect>)             # Checks whether the two rectangles overlap.
+<bool> = <Rect>.collidepoint((x, y))            # Returns True if rectangle contains the point.
+<bool> = <Rect>.colliderect(<Rect>)             # Returns True if the two rectangles overlap.
 <int>  = <Rect>.collidelist(<list_of_Rect>)     # Returns index of first colliding Rect or -1.
 <list> = <Rect>.collidelistall(<list_of_Rect>)  # Returns indices of all colliding rectangles.
 ```
@@ -3015,41 +3015,41 @@ pg.quit()
 ### Surface
 **Object for representing images.**
 ```python
-<Surf> = pg.display.set_mode((width, height))   # Opens a new window and returns its surface.
+<Surf> = pg.display.set_mode((width, height))   # Opens new window and returns surface object.
 <Surf> = pg.Surface((width, height))            # New RGB surface. RGBA if `flags=pg.SRCALPHA`.
-<Surf> = pg.image.load(<path/file>)             # Loads the image. Format depends on source.
+<Surf> = pg.image.load(<path/file>)             # Loads the image. Also get_width/get_height().
 <Surf> = pg.surfarray.make_surface(<np_array>)  # Also `<np_arr> = surfarray.pixels3d(<Surf>)`.
-<Surf> = <Surf>.subsurface(<Rect>)              # Creates a new surface from the cutout.
+<Surf> = <Surf>.subsurface(<Rect>)              # Creates a new surface object from the cutout.
 ```
 
 ```python
 <Surf>.fill(color)                              # Pass tuple of ints or pg.Color('<name/hex>').
-<Surf>.set_at((x, y), color)                    # Updates pixel. Also <Surf>.get_at((x, y)).
-<Surf>.blit(<Surf>, (x, y))                     # Draws passed surface at specified location.
+<Surf>.set_at((x, y), color)                    # Updates a pixel. Also <Surf>.get_at((x, y)).
+<Surf>.blit(<Surf>, (x, y))                     # Draws passed surface at a specified location.
 ```
 
 ```python
-from pygame.transform import scale, rotate      # Also: flip, smoothscale, scale_by.
+from pygame.transform import scale, rotate      # Also flip, smoothscale, scale_by, rotozoom.
 <Surf> = scale(<Surf>, (width, height))         # Scales the surface. `smoothscale()` blurs it.
 <Surf> = rotate(<Surf>, angle)                  # Rotates the surface for counterclock degrees.
-<Surf> = flip(<Surf>, flip_x=False)             # Mirrors the surface. Also `flip_y=False`.
+<Surf> = flip(<Surf>, flip_x=True)              # Mirrors over the y axis. Also `flip_y=True`.
 ```
 
 ```python
-from pygame.draw import line, arc, rect         # Also: ellipse, polygon, circle, aaline.
-line(<Surf>, color, (x1, y1), (x2, y2))         # Draws a line to the surface. Also `width=1`.
+from pygame.draw import line, arc, rect         # Also ellipse, polygon, circle, aaline, lines.
+line(<Surf>, color, (x1, y1), (x2, y2))         # Draws line to surface. Accepts `width=<int>`.
 arc(<Surf>, color, <Rect>, from_rad, to_rad)    # Also ellipse(<Surf>, color, <Rect>, width=0).
 rect(<Surf>, color, <Rect>, width=0)            # Also polygon(<Surf>, color, points, width=0).
 ```
 
 ```python
-<Font> = pg.font.Font(<path/file>, size)        # Loads TTF file. Pass None for default font.
-<Surf> = <Font>.render(text, antialias, color)  # Accepts background color as fourth argument.
+<Font> = pg.font.Font(<path/file>, size)        # Loads a TTF file. Pass None for default font.
+<Surf> = <Font>.render(text, antialias, color)  # Accepts background color via fourth argument.
 ```
 
 ### Sound
 ```python
-<Sound> = pg.mixer.Sound(<path/file/bytes>)     # WAV file or bytes/array of signed shorts.
+<Sound> = pg.mixer.Sound(<path/file/bytes>)     # Accepts WAV file or array of short integers.
 <Sound>.play/stop()                             # Also set_volume(<float>) and fadeout(msec).
 ```
 

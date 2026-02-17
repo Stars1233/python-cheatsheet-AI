@@ -56,7 +56,7 @@
 
 <body>
   <header>
-    <aside>February 15, 2026</aside>
+    <aside>February 17, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -1339,14 +1339,14 @@ args  = p.parse_args()                                      <span class="hljs-co
 <li><strong><code class="python hljs"><span class="hljs-string">'newline="\r\n"'</span></code> breaks input only on '\r\n' and converts every '\n' to '\r\n' on write.</strong></li>
 </ul>
 <div><h3 id="modes">Modes</h3><ul>
-<li><strong><code class="python hljs"><span class="hljs-string">'r'</span></code>  - Read text from the file (the default option).</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'w'</span></code>  - Write to the file. Deletes existing contents.</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'x'</span></code>  - Write or raise FileExistsError if file exists.</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'a'</span></code>  - Append. Creates new file if it doesn't exist.</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'w+'</span></code> - Read and write. Deletes existing contents.</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'r+'</span></code> - Read and write from the start of the file.</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'a+'</span></code> - Read and write from the end of the file.</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'rb'</span></code> - Read bytes objects. Also <code class="python hljs"><span class="hljs-string">'wb'</span></code>, <code class="python hljs"><span class="hljs-string">'xb'</span></code>, etc.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'r'</span></code>  - Reads text from the file (the default option).</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'w'</span></code>  - Writes to the file. Deletes existing contents.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'x'</span></code>  - Writes or raises FileExistsError if file exists.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'a'</span></code>  - Appends. Creates new file if it doesn't exist.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'w+'</span></code> - Reads and writes. Deletes existing contents.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'r+'</span></code> - Reads and writes from the start of the file.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'a+'</span></code> - Reads and writes from the end of the file.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'rb'</span></code> - Reads <a href="#bytes">bytes objects</a>. Also <code class="python hljs"><span class="hljs-string">'wb'</span></code>, <code class="python hljs"><span class="hljs-string">'xb'</span></code>, etc.</strong></li>
 </ul><div><h3 id="exceptions-1">Exceptions</h3><ul>
 <li><strong><code class="python hljs"><span class="hljs-string">'FileNotFoundError'</span></code> can be raised when reading with <code class="python hljs"><span class="hljs-string">'r'</span></code> or <code class="python hljs"><span class="hljs-string">'r+'</span></code>.</strong></li>
 <li><strong><code class="python hljs"><span class="hljs-string">'FileExistsError'</span></code> exception can be raised when writing with <code class="python hljs"><span class="hljs-string">'x'</span></code>.</strong></li>
@@ -2218,7 +2218,7 @@ $ snakeviz test.prof                                       <span class="hljs-com
 <li><strong><code class="python hljs"><span class="hljs-string">':'</span></code> returns a slice of all dimension's indices. If dimension is omitted, it defaults to <code class="python hljs"><span class="hljs-string">':'</span></code>.</strong></li>
 <li><strong>Indexing with two slices (line 4) is identical to indexing with a slice and 1d array (line 7).</strong></li>
 <li><strong>Python converts <code class="python hljs"><span class="hljs-string">'obj[i, j]'</span></code> to <code class="python hljs"><span class="hljs-string">'obj[(i, j)]'</span></code>. This makes <code class="python hljs"><span class="hljs-string">'&lt;2d&gt;[row_i, col_i]'</span></code> and <code class="python hljs"><span class="hljs-string">'&lt;2d&gt;[row_indices]'</span></code> indistinguishable to NumPy if tuple of two indices is passed!</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'ix_([1, 2], [3, 4])'</span></code> returns <code class="python hljs"><span class="hljs-string">'[[1], [2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4]]'</span></code>. Due to broadcasting rules, this is same as indexing with <code class="python hljs"><span class="hljs-string">'[[1, 1], [2, 2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4], [3, 4]]'</span></code>.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'ix_([1, 2], [3, 4])'</span></code> returns <code class="python hljs"><span class="hljs-string">'[[1], [2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4]]'</span></code>. Due to broadcasting rules, this is the same as indexing via <code class="python hljs"><span class="hljs-string">'[[1, 1], [2, 2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4], [3, 4]]'</span></code>.</strong></li>
 <li><strong>Any value that is broadcastable to the indexed shape can be assigned to the selection.</strong></li>
 </ul>
 <div><h3 id="broadcasting">Broadcasting</h3><p><strong>A set of rules by which NumPy functions operate on arrays of different shapes.</strong></p><pre><code class="python language-python hljs">left  = np.array([<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>])                   <span class="hljs-comment"># I.e. `left.shape  == (3,)`.</span>
@@ -2464,37 +2464,37 @@ pg.quit()
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;Rect&gt;.collidepoint((x, y))            <span class="hljs-comment"># Checks whether rectangle contains the point.</span>
-&lt;bool&gt; = &lt;Rect&gt;.colliderect(&lt;Rect&gt;)             <span class="hljs-comment"># Checks whether the two rectangles overlap.</span>
+<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;Rect&gt;.collidepoint((x, y))            <span class="hljs-comment"># Returns True if rectangle contains the point.</span>
+&lt;bool&gt; = &lt;Rect&gt;.colliderect(&lt;Rect&gt;)             <span class="hljs-comment"># Returns True if the two rectangles overlap.</span>
 &lt;int&gt;  = &lt;Rect&gt;.collidelist(&lt;list_of_Rect&gt;)     <span class="hljs-comment"># Returns index of first colliding Rect or -1.</span>
 &lt;list&gt; = &lt;Rect&gt;.collidelistall(&lt;list_of_Rect&gt;)  <span class="hljs-comment"># Returns indices of all colliding rectangles.</span>
 </code></pre>
-<div><h3 id="surface">Surface</h3><p><strong>Object for representing images.</strong></p><pre><code class="python language-python hljs">&lt;Surf&gt; = pg.display.set_mode((width, height))   <span class="hljs-comment"># Opens a new window and returns its surface.</span>
+<div><h3 id="surface">Surface</h3><p><strong>Object for representing images.</strong></p><pre><code class="python language-python hljs">&lt;Surf&gt; = pg.display.set_mode((width, height))   <span class="hljs-comment"># Opens new window and returns surface object.</span>
 &lt;Surf&gt; = pg.Surface((width, height))            <span class="hljs-comment"># New RGB surface. RGBA if `flags=pg.SRCALPHA`.</span>
-&lt;Surf&gt; = pg.image.load(&lt;path/file&gt;)             <span class="hljs-comment"># Loads the image. Format depends on source.</span>
+&lt;Surf&gt; = pg.image.load(&lt;path/file&gt;)             <span class="hljs-comment"># Loads the image. Also get_width/get_height().</span>
 &lt;Surf&gt; = pg.surfarray.make_surface(&lt;np_array&gt;)  <span class="hljs-comment"># Also `&lt;np_arr&gt; = surfarray.pixels3d(&lt;Surf&gt;)`.</span>
-&lt;Surf&gt; = &lt;Surf&gt;.subsurface(&lt;Rect&gt;)              <span class="hljs-comment"># Creates a new surface from the cutout.</span>
+&lt;Surf&gt; = &lt;Surf&gt;.subsurface(&lt;Rect&gt;)              <span class="hljs-comment"># Creates a new surface object from the cutout.</span>
 </code></pre></div>
 
 
 <pre><code class="python language-python hljs">&lt;Surf&gt;.fill(color)                              <span class="hljs-comment"># Pass tuple of ints or pg.Color('&lt;name/hex&gt;').</span>
-&lt;Surf&gt;.set_at((x, y), color)                    <span class="hljs-comment"># Updates pixel. Also &lt;Surf&gt;.get_at((x, y)).</span>
-&lt;Surf&gt;.blit(&lt;Surf&gt;, (x, y))                     <span class="hljs-comment"># Draws passed surface at specified location.</span>
+&lt;Surf&gt;.set_at((x, y), color)                    <span class="hljs-comment"># Updates a pixel. Also &lt;Surf&gt;.get_at((x, y)).</span>
+&lt;Surf&gt;.blit(&lt;Surf&gt;, (x, y))                     <span class="hljs-comment"># Draws passed surface at a specified location.</span>
 </code></pre>
-<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.transform <span class="hljs-keyword">import</span> scale, rotate      <span class="hljs-comment"># Also: flip, smoothscale, scale_by.</span>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.transform <span class="hljs-keyword">import</span> scale, rotate      <span class="hljs-comment"># Also flip, smoothscale, scale_by, rotozoom.</span>
 &lt;Surf&gt; = scale(&lt;Surf&gt;, (width, height))         <span class="hljs-comment"># Scales the surface. `smoothscale()` blurs it.</span>
 &lt;Surf&gt; = rotate(&lt;Surf&gt;, angle)                  <span class="hljs-comment"># Rotates the surface for counterclock degrees.</span>
-&lt;Surf&gt; = flip(&lt;Surf&gt;, flip_x=<span class="hljs-keyword">False</span>)             <span class="hljs-comment"># Mirrors the surface. Also `flip_y=False`.</span>
+&lt;Surf&gt; = flip(&lt;Surf&gt;, flip_x=<span class="hljs-keyword">True</span>)              <span class="hljs-comment"># Mirrors over the y axis. Also `flip_y=True`.</span>
 </code></pre>
-<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.draw <span class="hljs-keyword">import</span> line, arc, rect         <span class="hljs-comment"># Also: ellipse, polygon, circle, aaline.</span>
-line(&lt;Surf&gt;, color, (x1, y1), (x2, y2))         <span class="hljs-comment"># Draws a line to the surface. Also `width=1`.</span>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.draw <span class="hljs-keyword">import</span> line, arc, rect         <span class="hljs-comment"># Also ellipse, polygon, circle, aaline, lines.</span>
+line(&lt;Surf&gt;, color, (x1, y1), (x2, y2))         <span class="hljs-comment"># Draws line to surface. Accepts `width=&lt;int&gt;`.</span>
 arc(&lt;Surf&gt;, color, &lt;Rect&gt;, from_rad, to_rad)    <span class="hljs-comment"># Also ellipse(&lt;Surf&gt;, color, &lt;Rect&gt;, width=0).</span>
 rect(&lt;Surf&gt;, color, &lt;Rect&gt;, width=<span class="hljs-number">0</span>)            <span class="hljs-comment"># Also polygon(&lt;Surf&gt;, color, points, width=0).</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;Font&gt; = pg.font.Font(&lt;path/file&gt;, size)        <span class="hljs-comment"># Loads TTF file. Pass None for default font.</span>
-&lt;Surf&gt; = &lt;Font&gt;.render(text, antialias, color)  <span class="hljs-comment"># Accepts background color as fourth argument.</span>
+<pre><code class="python language-python hljs">&lt;Font&gt; = pg.font.Font(&lt;path/file&gt;, size)        <span class="hljs-comment"># Loads a TTF file. Pass None for default font.</span>
+&lt;Surf&gt; = &lt;Font&gt;.render(text, antialias, color)  <span class="hljs-comment"># Accepts background color via fourth argument.</span>
 </code></pre>
-<div><h3 id="sound">Sound</h3><pre><code class="python language-python hljs">&lt;Sound&gt; = pg.mixer.Sound(&lt;path/file/bytes&gt;)     <span class="hljs-comment"># WAV file or bytes/array of signed shorts.</span>
+<div><h3 id="sound">Sound</h3><pre><code class="python language-python hljs">&lt;Sound&gt; = pg.mixer.Sound(&lt;path/file/bytes&gt;)     <span class="hljs-comment"># Accepts WAV file or array of short integers.</span>
 &lt;Sound&gt;.play/stop()                             <span class="hljs-comment"># Also set_volume(&lt;float&gt;) and fadeout(msec).</span>
 </code></pre></div>
 
@@ -2934,7 +2934,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>February 15, 2026</aside>
+    <aside>February 17, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 
