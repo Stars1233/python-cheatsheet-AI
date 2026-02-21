@@ -1811,32 +1811,32 @@ import csv
 ```
 
 ```python
-<file>   = open(<path>, newline='')             # Opens the CSV (text) file for reading.
-<reader> = csv.reader(<file>, dialect='excel')  # Also `delimiter=','`. See Parameters.
-<list>   = next(<reader>)                       # Returns next row as a list of strings.
-<list>   = list(<reader>)                       # Returns a list of all remaining rows.
+<file>   = open(<path>, newline='')              # Opens the text file for reading.
+<reader> = csv.reader(<file>, dialect='excel')   # Also `delimiter=','`. See Params.
+<list>   = next(<reader>)                        # Returns a row as list of strings.
+<list>   = list(<reader>)                        # Returns a list of remaining rows.
 ```
-* **Without the `'newline=""'` argument, every '\r\n' sequence that is embedded inside a quoted field will get converted to '\n'! For details about the _newline_ argument see [Open](#open).**
+* **Without the `'newline=""'` argument, every '\r\n' sequence that is embedded inside a quoted field will get converted to '\n'. For details about the newline argument see [Open](#open).**
 * **To nicely print the spreadsheet to the console use either [Tabulate](#table) or PrettyTable library.**
 * **For XML and binary Excel files (with extensions xlsx, xlsm and xlsb) use [Pandas](#file-formats) library.**
-* **Reader can consume any iterator (or collection) of strings, not just text files.**
+* **Reader can consume any iterator or collection of strings, not just text files.**
 
 ### Write
 ```python
-<file>   = open(<path>, mode='a', newline='')   # Opens the CSV (text) file for writing.
-<writer> = csv.writer(<file>, dialect='excel')  # Also `delimiter=','`. See Parameters.
-<writer>.writerow(<collection>)                 # Encodes each object using `str(<el>)`.
-<writer>.writerows(<coll_of_coll>)              # Appends multiple rows to opened file.
+<file>   = open(<path>, mode='a', newline='')    # Opens the text file for writing.
+<writer> = csv.writer(<file>, dialect='excel')   # Also `delimiter=','`. See Params.
+<writer>.writerow(<collection>)                  # Encodes objects using str(<obj>).
+<writer>.writerows(<coll_of_coll>)               # Appends rows to the opened file.
 ```
-* **If file is opened without the `'newline=""'` argument, '\r' will be added in front of every '\n' on platforms that use '\r\n' line endings (i.e., newlines may get doubled on Windows)!**
+* **If file is opened without the `'newline=""'` argument, '\r' will be added in front of every '\n' on platforms that use '\r\n' line endings. I.e., newlines may get doubled on Windows.**
 * **Open existing file with `'mode="a"'` to append to it or `'mode="w"'` to overwrite it.**
 
 ### Parameters
 * **`'dialect'` - Master parameter that sets the default values. String or a _csv.Dialect_ object.**
-* **`'delimiter'` - A one-character string that separates fields (comma, tab, semicolon, etc.).**
+* **`'delimiter'` - A one-character string that separates fields. Comma, tab, semicolon, etc.**
 * **`'lineterminator'` - Sets how writer terminates rows. Reader looks for '\n', '\r' and '\r\n'.**
 * **`'quotechar'` - Character for quoting fields containing delimiters, quotechars, '\n' or '\r'.**
-* **`'escapechar'` - Character for escaping quotechars (can be None if doublequote is True).**
+* **`'escapechar'` - Character for escaping quotechars. Can be None if doublequote is True.**
 * **`'doublequote'` - Whether quotechars inside fields are/get doubled (instead of escaped).**
 * **`'quoting'` - 0: As necessary, 1: All, 2: All but numbers which are read as floats, 3: None.**
 * **`'skipinitialspace'` - Is space character at the start of the field stripped by the reader.**
@@ -1878,46 +1878,46 @@ SQLite
 
 ```python
 import sqlite3
-<conn> = sqlite3.connect(<path>)             # Opens existing or new file. Also ':memory:'.
-<conn>.close()                               # Closes connection. Discards uncommitted data.
+<con> = sqlite3.connect(<path>)             # Opens existing or new file. Also ':memory:'.
+<con>.close()                               # Closes connection. Discards uncommitted data.
 ```
 
 ### Read
 ```python
-<cursor> = <conn>.execute('SELECT …')        # Can raise a subclass of the `sqlite3.Error`.
-<tuple>  = <cursor>.fetchone()               # Returns the next row. Also next(<cursor>).
-<list>   = <cursor>.fetchall()               # Returns remaining rows. Also list(<cursor>).
+<cursor> = <con>.execute('SELECT …')        # Can raise a subclass of the `sqlite3.Error`.
+<tuple>  = <cursor>.fetchone()              # Returns the next row. Also next(<cursor>).
+<list>   = <cursor>.fetchall()              # Returns remaining rows. Also list(<cursor>).
 ```
 
 ### Write
 ```python
-<conn>.execute('INSERT …')                   # Can raise a subclass of the `sqlite3.Error`.
-<conn>.commit()                              # Saves all the changes since the last commit.
-<conn>.rollback()                            # Discards all changes since the last commit.
+<con>.execute('INSERT …')                   # Can raise a subclass of the `sqlite3.Error`.
+<con>.commit()                              # Saves all the changes since the last commit.
+<con>.rollback()                            # Discards all changes since the last commit.
 ```
 
 #### Or:
 ```python
-with <conn>:                                 # Exits the block with commit() or rollback(),
-    <conn>.execute('INSERT …')               # depending on whether any exception occurred.
+with <con>:                                 # Exits the block with commit() or rollback(),
+    <con>.execute('INSERT …')               # depending on whether any exception occurred.
 ```
 
 ### Placeholders
 ```python
-<conn>.execute('<sql>', <list/tuple>)        # Replaces every question mark with its item.
-<conn>.execute('<sql>', <dict/namedtuple>)   # Replaces every :<key> with a matching value.
-<conn>.executemany('<sql>', <coll_of_coll>)  # Executes statement once for each collection.
+<con>.execute('<sql>', <list/tuple>)        # Replaces every question mark with its item.
+<con>.execute('<sql>', <dict/namedtuple>)   # Replaces every :<key> with a matching value.
+<con>.executemany('<sql>', <coll_of_coll>)  # Executes statement once for each collection.
 ```
 * **Accepts strings, ints, floats, bytes, None objects, and bools (stored as 1 or 0).**
 * **Columns are not restricted to any type unless table is declared as strict.**
 
 ### Example
-**Values are not actually saved in this example because `'conn.commit()'` is omitted!**
+**Values are not actually saved in this example because `'con.commit()'` is omitted!**
 ```python
->>> conn = sqlite3.connect('test.db')
->>> conn.execute('CREATE TABLE person (name TEXT, height INTEGER) STRICT')
->>> conn.execute('INSERT INTO person VALUES (?, ?)', ('Jean-Luc', 187))
->>> conn.execute('SELECT rowid, * FROM person').fetchall()
+>>> con = sqlite3.connect('test.db')
+>>> con.execute('CREATE TABLE person (name TEXT, height INTEGER) STRICT')
+>>> con.execute('INSERT INTO person VALUES (?, ?)', ('Jean-Luc', 187))
+>>> con.execute('SELECT rowid, * FROM person').fetchall()
 [(1, 'Jean-Luc', 187)]
 ```
 
@@ -1926,10 +1926,10 @@ with <conn>:                                 # Exits the block with commit() or 
 ```python
 # $ pip3 install sqlalchemy
 from sqlalchemy import create_engine, text
-<engine> = create_engine('<url>')            # Url: 'dialect://user:password@host/dbname'.
-<conn>   = <engine>.connect()                # Creates a connection. Also <conn>.close().
-<cursor> = <conn>.execute(text('<sql>'))     # Pass a dict to replace :<key> placeholders.
-with <conn>.begin(): ...                     # Exits the block with a commit or rollback.
+<engine> = create_engine('<url>')           # Url: 'dialect://user:password@host/dbname'.
+<con>    = <engine>.connect()               # Creates new connection. Also <con>.close().
+<cursor> = <con>.execute(text('<sql>'))     # Pass a dict to replace :<key> placeholders.
+with <con>.begin(): ...                     # Exits the block with a commit or rollback.
 ```
 
 ```text
@@ -2533,18 +2533,18 @@ from selenium import webdriver
 
 Web App
 -------
-**Flask is a micro web framework that also includes a simple server. If you just want to open a html file in a web browser use `'webbrowser.open(<path>)'` instead.**
+**Flask is a micro web framework that also includes a simple WSGI/HTTP server. If you just want to open a HTML file in a web browser use `'webbrowser.open(<path>)'` instead.**
 ```python
 # $ pip3 install flask
 import flask as fl
 ```
 
 ```python
-app = fl.Flask(__name__)                   # Returns the app object. Put at the top.
+app = fl.Flask(__name__)                   # Returns application object. Put at the top.
 app.run(host=None, port=None, debug=None)  # Same as `$ flask --app FILE run --ARG=VAL`.
 ```
 * **Starts the app at `'http://localhost:5000'`. Use `'host="0.0.0.0"'` to run externally.**
-* **Install a WSGI server like [Waitress](https://flask.palletsprojects.com/en/latest/deploying/waitress/) and a HTTP server such as [Nginx](https://flask.palletsprojects.com/en/latest/deploying/nginx/) to get better security.**
+* **Install a [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) server like [Waitress](https://flask.palletsprojects.com/en/latest/deploying/waitress/) and a HTTP server such as [Nginx](https://flask.palletsprojects.com/en/latest/deploying/nginx/) to get better security.**
 * **Debug mode restarts the app whenever script changes and displays errors in the browser.**
 
 ### Serving Files
