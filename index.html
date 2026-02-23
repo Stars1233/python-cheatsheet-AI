@@ -56,7 +56,7 @@
 
 <body>
   <header>
-    <aside>February 21, 2026</aside>
+    <aside>February 23, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -540,7 +540,7 @@ shuffle(&lt;list&gt;)                                <span class="hljs-comment">
 &lt;TD&gt; = timedelta(weeks=<span class="hljs-number">0</span>, days=<span class="hljs-number">0</span>, hours=<span class="hljs-number">0</span>)  <span class="hljs-comment"># Accepts `minutes=0, seconds=0, microseconds=0`.</span>
 </code></pre>
 <ul>
-<li><strong>Times and datetimes that have defined timezone are called aware and ones that don't, naive. If time or datetime object is naive, it is presumed to be in the system's timezone!</strong></li>
+<li><strong>Times and datetimes that have defined timezone are called aware and ones that don't, naive. If time or datetime object is naive, it is presumed to be in the system's timezone.</strong></li>
 <li><strong><code class="python hljs"><span class="hljs-string">'fold=1'</span></code> means the second pass in case of time jumping back (usually for one hour).</strong></li>
 <li><strong>Timedelta normalizes arguments to ±days, seconds (&lt; 86 400) and microseconds (&lt; 1M). Its str() method returns <code class="python hljs"><span class="hljs-string">'[±D, ]H:MM:SS[.…]'</span></code> and total_seconds() a float of seconds.</strong></li>
 <li><strong>Use <code class="python hljs"><span class="hljs-string">'&lt;D/DT&gt;.weekday()'</span></code> to get the day of the week as an int (with Monday being 0).</strong></li>
@@ -1444,12 +1444,12 @@ os.mkdir(&lt;path&gt;, mode=<span class="hljs-number">0o777</span>)     <span cl
 os.makedirs(&lt;path&gt;, mode=<span class="hljs-number">0o777</span>)  <span class="hljs-comment"># Creates all path's dirs. Also `exist_ok=False`.</span>
 </code></pre>
 <pre><code class="python language-python hljs">shutil.copy(from, to)            <span class="hljs-comment"># Copies the file ('to' can exist or be a dir).</span>
-shutil.copy2(from, to)           <span class="hljs-comment"># Also copies creation and modification time.</span>
+shutil.copy2(from, to)           <span class="hljs-comment"># Also copies creation and modification times.</span>
 shutil.copytree(from, to)        <span class="hljs-comment"># Copies the directory ('to' should not exist).</span>
 </code></pre>
 <pre><code class="python language-python hljs">os.rename(from, to)              <span class="hljs-comment"># Renames or moves the file or directory 'from'.</span>
 os.replace(from, to)             <span class="hljs-comment"># Same, but overwrites file 'to' even on Windows.</span>
-shutil.move(from, to)            <span class="hljs-comment"># Rename() that moves into 'to' if it is a dir.</span>
+shutil.move(from, to)            <span class="hljs-comment"># `rename()` that moves into 'to' if it's a dir.</span>
 </code></pre>
 <pre><code class="python language-python hljs">os.remove(&lt;path&gt;)                <span class="hljs-comment"># Deletes file. Also `$ pip3 install send2trash`.</span>
 os.rmdir(&lt;path&gt;)                 <span class="hljs-comment"># Deletes empty dir. Raises OSError if it's not.</span>
@@ -1776,16 +1776,16 @@ first_element    = op.methodcaller(<span class="hljs-string">'pop'</span>, <span
 <li><strong>The sequence pattern can also be written as a tuple, either with or without the brackets.</strong></li>
 <li><strong>Use <code class="python hljs"><span class="hljs-string">'*&lt;name&gt;'</span></code> and <code class="python hljs"><span class="hljs-string">'**&lt;name&gt;'</span></code> in sequence/mapping patterns to bind remaining items.</strong></li>
 <li><strong>Sequence pattern must match all items of the collection, while mapping pattern does not.</strong></li>
-<li><strong>Patterns can be surrounded with brackets to override their precedence: <code class="python hljs"><span class="hljs-string">'|'</span></code> &gt; <code class="python hljs"><span class="hljs-string">'as'</span></code> &gt; <code class="python hljs"><span class="hljs-string">','</span></code>. For example, <code class="python hljs"><span class="hljs-string">'[1, 2]'</span></code> is matched by the <code class="python hljs"><span class="hljs-string">'case 1|2, 2|3 as x if x == 2:'</span></code> block.</strong></li>
+<li><strong>Patterns can be surrounded with brackets to override their precedence: <code class="python hljs"><span class="hljs-string">'|'</span></code> &gt; <code class="python hljs"><span class="hljs-string">'as'</span></code> &gt; <code class="python hljs"><span class="hljs-string">','</span></code>. For example, <code class="python hljs"><span class="hljs-string">'[1, 2]'</span></code> is matched by expression <code class="python hljs"><span class="hljs-string">'case 1|2, 2|3 as y if y == 2:'</span></code>.</strong></li>
 <li><strong>All names that are bound in the matching case, as well as variables initialized in its body, are visible after the match statement (only function block delimits scope).</strong></li>
 </ul>
 <div><h3 id="example-2">Example</h3><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
-<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">match</span> Path(<span class="hljs-string">'/home/gto/python-cheatsheet/README.md'</span>):
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">match</span> Path(<span class="hljs-string">'/home/ken/python-cheatsheet/README.md'</span>):
 <span class="hljs-meta">... </span>    <span class="hljs-keyword">case</span> Path(
 <span class="hljs-meta">... </span>        parts=[<span class="hljs-string">'/'</span>, <span class="hljs-string">'home'</span>, user, *_]
 <span class="hljs-meta">... </span>    ) <span class="hljs-keyword">as</span> p <span class="hljs-keyword">if</span> p.name.lower().startswith(<span class="hljs-string">'readme'</span>) <span class="hljs-keyword">and</span> p.is_file():
 <span class="hljs-meta">... </span>        print(<span class="hljs-string">f'<span class="hljs-subst">{p.name}</span> is a readme file that belongs to user <span class="hljs-subst">{user}</span>.'</span>)
-README.md is a readme file that belongs to user gto.
+README.md is a readme file that belongs to user ken.
 </code></pre></div>
 
 <div><h2 id="logging"><a href="#logging" name="logging">#</a>Logging</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> logging <span class="hljs-keyword">as</span> log
@@ -1874,7 +1874,7 @@ delattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)           
 
 <div><h3 id="semaphoreeventbarrier">Semaphore, Event, Barrier</h3><pre><code class="python language-python hljs">&lt;Semaphore&gt; = Semaphore(value=<span class="hljs-number">1</span>)               <span class="hljs-comment"># Lock that can be acquired by 'value' threads.</span>
 &lt;Event&gt;     = Event()                          <span class="hljs-comment"># Method wait() blocks until set() is called.</span>
-&lt;Barrier&gt;   = Barrier(&lt;int&gt;)                   <span class="hljs-comment"># Wait() blocks until it is called int times.</span>
+&lt;Barrier&gt;   = Barrier(&lt;int&gt;)                   <span class="hljs-comment"># `wait()` blocks until it's called int times.</span>
 </code></pre></div>
 
 <div><h3 id="queue">Queue</h3><pre><code class="python language-python hljs">&lt;Queue&gt; = queue.Queue(maxsize=<span class="hljs-number">0</span>)               <span class="hljs-comment"># A first-in-first-out queue. It's thread safe.</span>
@@ -2217,7 +2217,7 @@ $ snakeviz test.prof                                       <span class="hljs-com
 <ul>
 <li><strong><code class="python hljs"><span class="hljs-string">':'</span></code> returns a slice of all dimension's indices. If dimension is omitted, it defaults to <code class="python hljs"><span class="hljs-string">':'</span></code>.</strong></li>
 <li><strong>Indexing with two slices (line 4) is identical to indexing with a slice and 1d array (line 7).</strong></li>
-<li><strong>Python converts <code class="python hljs"><span class="hljs-string">'obj[i, j]'</span></code> to <code class="python hljs"><span class="hljs-string">'obj[(i, j)]'</span></code>. This makes <code class="python hljs"><span class="hljs-string">'&lt;2d&gt;[row_i, col_i]'</span></code> and <code class="python hljs"><span class="hljs-string">'&lt;2d&gt;[row_indices]'</span></code> indistinguishable to NumPy if tuple of two indices is passed!</strong></li>
+<li><strong>Python converts <code class="python hljs"><span class="hljs-string">'obj[i, j]'</span></code> to <code class="python hljs"><span class="hljs-string">'obj[(i, j)]'</span></code>. This makes <code class="python hljs"><span class="hljs-string">'&lt;2d&gt;[row_i, col_i]'</span></code> and <code class="python hljs"><span class="hljs-string">'&lt;2d&gt;[row_indices]'</span></code> indistinguishable to NumPy if tuple of two indices is passed.</strong></li>
 <li><strong><code class="python hljs"><span class="hljs-string">'ix_([1, 2], [3, 4])'</span></code> returns <code class="python hljs"><span class="hljs-string">'[[1], [2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4]]'</span></code>. Due to broadcasting rules, this is the same as indexing via <code class="python hljs"><span class="hljs-string">'[[1, 1], [2, 2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4], [3, 4]]'</span></code>.</strong></li>
 <li><strong>Any value that is broadcastable to the indexed shape can be assigned to the selection.</strong></li>
 </ul>
@@ -2465,7 +2465,7 @@ pg.quit()
 
 
 <pre><code class="python language-python hljs">&lt;bool&gt; = &lt;Rect&gt;.collidepoint((x, y))            <span class="hljs-comment"># Returns True if rectangle contains the point.</span>
-&lt;bool&gt; = &lt;Rect&gt;.colliderect(&lt;Rect&gt;)             <span class="hljs-comment"># Returns True if the two rectangles overlap.</span>
+&lt;bool&gt; = &lt;Rect&gt;.colliderect(&lt;Rect&gt;)             <span class="hljs-comment"># Returns True if the rectangles are colliding.</span>
 &lt;int&gt;  = &lt;Rect&gt;.collidelist(&lt;list_of_Rect&gt;)     <span class="hljs-comment"># Returns index of first colliding Rect or -1.</span>
 &lt;list&gt; = &lt;Rect&gt;.collidelistall(&lt;list_of_Rect&gt;)  <span class="hljs-comment"># Returns indices of all colliding rectangles.</span>
 </code></pre>
@@ -2934,7 +2934,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>February 21, 2026</aside>
+    <aside>February 23, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 

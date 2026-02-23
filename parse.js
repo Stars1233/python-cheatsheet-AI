@@ -91,13 +91,13 @@ const CONSTRUCTOR_OVERLOADING =
 
 const SHUTIL_COPY =
   'shutil.copy(from, to)            <span class="hljs-comment"># Copies the file (\'to\' can exist or be a dir).</span>\n' +
-  'shutil.copy2(from, to)           <span class="hljs-comment"># Also copies creation and modification time.</span>\n' +
+  'shutil.copy2(from, to)           <span class="hljs-comment"># Also copies creation and modification times.</span>\n' +
   'shutil.copytree(from, to)        <span class="hljs-comment"># Copies the directory (\'to\' should not exist).</span>\n';
 
 const OS_RENAME =
   'os.rename(from, to)              <span class="hljs-comment"># Renames or moves the file or directory \'from\'.</span>\n' +
   'os.replace(from, to)             <span class="hljs-comment"># Same, but overwrites file \'to\' even on Windows.</span>\n' +
-  'shutil.move(from, to)            <span class="hljs-comment"># Rename() that moves into \'to\' if it is a dir.</span>\n';
+  'shutil.move(from, to)            <span class="hljs-comment"># `rename()` that moves into \'to\' if it\'s a dir.</span>\n';
 
 const STRUCT_FORMAT =
   '<span class="hljs-section">\'&lt;n&gt;s\'</span><span class="hljs-attribute"></span>';
@@ -110,12 +110,12 @@ const MATCH =
 
 const MATCH_EXAMPLE =
   '<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path\n' +
-  '<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">match</span> Path(<span class="hljs-string">\'/home/gto/python-cheatsheet/README.md\'</span>):\n' +
+  '<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">match</span> Path(<span class="hljs-string">\'/home/ken/python-cheatsheet/README.md\'</span>):\n' +
   '<span class="hljs-meta">... </span>    <span class="hljs-keyword">case</span> Path(\n' +
   '<span class="hljs-meta">... </span>        parts=[<span class="hljs-string">\'/\'</span>, <span class="hljs-string">\'home\'</span>, user, *_]\n' +
   '<span class="hljs-meta">... </span>    ) <span class="hljs-keyword">as</span> p <span class="hljs-keyword">if</span> p.name.lower().startswith(<span class="hljs-string">\'readme\'</span>) <span class="hljs-keyword">and</span> p.is_file():\n' +
   '<span class="hljs-meta">... </span>        print(<span class="hljs-string">f\'<span class="hljs-subst">{p.name}</span> is a readme file that belongs to user <span class="hljs-subst">{user}</span>.\'</span>)\n' +
-  'README.md is a readme file that belongs to user gto.\n';
+  'README.md is a readme file that belongs to user ken.\n';
 
 const COROUTINES =
   '<span class="hljs-keyword">import</span> asyncio, collections, curses, curses.textpad, enum, random\n' +

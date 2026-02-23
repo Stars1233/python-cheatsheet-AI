@@ -604,7 +604,7 @@ import zoneinfo, dateutil.tz
 <DT> = datetime(year, month, day, hour=0)   # Accepts `minute=0, second=0, microsecond=0, …`.
 <TD> = timedelta(weeks=0, days=0, hours=0)  # Accepts `minutes=0, seconds=0, microseconds=0`.
 ```
-* **Times and datetimes that have defined timezone are called aware and ones that don't, naive. If time or datetime object is naive, it is presumed to be in the system's timezone!**
+* **Times and datetimes that have defined timezone are called aware and ones that don't, naive. If time or datetime object is naive, it is presumed to be in the system's timezone.**
 * **`'fold=1'` means the second pass in case of time jumping back (usually for one hour).**
 * **Timedelta normalizes arguments to ±days, seconds (< 86 400) and microseconds (< 1M). Its str() method returns `'[±D, ]H:MM:SS[.…]'` and total_seconds() a float of seconds.**
 * **Use `'<D/DT>.weekday()'` to get the day of the week as an int (with Monday being 0).**
@@ -1707,14 +1707,14 @@ os.makedirs(<path>, mode=0o777)  # Creates all path's dirs. Also `exist_ok=False
 
 ```python
 shutil.copy(from, to)            # Copies the file ('to' can exist or be a dir).
-shutil.copy2(from, to)           # Also copies creation and modification time.
+shutil.copy2(from, to)           # Also copies creation and modification times.
 shutil.copytree(from, to)        # Copies the directory ('to' should not exist).
 ```
 
 ```python
 os.rename(from, to)              # Renames or moves the file or directory 'from'.
 os.replace(from, to)             # Same, but overwrites file 'to' even on Windows.
-shutil.move(from, to)            # Rename() that moves into 'to' if it is a dir.
+shutil.move(from, to)            # `rename()` that moves into 'to' if it's a dir.
 ```
 
 ```python
@@ -2146,18 +2146,18 @@ match <object/expression>:
 * **The sequence pattern can also be written as a tuple, either with or without the brackets.**
 * **Use `'*<name>'` and `'**<name>'` in sequence/mapping patterns to bind remaining items.**
 * **Sequence pattern must match all items of the collection, while mapping pattern does not.**
-* **Patterns can be surrounded with brackets to override their precedence: `'|'` > `'as'` > `','`. For example, `'[1, 2]'` is matched by the `'case 1|2, 2|3 as x if x == 2:'` block.**
+* **Patterns can be surrounded with brackets to override their precedence: `'|'` > `'as'` > `','`. For example, `'[1, 2]'` is matched by expression `'case 1|2, 2|3 as y if y == 2:'`.**
 * **All names that are bound in the matching case, as well as variables initialized in its body, are visible after the match statement (only function block delimits scope).**
 
 ### Example
 ```python
 >>> from pathlib import Path
->>> match Path('/home/gto/python-cheatsheet/README.md'):
+>>> match Path('/home/ken/python-cheatsheet/README.md'):
 ...     case Path(
 ...         parts=['/', 'home', user, *_]
 ...     ) as p if p.name.lower().startswith('readme') and p.is_file():
 ...         print(f'{p.name} is a readme file that belongs to user {user}.')
-README.md is a readme file that belongs to user gto.
+README.md is a readme file that belongs to user ken.
 ```
 
 
@@ -2272,7 +2272,7 @@ with <lock>:                                   # Enters the block by calling met
 ```python
 <Semaphore> = Semaphore(value=1)               # Lock that can be acquired by 'value' threads.
 <Event>     = Event()                          # Method wait() blocks until set() is called.
-<Barrier>   = Barrier(<int>)                   # Wait() blocks until it is called int times.
+<Barrier>   = Barrier(<int>)                   # `wait()` blocks until it's called int times.
 ```
 
 ### Queue
@@ -2699,7 +2699,7 @@ import numpy as np
 ```
 * **`':'` returns a slice of all dimension's indices. If dimension is omitted, it defaults to `':'`.**
 * **Indexing with two slices (line 4) is identical to indexing with a slice and 1d array (line 7).**
-* **Python converts `'obj[i, j]'` to `'obj[(i, j)]'`. This makes `'<2d>[row_i, col_i]'` and `'<2d>[row_indices]'` indistinguishable to NumPy if tuple of two indices is passed!**
+* **Python converts `'obj[i, j]'` to `'obj[(i, j)]'`. This makes `'<2d>[row_i, col_i]'` and `'<2d>[row_indices]'` indistinguishable to NumPy if tuple of two indices is passed.**
 * **`'ix_([1, 2], [3, 4])'` returns `'[[1], [2]]'` and `'[[3, 4]]'`. Due to broadcasting rules, this is the same as indexing via `'[[1, 1], [2, 2]]'` and `'[[3, 4], [3, 4]]'`.**
 * **Any value that is broadcastable to the indexed shape can be assigned to the selection.**
 
@@ -3007,7 +3007,7 @@ pg.quit()
 
 ```python
 <bool> = <Rect>.collidepoint((x, y))            # Returns True if rectangle contains the point.
-<bool> = <Rect>.colliderect(<Rect>)             # Returns True if the two rectangles overlap.
+<bool> = <Rect>.colliderect(<Rect>)             # Returns True if the rectangles are colliding.
 <int>  = <Rect>.collidelist(<list_of_Rect>)     # Returns index of first colliding Rect or -1.
 <list> = <Rect>.collidelistall(<list_of_Rect>)  # Returns indices of all colliding rectangles.
 ```
