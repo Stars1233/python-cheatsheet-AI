@@ -10,7 +10,7 @@ Contents
 --------
 **&nbsp;&nbsp;&nbsp;** **1. Collections:** **&nbsp;&nbsp;** **[`List`](#list)**__,__ **[`Dictionary`](#dictionary)**__,__ **[`Set`](#set)**__,__ **[`Tuple`](#tuple)**__,__ **[`Range`](#range)**__,__ **[`Enumerate`](#enumerate)**__,__ **[`Iterator`](#iterator)**__,__ **[`Generator`](#generator)**__.__  
 **&nbsp;&nbsp;&nbsp;** **2. Types:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Type`](#type)**__,__ **[`String`](#string)**__,__ **[`Regular_Exp`](#regex)**__,__ **[`Format`](#format)**__,__ **[`Numbers`](#numbers-1)**__,__ **[`Combinatorics`](#combinatorics)**__,__ **[`Datetime`](#datetime)**__.__  
-**&nbsp;&nbsp;&nbsp;** **3. Syntax:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Function`](#function)**__,__ **[`Inline`](#inline)**__,__ **[`Import`](#imports)**__,__ **[`Decorator`](#decorator)**__,__ **[`Class`](#class)**__,__ **[`Duck_Type`](#duck-types)**__,__ **[`Enum`](#enum)**__,__ **[`Except`](#exceptions)**__.__  
+**&nbsp;&nbsp;&nbsp;** **3. Syntax:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Function`](#function)**__,__ **[`Inline`](#inline)**__,__ **[`Import`](#import)**__,__ **[`Decorator`](#decorator)**__,__ **[`Class`](#class)**__,__ **[`Duck_Type`](#duck-types)**__,__ **[`Enum`](#enum)**__,__ **[`Except`](#exceptions)**__.__  
 **&nbsp;&nbsp;&nbsp;** **4. System:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Exit`](#exit)**__,__ **[`Print`](#print)**__,__ **[`Input`](#input)**__,__ **[`Command_Line_Arguments`](#command-line-arguments)**__,__ **[`Open`](#open)**__,__ **[`Path`](#paths)**__,__ **[`OS_Commands`](#os-commands)**__.__  
 **&nbsp;&nbsp;&nbsp;** **5. Data:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`JSON`](#json)**__,__ **[`Pickle`](#pickle)**__,__ **[`CSV`](#csv)**__,__ **[`SQLite`](#sqlite)**__,__ **[`Bytes`](#bytes)**__,__ **[`Struct`](#struct)**__,__ **[`Array`](#array)**__,__ **[`Memory_View`](#memory-view)**__,__ **[`Deque`](#deque)**__.__  
 **&nbsp;&nbsp;&nbsp;** **6. Advanced:** **&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Operator`](#operator)**__,__ **[`Match_Statement`](#match-statement)**__,__ **[`Logging`](#logging)**__,__ **[`Introspection`](#introspection)**__,__ **[`Threads`](#threading)**__,__ **[`Asyncio`](#asyncio)**__.__  
@@ -254,8 +254,8 @@ Type
 * **Type and class are synonymous.**
 
 ```python
-<type> = type(<obj>)                  # Object's type. Same as `<obj>.__class__`.
-<bool> = isinstance(<obj>, <type>)    # Same as `issubclass(type(<obj>), <type>)`.
+<type> = type(<obj>)                 # Object's type. Same as `<obj>.__class__`.
+<bool> = isinstance(<obj>, <type>)   # Same as `issubclass(type(<obj>), <type>)`.
 ```
 
 ```python
@@ -335,7 +335,7 @@ String
 <str>  = <str>.lower()                      # Lowers the case. Also upper/capitalize/title().
 <str>  = <str>.casefold()                   # Lower() that converts ẞ/ß to ss, Σ/ς to σ, etc.
 <str>  = <str>.replace(old, new [, count])  # Replaces 'old' with 'new' at most 'count' times.
-<str>  = <str>.translate(table)             # Use `str.maketrans(<dict_of_chars>)` for table.
+<str>  = <str>.translate(table)             # Get table via str.maketrans(<chr_to_str_dict>).
 ```
 
 ```python
@@ -398,9 +398,9 @@ import re
 Format
 ------
 ```perl
-<str> = f'{<obj>}, {<obj>}'            # Curly brackets can contain any expression.
-<str> = '{}, {}'.format(<obj>, <obj>)  # Same as '{0}, {a}'.format(<obj>, a=<obj>).
-<str> = '%s, %s' % (<obj>, <obj>)      # Redundant and inferior C-style formatting.
+<str> = f'{<obj>}, {<obj>}'            # Brackets can contain any expression.
+<str> = '{}, {}'.format(<obj>, <obj>)  # Or '{0}, {a}'.format(<obj>, a=<obj>).
+<str> = '%s, %s' % (<obj>, <obj>)      # Old and redundant formatting method.
 ```
 
 ### Example
@@ -817,15 +817,15 @@ player = Player(point, direction)                 # Returns its instance.
 ```
 
 
-Imports
--------
+Import
+------
 **Mechanism that makes code in one file available to another file.**
 
 ```python
-import <module>                       # Imports a built-in module or './<module>.py'.
-import <package>                      # Built-in package or './<package>/__init__.py'.
-import <package>.<module>             # Package's module or './<package>/<module>.py'.
-from <pkg/mod>[.…] import <obj>       # Imports module, function, class or variable.
+import <module>                    # Imports a built-in module or './<module>.py'.
+import <package>                   # Built-in package or './<package>/__init__.py'.
+import <package>.<module>          # Package's module or './<package>/<module>.py'.
+from <pkg/mod>[.…] import <obj>    # Imports module, function, class or variable.
 ```
 * **Package is a collection of modules, but it can also define its own functions, variables, etc. On a filesystem this corresponds to a directory of Python files with an optional init script.**
 * **`'import <package>'` only exposes modules that are imported inside `'__init__.py'`.**
@@ -1035,13 +1035,13 @@ from collections import abc
 ### Dataclass
 **Decorator that uses class variables to generate init(), repr() and eq() special methods.**
 ```python
-from dataclasses import dataclass, field, make_dataclass
+import dataclasses as dc
 
-@dataclass(order=False, frozen=False)
+@dc.dataclass(order=False, frozen=False)
 class MyClass:
     <attr_name>: <type>
-    <attr_name>: <type> = <default_value>
-    <attr_name>: list/dict/set = field(default_factory=list/dict/set)
+    <attr_name>: <type> = <obj>
+    <attr_name>: list = dc.field(default_factory=list)
 ```
 * **Objects can be made [sortable](#sortable) with `'order=True'` and immutable with `'frozen=True'`.**
 * **For object to be [hashable](#hashable), all attributes must be hashable and `'frozen'` must be `'True'`.**
@@ -1050,9 +1050,9 @@ class MyClass:
 
 #### Inline:
 ```python
-Point = make_dataclass('Point', ['x', 'y'])
-Point = make_dataclass('Point', [('x', float), ('y', float)])
-Point = make_dataclass('Point', [('x', float, 0), ('y', float, 0)])
+P = dc.make_dataclass('P', ['x', 'y'])
+P = dc.make_dataclass('P', [('x', float), ('y', float)])
+P = dc.make_dataclass('P', [('x', float, 0), ('y', float, 0)])
 ```
 
 ### Property
@@ -1812,10 +1812,10 @@ import csv
 ```
 
 ```python
-<file>   = open(<path>, newline='')               # Opens the text file for reading.
-<reader> = csv.reader(<file>, dialect='excel')    # Also `delimiter=','`. See Params.
-<list>   = next(<reader>)                         # Returns a row as list of strings.
-<list>   = list(<reader>)                         # Returns a list of remaining rows.
+<file>   = open(<path>, newline='')              # Opens the text file for reading.
+<reader> = csv.reader(<file>, dialect='excel')   # Also `delimiter=','`. See Params.
+<list>   = next(<reader>)                        # Returns a row as list of strings.
+<list>   = list(<reader>)                        # Returns a list of remaining rows.
 ```
 * **Without the `'newline=""'` argument, every '\r\n' sequence that is embedded inside a quoted field will get converted to '\n'. For details about the newline argument see [Open](#open).**
 * **To nicely print the spreadsheet to the console use either [Tabulate](#table) or PrettyTable library.**
@@ -1824,10 +1824,10 @@ import csv
 
 ### Write
 ```python
-<file>   = open(<path>, mode='a', newline='')     # Opens the text file for writing.
-<writer> = csv.writer(<file>, dialect='excel')    # Also `delimiter=','`. See Params.
-<writer>.writerow(<collection>)                   # Encodes objects using str(<obj>).
-<writer>.writerows(<coll_of_coll>)                # Appends rows to the opened file.
+<file>   = open(<path>, mode='a', newline='')    # Opens the text file for writing.
+<writer> = csv.writer(<file>, dialect='excel')   # Also `delimiter=','`. See Params.
+<writer>.writerow(<collection>)                  # Encodes objects using str(<obj>).
+<writer>.writerows(<coll_of_coll>)               # Appends rows to the opened file.
 ```
 * **If file is opened without the `'newline=""'` argument, '\r' will be added in front of every '\n' on platforms that use '\r\n' line endings. I.e., newlines may get doubled on Windows.**
 * **Open existing file with `'mode="a"'` to append to it or `'mode="w"'` to overwrite it.**
@@ -2249,55 +2249,55 @@ import concurrent.futures as cf
 
 ### Thread
 ```python
-<Thread> = thr.Thread(target=<func>)        # Use `args=<coll>` to set function's arguments.
-<Thread>.start()                            # Runs function in background. Also is_alive().
-<Thread>.join()                             # Waits until the function finishes executing.
+<Thread> = thr.Thread(target=<func>)         # Use `args=<coll>` to set function's arguments.
+<Thread>.start()                             # Runs function in background. Also is_alive().
+<Thread>.join()                              # Waits until the function finishes executing.
 ```
 * **Use `'kwargs=<dict>'` to pass keyword arguments to the function, i.e. thread.**
 * **Use `'daemon=True'`, or the program won't be able to exit while the thread is alive.**
 
 ### Lock
 ```python
-<lock> = thr.Lock/RLock()                   # RLock can only be released by acquirer thread.
-<lock>.acquire()                            # Waits/blocks until the lock becomes available.
-<lock>.release()                            # Releases the lock so it can be acquired again.
+<lock> = thr.Lock/RLock()                    # RLock can only be released by acquirer thread.
+<lock>.acquire()                             # Waits/blocks until the lock becomes available.
+<lock>.release()                             # Releases the lock so it can be acquired again.
 ```
 
 #### Or:
 ```python
-with <lock>:                                # Enters the block by calling method acquire().
-    ...                                     # Exits it by calling release(), even on error.
+with <lock>:                                 # Enters the block by calling method acquire().
+    ...                                      # Exits it by calling release(), even on error.
 ```
 
 ### Semaphore, Event, Barrier
 ```python
-<Semaphr> = thr.Semaphore(value=1)          # Lock that can be acquired by 'value' threads.
-<Event>   = thr.Event()                     # `<Event>.wait()` blocks until set() is called.
-<Barrier> = thr.Barrier(parties)            # Wait() blocks until it's called parties times.
+<Semaphr> = thr.Semaphore(value=1)           # Lock that can be acquired by 'value' threads.
+<Event>   = thr.Event()                      # `<Event>.wait()` blocks until set() is called.
+<Barrier> = thr.Barrier(parties)             # Wait() blocks until it's called parties times.
 ```
 
 ### Queue
 ```python
-<Queue> = q.Queue(maxsize=0)                # A first-in-first-out queue. It's thread safe.
-<Queue>.put(<obj>)                          # The call blocks until queue stops being full.
-<Queue>.put_nowait(<obj>)                   # Raises the q.Full exception if queue is full.
-<obj> = <Queue>.get()                       # The call blocks until queue stops being empty.
-<obj> = <Queue>.get_nowait()                # Raises the q.Empty exception if it is empty.
+<Queue> = q.Queue(maxsize=0)                 # A first-in-first-out queue. It's thread safe.
+<Queue>.put(<obj>)                           # The call blocks until queue stops being full.
+<Queue>.put_nowait(<obj>)                    # Raises the q.Full exception if queue is full.
+<obj> = <Queue>.get()                        # The call blocks until queue stops being empty.
+<obj> = <Queue>.get_nowait()                 # Raises the q.Empty exception if it is empty.
 ```
 
-### Thread Pool Executor
+### Executor, Future
 ```python
-<Exec> = cf.ThreadPoolExec…(max_workers)    # Or use `with ThreadPoolExecutor() as <name>:`.
-<iter> = <Exec>.map(<func>, <args_1>, …)    # Multithreaded and non-lazy map(). Keeps order.
-<Futr> = <Exec>.submit(<func>, <arg_1>, …)  # Creates a thread and queues it for execution.
-<Exec>.shutdown()                           # Waits for all the threads to finish executing.
+<Exec> = cf.ThreadPoolExecutor(max_workers)  # Or use `with ThreadPoolExecutor() as <name>:`.
+<iter> = <Exec>.map(<func>, <args_1>, …)     # Multithreaded and non-lazy map(). Keeps order.
+<Futr> = <Exec>.submit(<func>, <arg_1>, …)   # Creates a thread and queues it for execution.
+<Exec>.shutdown()                            # Waits for all the threads to finish executing.
 ```
 
 ```python
-<bool> = <Future>.done()                    # Checks if the thread has finished executing.
-<obj>  = <Future>.result(timeout=None)      # Raises TimeoutError after 'timeout' seconds.
-<bool> = <Future>.cancel()                  # Just returns False if it is running/finished.
-<iter> = cf.as_completed(<coll_of_Futrs>)   # `next(<iter>)` returns next completed Future.
+<bool> = <Future>.done()                     # Checks if the thread has finished executing.
+<obj>  = <Future>.result(timeout=None)       # Raises TimeoutError after 'timeout' seconds.
+<bool> = <Future>.cancel()                   # Just returns False if it is running/finished.
+<iter> = cf.as_completed(<coll_of_Futrs>)    # `next(<iter>)` returns next completed Future.
 ```
 * **Map() and as\_completed() also accept 'timeout' arg. It causes _futures.TimeoutError_ when next() is called or blocking. Map() times from original call and as_completed() from first call to next(). As\_completed() fails if next() is called too late, even if all threads are done.**
 * **Exceptions that happen inside threads are raised when map's next() or Future's result() method is called. Future's exception() method returns caught exception object or None.**
