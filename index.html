@@ -54,14 +54,14 @@
   <meta name="viewport" id="viewport-meta">
 </head>
 
-<body>
+<body style="margin-top: 17.1px">
   <header>
-    <aside>April 27, 2026</aside>
+    <aside>May 3, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
-   <div><h1 id="comprehensivepythoncheatsheet">Comprehensive Python Cheatsheet</h1><p class="banner"><sup><a href="https://raw.githubusercontent.com/gto76/python-cheatsheet/main/README.md">Download text file</a>, <a href="https://github.com/gto76/python-cheatsheet">Fork me on GitHub</a>, <a href="https://github.com/gto76/python-cheatsheet/wiki/Frequently-Asked-Questions">Check out FAQ</a> or <a href="index.html?theme=dark3">Switch to dark theme</a>.
-</sup></p><p class="banner" style="margin-bottom: 20px; padding-bottom: 7px;"><img src="web/image_888.jpeg" alt="Monty Python"></p><script>
+   <div><h1 id="comprehensivepythoncheatsheet" style="font-size: 64.5px;">Comprehensive Python Cheatsheet</h1><p class="banner"><sup><a href="https://raw.githubusercontent.com/gto76/python-cheatsheet/main/README.md">Download text file</a>, <a href="https://github.com/gto76/python-cheatsheet">Fork me on GitHub</a>, <a href="https://github.com/gto76/python-cheatsheet/wiki/Frequently-Asked-Questions">Check out FAQ</a> or <a href="index.html?theme=dark3">Switch to dark theme</a>.
+</sup></p><p class="banner" style="margin-bottom: 20px; padding-bottom: 7px;"><img src="web/image_888.jpeg" alt="Monty Python" style="width: 909px;"></p><script>
   // Changes the banner image and link-to-theme if "theme=dark" is in query string
   // or if browser prefers dark mode and theme is not explicitly set.
 
@@ -92,14 +92,14 @@ const browser_prefers_dark = window.matchMedia('(prefers-color-scheme: dark)').m
     document.getElementsByClassName("banner")[1].firstChild.replaceWith(img_dark);
   }
 </script><pre style="border-left: none;padding-left: 1.9px;"><code class="hljs bash" style="line-height: 1.327em;"><strong>ToC</strong> = {
-    <strong><span class="hljs-string"><span class="hljs-string">'1. Collections'</span></span></strong>: [<a href="#list">List</a>, <a href="#dictionary">Dictionary</a>, <a href="#set">Set</a>, <a href="#tuple">Tuple</a>, <a href="#range">Range</a>, <a href="#enumerate">Enumerate</a>, <a href="#iterator">Iterator</a>, <a href="#generator">Generator</a>],
-    <strong><span class="hljs-string"><span class="hljs-string">'2. Types'</span></span></strong>:       [<a href="#type">Type</a>, <a href="#string">String</a>, <a href="#regex">Regular_Exp</a>, <a href="#format">Format</a>, <a href="#numbers">Numbers</a>, <a href="#combinatorics">Combinatorics</a>, <a href="#datetime">Datetime</a>],
-    <strong><span class="hljs-string"><span class="hljs-string">'3. Syntax'</span></span></strong>:      [<a href="#function">Function</a>, <a href="#inline">Inline</a>, <a href="#import">Import</a>, <a href="#decorator">Decorator</a>, <a href="#class">Class</a>, <a href="#ducktypes">Duck_Type</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Except</a>],
-    <strong><span class="hljs-string"><span class="hljs-string">'4. System'</span></span></strong>:      [<a href="#exit">Exit</a>, <a href="#print">Print</a>, <a href="#input">Input</a>, <a href="#commandlinearguments">Command_Line_Arguments</a>, <a href="#open">Open</a>, <a href="#paths">Path</a>, <a href="#oscommands">OS_Commands</a>],
-    <strong><span class="hljs-string"><span class="hljs-string">'5. Data'</span></span></strong>:        [<a href="#json">JSON</a>, <a href="#pickle">Pickle</a>, <a href="#csv">CSV</a>, <a href="#sqlite">SQLite</a>, <a href="#bytes">Bytes</a>, <a href="#struct">Struct</a>, <a href="#array">Array</a>, <a href="#memoryview">Memory_View</a>, <a href="#deque">Deque</a>],
-    <strong><span class="hljs-string"><span class="hljs-string">'6. Advanced'</span></span></strong>:    [<a href="#operator">Operator</a>, <a href="#matchstatement">Match_Statement</a>, <a href="#logging">Logging</a>, <a href="#introspection">Introspection</a>, <a href="#threading">Threads</a>, <a href="#asyncio">Asyncio</a>],
-    <strong><span class="hljs-string"><span class="hljs-string">'7. Libraries'</span></span></strong>:   [<a href="#progressbar">Progress_Bar</a>, <a href="#plot">Plot</a>, <a href="#table">Table</a>, <a href="#consoleapp">Console_App</a>, <a href="#guiapp">GUI</a>, <a href="#scraping">Scraping</a>, <a href="#webapp">Web</a>, <a href="#profiling">Profile</a>],
-    <strong><span class="hljs-string"><span class="hljs-string">'8. Multimedia'</span></span></strong>:  [<a href="#numpy">NumPy</a>, <a href="#image">Image</a>, <a href="#animation">Animation</a>, <a href="#audio">Audio</a>, <a href="#synthesizer">Synthesizer</a>, <a href="#pygame">Pygame</a>, <a href="#pandas">Pandas</a>, <a href="#plotly">Plotly</a>]
+    <strong><span class="hljs-string"><span class="hljs-string">'1. Collections'</span></span></strong>:   [<a href="#list">List</a>, <a href="#dictionary">Dictionary</a>, <a href="#set">Set</a>, <a href="#tuple">Tuple</a>, <a href="#range">Range</a>, <a href="#enumerate">Enumerate</a>, <a href="#iterator">Iterator</a>, <a href="#generator">Generator</a>],
+    <strong><span class="hljs-string"><span class="hljs-string">'2. Data Types'</span></span></strong>:    [<a href="#type">Type</a>, <a href="#string">String</a>, <a href="#regex">Regular_Exp</a>, <a href="#format">Format</a>, <a href="#numbers">Numbers</a>, <a href="#combinatorics">Combinatorics</a>, <a href="#datetime">Datetime</a>],
+    <strong><span class="hljs-string"><span class="hljs-string">'3. Syntax Rules'</span></span></strong>:  [<a href="#function">Function</a>, <a href="#inline">Inline</a>, <a href="#import">Import</a>, <a href="#decorator">Decorator</a>, <a href="#class">Class</a>, <a href="#ducktypes">Duck_Type</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Except</a>],
+    <strong><span class="hljs-string"><span class="hljs-string">'4. System Calls'</span></span></strong>:  [<a href="#exit">Exit</a>, <a href="#print">Print</a>, <a href="#input">Input</a>, <a href="#commandlinearguments">Command_Line_Arguments</a>, <a href="#open">Open</a>, <a href="#paths">Path</a>, <a href="#oscommands">OS_Commands</a>],
+    <strong><span class="hljs-string"><span class="hljs-string">'5. Data Formats'</span></span></strong>:  [<a href="#json">JSON</a>, <a href="#pickle">Pickle</a>, <a href="#csv">CSV</a>, <a href="#sqlite">SQLite</a>, <a href="#bytes">Bytes</a>, <a href="#struct">Struct</a>, <a href="#array">Array</a>, <a href="#memoryview">Memory_View</a>, <a href="#deque">Deque</a>],
+    <strong><span class="hljs-string"><span class="hljs-string">'6. Misc Topics'</span></span></strong>:   [<a href="#operator">Operator</a>, <a href="#matchstatement">Match_Statement</a>, <a href="#logging">Logging</a>, <a href="#introspection">Introspection</a>, <a href="#threading">Threads</a>, <a href="#asyncio">Asyncio</a>],
+    <strong><span class="hljs-string"><span class="hljs-string">'7. OS Libraries'</span></span></strong>:  [<a href="#progressbar">Progress_Bar</a>, <a href="#plot">Plot</a>, <a href="#table">Table</a>, <a href="#consoleapp">Console_App</a>, <a href="#guiapp">GUI</a>, <a href="#scraping">Scraping</a>, <a href="#webapp">Web</a>, <a href="#profiling">Profile</a>],
+    <strong><span class="hljs-string"><span class="hljs-string">'8. Multimedia'</span></span></strong>:    [<a href="#numpy">NumPy</a>, <a href="#image">Image</a>, <a href="#animation">Animation</a>, <a href="#audio">Audio</a>, <a href="#synthesizer">Synthesizer</a>, <a href="#pygame">Pygame</a>, <a href="#pandas">Pandas</a>, <a href="#plotly">Plotly</a>]
 }
 </code></pre></div>
 
@@ -836,15 +836,15 @@ player = Player(point, direction)                 <span class="hljs-comment"># R
 <li><strong>Methods that are decorated with <code class="python hljs"><span class="hljs-string">'@staticmethod'</span></code> receive neither 'self' nor 'cls' arg.</strong></li>
 <li><strong>Return value of str() special method should be readable and of repr() unambiguous.<br>All calls to str() special method are dispatched to repr() when only repr() is provided.</strong></li>
 </ul>
-<div><h4 id="expressionsthatcallthestrspecialmethod">Expressions that call the str() special method:</h4><pre><code class="python language-python hljs"><span class="hljs-string">f'<span class="hljs-subst">{obj}</span>'</span>
+<div><h4 id="expressionsthatcallstrspecialmethod">Expressions that call str() special method:</h4><pre><code class="python language-python hljs"><span class="hljs-string">f'<span class="hljs-subst">{obj}</span>'</span>
+str(obj)
 print(obj)
-&lt;csv_writer&gt;.writerow([obj])
 </code></pre></div>
 
-<div><h4 id="expressionsthatcallthereprspecialmethod">Expressions that call the repr() special method:</h4><pre><code class="python language-python hljs"><span class="hljs-string">f'<span class="hljs-subst">{obj!r}</span>'</span>
-print/str/repr([obj])
-print/str/repr({obj: obj})
-print/str/repr(MyDataClass(obj))
+<div><h4 id="expressionsthatcallreprspecialmethod">Expressions that call repr() special method:</h4><pre><code class="python language-python hljs"><span class="hljs-string">f'<span class="hljs-subst">{obj!r}</span>'</span>
+str/repr/print([obj])
+str/repr/print({obj: obj})
+str/repr/print(MyDataClass(obj))
 </code></pre></div>
 
 <div><h3 id="subclass">Subclass</h3><ul>
@@ -1655,7 +1655,7 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 </code></pre></div>
 
 <div><h2 id="struct"><a href="#struct" name="struct">#</a>Struct</h2><ul>
-<li><strong>Module that performs conversions between a sequence of numbers and a bytes object.</strong></li>
+<li><strong>Module that performs conversions between a sequence of nums and a bytes obj.</strong></li>
 <li><strong>System’s type sizes, byte order, and alignment rules are used by default.</strong></li>
 </ul><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> struct <span class="hljs-keyword">import</span> pack, unpack
 
@@ -1909,25 +1909,25 @@ delattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)           
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;coro&gt; = &lt;async_function&gt;(&lt;args&gt;)          <span class="hljs-comment"># Creates a coroutine by calling async def function.</span>
-&lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;coroutine&gt;                 <span class="hljs-comment"># Starts the coroutine. Returns its result or None.</span>
-&lt;task&gt; = aio.create_task(&lt;coroutine&gt;)      <span class="hljs-comment"># Schedules it for execution. Always keep the task.</span>
-&lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;task&gt;                      <span class="hljs-comment"># Returns coroutine's result. Also &lt;task&gt;.cancel().</span>
+<pre><code class="python language-python hljs">&lt;coro&gt; = &lt;async_function&gt;(&lt;args&gt;)           <span class="hljs-comment"># Creates a coroutine by calling async func.</span>
+&lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;coroutine&gt;                  <span class="hljs-comment"># Starts coroutine. Returns result or None.</span>
+&lt;task&gt; = aio.create_task(&lt;coroutine&gt;)       <span class="hljs-comment"># Schedules coroutine. Always keep the task.</span>
+&lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;task&gt;                       <span class="hljs-comment"># Returns the result. Also &lt;task&gt;.cancel().</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;coro&gt; = aio.gather(&lt;coro/task&gt;, ...)      <span class="hljs-comment"># Schedules coros. Returns list of results on await.</span>
-&lt;coro&gt; = aio.wait(&lt;tasks&gt;, return_when=…)  <span class="hljs-comment"># `'ALL/FIRST_COMPLETED'`. Returns (done, pending).</span>
-&lt;iter&gt; = aio.as_completed(&lt;coros/tasks&gt;)   <span class="hljs-comment"># Calling `await next(&lt;iter&gt;)` returns next result.</span>
+<pre><code class="python language-python hljs">&lt;coro&gt; = aio.gather(&lt;coro/task&gt;, ...)       <span class="hljs-comment"># Schedules coros. Returns list of results.</span>
+&lt;iter&gt; = aio.as_completed(&lt;coros/tasks&gt;)    <span class="hljs-comment"># `await next(&lt;iter&gt;)` returns next result.</span>
+&lt;coro&gt; = aio.wait(&lt;tasks&gt;)                  <span class="hljs-comment"># Pass `return_when='ALL/FIRST_COMPLETED'`.</span>
 </code></pre>
 <div><h4 id="runsaterminalgamewhereyoucontrolanasteriskthatmustavoidnumbers">Runs a terminal game where you control an asterisk that must avoid numbers:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> aio, collections, curses, curses.textpad, enum, random
 
-P = collections.namedtuple(<span class="hljs-string">'P'</span>, <span class="hljs-string">'x y'</span>)     <span class="hljs-comment"># Position (x and y coordinates).</span>
-D = enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)              <span class="hljs-comment"># Direction (north, east, etc.).</span>
-W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>                               <span class="hljs-comment"># Width and height of the field.</span>
+P = collections.namedtuple(<span class="hljs-string">'P'</span>, <span class="hljs-string">'x y'</span>)      <span class="hljs-comment"># Position (x and y coordinates).</span>
+D = enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)               <span class="hljs-comment"># Direction (north, east, etc.).</span>
+W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>                                <span class="hljs-comment"># Width and height of the field.</span>
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(screen)</span>:</span>
-    curses.curs_set(<span class="hljs-number">0</span>)                     <span class="hljs-comment"># Makes the cursor invisible.</span>
-    screen.nodelay(<span class="hljs-keyword">True</span>)                   <span class="hljs-comment"># Makes getch() non-blocking.</span>
-    aio.run(main_coroutine(screen))        <span class="hljs-comment"># Starts running asyncio code.</span>
+    curses.curs_set(<span class="hljs-number">0</span>)                      <span class="hljs-comment"># Makes the cursor invisible.</span>
+    screen.nodelay(<span class="hljs-keyword">True</span>)                    <span class="hljs-comment"># Makes getch() non-blocking.</span>
+    aio.run(main_coroutine(screen))         <span class="hljs-comment"># Starts running asyncio code.</span>
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main_coroutine</span><span class="hljs-params">(scr)</span>:</span>
     moves = aio.Queue()
@@ -2935,7 +2935,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>April 27, 2026</aside>
+    <aside>May 3, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 

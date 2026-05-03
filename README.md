@@ -8,14 +8,14 @@ Comprehensive Python Cheatsheet
 
 Contents
 --------
-**&nbsp;&nbsp;&nbsp;** **1. Collections:** **&nbsp;&nbsp;** **[`List`](#list)**__,__ **[`Dictionary`](#dictionary)**__,__ **[`Set`](#set)**__,__ **[`Tuple`](#tuple)**__,__ **[`Range`](#range)**__,__ **[`Enumerate`](#enumerate)**__,__ **[`Iterator`](#iterator)**__,__ **[`Generator`](#generator)**__.__  
-**&nbsp;&nbsp;&nbsp;** **2. Types:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Type`](#type)**__,__ **[`String`](#string)**__,__ **[`Regular_Exp`](#regex)**__,__ **[`Format`](#format)**__,__ **[`Numbers`](#numbers-1)**__,__ **[`Combinatorics`](#combinatorics)**__,__ **[`Datetime`](#datetime)**__.__  
-**&nbsp;&nbsp;&nbsp;** **3. Syntax:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Function`](#function)**__,__ **[`Inline`](#inline)**__,__ **[`Import`](#import)**__,__ **[`Decorator`](#decorator)**__,__ **[`Class`](#class)**__,__ **[`Duck_Type`](#duck-types)**__,__ **[`Enum`](#enum)**__,__ **[`Except`](#exceptions)**__.__  
-**&nbsp;&nbsp;&nbsp;** **4. System:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Exit`](#exit)**__,__ **[`Print`](#print)**__,__ **[`Input`](#input)**__,__ **[`Command_Line_Arguments`](#command-line-arguments)**__,__ **[`Open`](#open)**__,__ **[`Path`](#paths)**__,__ **[`OS_Commands`](#os-commands)**__.__  
-**&nbsp;&nbsp;&nbsp;** **5. Data:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`JSON`](#json)**__,__ **[`Pickle`](#pickle)**__,__ **[`CSV`](#csv)**__,__ **[`SQLite`](#sqlite)**__,__ **[`Bytes`](#bytes)**__,__ **[`Struct`](#struct)**__,__ **[`Array`](#array)**__,__ **[`Memory_View`](#memory-view)**__,__ **[`Deque`](#deque)**__.__  
-**&nbsp;&nbsp;&nbsp;** **6. Advanced:** **&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Operator`](#operator)**__,__ **[`Match_Statement`](#match-statement)**__,__ **[`Logging`](#logging)**__,__ **[`Introspection`](#introspection)**__,__ **[`Threads`](#threading)**__,__ **[`Asyncio`](#asyncio)**__.__  
-**&nbsp;&nbsp;&nbsp;** **7. Libraries:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Progress_Bar`](#progress-bar)**__,__ **[`Plot`](#plot)**__,__ **[`Table`](#table)**__,__ **[`Console_App`](#console-app)**__,__ **[`GUI`](#gui-app)**__,__ **[`Scraping`](#scraping)**__,__ **[`Web`](#web-app)**__,__ **[`Profile`](#profiling)**__.__  
-**&nbsp;&nbsp;&nbsp;** **8. Multimedia:** **&nbsp;**  **[`NumPy`](#numpy)**__,__ **[`Image`](#image)**__,__ **[`Animation`](#animation)**__,__ **[`Audio`](#audio)**__,__ **[`Synthesizer`](#synthesizer)**__,__ **[`Pygame`](#pygame)**__,__ **[`Pandas`](#pandas)**__,__ **[`Plotly`](#plotly)**__.__
+**&nbsp;&nbsp;&nbsp;** **1. Collections:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** **[`List`](#list)**__,__ **[`Dictionary`](#dictionary)**__,__ **[`Set`](#set)**__,__ **[`Tuple`](#tuple)**__,__ **[`Range`](#range)**__,__ **[`Enumerate`](#enumerate)**__,__ **[`Iterator`](#iterator)**__,__ **[`Generator`](#generator)**__.__  
+**&nbsp;&nbsp;&nbsp;** **2. Data Types:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Type`](#type)**__,__ **[`String`](#string)**__,__ **[`Regular_Exp`](#regex)**__,__ **[`Format`](#format)**__,__ **[`Numbers`](#numbers-1)**__,__ **[`Combinatorics`](#combinatorics)**__,__ **[`Datetime`](#datetime)**__.__  
+**&nbsp;&nbsp;&nbsp;** **3. Syntax Rules:** **&nbsp;&nbsp;&nbsp;**  **[`Function`](#function)**__,__ **[`Inline`](#inline)**__,__ **[`Import`](#import)**__,__ **[`Decorator`](#decorator)**__,__ **[`Class`](#class)**__,__ **[`Duck_Type`](#duck-types)**__,__ **[`Enum`](#enum)**__,__ **[`Except`](#exceptions)**__.__  
+**&nbsp;&nbsp;&nbsp;** **4. System Calls:** **&nbsp;&nbsp;&nbsp;**  **[`Exit`](#exit)**__,__ **[`Print`](#print)**__,__ **[`Input`](#input)**__,__ **[`Command_Line_Arguments`](#command-line-arguments)**__,__ **[`Open`](#open)**__,__ **[`Path`](#paths)**__,__ **[`OS_Commands`](#os-commands)**__.__  
+**&nbsp;&nbsp;&nbsp;** **5. Data Formats:** **&nbsp;**  **[`JSON`](#json)**__,__ **[`Pickle`](#pickle)**__,__ **[`CSV`](#csv)**__,__ **[`SQLite`](#sqlite)**__,__ **[`Bytes`](#bytes)**__,__ **[`Struct`](#struct)**__,__ **[`Array`](#array)**__,__ **[`Memory_View`](#memory-view)**__,__ **[`Deque`](#deque)**__.__  
+**&nbsp;&nbsp;&nbsp;** **6. Misc Topics:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Operator`](#operator)**__,__ **[`Match_Statement`](#match-statement)**__,__ **[`Logging`](#logging)**__,__ **[`Introspection`](#introspection)**__,__ **[`Threads`](#threading)**__,__ **[`Asyncio`](#asyncio)**__.__  
+**&nbsp;&nbsp;&nbsp;** **7. OS Libraries:** **&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Progress_Bar`](#progress-bar)**__,__ **[`Plot`](#plot)**__,__ **[`Table`](#table)**__,__ **[`Console_App`](#console-app)**__,__ **[`GUI`](#gui-app)**__,__ **[`Scraping`](#scraping)**__,__ **[`Web`](#web-app)**__,__ **[`Profile`](#profiling)**__.__  
+**&nbsp;&nbsp;&nbsp;** **8. Multimedia:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`NumPy`](#numpy)**__,__ **[`Image`](#image)**__,__ **[`Animation`](#animation)**__,__ **[`Audio`](#audio)**__,__ **[`Synthesizer`](#synthesizer)**__,__ **[`Pygame`](#pygame)**__,__ **[`Pandas`](#pandas)**__,__ **[`Plotly`](#plotly)**__.__
 
 
 Main
@@ -979,19 +979,19 @@ class MyClass:
 * **Methods that are decorated with `'@staticmethod'` receive neither 'self' nor 'cls' arg.**
 * **Return value of str() special method should be readable and of repr() unambiguous.<br>All calls to str() special method are dispatched to repr() when only repr() is provided.**
 
-#### Expressions that call the str() special method:
+#### Expressions that call str() special method:
 ```python
 f'{obj}'
+str(obj)
 print(obj)
-<csv_writer>.writerow([obj])
 ```
 
-#### Expressions that call the repr() special method:
+#### Expressions that call repr() special method:
 ```python
 f'{obj!r}'
-print/str/repr([obj])
-print/str/repr({obj: obj})
-print/str/repr(MyDataClass(obj))
+str/repr/print([obj])
+str/repr/print({obj: obj})
+str/repr/print(MyDataClass(obj))
 ```
 
 ### Subclass
@@ -1990,7 +1990,7 @@ def write_bytes(filename, bytes_obj):
 
 Struct
 ------
-* **Module that performs conversions between a sequence of numbers and a bytes object.**
+* **Module that performs conversions between a sequence of nums and a bytes obj.**
 * **System’s type sizes, byte order, and alignment rules are used by default.**
 
 ```python
@@ -2315,30 +2315,30 @@ import asyncio as aio
 ```
 
 ```python
-<coro> = <async_function>(<args>)          # Creates a coroutine by calling async def function.
-<obj>  = await <coroutine>                 # Starts the coroutine. Returns its result or None.
-<task> = aio.create_task(<coroutine>)      # Schedules it for execution. Always keep the task.
-<obj>  = await <task>                      # Returns coroutine's result. Also <task>.cancel().
+<coro> = <async_function>(<args>)           # Creates a coroutine by calling async func.
+<obj>  = await <coroutine>                  # Starts coroutine. Returns result or None.
+<task> = aio.create_task(<coroutine>)       # Schedules coroutine. Always keep the task.
+<obj>  = await <task>                       # Returns the result. Also <task>.cancel().
 ```
 
 ```python
-<coro> = aio.gather(<coro/task>, ...)      # Schedules coros. Returns list of results on await.
-<coro> = aio.wait(<tasks>, return_when=…)  # `'ALL/FIRST_COMPLETED'`. Returns (done, pending).
-<iter> = aio.as_completed(<coros/tasks>)   # Calling `await next(<iter>)` returns next result.
+<coro> = aio.gather(<coro/task>, ...)       # Schedules coros. Returns list of results.
+<iter> = aio.as_completed(<coros/tasks>)    # `await next(<iter>)` returns next result.
+<coro> = aio.wait(<tasks>)                  # Pass `return_when='ALL/FIRST_COMPLETED'`.
 ```
 
 #### Runs a terminal game where you control an asterisk that must avoid numbers:
 ```python
 import asyncio as aio, collections, curses, curses.textpad, enum, random
 
-P = collections.namedtuple('P', 'x y')     # Position (x and y coordinates).
-D = enum.Enum('D', 'n e s w')              # Direction (north, east, etc.).
-W, H = 15, 7                               # Width and height of the field.
+P = collections.namedtuple('P', 'x y')      # Position (x and y coordinates).
+D = enum.Enum('D', 'n e s w')               # Direction (north, east, etc.).
+W, H = 15, 7                                # Width and height of the field.
 
 def main(screen):
-    curses.curs_set(0)                     # Makes the cursor invisible.
-    screen.nodelay(True)                   # Makes getch() non-blocking.
-    aio.run(main_coroutine(screen))        # Starts running asyncio code.
+    curses.curs_set(0)                      # Makes the cursor invisible.
+    screen.nodelay(True)                    # Makes getch() non-blocking.
+    aio.run(main_coroutine(screen))         # Starts running asyncio code.
 
 async def main_coroutine(scr):
     moves = aio.Queue()

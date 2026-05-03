@@ -1,50 +1,50 @@
 const TOC =
   '<strong>ToC</strong> = {\n' +
-  '    <strong><span class="hljs-string">\'1. Collections\'</span></strong>: [<a href="#list">List</a>, <a href="#dictionary">Dictionary</a>, <a href="#set">Set</a>, <a href="#tuple">Tuple</a>, <a href="#range">Range</a>, <a href="#enumerate">Enumerate</a>, <a href="#iterator">Iterator</a>, <a href="#generator">Generator</a>],\n' +
-  '    <strong><span class="hljs-string">\'2. Types\'</span></strong>:       [<a href="#type">Type</a>, <a href="#string">String</a>, <a href="#regex">Regular_Exp</a>, <a href="#format">Format</a>, <a href="#numbers">Numbers</a>, <a href="#combinatorics">Combinatorics</a>, <a href="#datetime">Datetime</a>],\n' +
-  '    <strong><span class="hljs-string">\'3. Syntax\'</span></strong>:      [<a href="#function">Function</a>, <a href="#inline">Inline</a>, <a href="#import">Import</a>, <a href="#decorator">Decorator</a>, <a href="#class">Class</a>, <a href="#ducktypes">Duck_Type</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Except</a>],\n' +
-  '    <strong><span class="hljs-string">\'4. System\'</span></strong>:      [<a href="#exit">Exit</a>, <a href="#print">Print</a>, <a href="#input">Input</a>, <a href="#commandlinearguments">Command_Line_Arguments</a>, <a href="#open">Open</a>, <a href="#paths">Path</a>, <a href="#oscommands">OS_Commands</a>],\n' +
-  '    <strong><span class="hljs-string">\'5. Data\'</span></strong>:        [<a href="#json">JSON</a>, <a href="#pickle">Pickle</a>, <a href="#csv">CSV</a>, <a href="#sqlite">SQLite</a>, <a href="#bytes">Bytes</a>, <a href="#struct">Struct</a>, <a href="#array">Array</a>, <a href="#memoryview">Memory_View</a>, <a href="#deque">Deque</a>],\n' +
-  '    <strong><span class="hljs-string">\'6. Advanced\'</span></strong>:    [<a href="#operator">Operator</a>, <a href="#matchstatement">Match_Statement</a>, <a href="#logging">Logging</a>, <a href="#introspection">Introspection</a>, <a href="#threading">Threads</a>, <a href="#asyncio">Asyncio</a>],\n' +
-  '    <strong><span class="hljs-string">\'7. Libraries\'</span></strong>:   [<a href="#progressbar">Progress_Bar</a>, <a href="#plot">Plot</a>, <a href="#table">Table</a>, <a href="#consoleapp">Console_App</a>, <a href="#guiapp">GUI</a>, <a href="#scraping">Scraping</a>, <a href="#webapp">Web</a>, <a href="#profiling">Profile</a>],\n' +
-  '    <strong><span class="hljs-string">\'8. Multimedia\'</span></strong>:  [<a href="#numpy">NumPy</a>, <a href="#image">Image</a>, <a href="#animation">Animation</a>, <a href="#audio">Audio</a>, <a href="#synthesizer">Synthesizer</a>, <a href="#pygame">Pygame</a>, <a href="#pandas">Pandas</a>, <a href="#plotly">Plotly</a>]\n' +
+  '    <strong><span class="hljs-string">\'1. Collections\'</span></strong>:   [<a href="#list">List</a>, <a href="#dictionary">Dictionary</a>, <a href="#set">Set</a>, <a href="#tuple">Tuple</a>, <a href="#range">Range</a>, <a href="#enumerate">Enumerate</a>, <a href="#iterator">Iterator</a>, <a href="#generator">Generator</a>],\n' +
+  '    <strong><span class="hljs-string">\'2. Data Types\'</span></strong>:    [<a href="#type">Type</a>, <a href="#string">String</a>, <a href="#regex">Regular_Exp</a>, <a href="#format">Format</a>, <a href="#numbers">Numbers</a>, <a href="#combinatorics">Combinatorics</a>, <a href="#datetime">Datetime</a>],\n' +
+  '    <strong><span class="hljs-string">\'3. Syntax Rules\'</span></strong>:  [<a href="#function">Function</a>, <a href="#inline">Inline</a>, <a href="#import">Import</a>, <a href="#decorator">Decorator</a>, <a href="#class">Class</a>, <a href="#ducktypes">Duck_Type</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Except</a>],\n' +
+  '    <strong><span class="hljs-string">\'4. System Calls\'</span></strong>:  [<a href="#exit">Exit</a>, <a href="#print">Print</a>, <a href="#input">Input</a>, <a href="#commandlinearguments">Command_Line_Arguments</a>, <a href="#open">Open</a>, <a href="#paths">Path</a>, <a href="#oscommands">OS_Commands</a>],\n' +
+  '    <strong><span class="hljs-string">\'5. Data Formats\'</span></strong>:  [<a href="#json">JSON</a>, <a href="#pickle">Pickle</a>, <a href="#csv">CSV</a>, <a href="#sqlite">SQLite</a>, <a href="#bytes">Bytes</a>, <a href="#struct">Struct</a>, <a href="#array">Array</a>, <a href="#memoryview">Memory_View</a>, <a href="#deque">Deque</a>],\n' +
+  '    <strong><span class="hljs-string">\'6. Misc Topics\'</span></strong>:   [<a href="#operator">Operator</a>, <a href="#matchstatement">Match_Statement</a>, <a href="#logging">Logging</a>, <a href="#introspection">Introspection</a>, <a href="#threading">Threads</a>, <a href="#asyncio">Asyncio</a>],\n' +
+  '    <strong><span class="hljs-string">\'7. OS Libraries\'</span></strong>:  [<a href="#progressbar">Progress_Bar</a>, <a href="#plot">Plot</a>, <a href="#table">Table</a>, <a href="#consoleapp">Console_App</a>, <a href="#guiapp">GUI</a>, <a href="#scraping">Scraping</a>, <a href="#webapp">Web</a>, <a href="#profiling">Profile</a>],\n' +
+  '    <strong><span class="hljs-string">\'8. Multimedia\'</span></strong>:    [<a href="#numpy">NumPy</a>, <a href="#image">Image</a>, <a href="#animation">Animation</a>, <a href="#audio">Audio</a>, <a href="#synthesizer">Synthesizer</a>, <a href="#pygame">Pygame</a>, <a href="#pandas">Pandas</a>, <a href="#plotly">Plotly</a>]\n' +
   '}\n';
 
 const TOC_MOBILE =
   '<strong>ToC</strong> = {\n' +
-  '    <strong><span class="hljs-string">\'1. Collections\'</span></strong>: [<a href="#list">List</a>, <a href="#dictionary">Dictionary</a>, <a href="#set">Set</a>,\n' +
-  '                       <a href="#tuple">Tuple</a>, <a href="#range">Range</a>, <a href="#enumerate">Enumerate</a>,\n' +
-  '                       <a href="#iterator">Iterator</a>, <a href="#generator">Generator</a>],\n' +
-  '    <strong><span class="hljs-string">\'2. Types\'</span></strong>:       [<a href="#type">Type</a>, <a href="#string">String</a>, <a href="#regex">Regular_Exp</a>,\n' +
-  '                       <a href="#format">Format</a>, <a href="#numbers">Numbers</a>,\n' +
-  '                       <a href="#combinatorics">Combinatorics</a>, <a href="#datetime">Datetime</a>],\n' +
-  '    <strong><span class="hljs-string">\'3. Syntax\'</span></strong>:      [<a href="#function">Function</a>, <a href="#inline">Inline</a>, <a href="#import">Import</a>,\n' +
-  '                       <a href="#decorator">Decorator</a>, <a href="#class">Class</a>,\n' +
-  '                       <a href="#ducktypes">Duck_Types</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Except</a>],\n' +
-  '    <strong><span class="hljs-string">\'4. System\'</span></strong>:      [<a href="#exit">Exit</a>, <a href="#print">Print</a>, <a href="#input">Input</a>,\n' +
-  '                       <a href="#commandlinearguments">Command_Line_Arguments</a>,\n' +
-  '                       <a href="#open">Open</a>, <a href="#paths">Paths</a>, <a href="#oscommands">OS_Commands</a>],\n' +
-  '    <strong><span class="hljs-string">\'5. Data\'</span></strong>:        [<a href="#json">JSON</a>, <a href="#pickle">Pickle</a>, <a href="#csv">CSV</a>, <a href="#sqlite">SQLite</a>,\n' +
-  '                       <a href="#bytes">Bytes</a>, <a href="#struct">Struct</a>, <a href="#array">Array</a>,\n' +
-  '                       <a href="#memoryview">Memory_View</a>, <a href="#deque">Deque</a>],\n' +
-  '    <strong><span class="hljs-string">\'6. Advanced\'</span></strong>:    [<a href="#operator">Operator</a>, <a href="#matchstatement">Match_Statement</a>,\n' +
-  '                       <a href="#logging">Logging</a>, <a href="#introspection">Introspection</a>,\n' +
-  '                       <a href="#threading">Threading</a>, <a href="#asyncio">Asyncio</a>],\n' +
-  '    <strong><span class="hljs-string">\'7. Libraries\'</span></strong>:   [<a href="#progressbar">Progress_Bar</a>, <a href="#plot">Plot</a>, <a href="#table">Table</a>,\n' +
-  '                       <a href="#consoleapp">Console_App</a>, <a href="#guiapp">GUI_App</a>,\n' +
-  '                       <a href="#scraping">Scraping</a>, <a href="#webapp">Web</a>, <a href="#profiling">Profiling</a>],\n' +
-  '    <strong><span class="hljs-string">\'8. Multimedia\'</span></strong>:  [<a href="#numpy">NumPy</a>, <a href="#image">Image</a>, <a href="#animation">Animation</a>,\n' +
-  '                       <a href="#audio">Audio</a>, <a href="#synthesizer">Synthesizer</a>,\n' +
-  '                       <a href="#pygame">Pygame</a>, <a href="#pandas">Pandas</a>, <a href="#plotly">Plotly</a>]\n' +
+  '    <strong><span class="hljs-string">\'1. Collections\'</span></strong>:  [<a href="#list">List</a>, <a href="#dictionary">Dictionary</a>, <a href="#set">Set</a>,\n' +
+  '                        <a href="#tuple">Tuple</a>, <a href="#range">Range</a>, <a href="#enumerate">Enumerate</a>,\n' +
+  '                        <a href="#iterator">Iterator</a>, <a href="#generator">Generator</a>],\n' +
+  '    <strong><span class="hljs-string">\'2. Data Types\'</span></strong>:   [<a href="#type">Type</a>, <a href="#string">String</a>, <a href="#regex">Regular_Exp</a>,\n' +
+  '                        <a href="#format">Format</a>, <a href="#numbers">Numbers</a>,\n' +
+  '                        <a href="#combinatorics">Combinatorics</a>, <a href="#datetime">Datetime</a>],\n' +
+  '    <strong><span class="hljs-string">\'3. Syntax Rulse\'</span></strong>: [<a href="#function">Function</a>, <a href="#inline">Inline</a>, <a href="#import">Import</a>,\n' +
+  '                        <a href="#decorator">Decorator</a>, <a href="#class">Class</a>,\n' +
+  '                        <a href="#ducktypes">Duck_Types</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Except</a>],\n' +
+  '    <strong><span class="hljs-string">\'4. System Calls\'</span></strong>: [<a href="#exit">Exit</a>, <a href="#print">Print</a>, <a href="#input">Input</a>,\n' +
+  '                        <a href="#commandlinearguments">Command_Line_Arguments</a>,\n' +
+  '                        <a href="#open">Open</a>, <a href="#paths">Paths</a>, <a href="#oscommands">OS_Commands</a>],\n' +
+  '    <strong><span class="hljs-string">\'5. Data Formats\'</span></strong>: [<a href="#json">JSON</a>, <a href="#pickle">Pickle</a>, <a href="#csv">CSV</a>, <a href="#sqlite">SQLite</a>,\n' +
+  '                        <a href="#bytes">Bytes</a>, <a href="#struct">Struct</a>, <a href="#array">Array</a>,\n' +
+  '                        <a href="#memoryview">Memory_View</a>, <a href="#deque">Deque</a>],\n' +
+  '    <strong><span class="hljs-string">\'6. Misc Topics\'</span></strong>:  [<a href="#operator">Operator</a>, <a href="#matchstatement">Match_Statement</a>,\n' +
+  '                        <a href="#logging">Logging</a>, <a href="#introspection">Introspection</a>,\n' +
+  '                        <a href="#threading">Threading</a>, <a href="#asyncio">Asyncio</a>],\n' +
+  '    <strong><span class="hljs-string">\'7. OS Libraries\'</span></strong>: [<a href="#progressbar">Progress_Bar</a>, <a href="#plot">Plot</a>, <a href="#table">Table</a>,\n' +
+  '                        <a href="#consoleapp">Console_App</a>, <a href="#guiapp">GUI_App</a>,\n' +
+  '                        <a href="#scraping">Scraping</a>, <a href="#webapp">Web</a>, <a href="#profiling">Profiling</a>],\n' +
+  '    <strong><span class="hljs-string">\'8. Multimedia\'</span></strong>:   [<a href="#numpy">NumPy</a>, <a href="#image">Image</a>, <a href="#animation">Animation</a>,\n' +
+  '                        <a href="#audio">Audio</a>, <a href="#synthesizer">Synthesizer</a>,\n' +
+  '                        <a href="#pygame">Pygame</a>, <a href="#pandas">Pandas</a>, <a href="#plotly">Plotly</a>]\n' +
   '}\n';
 
 
-var iOS = /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+// var iOS = /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-if (iOS) {
-  var viewport_meta = document.getElementById('viewport-meta');
-  viewport_meta.setAttribute('content', "initial-scale=0.55");
-}
+// if (iOS) {
+//   var viewport_meta = document.getElementById('viewport-meta');
+//   viewport_meta.setAttribute('content', "initial-scale=0.55");
+// }
 
 var isMobile = false;
 // Device detection:
@@ -57,9 +57,11 @@ var TOC_SCREEN_WIDTH_CUTOFF = 667
 var TOC_EM = '2em'
 var TOC_EM_DESKTOP = '1.327em'
 var PLOTLY_WIDTH_DESKTOP = 914
+var TITLE_FONT_SIZE = '64.5px'
 
 
 function switch_to_mobile_view() {
+  document.querySelector("#comprehensivepythoncheatsheet").style["font-size"] = "";
   $(`code:contains(ToC)`).html(TOC_MOBILE).css("line-height", TOC_EM);
   const body = document.querySelector("body");
   body.style["width"] = `${TOC_SCREEN_WIDTH_CUTOFF+9}px`;
@@ -71,6 +73,7 @@ function switch_to_mobile_view() {
 
 
 function switch_to_desktop_view() {
+  document.querySelector("#comprehensivepythoncheatsheet").style["font-size"] = TITLE_FONT_SIZE;
   $(`code:contains(ToC)`).html(TOC).css("line-height", TOC_EM_DESKTOP);
   const body = document.querySelector("body");
   body.style["width"] = "";

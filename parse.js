@@ -31,14 +31,14 @@ const hljs = require('highlightjs');
 
 const TOC =
   '<pre style="border-left: none;padding-left: 1.9px;"><code class="hljs bash" style="line-height: 1.327em;"><strong>ToC</strong> = {\n' +
-  '    <strong><span class="hljs-string">\'1. Collections\'</span></strong>: [<a href="#list">List</a>, <a href="#dictionary">Dictionary</a>, <a href="#set">Set</a>, <a href="#tuple">Tuple</a>, <a href="#range">Range</a>, <a href="#enumerate">Enumerate</a>, <a href="#iterator">Iterator</a>, <a href="#generator">Generator</a>],\n' +
-  '    <strong><span class="hljs-string">\'2. Types\'</span></strong>:       [<a href="#type">Type</a>, <a href="#string">String</a>, <a href="#regex">Regular_Exp</a>, <a href="#format">Format</a>, <a href="#numbers">Numbers</a>, <a href="#combinatorics">Combinatorics</a>, <a href="#datetime">Datetime</a>],\n' +
-  '    <strong><span class="hljs-string">\'3. Syntax\'</span></strong>:      [<a href="#function">Function</a>, <a href="#inline">Inline</a>, <a href="#import">Import</a>, <a href="#decorator">Decorator</a>, <a href="#class">Class</a>, <a href="#ducktypes">Duck_Type</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Except</a>],\n' +
-  '    <strong><span class="hljs-string">\'4. System\'</span></strong>:      [<a href="#exit">Exit</a>, <a href="#print">Print</a>, <a href="#input">Input</a>, <a href="#commandlinearguments">Command_Line_Arguments</a>, <a href="#open">Open</a>, <a href="#paths">Path</a>, <a href="#oscommands">OS_Commands</a>],\n' +
-  '    <strong><span class="hljs-string">\'5. Data\'</span></strong>:        [<a href="#json">JSON</a>, <a href="#pickle">Pickle</a>, <a href="#csv">CSV</a>, <a href="#sqlite">SQLite</a>, <a href="#bytes">Bytes</a>, <a href="#struct">Struct</a>, <a href="#array">Array</a>, <a href="#memoryview">Memory_View</a>, <a href="#deque">Deque</a>],\n' +
-  '    <strong><span class="hljs-string">\'6. Advanced\'</span></strong>:    [<a href="#operator">Operator</a>, <a href="#matchstatement">Match_Statement</a>, <a href="#logging">Logging</a>, <a href="#introspection">Introspection</a>, <a href="#threading">Threads</a>, <a href="#asyncio">Asyncio</a>],\n' +
-  '    <strong><span class="hljs-string">\'7. Libraries\'</span></strong>:   [<a href="#progressbar">Progress_Bar</a>, <a href="#plot">Plot</a>, <a href="#table">Table</a>, <a href="#consoleapp">Console_App</a>, <a href="#guiapp">GUI</a>, <a href="#scraping">Scraping</a>, <a href="#webapp">Web</a>, <a href="#profiling">Profile</a>],\n' +
-  '    <strong><span class="hljs-string">\'8. Multimedia\'</span></strong>:  [<a href="#numpy">NumPy</a>, <a href="#image">Image</a>, <a href="#animation">Animation</a>, <a href="#audio">Audio</a>, <a href="#synthesizer">Synthesizer</a>, <a href="#pygame">Pygame</a>, <a href="#pandas">Pandas</a>, <a href="#plotly">Plotly</a>]\n' +
+  '    <strong><span class="hljs-string">\'1. Collections\'</span></strong>:   [<a href="#list">List</a>, <a href="#dictionary">Dictionary</a>, <a href="#set">Set</a>, <a href="#tuple">Tuple</a>, <a href="#range">Range</a>, <a href="#enumerate">Enumerate</a>, <a href="#iterator">Iterator</a>, <a href="#generator">Generator</a>],\n' +
+  '    <strong><span class="hljs-string">\'2. Data Types\'</span></strong>:    [<a href="#type">Type</a>, <a href="#string">String</a>, <a href="#regex">Regular_Exp</a>, <a href="#format">Format</a>, <a href="#numbers">Numbers</a>, <a href="#combinatorics">Combinatorics</a>, <a href="#datetime">Datetime</a>],\n' +
+  '    <strong><span class="hljs-string">\'3. Syntax Rules\'</span></strong>:  [<a href="#function">Function</a>, <a href="#inline">Inline</a>, <a href="#import">Import</a>, <a href="#decorator">Decorator</a>, <a href="#class">Class</a>, <a href="#ducktypes">Duck_Type</a>, <a href="#enum">Enum</a>, <a href="#exceptions">Except</a>],\n' +
+  '    <strong><span class="hljs-string">\'4. System Calls\'</span></strong>:  [<a href="#exit">Exit</a>, <a href="#print">Print</a>, <a href="#input">Input</a>, <a href="#commandlinearguments">Command_Line_Arguments</a>, <a href="#open">Open</a>, <a href="#paths">Path</a>, <a href="#oscommands">OS_Commands</a>],\n' +
+  '    <strong><span class="hljs-string">\'5. Data Formats\'</span></strong>:  [<a href="#json">JSON</a>, <a href="#pickle">Pickle</a>, <a href="#csv">CSV</a>, <a href="#sqlite">SQLite</a>, <a href="#bytes">Bytes</a>, <a href="#struct">Struct</a>, <a href="#array">Array</a>, <a href="#memoryview">Memory_View</a>, <a href="#deque">Deque</a>],\n' +
+  '    <strong><span class="hljs-string">\'6. Misc Topics\'</span></strong>:   [<a href="#operator">Operator</a>, <a href="#matchstatement">Match_Statement</a>, <a href="#logging">Logging</a>, <a href="#introspection">Introspection</a>, <a href="#threading">Threads</a>, <a href="#asyncio">Asyncio</a>],\n' +
+  '    <strong><span class="hljs-string">\'7. OS Libraries\'</span></strong>:  [<a href="#progressbar">Progress_Bar</a>, <a href="#plot">Plot</a>, <a href="#table">Table</a>, <a href="#consoleapp">Console_App</a>, <a href="#guiapp">GUI</a>, <a href="#scraping">Scraping</a>, <a href="#webapp">Web</a>, <a href="#profiling">Profile</a>],\n' +
+  '    <strong><span class="hljs-string">\'8. Multimedia\'</span></strong>:    [<a href="#numpy">NumPy</a>, <a href="#image">Image</a>, <a href="#animation">Animation</a>, <a href="#audio">Audio</a>, <a href="#synthesizer">Synthesizer</a>, <a href="#pygame">Pygame</a>, <a href="#pandas">Pandas</a>, <a href="#plotly">Plotly</a>]\n' +
   '}\n' +
   '</code></pre>\n';
 
@@ -80,14 +80,14 @@ const PARAMETRIZED_DECORATOR =
 
 const STR_USE_CASES =
   '<span class="hljs-string">f\'<span class="hljs-subst">{obj}</span>\'</span>\n' +
-  'print(obj)\n' +
-  '&lt;csv_writer&gt;.writerow([obj])\n';
+  'str(obj)\n' +
+  'print(obj)\n';
 
 const REPR_USE_CASES =
   '<span class="hljs-string">f\'<span class="hljs-subst">{obj!r}</span>\'</span>\n' +
-  'print/str/repr([obj])\n' +
-  'print/str/repr({obj: obj})\n' +
-  'print/str/repr(MyDataClass(obj))\n';
+  'str/repr/print([obj])\n' +
+  'str/repr/print({obj: obj})\n' +
+  'str/repr/print(MyDataClass(obj))\n';
 
 const CONSTRUCTOR_OVERLOADING =
   '<span class="hljs-class"><span class="hljs-keyword">class</span> &lt;<span class="hljs-title">name</span>&gt;:</span>\n' +
@@ -123,57 +123,58 @@ const MATCH_EXAMPLE =
   'README.md is a readme file that belongs to user ken.\n';
 
 const COROUTINES =
-  '<span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> aio, collections, curses, curses.textpad, enum, random\n' +
-  '\n' +
-  'P = collections.namedtuple(<span class="hljs-string">\'P\'</span>, <span class="hljs-string">\'x y\'</span>)     <span class="hljs-comment"># Position (x and y coordinates).</span>\n' +
-  'D = enum.Enum(<span class="hljs-string">\'D\'</span>, <span class="hljs-string">\'n e s w\'</span>)              <span class="hljs-comment"># Direction (north, east, etc.).</span>\n' +
-  'W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>                               <span class="hljs-comment"># Width and height of the field.</span>\n' +
-  '\n' +
-  '<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(screen)</span>:</span>\n' +
-  '    curses.curs_set(<span class="hljs-number">0</span>)                     <span class="hljs-comment"># Makes the cursor invisible.</span>\n' +
-  '    screen.nodelay(<span class="hljs-keyword">True</span>)                   <span class="hljs-comment"># Makes getch() non-blocking.</span>\n' +
-  '    aio.run(main_coroutine(screen))        <span class="hljs-comment"># Starts running asyncio code.</span>\n' +
-  '\n' +
-  '<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main_coroutine</span><span class="hljs-params">(scr)</span>:</span>\n' +
-  '    moves = aio.Queue()\n' +
-  '    state = {<span class="hljs-string">\'*\'</span>: P(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)} | dict.fromkeys(range(<span class="hljs-number">10</span>), P(W//<span class="hljs-number">2</span>, H//<span class="hljs-number">2</span>))\n' +
-  '    ai = [random_controller(id_, moves) <span class="hljs-keyword">for</span> id_ <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)]\n' +
-  '    mvc = [controller(scr, moves), model(moves, state), view(state, scr)]\n' +
-  '    tasks = [aio.create_task(coro) <span class="hljs-keyword">for</span> coro <span class="hljs-keyword">in</span> ai + mvc]\n' +
-  '    <span class="hljs-keyword">await</span> aio.wait(tasks, return_when=aio.FIRST_COMPLETED)\n' +
-  '\n' +
-  '<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">random_controller</span><span class="hljs-params">(id_, moves)</span>:</span>\n' +
-  '    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:\n' +
-  '        d = random.choice(list(D))\n' +
-  '        moves.put_nowait((id_, d))\n' +
-  '        <span class="hljs-keyword">await</span> aio.sleep(random.triangular(<span class="hljs-number">0.01</span>, <span class="hljs-number">0.65</span>))\n' +
-  '\n' +
-  '<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">controller</span><span class="hljs-params">(scr, moves)</span>:</span>\n' +
-  '    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:\n' +
-  '        key_mappings = {<span class="hljs-number">258</span>: D.s, <span class="hljs-number">259</span>: D.n, <span class="hljs-number">260</span>: D.w, <span class="hljs-number">261</span>: D.e}\n' +
-  '        <span class="hljs-keyword">if</span> d := key_mappings.get(scr.getch()):\n' +
-  '            moves.put_nowait((<span class="hljs-string">\'*\'</span>, d))\n' +
-  '        <span class="hljs-keyword">await</span> aio.sleep(<span class="hljs-number">0.005</span>)\n' +
-  '\n' +
-  '<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">model</span><span class="hljs-params">(moves, state)</span>:</span>\n' +
-  '    <span class="hljs-keyword">while</span> state[<span class="hljs-string">\'*\'</span>] <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (state[id_] <span class="hljs-keyword">for</span> id_ <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)):\n' +
-  '        id_, d = <span class="hljs-keyword">await</span> moves.get()\n' +
-  '        dx, dy = (d == D.e) - (d == D.w), (d == D.s) - (d == D.n)\n' +
-  '        state[id_] = P((state[id_].x + dx) % W, (state[id_].y + dy) % H)\n' +
-  '\n' +
-  '<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">view</span><span class="hljs-params">(state, scr)</span>:</span>\n' +
-  '    y, x = curses.LINES//<span class="hljs-number">2</span> - H//<span class="hljs-number">2</span>, curses.COLS//<span class="hljs-number">2</span> - W//<span class="hljs-number">2</span>\n' +
-  '    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:\n' +
-  '        scr.erase()\n' +
-  '        curses.textpad.rectangle(scr, y-<span class="hljs-number">1</span>, x-<span class="hljs-number">1</span>, y+H, x+W)\n' +
-  '        <span class="hljs-keyword">for</span> id_, p <span class="hljs-keyword">in</span> state.items():\n' +
-  '            dy, dx = p.y - state[<span class="hljs-string">\'*\'</span>].y + H//<span class="hljs-number">2</span>, p.x - state[<span class="hljs-string">\'*\'</span>].x + W//<span class="hljs-number">2</span>\n' +
-  '            scr.addstr(y + (dy % H), x + (dx % W), str(id_))\n' +
-  '        scr.refresh()\n' +
-  '        <span class="hljs-keyword">await</span> aio.sleep(<span class="hljs-number">0.005</span>)\n' +
-  '\n' +
-  '<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">\'__main__\'</span>:\n' +
-  '    curses.wrapper(main)\n';
+`<span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> aio, collections, curses, curses.textpad, enum, random
+
+P = collections.namedtuple(<span class="hljs-string">'P'</span>, <span class="hljs-string">'x y'</span>)      <span class="hljs-comment"># Position (x and y coordinates).</span>
+D = enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)               <span class="hljs-comment"># Direction (north, east, etc.).</span>
+W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>                                <span class="hljs-comment"># Width and height of the field.</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(screen)</span>:</span>
+    curses.curs_set(<span class="hljs-number">0</span>)                      <span class="hljs-comment"># Makes the cursor invisible.</span>
+    screen.nodelay(<span class="hljs-keyword">True</span>)                    <span class="hljs-comment"># Makes getch() non-blocking.</span>
+    aio.run(main_coroutine(screen))         <span class="hljs-comment"># Starts running asyncio code.</span>
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main_coroutine</span><span class="hljs-params">(scr)</span>:</span>
+    moves = aio.Queue()
+    state = {<span class="hljs-string">'*'</span>: P(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)} | dict.fromkeys(range(<span class="hljs-number">10</span>), P(W//<span class="hljs-number">2</span>, H//<span class="hljs-number">2</span>))
+    ai = [random_controller(id_, moves) <span class="hljs-keyword">for</span> id_ <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)]
+    mvc = [controller(scr, moves), model(moves, state), view(state, scr)]
+    tasks = [aio.create_task(coro) <span class="hljs-keyword">for</span> coro <span class="hljs-keyword">in</span> ai + mvc]
+    <span class="hljs-keyword">await</span> aio.wait(tasks, return_when=aio.FIRST_COMPLETED)
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">random_controller</span><span class="hljs-params">(id_, moves)</span>:</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        d = random.choice(list(D))
+        moves.put_nowait((id_, d))
+        <span class="hljs-keyword">await</span> aio.sleep(random.triangular(<span class="hljs-number">0.01</span>, <span class="hljs-number">0.65</span>))
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">controller</span><span class="hljs-params">(scr, moves)</span>:</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        key_mappings = {<span class="hljs-number">258</span>: D.s, <span class="hljs-number">259</span>: D.n, <span class="hljs-number">260</span>: D.w, <span class="hljs-number">261</span>: D.e}
+        <span class="hljs-keyword">if</span> d := key_mappings.get(scr.getch()):
+            moves.put_nowait((<span class="hljs-string">'*'</span>, d))
+        <span class="hljs-keyword">await</span> aio.sleep(<span class="hljs-number">0.005</span>)
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">model</span><span class="hljs-params">(moves, state)</span>:</span>
+    <span class="hljs-keyword">while</span> state[<span class="hljs-string">'*'</span>] <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (state[id_] <span class="hljs-keyword">for</span> id_ <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)):
+        id_, d = <span class="hljs-keyword">await</span> moves.get()
+        dx, dy = (d == D.e) - (d == D.w), (d == D.s) - (d == D.n)
+        state[id_] = P((state[id_].x + dx) % W, (state[id_].y + dy) % H)
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">view</span><span class="hljs-params">(state, scr)</span>:</span>
+    y, x = curses.LINES//<span class="hljs-number">2</span> - H//<span class="hljs-number">2</span>, curses.COLS//<span class="hljs-number">2</span> - W//<span class="hljs-number">2</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        scr.erase()
+        curses.textpad.rectangle(scr, y-<span class="hljs-number">1</span>, x-<span class="hljs-number">1</span>, y+H, x+W)
+        <span class="hljs-keyword">for</span> id_, p <span class="hljs-keyword">in</span> state.items():
+            dy, dx = p.y - state[<span class="hljs-string">'*'</span>].y + H//<span class="hljs-number">2</span>, p.x - state[<span class="hljs-string">'*'</span>].x + W//<span class="hljs-number">2</span>
+            scr.addstr(y + (dy % H), x + (dx % W), str(id_))
+        scr.refresh()
+        <span class="hljs-keyword">await</span> aio.sleep(<span class="hljs-number">0.005</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    curses.wrapper(main)
+`
 
 const CURSES =
   '<span class="hljs-comment"># $ pip3 install windows-curses</span>\n' +
@@ -837,6 +838,7 @@ function modifyPage() {
   addToc();
   insertLinks();
   unindentBanner();
+  enlargeTitleAndBanner();
   updateDiagrams();
   highlightCode();
   fixPandasDiagram();
@@ -880,6 +882,13 @@ function unindentBanner() {
   montyImg.parent().css({"margin-bottom": "20px", "padding-bottom": "7px"})
   const downloadPraragrapth = $('p').first();
   downloadPraragrapth.addClass('banner');
+}
+
+function enlargeTitleAndBanner() {
+  const mainTitle = $('h1').first();
+  mainTitle.css({"font-size": "64.5px"});
+  const montyImg = $('img').first();
+  montyImg.css({"width": "909px"});
 }
 
 function updateDiagrams() {
@@ -940,7 +949,7 @@ function fixHighlights() {
   $(`code:contains( + fib(n)`).html(CACHE);
   $(`code:contains(>>> def add)`).html(SPLAT);
   $(`code:contains(@debug(print_result=True))`).html(PARAMETRIZED_DECORATOR);
-  $(`code:contains(print/str(obj))`).html(STR_USE_CASES);
+  $(`code:contains(print(obj))`).html(STR_USE_CASES);
   $(`code:contains(print/str/repr([obj]))`).html(REPR_USE_CASES);
   $(`code:contains(shutil.copy)`).html(SHUTIL_COPY);
   $(`code:contains(os.rename)`).html(OS_RENAME);
