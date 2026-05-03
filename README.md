@@ -8,7 +8,7 @@ Comprehensive Python Cheatsheet
 
 Contents
 --------
-**&nbsp;&nbsp;&nbsp;** **1. Collections:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** **[`List`](#list)**__,__ **[`Dictionary`](#dictionary)**__,__ **[`Set`](#set)**__,__ **[`Tuple`](#tuple)**__,__ **[`Range`](#range)**__,__ **[`Enumerate`](#enumerate)**__,__ **[`Iterator`](#iterator)**__,__ **[`Generator`](#generator)**__.__  
+**&nbsp;&nbsp;&nbsp;** **1. Collections:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** **[`List`](#list)**__,__ **[`Dictionary`](#dictionary)**__,__ **[`Set`](#set)**__,__ **[`Tuple`](#tuple)**__,__ **[`Range`](#range)**__,__ **[`Enumerate`](#enumerate)**__,__ **[`Iterator`](#iterator)**__,__ **[`Generator`](#generator)**__.__  
 **&nbsp;&nbsp;&nbsp;** **2. Data Types:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Type`](#type)**__,__ **[`String`](#string)**__,__ **[`Regular_Exp`](#regex)**__,__ **[`Format`](#format)**__,__ **[`Numbers`](#numbers-1)**__,__ **[`Combinatorics`](#combinatorics)**__,__ **[`Datetime`](#datetime)**__.__  
 **&nbsp;&nbsp;&nbsp;** **3. Syntax Rules:** **&nbsp;&nbsp;&nbsp;**  **[`Function`](#function)**__,__ **[`Inline`](#inline)**__,__ **[`Import`](#import)**__,__ **[`Decorator`](#decorator)**__,__ **[`Class`](#class)**__,__ **[`Duck_Type`](#duck-types)**__,__ **[`Enum`](#enum)**__,__ **[`Except`](#exceptions)**__.__  
 **&nbsp;&nbsp;&nbsp;** **4. System Calls:** **&nbsp;&nbsp;&nbsp;**  **[`Exit`](#exit)**__,__ **[`Print`](#print)**__,__ **[`Input`](#input)**__,__ **[`Command_Line_Arguments`](#command-line-arguments)**__,__ **[`Open`](#open)**__,__ **[`Path`](#paths)**__,__ **[`OS_Commands`](#os-commands)**__.__  
