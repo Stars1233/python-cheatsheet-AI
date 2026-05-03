@@ -885,8 +885,8 @@ function unindentBanner() {
 }
 
 function enlargeTitleAndBanner() {
-  const mainTitle = $('h1').first();
-  mainTitle.css({"font-size": "64.5px"});
+  const librariesTitle = $('#libraries').first();
+  librariesTitle.css({"font-size": "64px"});
   const montyImg = $('img').first();
   montyImg.css({"width": "909px"});
 }

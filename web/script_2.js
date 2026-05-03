@@ -57,11 +57,11 @@ var TOC_SCREEN_WIDTH_CUTOFF = 667
 var TOC_EM = '2em'
 var TOC_EM_DESKTOP = '1.327em'
 var PLOTLY_WIDTH_DESKTOP = 914
-var TITLE_FONT_SIZE = '64.5px'
+var TITLE_FONT_SIZE = '64px'
 
 
 function switch_to_mobile_view() {
-  document.querySelector("#comprehensivepythoncheatsheet").style["font-size"] = "";
+  document.querySelector("#libraries").style["font-size"] = "";
   $(`code:contains(ToC)`).html(TOC_MOBILE).css("line-height", TOC_EM);
   const body = document.querySelector("body");
   body.style["width"] = `${TOC_SCREEN_WIDTH_CUTOFF+9}px`;
@@ -71,9 +71,8 @@ function switch_to_mobile_view() {
   });
 }
 
-
 function switch_to_desktop_view() {
-  document.querySelector("#comprehensivepythoncheatsheet").style["font-size"] = TITLE_FONT_SIZE;
+  document.querySelector("#libraries").style["font-size"] = TITLE_FONT_SIZE;
   $(`code:contains(ToC)`).html(TOC).css("line-height", TOC_EM_DESKTOP);
   const body = document.querySelector("body");
   body.style["width"] = "";
