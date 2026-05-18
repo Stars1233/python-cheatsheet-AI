@@ -225,6 +225,12 @@ const LOGGING_EXAMPLE =
   '<span class="hljs-meta">&gt;&gt;&gt; </span>print(open(<span class="hljs-string">\'test.log\'</span>).read())\n' +
   '2023-02-07 23:21:01,430 CRITICAL:my_module:Missing config file.\n';
 
+const NUMPY = `&lt;array&gt; = np.array(&lt;list/list_of_lists/…&gt;)          <span class="hljs-comment"># NumPy array. Accepts \`dtype=np.int64\`.</span>
+&lt;array&gt; = np.zeros/ones/empty(shape)                <span class="hljs-comment"># Pass a tuple of ints (dimension sizes).</span>
+&lt;array&gt; = np.arange(from, to_exc, ±step)            <span class="hljs-comment"># Also np.linspace(start, stop, length).</span>
+&lt;array&gt; = np.random.randint(from, to_exc, shape)    <span class="hljs-comment"># Also random.uniform(low, high, shape).</span>
+`;
+
 const AUDIO_1 =
   '<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">write_to_wav_file</span><span class="hljs-params">(filename, samples_f, p=<span class="hljs-keyword">None</span>, nchannels=<span class="hljs-number">1</span>, sampwidth=<span class="hljs-number">2</span>, fs=<span class="hljs-number">44100</span>)</span>:</span>\n' +
   '    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_bytes</span><span class="hljs-params">(a_float)</span>:</span>\n' +
@@ -244,7 +250,7 @@ const AUDIO_2 =
 
 const MARIO = `<span class="hljs-keyword">import</span> pygame <span class="hljs-keyword">as</span> pg, dataclasses <span class="hljs-keyword">as</span> dc, enum, io, itertools, random <span class="hljs-keyword">as</span> r, urllib.request
 
-W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)    <span class="hljs-comment"># Width, Height, Direction.</span>
+W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)   <span class="hljs-comment"># Width, Height, Direction.</span>
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_window</span><span class="hljs-params">()</span>:</span>
@@ -960,6 +966,7 @@ function fixHighlights() {
   $(`code:contains(import asyncio as aio, collections, curses, curses.textpad, enum, random)`).html(COROUTINES);
   $(`code:contains(pip3 install tqdm)`).html(PROGRESS_BAR);
   $(`code:contains(import curses, os)`).html(CURSES);
+  $(`code:contains(<list/list_of_lists/…>)`).html(NUMPY);
   $(`code:contains(a_float = max()`).html(AUDIO_1);
   $(`code:contains(get_sin = )`).html(AUDIO_2);
   $(`code:contains(dc, enum, io, itertools, random)`).html(MARIO);

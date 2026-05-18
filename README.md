@@ -2653,50 +2653,50 @@ import numpy as np
 ```
 
 ```python
-<array> = np.array(<list/list_of_lists/…> [, dtype])  # NumPy array of one or more dimensions.
-<array> = np.zeros/ones/empty(shape)                  # Pass a tuple of ints (dimension sizes).
-<array> = np.arange(from_inc, to_exc, ±step)          # Also np.linspace(start, stop, length).
-<array> = np.random.randint(from_inc, to_exc, shape)  # Also random.uniform(low, high, shape).
+<array> = np.array(<list/list_of_lists/…>)          # NumPy array. Accepts `dtype=np.int64`.
+<array> = np.zeros/ones/empty(shape)                # Pass a tuple of ints (dimension sizes).
+<array> = np.arange(form, to_exc, ±step)            # Also np.linspace(start, stop, length).
+<array> = np.random.randint(form, to_exc, shape)    # Also random.uniform(low, high, shape).
 ```
 
 ```python
-<view>  = <array>.reshape(shape)                      # Also `<array>.shape = (<int>, [...])`.
-<array> = <array>.flatten()                           # Returns 1d copy. Also <array>.ravel().
-<view>  = <array>.transpose()                         # Flips the table over its main diagonal.
+<view>  = <array>.reshape(shape)                    # Also `<array>.shape = (<int>, [...])`.
+<array> = <array>.flatten()                         # Returns 1d copy. Also <array>.ravel().
+<view>  = <array>.transpose()                       # Flips the table over its main diagonal.
 ```
 
 ```python
-<array> = np.copy/abs/sqrt/log/int64(<array>)         # Returns a new array of the same shape.
-<array> = <array>.sum/max/mean/argmax/all(axis)       # Aggregates dimension with passed index.
-<array> = np.apply_along_axis(<func>, axis, <array>)  # Func. can return a scalar or an array.
+<array> = np.abs/sqrt/log/copy(<array>)             # Returns a new array of the same shape.
+<array> = <array>.sum/max/mean/argmax(axis)         # Aggregates dimension with passed index.
+<array> = np.apply_along_axis(<func>, axis, <arr>)  # Func. can return a scalar or an array.
 ```
 
 ```python
-<array> = np.concatenate(<list_of_arrays>, axis=0)    # Links arrays along first axis (rows).
-<array> = np.vstack/column_stack(<list_of_arrays>)    # A 1d array is treated as a row/column.
-<array> = np.tile/repeat(<array>, <int/s> [, axis])   # Tiles the array or repeats elements.
+<array> = np.concat(<list_of_arrs>, axis=0)         # Links arrays along first axis (rows).
+<array> = np.vstack/column_stack(<list_of_arrs>)    # A 1d array is treated as a row/column.
+<array> = np.tile/repeat(<arr>, <int/s> [, axis])   # Tiles whole array or repeats elements.
 ```
 * **Shape is a tuple of dimension sizes. A 100x50 RGB image has shape (50, 100, 3).**
 * **Axis is an index of a dimension. Leftmost dimension has index 0. Summing the RGB&nbsp;image along axis 2 will return a greyscale image with shape (50, 100).**
 
 ### Indexing
 ```perl
-<element>  = <2d>[row_index, col_index]               # Also `<3d>[<int>, <int>, <int>]`.
-<1d_view>  = <2d>[row_index]                          # Also `<3d>[<int>, <int>, <slice>]`.
-<1d_view>  = <2d>[:, col_index]                       # Also `<3d>[<int>, <slice>, <int>]`.
-<2d_view>  = <2d>[from:to_row_i, from:to_col_i]       # Also `<3d>[<int>, <slice>, <slice>]`.
+<element>  = <2d>[row_index, col_index]             # Or <3d>[<int>, <int>, <int>].
+<1d_view>  = <2d>[row_index]                        # Or <3d>[<int>, <int>, <slice>].
+<1d_view>  = <2d>[:, col_index]                     # Or <3d>[<int>, <slice>, <int>].
+<2d_view>  = <2d>[row_i:to_exc, col_i:to_exc]       # Or <3d>[<int>, <slice>, <slice>].
 ```
 
 ```perl
-<1d_array> = <2d>[row_indices, col_indices]           # Also `<3d>[<int/1d>, <1d>, <1d>]`.
-<2d_array> = <2d>[row_indices]                        # Also `<3d>[<int/1d>, <1d>, <slice>]`.
-<2d_array> = <2d>[:, col_indices]                     # Also `<3d>[<int/1d>, <slice>, <1d>]`.
-<2d_array> = <2d>[np.ix_(row_indices, col_indices)]   # Also `<3d>[<int/1d/2d>, <2d>, <2d>]`.
+<1d_array> = <2d>[row_indices, col_indices]         # Or <3d>[<int/1d>, <1d>, <1d>].
+<2d_array> = <2d>[row_indices]                      # Or <3d>[<int/1d>, <1d>, <slice>].
+<2d_array> = <2d>[:, col_indices]                   # Or <3d>[<int/1d>, <slice>, <1d>].
+<2d_array> = <2d>[np.ix_(row_is, col_is)]           # Or <3d>[<int/1d/2d>, <2d>, <2d>].
 ```
 
 ```perl
-<2d_bools> = <2d> > <el/1d/2d>                        # A 1d object must be a size of a row.
-<1/2d_arr> = <2d>[<2d/1d_bools>]                      # A 1d object must be a size of a col.
+<2d_bools> = <2d> > <el/1d/2d>                      # A 1d object must be size of row.
+<1/2d_arr> = <2d>[<2d/1d_bools>]                    # A 1d object must be size of col.
 ```
 * **`':'` returns a slice of all dimension's indices. If dimension is omitted, it defaults to `':'`.**
 * **Passing two slices (line 4) works the same as when a slice and 1d array are passed (line 7).**
@@ -2707,23 +2707,23 @@ import numpy as np
 ### Broadcasting
 **Array reshaping procedure used by arithmetic operations, etc.**
 ```python
-array_a = np.array([0.1,  0.6,  0.8])                 # I.e. `array_a.shape == (3,)`.
-array_b = np.array([[0.1], [0.6], [0.8]])             # I.e. `array_b.shape == (3, 1)`.
+array_a = np.array([0.1,  0.6,  0.8])               # I.e. `array_a.shape == (3,)`.
+array_b = np.array([[0.1], [0.6], [0.8]])           # I.e. `array_b.shape == (3, 1)`.
 ```
 
 #### 1. If array shapes differ in length, left-pad the shorter shape with ones:
 ```python
-array_a = np.array([[0.1,  0.6,  0.8]])               # I.e. `array_a.shape == (1, 3)`.
-array_b = np.array([[0.1], [0.6], [0.8]])             # I.e. `array_b.shape == (3, 1)`.
+array_a = np.array([[0.1,  0.6,  0.8]])             # I.e. `array_a.shape == (1, 3)`.
+array_b = np.array([[0.1], [0.6], [0.8]])           # I.e. `array_b.shape == (3, 1)`.
 ```
 
 #### 2. Expand dimensions with size 1 by duplicating their elements/arrays:
 ```python
-array_a = np.array([[0.1,  0.6,  0.8],                # I.e. `array_a.shape == (3, 3)`.
+array_a = np.array([[0.1,  0.6,  0.8],              # I.e. `array_a.shape == (3, 3)`.
                     [0.1,  0.6,  0.8],
                     [0.1,  0.6,  0.8]])
 
-array_b = np.array([[0.1,  0.1,  0.1],                # I.e. `array_b.shape == (3, 3)`.
+array_b = np.array([[0.1,  0.1,  0.1],              # I.e. `array_b.shape == (3, 3)`.
                     [0.6,  0.6,  0.6],
                     [0.8,  0.8,  0.8]])
 ```
@@ -2760,29 +2760,29 @@ from PIL import Image
 ```
 
 ```python
-<Image> = Image.new('RGB', (width, height))  # Creates an image. Also `color=<tuple_of_ints>`.
-<Image> = Image.open(<path>)                 # Identifies format based on the file's contents.
-<Image> = <Image>.convert('<mode>')          # Converts the image to the new mode (see Modes).
-<Image>.save(<path>)                         # Also `quality=<int>` if extension is jpg/jpeg.
-<Image>.show()                               # Displays image in system's default preview app.
+<Image> = Image.new('RGB', (width, heig))  # Creates an image. Also `color=<tuple_of_ints>`.
+<Image> = Image.open(<path>)               # Identifies format based on the file's contents.
+<Image> = <Image>.convert('<mode>')        # Converts the image to the new mode (see Modes).
+<Image>.save(<path>)                       # Also `quality=<int>` if extension is jpg/jpeg.
+<Image>.show()                             # Displays image in system's default preview app.
 ```
 
 ```python
-<int/tup> = <Image>.getpixel((x, y))         # Returns the pixel's value, that is, its color.
-<ImgCore> = <Image>.getdata()                # Returns a flattened view of the pixel values.
-<Image>.putpixel((x, y), <int/tuple>)        # Updates pixel's value. Clips passed integer/s.
-<Image>.putdata(<list/ImgCore>)              # Updates pixels with a copy of passed sequence.
-<Image>.paste(<Image>, (x, y))               # Draws passed image at the specified location.
+<int/tup> = <Image>.getpixel((x, y))       # Returns the pixel's value, that is, its color.
+<ImgCore> = <Image>.getdata()              # Returns a flattened view of the pixel values.
+<Image>.putpixel((x, y), <int/tuple>)      # Updates pixel's value. Clips passed integer/s.
+<Image>.putdata(<list/ImgCore>)            # Updates pixels with a copy of passed sequence.
+<Image>.paste(<Image>, (x, y))             # Draws passed image at the specified location.
 ```
 
 ```python
-<Image> = <Image>.filter(<Filter>)           # Accepts ImageFilter.BLUR/SHARPEN/FIND_EDGES/….
-<Image> = <Enhance>.enhance(<float>)         # E.g. `ImageEnhance.Contrast/Color/…(<Image>)`.
+<Image> = <Image>.filter(<Filter>)         # Accepts ImageFilter.BLUR/SHARPEN/FIND_EDGES/….
+<Image> = <Enhance>.enhance(<float>)       # E.g. `ImageEnhance.Contrast/Color/…(<Image>)`.
 ```
 
 ```python
-<array> = numpy.array(<Image>)               # Creates a 2d or 3d NumPy array from the image.
-<Image> = Image.fromarray(<array>)           # Clip values with np.uint8(<arr>.clip(0, 255)).
+<array> = numpy.array(<Image>)             # Creates a 2d or 3d NumPy array from the image.
+<Image> = Image.fromarray(<array>)         # Clip values with np.uint8(<arr>.clip(0, 255)).
 ```
 
 ### Modes
@@ -2815,14 +2815,14 @@ img.show()
 ### Image Draw
 ```python
 from PIL import ImageDraw
-<Draw> = ImageDraw.Draw(<Image>)             # An object for adding 2D graphics to the image.
-<Draw>.point((x, y))                         # Draws a point. Accepts `fill=<int/tuple/str>`.
-<Draw>.line((x1, y1, x2, y2 [, ...]))        # To get anti-aliasing use <Img>.resize((w, h)).
-<Draw>.arc((x1, y1, x2, y2), deg1, deg2)     # Draws arc of an ellipse in clockwise direction.
-<Draw>.rectangle((x1, y1, x2, y2))           # Also rounded_rectangle() and regular_polygon().
-<Draw>.polygon((x1, y1, x2, y2, ...))        # The last point gets connected to the first one.
-<Draw>.ellipse((x1, y1, x2, y2))             # To rotate it use <Image>.rotate(anticlock_deg).
-<Draw>.text((x, y), <str>)                   # Accepts `font=ImageFont.truetype(path, size)`.
+<Draw> = ImageDraw.Draw(<Image>)           # An object for adding 2D graphics to the image.
+<Draw>.point((x, y))                       # Draws a point. Accepts `fill=<int/tuple/str>`.
+<Draw>.line((x1, y1, x2, y2 [, ...]))      # To get anti-aliasing use <Img>.resize((w, h)).
+<Draw>.arc((x1, y1, x2, y2), deg1, deg2)   # Draws arc of an ellipse in clockwise direction.
+<Draw>.rectangle((x1, y1, x2, y2))         # Also rounded_rectangle() and regular_polygon().
+<Draw>.polygon((x1, y1, x2, y2, ...))      # The last point gets connected to the first one.
+<Draw>.ellipse((x1, y1, x2, y2))           # To rotate it use <Image>.rotate(anticlock_deg).
+<Draw>.text((x, y), <str>)                 # Accepts `font=ImageFont.truetype(path, size)`.
 ```
 * **Pass `'fill=<color>'` to set primary color of the figure.**
 * **Pass `'width=<int>'` to set the width of lines or contours.**
@@ -3000,65 +3000,65 @@ pg.quit()
 ### Rect
 **Object for storing rectangular coordinates.**
 ```python
-<Rect> = pg.Rect(x, y, width, height)          # Creates Rect object. Truncates passed floats.
-<int>  = <Rect>.x/y/centerx/centery/…          # `top/right/bottom/left`. Allows assignments.
-<tup.> = <Rect>.topleft/center/…               # `topright/bottomright/bottomleft/size`. Same.
-<Rect> = <Rect>.move((delta_x, delta_y))       # Use move_ip() to move the rectangle in-place.
+<Rect> = pg.Rect(x, y, width, height)         # Creates Rect object. Truncates passed floats.
+<int>  = <Rect>.x/y/centerx/centery/…         # `top/right/bottom/left`. Allows assignments.
+<tup.> = <Rect>.topleft/center/…              # `topright/bottomright/bottomleft/size`. Same.
+<Rect> = <Rect>.move((delta_x, delta_y))      # Use move_ip() to move the rectangle in-place.
 ```
 
 ```python
-<bool> = <Rect>.collidepoint((x, y))           # Returns True if rectangle contains the point.
-<bool> = <Rect>.colliderect(<Rect>)            # Returns True if the rectangles are colliding.
-<int>  = <Rect>.collidelist(<list_of_Rect>)    # Returns index of first colliding Rect or -1.
-<list> = <Rect>.collidelistall(<list>)         # Returns indices of all colliding rectangles.
+<bool> = <Rect>.collidepoint((x, y))          # Returns True if rectangle contains the point.
+<bool> = <Rect>.colliderect(<Rect>)           # Returns True if the rectangles are colliding.
+<int>  = <Rect>.collidelist(<list_of_Rect>)   # Returns index of first colliding Rect or -1.
+<list> = <Rect>.collidelistall(<list>)        # Returns indices of all colliding rectangles.
 ```
 
 ### Surface
 **Object for representing images.**
 ```python
-<Surf> = pg.display.set_mode((width, height))  # Opens new window and returns surface object.
-<Surf> = pg.Surface((width, height))           # New RGB surface. RGBA if `flags=pg.SRCALPHA`.
-<Surf> = pg.image.load(<path/file>)            # Loads the image. Also get_width/get_height().
-<Surf> = pg.surfarray.make_surface(<array>)    # Also `<np_arr> = surfarray.pixels3d(<Surf>)`.
-<Surf> = <Surf>.subsurface(<Rect>)             # Creates a new surface object from the cutout.
+<Surf> = pg.display.set_mode((width, heig))   # Opens new window and returns surface object.
+<Surf> = pg.Surface((width, height))          # New RGB surface. RGBA if `flags=pg.SRCALPHA`.
+<Surf> = pg.image.load(<path/file>)           # Loads the image. Also get_width/get_height().
+<Surf> = pg.surfarray.make_surface(<array>)   # Also `<np_arr> = surfarray.pixels3d(<Surf>)`.
+<Surf> = <Surf>.subsurface(<Rect>)            # Creates a new surface object from the cutout.
 ```
 
 ```python
-<Surf>.fill(color)                             # Pass tuple of ints or pg.Color('<name/hex>').
-<Surf>.set_at((x, y), color)                   # Updates a pixel. Also <Surf>.get_at((x, y)).
-<Surf>.blit(<Surf>, (x, y))                    # Draws passed surface at a specified location.
+<Surf>.fill(color)                            # Pass tuple of ints or pg.Color('<name/hex>').
+<Surf>.set_at((x, y), color)                  # Updates a pixel. Also <Surf>.get_at((x, y)).
+<Surf>.blit(<Surf>, (x, y))                   # Draws passed surface at a specified location.
 ```
 
 ```python
-from pygame.transform import scale, rotate     # Also flip, smoothscale, scale_by, rotozoom.
-<Surf> = scale(<Surf>, (width, height))        # Scales the surface. `smoothscale()` blurs it.
-<Surf> = rotate(<Surf>, angle)                 # Rotates the surface for counterclock degrees.
-<Surf> = flip(<Surf>, flip_x=True)             # Mirrors over the y axis. Also `flip_y=True`.
+from pygame.transform import scale, rotate    # Also flip, smoothscale, scale_by, rotozoom.
+<Surf> = scale(<Surf>, (width, height))       # Scales the surface. `smoothscale()` blurs it.
+<Surf> = rotate(<Surf>, angle)                # Rotates the surface for counterclock degrees.
+<Surf> = flip(<Surf>, flip_x=True)            # Mirrors over the y axis. Also `flip_y=True`.
 ```
 
 ```python
-from pygame.draw import line, arc, rect        # Also ellipse, circle, polygon, lines, aaline.
-line(<Surf>, color, (x1, y1), (x2, y2))        # Draws line to surface. Accepts `width=<int>`.
-arc(<Surf>, color, <Rect>, from_rad, to_rad)   # Also ellipse(<Surf>, color, <Rect>, width=0).
-rect(<Surf>, color, <Rect>, width=0)           # Also polygon(<Surf>, color, points, width=0).
+from pygame.draw import line, arc, rect       # Also ellipse, circle, polygon, lines, aaline.
+line(<Surf>, color, (x1, y1), (x2, y2))       # Draws line to surface. Accepts `width=<int>`.
+arc(<Surf>, color, <Rect>, from_rad, to_rad)  # Also ellipse(<Surf>, color, <Rect>, width=0).
+rect(<Surf>, color, <Rect>, width=0)          # Also polygon(<Surf>, color, points, width=0).
 ```
 
 ```python
-<Font> = pg.font.Font(<path/file>, size)       # Loads a TTF file. Pass None for default font.
-<Surf> = <Font>.render(<str>, True, color)     # Accepts background color via fourth argument.
+<Font> = pg.font.Font(<path/file>, size)      # Loads a TTF file. Pass None for default font.
+<Surf> = <Font>.render(<str>, True, color)    # Accepts background color via fourth argument.
 ```
 
 ### Sound
 ```python
-<Sound> = pg.mixer.Sound(<path/file/bytes>)    # Accepts WAV file or array of short integers.
-<Sound>.play/stop()                            # Also set_volume(<float>) and fadeout(msec).
+<Sound> = pg.mixer.Sound(<path/file/bytes>)   # Accepts WAV file or array of short integers.
+<Sound>.play/stop()                           # Also set_volume(<float>) and fadeout(msec).
 ```
 
 ### Basic Mario Brothers Example
 ```python
 import pygame as pg, dataclasses as dc, enum, io, itertools, random as r, urllib.request
 
-W, H, D = 50, 50, enum.Enum('D', 'n e s w')    # Width, Height, Direction.
+W, H, D = 50, 50, enum.Enum('D', 'n e s w')   # Width, Height, Direction.
 
 def main():
     def get_window():

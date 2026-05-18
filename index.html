@@ -56,7 +56,7 @@
 
 <body style="margin-top: 17.1px">
   <header>
-    <aside>May 15, 2026</aside>
+    <aside>May 18, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -2180,40 +2180,40 @@ $ snakeviz test.prof                                       <span class="hljs-com
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;array&gt; = np.array(&lt;list/list_of_lists/…&gt; [, dtype])  <span class="hljs-comment"># NumPy array of one or more dimensions.</span>
-&lt;array&gt; = np.zeros/ones/empty(shape)                  <span class="hljs-comment"># Pass a tuple of ints (dimension sizes).</span>
-&lt;array&gt; = np.arange(from_inc, to_exc, ±step)          <span class="hljs-comment"># Also np.linspace(start, stop, length).</span>
-&lt;array&gt; = np.random.randint(from_inc, to_exc, shape)  <span class="hljs-comment"># Also random.uniform(low, high, shape).</span>
+<pre><code class="python language-python hljs">&lt;array&gt; = np.array(&lt;list/list_of_lists/…&gt;)          <span class="hljs-comment"># NumPy array. Accepts `dtype=np.int64`.</span>
+&lt;array&gt; = np.zeros/ones/empty(shape)                <span class="hljs-comment"># Pass a tuple of ints (dimension sizes).</span>
+&lt;array&gt; = np.arange(from, to_exc, ±step)            <span class="hljs-comment"># Also np.linspace(start, stop, length).</span>
+&lt;array&gt; = np.random.randint(from, to_exc, shape)    <span class="hljs-comment"># Also random.uniform(low, high, shape).</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;view&gt;  = &lt;array&gt;.reshape(shape)                      <span class="hljs-comment"># Also `&lt;array&gt;.shape = (&lt;int&gt;, [...])`.</span>
-&lt;array&gt; = &lt;array&gt;.flatten()                           <span class="hljs-comment"># Returns 1d copy. Also &lt;array&gt;.ravel().</span>
-&lt;view&gt;  = &lt;array&gt;.transpose()                         <span class="hljs-comment"># Flips the table over its main diagonal.</span>
+<pre><code class="python language-python hljs">&lt;view&gt;  = &lt;array&gt;.reshape(shape)                    <span class="hljs-comment"># Also `&lt;array&gt;.shape = (&lt;int&gt;, [...])`.</span>
+&lt;array&gt; = &lt;array&gt;.flatten()                         <span class="hljs-comment"># Returns 1d copy. Also &lt;array&gt;.ravel().</span>
+&lt;view&gt;  = &lt;array&gt;.transpose()                       <span class="hljs-comment"># Flips the table over its main diagonal.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;array&gt; = np.copy/abs/sqrt/log/int64(&lt;array&gt;)         <span class="hljs-comment"># Returns a new array of the same shape.</span>
-&lt;array&gt; = &lt;array&gt;.sum/max/mean/argmax/all(axis)       <span class="hljs-comment"># Aggregates dimension with passed index.</span>
-&lt;array&gt; = np.apply_along_axis(&lt;func&gt;, axis, &lt;array&gt;)  <span class="hljs-comment"># Func. can return a scalar or an array.</span>
+<pre><code class="python language-python hljs">&lt;array&gt; = np.abs/sqrt/log/copy(&lt;array&gt;)             <span class="hljs-comment"># Returns a new array of the same shape.</span>
+&lt;array&gt; = &lt;array&gt;.sum/max/mean/argmax(axis)         <span class="hljs-comment"># Aggregates dimension with passed index.</span>
+&lt;array&gt; = np.apply_along_axis(&lt;func&gt;, axis, &lt;arr&gt;)  <span class="hljs-comment"># Func. can return a scalar or an array.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;array&gt; = np.concatenate(&lt;list_of_arrays&gt;, axis=<span class="hljs-number">0</span>)    <span class="hljs-comment"># Links arrays along first axis (rows).</span>
-&lt;array&gt; = np.vstack/column_stack(&lt;list_of_arrays&gt;)    <span class="hljs-comment"># A 1d array is treated as a row/column.</span>
-&lt;array&gt; = np.tile/repeat(&lt;array&gt;, &lt;int/s&gt; [, axis])   <span class="hljs-comment"># Tiles the array or repeats elements.</span>
+<pre><code class="python language-python hljs">&lt;array&gt; = np.concat(&lt;list_of_arrs&gt;, axis=<span class="hljs-number">0</span>)         <span class="hljs-comment"># Links arrays along first axis (rows).</span>
+&lt;array&gt; = np.vstack/column_stack(&lt;list_of_arrs&gt;)    <span class="hljs-comment"># A 1d array is treated as a row/column.</span>
+&lt;array&gt; = np.tile/repeat(&lt;arr&gt;, &lt;int/s&gt; [, axis])   <span class="hljs-comment"># Tiles whole array or repeats elements.</span>
 </code></pre>
 <ul>
 <li><strong>Shape is a tuple of dimension sizes. A 100x50 RGB image has shape (50, 100, 3).</strong></li>
 <li><strong>Axis is an index of a dimension. Leftmost dimension has index 0. Summing the RGB&nbsp;image along axis 2 will return a greyscale image with shape (50, 100).</strong></li>
 </ul>
-<div><h3 id="indexing">Indexing</h3><pre><code class="bash hljs">&lt;element&gt;  = &lt;2d&gt;[row_index, col_index]               <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int&gt;, &lt;int&gt;, &lt;int&gt;]`.</span>
-&lt;1d_view&gt;  = &lt;2d&gt;[row_index]                          <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int&gt;, &lt;int&gt;, &lt;slice&gt;]`.</span>
-&lt;1d_view&gt;  = &lt;2d&gt;[:, col_index]                       <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int&gt;, &lt;slice&gt;, &lt;int&gt;]`.</span>
-&lt;2d_view&gt;  = &lt;2d&gt;[from:to_row_i, from:to_col_i]       <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int&gt;, &lt;slice&gt;, &lt;slice&gt;]`.</span>
+<div><h3 id="indexing">Indexing</h3><pre><code class="bash hljs">&lt;element&gt;  = &lt;2d&gt;[row_index, col_index]             <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int&gt;, &lt;int&gt;, &lt;int&gt;].</span>
+&lt;1d_view&gt;  = &lt;2d&gt;[row_index]                        <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int&gt;, &lt;int&gt;, &lt;slice&gt;].</span>
+&lt;1d_view&gt;  = &lt;2d&gt;[:, col_index]                     <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int&gt;, &lt;slice&gt;, &lt;int&gt;].</span>
+&lt;2d_view&gt;  = &lt;2d&gt;[row_i:to_exc, col_i:to_exc]       <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int&gt;, &lt;slice&gt;, &lt;slice&gt;].</span>
 </code></pre></div>
 
-<pre><code class="bash hljs">&lt;1d_array&gt; = &lt;2d&gt;[row_indices, col_indices]           <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int/1d&gt;, &lt;1d&gt;, &lt;1d&gt;]`.</span>
-&lt;2d_array&gt; = &lt;2d&gt;[row_indices]                        <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int/1d&gt;, &lt;1d&gt;, &lt;slice&gt;]`.</span>
-&lt;2d_array&gt; = &lt;2d&gt;[:, col_indices]                     <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int/1d&gt;, &lt;slice&gt;, &lt;1d&gt;]`.</span>
-&lt;2d_array&gt; = &lt;2d&gt;[np.ix_(row_indices, col_indices)]   <span class="hljs-comment"># Also `&lt;3d&gt;[&lt;int/1d/2d&gt;, &lt;2d&gt;, &lt;2d&gt;]`.</span>
+<pre><code class="bash hljs">&lt;1d_array&gt; = &lt;2d&gt;[row_indices, col_indices]         <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int/1d&gt;, &lt;1d&gt;, &lt;1d&gt;].</span>
+&lt;2d_array&gt; = &lt;2d&gt;[row_indices]                      <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int/1d&gt;, &lt;1d&gt;, &lt;slice&gt;].</span>
+&lt;2d_array&gt; = &lt;2d&gt;[:, col_indices]                   <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int/1d&gt;, &lt;slice&gt;, &lt;1d&gt;].</span>
+&lt;2d_array&gt; = &lt;2d&gt;[np.ix_(row_is, col_is)]           <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int/1d/2d&gt;, &lt;2d&gt;, &lt;2d&gt;].</span>
 </code></pre>
-<pre><code class="bash hljs">&lt;2d_bools&gt; = &lt;2d&gt; &gt; &lt;el/1d/2d&gt;                        <span class="hljs-comment"># A 1d object must be a size of a row.</span>
-&lt;1/2d_arr&gt; = &lt;2d&gt;[&lt;2d/1d_bools&gt;]                      <span class="hljs-comment"># A 1d object must be a size of a col.</span>
+<pre><code class="bash hljs">&lt;2d_bools&gt; = &lt;2d&gt; &gt; &lt;el/1d/2d&gt;                      <span class="hljs-comment"># A 1d object must be size of row.</span>
+&lt;1/2d_arr&gt; = &lt;2d&gt;[&lt;2d/1d_bools&gt;]                    <span class="hljs-comment"># A 1d object must be size of col.</span>
 </code></pre>
 <ul>
 <li><strong><code class="python hljs"><span class="hljs-string">':'</span></code> returns a slice of all dimension's indices. If dimension is omitted, it defaults to <code class="python hljs"><span class="hljs-string">':'</span></code>.</strong></li>
@@ -2222,20 +2222,20 @@ $ snakeviz test.prof                                       <span class="hljs-com
 <li><strong><code class="python hljs"><span class="hljs-string">'ix_([1, 2], [3, 4])'</span></code> returns <code class="python hljs"><span class="hljs-string">'[[1], [2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4]]'</span></code>. Due to broadcasting rules, this is the same as indexing via <code class="python hljs"><span class="hljs-string">'[[1, 1], [2, 2]]'</span></code> and <code class="python hljs"><span class="hljs-string">'[[3, 4], [3, 4]]'</span></code>.</strong></li>
 <li><strong>Any value that is broadcastable to the indexed shape can be assigned to the selection.</strong></li>
 </ul>
-<div><h3 id="broadcasting">Broadcasting</h3><p><strong>Array reshaping procedure used by arithmetic operations, etc.</strong></p><pre><code class="python language-python hljs">array_a = np.array([<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>])                 <span class="hljs-comment"># I.e. `array_a.shape == (3,)`.</span>
-array_b = np.array([[<span class="hljs-number">0.1</span>], [<span class="hljs-number">0.6</span>], [<span class="hljs-number">0.8</span>]])             <span class="hljs-comment"># I.e. `array_b.shape == (3, 1)`.</span>
+<div><h3 id="broadcasting">Broadcasting</h3><p><strong>Array reshaping procedure used by arithmetic operations, etc.</strong></p><pre><code class="python language-python hljs">array_a = np.array([<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>])               <span class="hljs-comment"># I.e. `array_a.shape == (3,)`.</span>
+array_b = np.array([[<span class="hljs-number">0.1</span>], [<span class="hljs-number">0.6</span>], [<span class="hljs-number">0.8</span>]])           <span class="hljs-comment"># I.e. `array_b.shape == (3, 1)`.</span>
 </code></pre></div>
 
 
-<div><h4 id="1ifarrayshapesdifferinlengthleftpadtheshortershapewithones">1. If array shapes differ in length, left-pad the shorter shape with ones:</h4><pre><code class="python language-python hljs">array_a = np.array([[<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>]])               <span class="hljs-comment"># I.e. `array_a.shape == (1, 3)`.</span>
-array_b = np.array([[<span class="hljs-number">0.1</span>], [<span class="hljs-number">0.6</span>], [<span class="hljs-number">0.8</span>]])             <span class="hljs-comment"># I.e. `array_b.shape == (3, 1)`.</span>
+<div><h4 id="1ifarrayshapesdifferinlengthleftpadtheshortershapewithones">1. If array shapes differ in length, left-pad the shorter shape with ones:</h4><pre><code class="python language-python hljs">array_a = np.array([[<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>]])             <span class="hljs-comment"># I.e. `array_a.shape == (1, 3)`.</span>
+array_b = np.array([[<span class="hljs-number">0.1</span>], [<span class="hljs-number">0.6</span>], [<span class="hljs-number">0.8</span>]])           <span class="hljs-comment"># I.e. `array_b.shape == (3, 1)`.</span>
 </code></pre></div>
 
-<div><h4 id="2expanddimensionswithsize1byduplicatingtheirelementsarrays">2. Expand dimensions with size 1 by duplicating their elements/arrays:</h4><pre><code class="python language-python hljs">array_a = np.array([[<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>],                <span class="hljs-comment"># I.e. `array_a.shape == (3, 3)`.</span>
+<div><h4 id="2expanddimensionswithsize1byduplicatingtheirelementsarrays">2. Expand dimensions with size 1 by duplicating their elements/arrays:</h4><pre><code class="python language-python hljs">array_a = np.array([[<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>],              <span class="hljs-comment"># I.e. `array_a.shape == (3, 3)`.</span>
                     [<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>],
                     [<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.8</span>]])
 
-array_b = np.array([[<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.1</span>,  <span class="hljs-number">0.1</span>],                <span class="hljs-comment"># I.e. `array_b.shape == (3, 3)`.</span>
+array_b = np.array([[<span class="hljs-number">0.1</span>,  <span class="hljs-number">0.1</span>,  <span class="hljs-number">0.1</span>],              <span class="hljs-comment"># I.e. `array_b.shape == (3, 3)`.</span>
                     [<span class="hljs-number">0.6</span>,  <span class="hljs-number">0.6</span>,  <span class="hljs-number">0.6</span>],
                     [<span class="hljs-number">0.8</span>,  <span class="hljs-number">0.8</span>,  <span class="hljs-number">0.8</span>]])
 </code></pre></div>
@@ -2264,23 +2264,23 @@ array_b = np.array([[<span class="hljs-number">0.1</span>,  <span class="hljs-nu
 <span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image
 </code></pre></div>
 
-<pre><code class="python language-python hljs">&lt;Image&gt; = Image.new(<span class="hljs-string">'RGB'</span>, (width, height))  <span class="hljs-comment"># Creates an image. Also `color=&lt;tuple_of_ints&gt;`.</span>
-&lt;Image&gt; = Image.open(&lt;path&gt;)                 <span class="hljs-comment"># Identifies format based on the file's contents.</span>
-&lt;Image&gt; = &lt;Image&gt;.convert(<span class="hljs-string">'&lt;mode&gt;'</span>)          <span class="hljs-comment"># Converts the image to the new mode (see Modes).</span>
-&lt;Image&gt;.save(&lt;path&gt;)                         <span class="hljs-comment"># Also `quality=&lt;int&gt;` if extension is jpg/jpeg.</span>
-&lt;Image&gt;.show()                               <span class="hljs-comment"># Displays image in system's default preview app.</span>
+<pre><code class="python language-python hljs">&lt;Image&gt; = Image.new(<span class="hljs-string">'RGB'</span>, (width, heig))  <span class="hljs-comment"># Creates an image. Also `color=&lt;tuple_of_ints&gt;`.</span>
+&lt;Image&gt; = Image.open(&lt;path&gt;)               <span class="hljs-comment"># Identifies format based on the file's contents.</span>
+&lt;Image&gt; = &lt;Image&gt;.convert(<span class="hljs-string">'&lt;mode&gt;'</span>)        <span class="hljs-comment"># Converts the image to the new mode (see Modes).</span>
+&lt;Image&gt;.save(&lt;path&gt;)                       <span class="hljs-comment"># Also `quality=&lt;int&gt;` if extension is jpg/jpeg.</span>
+&lt;Image&gt;.show()                             <span class="hljs-comment"># Displays image in system's default preview app.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;int/tup&gt; = &lt;Image&gt;.getpixel((x, y))         <span class="hljs-comment"># Returns the pixel's value, that is, its color.</span>
-&lt;ImgCore&gt; = &lt;Image&gt;.getdata()                <span class="hljs-comment"># Returns a flattened view of the pixel values.</span>
-&lt;Image&gt;.putpixel((x, y), &lt;int/tuple&gt;)        <span class="hljs-comment"># Updates pixel's value. Clips passed integer/s.</span>
-&lt;Image&gt;.putdata(&lt;list/ImgCore&gt;)              <span class="hljs-comment"># Updates pixels with a copy of passed sequence.</span>
-&lt;Image&gt;.paste(&lt;Image&gt;, (x, y))               <span class="hljs-comment"># Draws passed image at the specified location.</span>
+<pre><code class="python language-python hljs">&lt;int/tup&gt; = &lt;Image&gt;.getpixel((x, y))       <span class="hljs-comment"># Returns the pixel's value, that is, its color.</span>
+&lt;ImgCore&gt; = &lt;Image&gt;.getdata()              <span class="hljs-comment"># Returns a flattened view of the pixel values.</span>
+&lt;Image&gt;.putpixel((x, y), &lt;int/tuple&gt;)      <span class="hljs-comment"># Updates pixel's value. Clips passed integer/s.</span>
+&lt;Image&gt;.putdata(&lt;list/ImgCore&gt;)            <span class="hljs-comment"># Updates pixels with a copy of passed sequence.</span>
+&lt;Image&gt;.paste(&lt;Image&gt;, (x, y))             <span class="hljs-comment"># Draws passed image at the specified location.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;Image&gt; = &lt;Image&gt;.filter(&lt;Filter&gt;)           <span class="hljs-comment"># Accepts ImageFilter.BLUR/SHARPEN/FIND_EDGES/….</span>
-&lt;Image&gt; = &lt;Enhance&gt;.enhance(&lt;float&gt;)         <span class="hljs-comment"># E.g. `ImageEnhance.Contrast/Color/…(&lt;Image&gt;)`.</span>
+<pre><code class="python language-python hljs">&lt;Image&gt; = &lt;Image&gt;.filter(&lt;Filter&gt;)         <span class="hljs-comment"># Accepts ImageFilter.BLUR/SHARPEN/FIND_EDGES/….</span>
+&lt;Image&gt; = &lt;Enhance&gt;.enhance(&lt;float&gt;)       <span class="hljs-comment"># E.g. `ImageEnhance.Contrast/Color/…(&lt;Image&gt;)`.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;array&gt; = numpy.array(&lt;Image&gt;)               <span class="hljs-comment"># Creates a 2d or 3d NumPy array from the image.</span>
-&lt;Image&gt; = Image.fromarray(&lt;array&gt;)           <span class="hljs-comment"># Clip values with np.uint8(&lt;arr&gt;.clip(0, 255)).</span>
+<pre><code class="python language-python hljs">&lt;array&gt; = numpy.array(&lt;Image&gt;)             <span class="hljs-comment"># Creates a 2d or 3d NumPy array from the image.</span>
+&lt;Image&gt; = Image.fromarray(&lt;array&gt;)         <span class="hljs-comment"># Clip values with np.uint8(&lt;arr&gt;.clip(0, 255)).</span>
 </code></pre>
 <div><h3 id="modes-1">Modes</h3><ul>
 <li><strong><code class="python hljs"><span class="hljs-string">'L'</span></code> - Lightness (greyscale image). Each pixel is stored as an int between 0 and 255.</strong></li>
@@ -2306,14 +2306,14 @@ img.show()
 </code></pre></div>
 
 <div><h3 id="imagedraw">Image Draw</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> ImageDraw
-&lt;Draw&gt; = ImageDraw.Draw(&lt;Image&gt;)             <span class="hljs-comment"># An object for adding 2D graphics to the image.</span>
-&lt;Draw&gt;.point((x, y))                         <span class="hljs-comment"># Draws a point. Accepts `fill=&lt;int/tuple/str&gt;`.</span>
-&lt;Draw&gt;.line((x1, y1, x2, y2 [, ...]))        <span class="hljs-comment"># To get anti-aliasing use &lt;Img&gt;.resize((w, h)).</span>
-&lt;Draw&gt;.arc((x1, y1, x2, y2), deg1, deg2)     <span class="hljs-comment"># Draws arc of an ellipse in clockwise direction.</span>
-&lt;Draw&gt;.rectangle((x1, y1, x2, y2))           <span class="hljs-comment"># Also rounded_rectangle() and regular_polygon().</span>
-&lt;Draw&gt;.polygon((x1, y1, x2, y2, ...))        <span class="hljs-comment"># The last point gets connected to the first one.</span>
-&lt;Draw&gt;.ellipse((x1, y1, x2, y2))             <span class="hljs-comment"># To rotate it use &lt;Image&gt;.rotate(anticlock_deg).</span>
-&lt;Draw&gt;.text((x, y), &lt;str&gt;)                   <span class="hljs-comment"># Accepts `font=ImageFont.truetype(path, size)`.</span>
+&lt;Draw&gt; = ImageDraw.Draw(&lt;Image&gt;)           <span class="hljs-comment"># An object for adding 2D graphics to the image.</span>
+&lt;Draw&gt;.point((x, y))                       <span class="hljs-comment"># Draws a point. Accepts `fill=&lt;int/tuple/str&gt;`.</span>
+&lt;Draw&gt;.line((x1, y1, x2, y2 [, ...]))      <span class="hljs-comment"># To get anti-aliasing use &lt;Img&gt;.resize((w, h)).</span>
+&lt;Draw&gt;.arc((x1, y1, x2, y2), deg1, deg2)   <span class="hljs-comment"># Draws arc of an ellipse in clockwise direction.</span>
+&lt;Draw&gt;.rectangle((x1, y1, x2, y2))         <span class="hljs-comment"># Also rounded_rectangle() and regular_polygon().</span>
+&lt;Draw&gt;.polygon((x1, y1, x2, y2, ...))      <span class="hljs-comment"># The last point gets connected to the first one.</span>
+&lt;Draw&gt;.ellipse((x1, y1, x2, y2))           <span class="hljs-comment"># To rotate it use &lt;Image&gt;.rotate(anticlock_deg).</span>
+&lt;Draw&gt;.text((x, y), &lt;str&gt;)                 <span class="hljs-comment"># Accepts `font=ImageFont.truetype(path, size)`.</span>
 </code></pre></div>
 
 <ul>
@@ -2458,50 +2458,50 @@ pg.quit()
 </code></pre></div></div>
 
 
-<div><h3 id="rect">Rect</h3><p><strong>Object for storing rectangular coordinates.</strong></p><pre><code class="python language-python hljs">&lt;Rect&gt; = pg.Rect(x, y, width, height)          <span class="hljs-comment"># Creates Rect object. Truncates passed floats.</span>
-&lt;int&gt;  = &lt;Rect&gt;.x/y/centerx/centery/…          <span class="hljs-comment"># `top/right/bottom/left`. Allows assignments.</span>
-&lt;tup.&gt; = &lt;Rect&gt;.topleft/center/…               <span class="hljs-comment"># `topright/bottomright/bottomleft/size`. Same.</span>
-&lt;Rect&gt; = &lt;Rect&gt;.move((delta_x, delta_y))       <span class="hljs-comment"># Use move_ip() to move the rectangle in-place.</span>
+<div><h3 id="rect">Rect</h3><p><strong>Object for storing rectangular coordinates.</strong></p><pre><code class="python language-python hljs">&lt;Rect&gt; = pg.Rect(x, y, width, height)         <span class="hljs-comment"># Creates Rect object. Truncates passed floats.</span>
+&lt;int&gt;  = &lt;Rect&gt;.x/y/centerx/centery/…         <span class="hljs-comment"># `top/right/bottom/left`. Allows assignments.</span>
+&lt;tup.&gt; = &lt;Rect&gt;.topleft/center/…              <span class="hljs-comment"># `topright/bottomright/bottomleft/size`. Same.</span>
+&lt;Rect&gt; = &lt;Rect&gt;.move((delta_x, delta_y))      <span class="hljs-comment"># Use move_ip() to move the rectangle in-place.</span>
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;Rect&gt;.collidepoint((x, y))           <span class="hljs-comment"># Returns True if rectangle contains the point.</span>
-&lt;bool&gt; = &lt;Rect&gt;.colliderect(&lt;Rect&gt;)            <span class="hljs-comment"># Returns True if the rectangles are colliding.</span>
-&lt;int&gt;  = &lt;Rect&gt;.collidelist(&lt;list_of_Rect&gt;)    <span class="hljs-comment"># Returns index of first colliding Rect or -1.</span>
-&lt;list&gt; = &lt;Rect&gt;.collidelistall(&lt;list&gt;)         <span class="hljs-comment"># Returns indices of all colliding rectangles.</span>
+<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;Rect&gt;.collidepoint((x, y))          <span class="hljs-comment"># Returns True if rectangle contains the point.</span>
+&lt;bool&gt; = &lt;Rect&gt;.colliderect(&lt;Rect&gt;)           <span class="hljs-comment"># Returns True if the rectangles are colliding.</span>
+&lt;int&gt;  = &lt;Rect&gt;.collidelist(&lt;list_of_Rect&gt;)   <span class="hljs-comment"># Returns index of first colliding Rect or -1.</span>
+&lt;list&gt; = &lt;Rect&gt;.collidelistall(&lt;list&gt;)        <span class="hljs-comment"># Returns indices of all colliding rectangles.</span>
 </code></pre>
-<div><h3 id="surface">Surface</h3><p><strong>Object for representing images.</strong></p><pre><code class="python language-python hljs">&lt;Surf&gt; = pg.display.set_mode((width, height))  <span class="hljs-comment"># Opens new window and returns surface object.</span>
-&lt;Surf&gt; = pg.Surface((width, height))           <span class="hljs-comment"># New RGB surface. RGBA if `flags=pg.SRCALPHA`.</span>
-&lt;Surf&gt; = pg.image.load(&lt;path/file&gt;)            <span class="hljs-comment"># Loads the image. Also get_width/get_height().</span>
-&lt;Surf&gt; = pg.surfarray.make_surface(&lt;array&gt;)    <span class="hljs-comment"># Also `&lt;np_arr&gt; = surfarray.pixels3d(&lt;Surf&gt;)`.</span>
-&lt;Surf&gt; = &lt;Surf&gt;.subsurface(&lt;Rect&gt;)             <span class="hljs-comment"># Creates a new surface object from the cutout.</span>
+<div><h3 id="surface">Surface</h3><p><strong>Object for representing images.</strong></p><pre><code class="python language-python hljs">&lt;Surf&gt; = pg.display.set_mode((width, heig))   <span class="hljs-comment"># Opens new window and returns surface object.</span>
+&lt;Surf&gt; = pg.Surface((width, height))          <span class="hljs-comment"># New RGB surface. RGBA if `flags=pg.SRCALPHA`.</span>
+&lt;Surf&gt; = pg.image.load(&lt;path/file&gt;)           <span class="hljs-comment"># Loads the image. Also get_width/get_height().</span>
+&lt;Surf&gt; = pg.surfarray.make_surface(&lt;array&gt;)   <span class="hljs-comment"># Also `&lt;np_arr&gt; = surfarray.pixels3d(&lt;Surf&gt;)`.</span>
+&lt;Surf&gt; = &lt;Surf&gt;.subsurface(&lt;Rect&gt;)            <span class="hljs-comment"># Creates a new surface object from the cutout.</span>
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;Surf&gt;.fill(color)                             <span class="hljs-comment"># Pass tuple of ints or pg.Color('&lt;name/hex&gt;').</span>
-&lt;Surf&gt;.set_at((x, y), color)                   <span class="hljs-comment"># Updates a pixel. Also &lt;Surf&gt;.get_at((x, y)).</span>
-&lt;Surf&gt;.blit(&lt;Surf&gt;, (x, y))                    <span class="hljs-comment"># Draws passed surface at a specified location.</span>
+<pre><code class="python language-python hljs">&lt;Surf&gt;.fill(color)                            <span class="hljs-comment"># Pass tuple of ints or pg.Color('&lt;name/hex&gt;').</span>
+&lt;Surf&gt;.set_at((x, y), color)                  <span class="hljs-comment"># Updates a pixel. Also &lt;Surf&gt;.get_at((x, y)).</span>
+&lt;Surf&gt;.blit(&lt;Surf&gt;, (x, y))                   <span class="hljs-comment"># Draws passed surface at a specified location.</span>
 </code></pre>
-<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.transform <span class="hljs-keyword">import</span> scale, rotate     <span class="hljs-comment"># Also flip, smoothscale, scale_by, rotozoom.</span>
-&lt;Surf&gt; = scale(&lt;Surf&gt;, (width, height))        <span class="hljs-comment"># Scales the surface. `smoothscale()` blurs it.</span>
-&lt;Surf&gt; = rotate(&lt;Surf&gt;, angle)                 <span class="hljs-comment"># Rotates the surface for counterclock degrees.</span>
-&lt;Surf&gt; = flip(&lt;Surf&gt;, flip_x=<span class="hljs-keyword">True</span>)             <span class="hljs-comment"># Mirrors over the y axis. Also `flip_y=True`.</span>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.transform <span class="hljs-keyword">import</span> scale, rotate    <span class="hljs-comment"># Also flip, smoothscale, scale_by, rotozoom.</span>
+&lt;Surf&gt; = scale(&lt;Surf&gt;, (width, height))       <span class="hljs-comment"># Scales the surface. `smoothscale()` blurs it.</span>
+&lt;Surf&gt; = rotate(&lt;Surf&gt;, angle)                <span class="hljs-comment"># Rotates the surface for counterclock degrees.</span>
+&lt;Surf&gt; = flip(&lt;Surf&gt;, flip_x=<span class="hljs-keyword">True</span>)            <span class="hljs-comment"># Mirrors over the y axis. Also `flip_y=True`.</span>
 </code></pre>
-<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.draw <span class="hljs-keyword">import</span> line, arc, rect        <span class="hljs-comment"># Also ellipse, circle, polygon, lines, aaline.</span>
-line(&lt;Surf&gt;, color, (x1, y1), (x2, y2))        <span class="hljs-comment"># Draws line to surface. Accepts `width=&lt;int&gt;`.</span>
-arc(&lt;Surf&gt;, color, &lt;Rect&gt;, from_rad, to_rad)   <span class="hljs-comment"># Also ellipse(&lt;Surf&gt;, color, &lt;Rect&gt;, width=0).</span>
-rect(&lt;Surf&gt;, color, &lt;Rect&gt;, width=<span class="hljs-number">0</span>)           <span class="hljs-comment"># Also polygon(&lt;Surf&gt;, color, points, width=0).</span>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.draw <span class="hljs-keyword">import</span> line, arc, rect       <span class="hljs-comment"># Also ellipse, circle, polygon, lines, aaline.</span>
+line(&lt;Surf&gt;, color, (x1, y1), (x2, y2))       <span class="hljs-comment"># Draws line to surface. Accepts `width=&lt;int&gt;`.</span>
+arc(&lt;Surf&gt;, color, &lt;Rect&gt;, from_rad, to_rad)  <span class="hljs-comment"># Also ellipse(&lt;Surf&gt;, color, &lt;Rect&gt;, width=0).</span>
+rect(&lt;Surf&gt;, color, &lt;Rect&gt;, width=<span class="hljs-number">0</span>)          <span class="hljs-comment"># Also polygon(&lt;Surf&gt;, color, points, width=0).</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;Font&gt; = pg.font.Font(&lt;path/file&gt;, size)       <span class="hljs-comment"># Loads a TTF file. Pass None for default font.</span>
-&lt;Surf&gt; = &lt;Font&gt;.render(&lt;str&gt;, <span class="hljs-keyword">True</span>, color)     <span class="hljs-comment"># Accepts background color via fourth argument.</span>
+<pre><code class="python language-python hljs">&lt;Font&gt; = pg.font.Font(&lt;path/file&gt;, size)      <span class="hljs-comment"># Loads a TTF file. Pass None for default font.</span>
+&lt;Surf&gt; = &lt;Font&gt;.render(&lt;str&gt;, <span class="hljs-keyword">True</span>, color)    <span class="hljs-comment"># Accepts background color via fourth argument.</span>
 </code></pre>
-<div><h3 id="sound">Sound</h3><pre><code class="python language-python hljs">&lt;Sound&gt; = pg.mixer.Sound(&lt;path/file/bytes&gt;)    <span class="hljs-comment"># Accepts WAV file or array of short integers.</span>
-&lt;Sound&gt;.play/stop()                            <span class="hljs-comment"># Also set_volume(&lt;float&gt;) and fadeout(msec).</span>
+<div><h3 id="sound">Sound</h3><pre><code class="python language-python hljs">&lt;Sound&gt; = pg.mixer.Sound(&lt;path/file/bytes&gt;)   <span class="hljs-comment"># Accepts WAV file or array of short integers.</span>
+&lt;Sound&gt;.play/stop()                           <span class="hljs-comment"># Also set_volume(&lt;float&gt;) and fadeout(msec).</span>
 </code></pre></div>
 
 <div><h3 id="basicmariobrothersexample">Basic Mario Brothers Example</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> pygame <span class="hljs-keyword">as</span> pg, dataclasses <span class="hljs-keyword">as</span> dc, enum, io, itertools, random <span class="hljs-keyword">as</span> r, urllib.request
 
-W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)    <span class="hljs-comment"># Width, Height, Direction.</span>
+W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)   <span class="hljs-comment"># Width, Height, Direction.</span>
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_window</span><span class="hljs-params">()</span>:</span>
@@ -2935,7 +2935,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>May 15, 2026</aside>
+    <aside>May 18, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 
