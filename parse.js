@@ -250,7 +250,7 @@ const AUDIO_2 =
 
 const MARIO = `<span class="hljs-keyword">import</span> pygame <span class="hljs-keyword">as</span> pg, dataclasses <span class="hljs-keyword">as</span> dc, enum, io, itertools, random <span class="hljs-keyword">as</span> r, urllib.request
 
-W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)   <span class="hljs-comment"># Width, Height, Direction.</span>
+W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)  <span class="hljs-comment"># Width, Height, Direction.</span>
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_window</span><span class="hljs-params">()</span>:</span>
@@ -579,19 +579,20 @@ const DIAGRAM_11_B =
   '┗━━━━━━━━━━━━━┷━━━━━━━━━━━━━┛\n';
 
 const DIAGRAM_115_A =
-  '+--------------+------------+-------------------------------+-------+------+\n' +
-  '| pip3 install |   Target   |          How to run           | Lines | Live |\n' +
-  '+--------------+------------+-------------------------------+-------+------+\n';
+`+--------------+-----------+-------------------------------+-------+------+
+| pip3 install |  Profiles |          How to run           | Lines | Live |
++--------------+-----------+-------------------------------+-------+------+`;
 
 const DIAGRAM_115_B =
-  '┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━┯━━━━━━┓\n' +
-  '┃ pip3 install │   Target   │          How to run           │ Lines │ Live ┃\n' +
-  '┠──────────────┼────────────┼───────────────────────────────┼───────┼──────┨\n' +
-  '┃ pyinstrument │    CPU     │ pyinstrument test.py          │   ×   │  ×   ┃\n' +
-  '┃ py-spy       │    CPU     │ py-spy top -- python3 test.py │   ×   │  ✓   ┃\n' +
-  '┃ scalene      │ CPU+Memory │ scalene test.py               │   ✓   │  ×   ┃\n' +
-  '┃ memray       │   Memory   │ memray run --live test.py     │   ✓   │  ✓   ┃\n' +
-  '┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━┷━━━━━━┛\n';
+`┏━━━━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━┯━━━━━━┓
+┃ pip3 install │  Profiles │          How to run           │ Lines │ Live ┃
+┠──────────────┼───────────┼───────────────────────────────┼───────┼──────┨
+┃ pyinstrument │    CPU    │ pyinstrument test.py          │   ×   │  ×   ┃
+┃ py-spy       │    CPU    │ py-spy top -- python3 test.py │   ×   │  ✓   ┃
+┃ scalene      │ CPU & RAM │ scalene test.py               │   ✓   │  ×   ┃
+┃ memray       │    RAM    │ memray run --live test.py     │   ✓   │  ✓   ┃
+┗━━━━━━━━━━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━┷━━━━━━┛
+`;
 
 const DIAGRAM_12_A =
   '+-----------+-----------+------+-----------+\n' +

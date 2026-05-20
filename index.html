@@ -56,7 +56,7 @@
 
 <body style="margin-top: 17.1px">
   <header>
-    <aside>May 18, 2026</aside>
+    <aside>May 20, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -252,7 +252,7 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 </code></pre>
 <div><h2 id="generator"><a href="#generator" name="generator">#</a>Generator</h2><ul>
 <li><strong>Any function that contains a yield statement returns a generator.</strong></li>
-<li><strong>Generators and iterators are interchangeable.</strong></li>
+<li><strong>Generators and iterators are interchangeable (see <a href="#iterator-1">Iterator</a> duck type).</strong></li>
 </ul><pre><code class="python language-python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count</span><span class="hljs-params">(start, step)</span>:</span>
     <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
         <span class="hljs-keyword">yield</span> start
@@ -460,7 +460,7 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 <div><h2 id="numbers"><a href="#numbers" name="numbers">#</a>Numbers</h2><pre><code class="python language-python hljs">&lt;integer&gt;  = int(&lt;float/str/bool&gt;)             <span class="hljs-comment"># A whole number. Truncates floats.</span>
 &lt;float&gt;    = float(&lt;integer/str/bool&gt;)         <span class="hljs-comment"># 64-bit decimal. Also &lt;fl&gt;e±&lt;int&gt;.</span>
 &lt;complex&gt;  = complex(real=<span class="hljs-number">0</span>, imag=<span class="hljs-number">0</span>)           <span class="hljs-comment"># Complex number. Also &lt;fl&gt; ± &lt;fl&gt;j.</span>
-&lt;Fraction&gt; = fractions.Fraction(numer, denom)  <span class="hljs-comment"># `&lt;Fraction&gt; = &lt;Fraction&gt; / &lt;int&gt;`.</span>
+&lt;Fraction&gt; = fractions.Fraction(numr, denom)   <span class="hljs-comment"># `&lt;Fraction&gt; = &lt;Fraction&gt; / &lt;int&gt;`.</span>
 &lt;Decimal&gt;  = decimal.Decimal(&lt;str/int/tuple&gt;)  <span class="hljs-comment"># `Decimal((1, (2,), 3)) == -2000`.</span>
 </code></pre></div>
 
@@ -495,7 +495,7 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 <pre><code class="python language-python hljs">&lt;float&gt; = random()                             <span class="hljs-comment"># Selects random float from [0, 1).</span>
 &lt;num&gt;   = randint/uniform(a, b)                <span class="hljs-comment"># Selects an int/float from [a, b].</span>
 &lt;float&gt; = gauss(mean, stdev)                   <span class="hljs-comment"># Also triangular(low, high, mode).</span>
-&lt;el&gt;    = choice(&lt;sequence&gt;)                   <span class="hljs-comment"># Doesn't mutate. Also sample(p, n).</span>
+&lt;obj&gt;   = choice(&lt;sequence&gt;)                   <span class="hljs-comment"># Doesn't mutate. Also sample(p, n).</span>
 shuffle(&lt;list&gt;)                                <span class="hljs-comment"># Works with all mutable sequences.</span>
 </code></pre>
 <div><h3 id="hexadecimalnumbers">Hexadecimal Numbers</h3><pre><code class="python language-python hljs">&lt;int&gt; = <span class="hljs-number">0x</span>&lt;hex&gt;                                <span class="hljs-comment"># E.g. `0xFf == 255`. Also 0b&lt;bin&gt;.</span>
@@ -528,7 +528,7 @@ shuffle(&lt;list&gt;)                                <span class="hljs-comment">
  (<span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>)                                  <span class="hljs-comment"># b .  .  x</span>
 ]                                            <span class="hljs-comment"># c .  .  .</span>
 </code></pre>
-<div><h2 id="datetime"><a href="#datetime" name="datetime">#</a>Datetime</h2><p><strong>Module that provides date, time, and datetime objects.</strong></p><pre><code class="python language-python hljs"><span class="hljs-comment"># $ pip3 install python-dateutil</span>
+<div><h2 id="datetime"><a href="#datetime" name="datetime">#</a>Datetime</h2><p><strong>Module that provides date, time and datetime objects.</strong></p><pre><code class="python language-python hljs"><span class="hljs-comment"># $ pip3 install python-dateutil</span>
 <span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> *
 <span class="hljs-keyword">import</span> zoneinfo, dateutil.tz
 </code></pre></div>
@@ -2165,14 +2165,14 @@ $ xdg-open test.png                                        <span class="hljs-com
 $ snakeviz test.prof                                       <span class="hljs-comment"># Displays a flame graph.</span>
 </code></pre></div>
 
-<div><h3 id="samplingandmemoryprofilers">Sampling and Memory Profilers</h3><pre><code class="text language-text">┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━┯━━━━━━┓
-┃ pip3 install │   Target   │          How to run           │ Lines │ Live ┃
-┠──────────────┼────────────┼───────────────────────────────┼───────┼──────┨
-┃ pyinstrument │    CPU     │ pyinstrument test.py          │   ×   │  ×   ┃
-┃ py-spy       │    CPU     │ py-spy top -- python3 test.py │   ×   │  ✓   ┃
-┃ scalene      │ CPU+Memory │ scalene test.py               │   ✓   │  ×   ┃
-┃ memray       │   Memory   │ memray run --live test.py     │   ✓   │  ✓   ┃
-┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━┷━━━━━━┛
+<div><h3 id="samplingandmemoryprofilers">Sampling and Memory Profilers</h3><pre><code class="text language-text">┏━━━━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━┯━━━━━━┓
+┃ pip3 install │  Profiles │          How to run           │ Lines │ Live ┃
+┠──────────────┼───────────┼───────────────────────────────┼───────┼──────┨
+┃ pyinstrument │    CPU    │ pyinstrument test.py          │   ×   │  ×   ┃
+┃ py-spy       │    CPU    │ py-spy top -- python3 test.py │   ×   │  ✓   ┃
+┃ scalene      │ CPU &amp; RAM │ scalene test.py               │   ✓   │  ×   ┃
+┃ memray       │    RAM    │ memray run --live test.py     │   ✓   │  ✓   ┃
+┗━━━━━━━━━━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━┷━━━━━━┛
 </code></pre></div>
 
 <div><h2 id="numpy"><a href="#numpy" name="numpy">#</a>NumPy</h2><p><strong>Array manipulation mini-language. It can run up to one hundred times faster than the equivalent Python code. An even faster alternative that runs on a GPU is called CuPy.</strong></p><pre><code class="python language-python hljs"><span class="hljs-comment"># $ pip3 install numpy</span>
@@ -2458,50 +2458,49 @@ pg.quit()
 </code></pre></div></div>
 
 
-<div><h3 id="rect">Rect</h3><p><strong>Object for storing rectangular coordinates.</strong></p><pre><code class="python language-python hljs">&lt;Rect&gt; = pg.Rect(x, y, width, height)         <span class="hljs-comment"># Creates Rect object. Truncates passed floats.</span>
-&lt;int&gt;  = &lt;Rect&gt;.x/y/centerx/centery/…         <span class="hljs-comment"># `top/right/bottom/left`. Allows assignments.</span>
-&lt;tup.&gt; = &lt;Rect&gt;.topleft/center/…              <span class="hljs-comment"># `topright/bottomright/bottomleft/size`. Same.</span>
-&lt;Rect&gt; = &lt;Rect&gt;.move((delta_x, delta_y))      <span class="hljs-comment"># Use move_ip() to move the rectangle in-place.</span>
+<div><h3 id="rect">Rect</h3><p><strong>Object for storing rectangular coordinates.</strong></p><pre><code class="python language-python hljs">&lt;Rect&gt; = pg.Rect(x, y, width, height)        <span class="hljs-comment"># Creates Rect object. Truncates passed floats.</span>
+&lt;int&gt;  = &lt;Rect&gt;.x/y/centerx/centery/…        <span class="hljs-comment"># `top/right/bottom/left`. Allows assignments.</span>
+&lt;tup.&gt; = &lt;Rect&gt;.topleft/center/…             <span class="hljs-comment"># `topright/bottomright/bottomleft/size`. Same.</span>
+&lt;Rect&gt; = &lt;Rect&gt;.move((dx, dy))               <span class="hljs-comment"># Use move_ip() to move the rectangle in-place.</span>
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;Rect&gt;.collidepoint((x, y))          <span class="hljs-comment"># Returns True if rectangle contains the point.</span>
-&lt;bool&gt; = &lt;Rect&gt;.colliderect(&lt;Rect&gt;)           <span class="hljs-comment"># Returns True if the rectangles are colliding.</span>
-&lt;int&gt;  = &lt;Rect&gt;.collidelist(&lt;list_of_Rect&gt;)   <span class="hljs-comment"># Returns index of first colliding Rect or -1.</span>
-&lt;list&gt; = &lt;Rect&gt;.collidelistall(&lt;list&gt;)        <span class="hljs-comment"># Returns indices of all colliding rectangles.</span>
+<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;Rect&gt;.collidepoint((x, y))         <span class="hljs-comment"># Returns True if rectangle contains the point.</span>
+&lt;bool&gt; = &lt;Rect&gt;.colliderect(&lt;Rect&gt;)          <span class="hljs-comment"># Returns True if the rectangles are colliding.</span>
+&lt;int&gt;  = &lt;Rect&gt;.collidelist(&lt;list_of_Rect&gt;)  <span class="hljs-comment"># Returns index of first colliding Rect or -1.</span>
+&lt;list&gt; = &lt;Rect&gt;.collidelistall(&lt;list&gt;)       <span class="hljs-comment"># Returns indices of all colliding rectangles.</span>
 </code></pre>
-<div><h3 id="surface">Surface</h3><p><strong>Object for representing images.</strong></p><pre><code class="python language-python hljs">&lt;Surf&gt; = pg.display.set_mode((width, heig))   <span class="hljs-comment"># Opens new window and returns surface object.</span>
-&lt;Surf&gt; = pg.Surface((width, height))          <span class="hljs-comment"># New RGB surface. RGBA if `flags=pg.SRCALPHA`.</span>
-&lt;Surf&gt; = pg.image.load(&lt;path/file&gt;)           <span class="hljs-comment"># Loads the image. Also get_width/get_height().</span>
-&lt;Surf&gt; = pg.surfarray.make_surface(&lt;array&gt;)   <span class="hljs-comment"># Also `&lt;np_arr&gt; = surfarray.pixels3d(&lt;Surf&gt;)`.</span>
-&lt;Surf&gt; = &lt;Surf&gt;.subsurface(&lt;Rect&gt;)            <span class="hljs-comment"># Creates a new surface object from the cutout.</span>
+<div><h3 id="surface">Surface</h3><p><strong>Object for representing images.</strong></p><pre><code class="python language-python hljs">&lt;Surf&gt; = pg.display.set_mode((w, h))         <span class="hljs-comment"># Opens new window and returns surface object.</span>
+&lt;Surf&gt; = pg.Surface((w, h))                  <span class="hljs-comment"># New RGB surface. RGBA if `flags=pg.SRCALPHA`.</span>
+&lt;Surf&gt; = pg.image.load(&lt;path/file&gt;)          <span class="hljs-comment"># Loads the image. Also get_width/get_height().</span>
+&lt;Surf&gt; = pg.surfarray.make_surface(&lt;array&gt;)  <span class="hljs-comment"># Also `&lt;np_arr&gt; = surfarray.pixels3d(&lt;Surf&gt;)`.</span>
+&lt;Surf&gt; = &lt;Surf&gt;.subsurface(&lt;Rect&gt;)           <span class="hljs-comment"># Creates a new surface object from the cutout.</span>
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;Surf&gt;.fill(color)                            <span class="hljs-comment"># Pass tuple of ints or pg.Color('&lt;name/hex&gt;').</span>
-&lt;Surf&gt;.set_at((x, y), color)                  <span class="hljs-comment"># Updates a pixel. Also &lt;Surf&gt;.get_at((x, y)).</span>
-&lt;Surf&gt;.blit(&lt;Surf&gt;, (x, y))                   <span class="hljs-comment"># Draws passed surface at a specified location.</span>
+<pre><code class="python language-python hljs">&lt;Surf&gt;.fill(color)                           <span class="hljs-comment"># Pass tuple of ints or pg.Color('&lt;name/hex&gt;').</span>
+&lt;Surf&gt;.set_at((x, y), color)                 <span class="hljs-comment"># Updates a pixel. Also &lt;Surf&gt;.get_at((x, y)).</span>
+&lt;Surf&gt;.blit(&lt;Surf&gt;, (x, y))                  <span class="hljs-comment"># Draws passed surface at a specified location.</span>
 </code></pre>
-<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.transform <span class="hljs-keyword">import</span> scale, rotate    <span class="hljs-comment"># Also flip, smoothscale, scale_by, rotozoom.</span>
-&lt;Surf&gt; = scale(&lt;Surf&gt;, (width, height))       <span class="hljs-comment"># Scales the surface. `smoothscale()` blurs it.</span>
-&lt;Surf&gt; = rotate(&lt;Surf&gt;, angle)                <span class="hljs-comment"># Rotates the surface for counterclock degrees.</span>
-&lt;Surf&gt; = flip(&lt;Surf&gt;, flip_x=<span class="hljs-keyword">True</span>)            <span class="hljs-comment"># Mirrors over the y axis. Also `flip_y=True`.</span>
+<pre><code class="python language-python hljs">&lt;Surf&gt; = tr.scale(&lt;Surf&gt;, (w, h))            <span class="hljs-comment"># Import with `import pygame.transform as tr`.</span>
+&lt;Surf&gt; = tr.rotate(&lt;Surf&gt;, degrees)          <span class="hljs-comment"># Rotates the surface for counterclock degrees.</span>
+&lt;Surf&gt; = tr.flip(&lt;Surf&gt;, flip_x=<span class="hljs-keyword">True</span>)        <span class="hljs-comment"># Mirrors over the y axis. Also `flip_y=True`.</span>
 </code></pre>
-<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> pygame.draw <span class="hljs-keyword">import</span> line, arc, rect       <span class="hljs-comment"># Also ellipse, circle, polygon, lines, aaline.</span>
-line(&lt;Surf&gt;, color, (x1, y1), (x2, y2))       <span class="hljs-comment"># Draws line to surface. Accepts `width=&lt;int&gt;`.</span>
-arc(&lt;Surf&gt;, color, &lt;Rect&gt;, from_rad, to_rad)  <span class="hljs-comment"># Also ellipse(&lt;Surf&gt;, color, &lt;Rect&gt;, width=0).</span>
-rect(&lt;Surf&gt;, color, &lt;Rect&gt;, width=<span class="hljs-number">0</span>)          <span class="hljs-comment"># Also polygon(&lt;Surf&gt;, color, points, width=0).</span>
+<pre><code class="python language-python hljs">line(&lt;Surf&gt;, color, (x1, y1), (x2, y2))      <span class="hljs-comment"># Also aaline. Run `from pygame.draw import *`.</span>
+arc(&lt;Surf&gt;, color, &lt;Rect&gt;, rad1, rad2)       <span class="hljs-comment"># Draws an arc of an ellipse counterclockwise.</span>
+rect(&lt;Surf&gt;, color, &lt;Rect&gt;, width=<span class="hljs-number">0</span>)         <span class="hljs-comment"># Also polygon(&lt;Surf&gt;, color, points, width=0).</span>
+circle(&lt;Surf&gt;, color, (x, y), radius)        <span class="hljs-comment"># Also ellipse(&lt;Surf&gt;, color, &lt;Rect&gt;, width=0).</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;Font&gt; = pg.font.Font(&lt;path/file&gt;, size)      <span class="hljs-comment"># Loads a TTF file. Pass None for default font.</span>
-&lt;Surf&gt; = &lt;Font&gt;.render(&lt;str&gt;, <span class="hljs-keyword">True</span>, color)    <span class="hljs-comment"># Accepts background color via fourth argument.</span>
+<pre><code class="python language-python hljs">&lt;Font&gt; = pg.font.Font(&lt;path/file&gt;, size)     <span class="hljs-comment"># Loads a TTF file. Pass None for default font.</span>
+&lt;Surf&gt; = &lt;Font&gt;.render(&lt;str&gt;, <span class="hljs-keyword">True</span>, color)   <span class="hljs-comment"># Accepts background color via fourth argument.</span>
 </code></pre>
-<div><h3 id="sound">Sound</h3><pre><code class="python language-python hljs">&lt;Sound&gt; = pg.mixer.Sound(&lt;path/file/bytes&gt;)   <span class="hljs-comment"># Accepts WAV file or array of short integers.</span>
-&lt;Sound&gt;.play/stop()                           <span class="hljs-comment"># Also set_volume(&lt;float&gt;) and fadeout(msec).</span>
+<div><h3 id="sound">Sound</h3><pre><code class="python language-python hljs">&lt;Sound&gt; = pg.mixer.Sound(&lt;path/file&gt;)        <span class="hljs-comment"># Accepts WAV file or array of short integers.</span>
+&lt;Sound&gt;.play/stop()                          <span class="hljs-comment"># Accepts `loops=-1`. Also set_volume(&lt;float&gt;).</span>
 </code></pre></div>
 
 <div><h3 id="basicmariobrothersexample">Basic Mario Brothers Example</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> pygame <span class="hljs-keyword">as</span> pg, dataclasses <span class="hljs-keyword">as</span> dc, enum, io, itertools, random <span class="hljs-keyword">as</span> r, urllib.request
 
-W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)   <span class="hljs-comment"># Width, Height, Direction.</span>
+W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)  <span class="hljs-comment"># Width, Height, Direction.</span>
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_window</span><span class="hljs-params">()</span>:</span>
@@ -2935,7 +2934,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>May 18, 2026</aside>
+    <aside>May 20, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 
