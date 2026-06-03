@@ -95,14 +95,14 @@ const CONSTRUCTOR_OVERLOADING =
   '        self.a = a\n';
 
 const SHUTIL_COPY =
-  'shutil.copy(from, to)            <span class="hljs-comment"># Copies file (arg. \'to\' can exist or be a dir).</span>\n' +
-  'shutil.copy2(from, to)           <span class="hljs-comment"># Also copies the creation and modification time.</span>\n' +
-  'shutil.copytree(from, to)        <span class="hljs-comment"># Copies directory (arg. \'to\' should not exist).</span>\n';
+  'shutil.copy(from, to)           <span class="hljs-comment"># Copies file (arg. \'to\' can exist or be a dir).</span>\n' +
+  'shutil.copy2(from, to)          <span class="hljs-comment"># Also copies the creation and modification time.</span>\n' +
+  'shutil.copytree(from, to)       <span class="hljs-comment"># Copies directory (arg. \'to\' should not exist).</span>\n';
 
 const OS_RENAME =
-  'os.rename(from, to)              <span class="hljs-comment"># Renames or moves the file or directory \'from\'.</span>\n' +
-  'os.replace(from, to)             <span class="hljs-comment"># Same, but overwrites file \'to\' even on Windows.</span>\n' +
-  'shutil.move(from, to)            <span class="hljs-comment"># `rename()` that moves into \'to\' if it\'s a dir.</span>\n';
+  'os.rename(from, to)             <span class="hljs-comment"># Renames or moves the file or directory \'from\'.</span>\n' +
+  'os.replace(from, to)            <span class="hljs-comment"># Same, but overwrites file \'to\' even on Windows.</span>\n' +
+  'shutil.move(from, to)           <span class="hljs-comment"># `rename()` that moves into \'to\' if it\'s a dir.</span>\n';
 
 const STRUCT_FORMAT =
   '<span class="hljs-section">\'&lt;n&gt;s\'</span><span class="hljs-attribute"></span>';
@@ -125,14 +125,14 @@ const MATCH_EXAMPLE =
 const COROUTINES =
 `<span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> aio, collections, curses, curses.textpad, enum, random
 
-P = collections.namedtuple(<span class="hljs-string">'P'</span>, <span class="hljs-string">'x y'</span>)      <span class="hljs-comment"># Position (x and y coordinates).</span>
-D = enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)               <span class="hljs-comment"># Direction (north, east, etc.).</span>
-W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>                                <span class="hljs-comment"># Width and height of the field.</span>
+P = collections.namedtuple(<span class="hljs-string">'P'</span>, <span class="hljs-string">'x y'</span>)    <span class="hljs-comment"># Position (x and y coordinates).</span>
+D = enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)             <span class="hljs-comment"># Direction (north, east, etc.).</span>
+W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>                              <span class="hljs-comment"># Width and height of the field.</span>
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(screen)</span>:</span>
-    curses.curs_set(<span class="hljs-number">0</span>)                      <span class="hljs-comment"># Makes the cursor invisible.</span>
-    screen.nodelay(<span class="hljs-keyword">True</span>)                    <span class="hljs-comment"># Makes getch() non-blocking.</span>
-    aio.run(main_coroutine(screen))         <span class="hljs-comment"># Starts running asyncio code.</span>
+    curses.curs_set(<span class="hljs-number">0</span>)                    <span class="hljs-comment"># Makes the cursor invisible.</span>
+    screen.nodelay(<span class="hljs-keyword">True</span>)                  <span class="hljs-comment"># Makes getch() non-blocking.</span>
+    aio.run(main_coroutine(screen))       <span class="hljs-comment"># Starts running asyncio code.</span>
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main_coroutine</span><span class="hljs-params">(scr)</span>:</span>
     moves = aio.Queue()
@@ -1000,7 +1000,7 @@ function fixPageBreaksFile() {
 function fixPageBreaksStruct() {
   const formatDiv = $('#floatingpointtypesstructalwaysusesstandardsizes').parent().parent().parent().parent()
   move(formatDiv, 'floatingpointtypesstructalwaysusesstandardsizes')
-  move(formatDiv, 'integersusecapitalletterforunsignedtypeminimumandstandardsizesareinbrackets')
+  move(formatDiv, 'integersunsignedtypesusecapitallettersminimumandstandardsizesareinbrackets')
   move(formatDiv, 'forstandardtypesizesandmanualalignmentpaddingstartformatstringwith')
 }
 
