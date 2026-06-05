@@ -2135,15 +2135,15 @@ match <object/expression>:
 
 ### Patterns
 ```python
-<value_patt> = 1/'abc'/True/None/math.pi      # Matches the literal or attribute's value.
-<class_patt> = <type>()                       # Matches any object of that type (or ABC).
-<wildcard_p> = _                              # Matches any object. Useful in last case.
-<capture_p>  = <name>                         # Matches any object and binds it to name.
-<as_pattern> = <pattern> as <name>            # Binds match to name. Also <type>(<name>).
-<or_pattern> = <pattern> | <pattern> [| …]    # Matches if any of listed patterns match.
-<sequence_p> = [<pattern>, …]                 # Matches a sequence. All items must match.
-<mapping_p>  = {<value_patt>: <patt>, …}      # Matches a dict if it has matching items.
-<class_patt> = <type>(<name>=<patt>, …)       # Matches object with matching attributes.
+<val_patt> = 1/'a'/True/None/math.pi        # Matches the literal or attribute's value.
+<cls_patt> = <type>()                       # Matches any object of that type (or ABC).
+<wildcard> = _                              # Matches any object. Useful in last case.
+<capture>  = <name>                         # Matches any object and binds it to name.
+<as_patt>  = <pattern> as <name>            # Binds match to name. Also <type>(<name>).
+<or_patt>  = <pattern> | <pattern> [| ...]  # Matches if any of listed patterns match.
+<seq_patt> = [<pattern>, ...]               # Matches a sequence. All items must match.
+<map_patt> = {<val_patt>: <patt>, ...}      # Matches a dict if it has matching items.
+<cls_patt> = <type>(<name>=<patt>, ...)     # Matches object with matching attributes.
 ```
 * **The sequence pattern can also be written as a tuple, either with or without the brackets.**
 * **Use `'*<name>'` and `'**<name>'` in sequence/mapping patterns to bind remaining items.**

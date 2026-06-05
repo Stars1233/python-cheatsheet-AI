@@ -56,7 +56,7 @@
 
 <body style="margin-top: 17.1px">
   <header>
-    <aside>June 3, 2026</aside>
+    <aside>June 5, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -1763,15 +1763,15 @@ sorted_by_both   = sorted(&lt;coll&gt;, key=op.itemgetter(<span class="hljs-numb
 </code></pre></div>
 
 
-<div><h3 id="patterns">Patterns</h3><pre><code class="python language-python hljs">&lt;value_patt&gt; = <span class="hljs-number">1</span>/<span class="hljs-string">'abc'</span>/<span class="hljs-keyword">True</span>/<span class="hljs-keyword">None</span>/math.pi      <span class="hljs-comment"># Matches the literal or attribute's value.</span>
-&lt;class_patt&gt; = &lt;type&gt;()                       <span class="hljs-comment"># Matches any object of that type (or ABC).</span>
-&lt;wildcard_p&gt; = _                              <span class="hljs-comment"># Matches any object. Useful in last case.</span>
-&lt;capture_p&gt;  = &lt;name&gt;                         <span class="hljs-comment"># Matches any object and binds it to name.</span>
-&lt;as_pattern&gt; = &lt;pattern&gt; <span class="hljs-keyword">as</span> &lt;name&gt;            <span class="hljs-comment"># Binds match to name. Also &lt;type&gt;(&lt;name&gt;).</span>
-&lt;or_pattern&gt; = &lt;pattern&gt; | &lt;pattern&gt; [| …]    <span class="hljs-comment"># Matches if any of listed patterns match.</span>
-&lt;sequence_p&gt; = [&lt;pattern&gt;, …]                 <span class="hljs-comment"># Matches a sequence. All items must match.</span>
-&lt;mapping_p&gt;  = {&lt;value_patt&gt;: &lt;patt&gt;, …}      <span class="hljs-comment"># Matches a dict if it has matching items.</span>
-&lt;class_patt&gt; = &lt;type&gt;(&lt;name&gt;=&lt;patt&gt;, …)       <span class="hljs-comment"># Matches object with matching attributes.</span>
+<div><h3 id="patterns">Patterns</h3><pre><code class="python language-python hljs">&lt;val_patt&gt; = <span class="hljs-number">1</span>/<span class="hljs-string">'a'</span>/<span class="hljs-keyword">True</span>/<span class="hljs-keyword">None</span>/math.pi        <span class="hljs-comment"># Matches the literal or attribute's value.</span>
+&lt;cls_patt&gt; = &lt;type&gt;()                       <span class="hljs-comment"># Matches any object of that type (or ABC).</span>
+&lt;wildcard&gt; = _                              <span class="hljs-comment"># Matches any object. Useful in last case.</span>
+&lt;capture&gt;  = &lt;name&gt;                         <span class="hljs-comment"># Matches any object and binds it to name.</span>
+&lt;as_patt&gt;  = &lt;pattern&gt; <span class="hljs-keyword">as</span> &lt;name&gt;            <span class="hljs-comment"># Binds match to name. Also &lt;type&gt;(&lt;name&gt;).</span>
+&lt;or_patt&gt;  = &lt;pattern&gt; | &lt;pattern&gt; [| ...]  <span class="hljs-comment"># Matches if any of listed patterns match.</span>
+&lt;seq_patt&gt; = [&lt;pattern&gt;, ...]               <span class="hljs-comment"># Matches a sequence. All items must match.</span>
+&lt;map_patt&gt; = {&lt;val_patt&gt;: &lt;patt&gt;, ...}      <span class="hljs-comment"># Matches a dict if it has matching items.</span>
+&lt;cls_patt&gt; = &lt;type&gt;(&lt;name&gt;=&lt;patt&gt;, ...)     <span class="hljs-comment"># Matches object with matching attributes.</span>
 </code></pre></div>
 
 <ul>
@@ -2934,7 +2934,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>June 3, 2026</aside>
+    <aside>June 5, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 
