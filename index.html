@@ -56,7 +56,7 @@
 
 <body style="margin-top: 17.1px">
   <header>
-    <aside>June 5, 2026</aside>
+    <aside>June 17, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -193,7 +193,7 @@ value = &lt;dict&gt;.pop(key)                         <span class="hljs-comment"
 </code></pre>
 <div><h3 id="frozenset">Frozen Set</h3><ul>
 <li><strong>Frozenset is immutable and hashable version of the normal set.</strong></li>
-<li><strong>That means it can be used as a key in a dictionary or as an item in a set.</strong></li>
+<li><strong>That means it can be used as a key in a dict or as an item in a set.</strong></li>
 </ul><pre><code class="python language-python hljs">&lt;frozenset&gt; = frozenset(&lt;collection&gt;)
 </code></pre></div>
 
@@ -325,7 +325,7 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;str&gt;  = &lt;str&gt;.lower()                <span class="hljs-comment"># Lowers the case. Also upper/capitalize/title().</span>
 &lt;str&gt;  = &lt;str&gt;.casefold()             <span class="hljs-comment"># Lower() that converts ẞ/ß to ss, Σ/ς to σ, etc.</span>
-&lt;str&gt;  = &lt;str&gt;.replace(old, new)      <span class="hljs-comment"># Converts every occurrence of string old to new.</span>
+&lt;str&gt;  = &lt;str&gt;.replace(old, new)      <span class="hljs-comment"># Removes occurrences of string old if new is ''.</span>
 &lt;str&gt;  = &lt;str&gt;.translate(table)       <span class="hljs-comment"># Get table via str.maketrans(&lt;chr_to_str_dict&gt;).</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;str&gt;  = chr(&lt;int&gt;)                   <span class="hljs-comment"># Converts passed integer into Unicode character.</span>
@@ -421,29 +421,29 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 {<span class="hljs-number">1.23456</span>:<span class="hljs-number">10.3</span>%}                        <span class="hljs-comment"># '  123.456%'.</span>
 </code></pre></div>
 
-<div><h4 id="comparisonofpresentationtypes">Comparison of presentation types:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓
-┃              │    {&lt;float&gt;}   │   {&lt;float&gt;:f}  │   {&lt;float&gt;:e}  │   {&lt;float&gt;:%}  ┃
-┠──────────────┼────────────────┼────────────────┼────────────────┼────────────────┨
-┃  0.000056789 │   '5.6789e-05' │    '0.000057'  │ '5.678900e-05' │    '0.005679%' ┃
-┃  0.00056789  │   '0.00056789' │    '0.000568'  │ '5.678900e-04' │    '0.056789%' ┃
-┃  0.0056789   │   '0.0056789'  │    '0.005679'  │ '5.678900e-03' │    '0.567890%' ┃
-┃  0.056789    │   '0.056789'   │    '0.056789'  │ '5.678900e-02' │    '5.678900%' ┃
-┃  0.56789     │   '0.56789'    │    '0.567890'  │ '5.678900e-01' │   '56.789000%' ┃
-┃  5.6789      │   '5.6789'     │    '5.678900'  │ '5.678900e+00' │  '567.890000%' ┃
-┃ 56.789       │  '56.789'      │   '56.789000'  │ '5.678900e+01' │ '5678.900000%' ┃
-┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛
+<div><h4 id="comparisonofpresentationtypes">Comparison of presentation types:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓
+┃              │   {&lt;float&gt;}   │   {&lt;float&gt;:f}  │   {&lt;float&gt;:e}  │   {&lt;float&gt;:%}  ┃
+┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨
+┃  0.000056789 │  '5.6789e-05' │    '0.000057'  │ '5.678900e-05' │    '0.005679%' ┃
+┃  0.00056789  │  '0.00056789' │    '0.000568'  │ '5.678900e-04' │    '0.056789%' ┃
+┃  0.0056789   │  '0.0056789'  │    '0.005679'  │ '5.678900e-03' │    '0.567890%' ┃
+┃  0.056789    │  '0.056789'   │    '0.056789'  │ '5.678900e-02' │    '5.678900%' ┃
+┃  0.56789     │  '0.56789'    │    '0.567890'  │ '5.678900e-01' │   '56.789000%' ┃
+┃  5.6789      │  '5.6789'     │    '5.678900'  │ '5.678900e+00' │  '567.890000%' ┃
+┃ 56.789       │ '56.789'      │   '56.789000'  │ '5.678900e+01' │ '5678.900000%' ┃
+┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓
-┃              │  {&lt;float&gt;:.2}  │  {&lt;float&gt;:.2f} │  {&lt;float&gt;:.2e} │  {&lt;float&gt;:.2%} ┃
-┠──────────────┼────────────────┼────────────────┼────────────────┼────────────────┨
-┃  0.000056789 │    '5.7e-05'   │      '0.00'    │   '5.68e-05'   │      '0.01%'   ┃
-┃  0.00056789  │    '0.00057'   │      '0.00'    │   '5.68e-04'   │      '0.06%'   ┃
-┃  0.0056789   │    '0.0057'    │      '0.01'    │   '5.68e-03'   │      '0.57%'   ┃
-┃  0.056789    │    '0.057'     │      '0.06'    │   '5.68e-02'   │      '5.68%'   ┃
-┃  0.56789     │    '0.57'      │      '0.57'    │   '5.68e-01'   │     '56.79%'   ┃
-┃  5.6789      │    '5.7'       │      '5.68'    │   '5.68e+00'   │    '567.89%'   ┃
-┃ 56.789       │    '5.7e+01'   │     '56.79'    │   '5.68e+01'   │   '5678.90%'   ┃
-┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛
+┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓
+┃              │ {&lt;float&gt;:.2}  │  {&lt;float&gt;:.2f} │  {&lt;float&gt;:.2e} │  {&lt;float&gt;:.2%} ┃
+┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨
+┃  0.000056789 │   '5.7e-05'   │      '0.00'    │   '5.68e-05'   │      '0.01%'   ┃
+┃  0.00056789  │   '0.00057'   │      '0.00'    │   '5.68e-04'   │      '0.06%'   ┃
+┃  0.0056789   │   '0.0057'    │      '0.01'    │   '5.68e-03'   │      '0.57%'   ┃
+┃  0.056789    │   '0.057'     │      '0.06'    │   '5.68e-02'   │      '5.68%'   ┃
+┃  0.56789     │   '0.57'      │      '0.57'    │   '5.68e-01'   │     '56.79%'   ┃
+┃  5.6789      │   '5.7'       │      '5.68'    │   '5.68e+00'   │    '567.89%'   ┃
+┃ 56.789       │   '5.7e+01'   │     '56.79'    │   '5.68e+01'   │   '5678.90%'   ┃
+┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛
 </code></pre></div>
 
 
@@ -452,13 +452,13 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 <li><strong>When both rounding up and rounding down are possible, the one that returns result with even last digit is chosen. Hence <code class="python hljs"><span class="hljs-string">'{6.5:.0f}'</span></code> becomes a <code class="python hljs"><span class="hljs-string">'6'</span></code>, while <code class="python hljs"><span class="hljs-string">'{7.5:.0f}'</span></code> an <code class="python hljs"><span class="hljs-string">'8'</span></code>.</strong></li>
 <li><strong>The last rule only effects numbers that can be represented exactly by a float (<code class="python hljs"><span class="hljs-number">.5</span></code>, <code class="python hljs"><span class="hljs-number">.25</span></code>, …).</strong></li>
 </ul>
-<div><h3 id="ints">Ints</h3><pre><code class="python language-python hljs">{<span class="hljs-number">90</span>:b}                                 <span class="hljs-comment"># Converts 90 to binary number '1011010'.</span>
-{<span class="hljs-number">90</span>:x}                                 <span class="hljs-comment"># Converts 90 to hexadecimal number '5a'.</span>
+<div><h3 id="ints">Ints</h3><pre><code class="python language-python hljs">{<span class="hljs-number">90</span>:x}                                 <span class="hljs-comment"># Converts 90 to hexadecimal number '5a'.</span>
+{<span class="hljs-number">90</span>:b}                                 <span class="hljs-comment"># Converts 90 to binary number '1011010'.</span>
 {<span class="hljs-number">90</span>:c}                                 <span class="hljs-comment"># Converts 90 to Unicode character 'Z'.</span>
 </code></pre></div>
 
 <div><h2 id="numbers"><a href="#numbers" name="numbers">#</a>Numbers</h2><pre><code class="python language-python hljs">&lt;integer&gt;  = int(&lt;float/str/bool&gt;)             <span class="hljs-comment"># A whole number. Truncates floats.</span>
-&lt;float&gt;    = float(&lt;integer/str/bool&gt;)         <span class="hljs-comment"># 64-bit decimal. Also &lt;fl&gt;e±&lt;int&gt;.</span>
+&lt;float&gt;    = float(&lt;integer/str/bool&gt;)         <span class="hljs-comment"># 8-byte decimal. Also &lt;fl&gt;e±&lt;int&gt;.</span>
 &lt;complex&gt;  = complex(real=<span class="hljs-number">0</span>, imag=<span class="hljs-number">0</span>)           <span class="hljs-comment"># Complex number. Also &lt;fl&gt; ± &lt;fl&gt;j.</span>
 &lt;Fraction&gt; = fractions.Fraction(numr, denom)   <span class="hljs-comment"># `&lt;Fraction&gt; = &lt;Fraction&gt; / &lt;int&gt;`.</span>
 &lt;Decimal&gt;  = decimal.Decimal(&lt;str/int/tuple&gt;)  <span class="hljs-comment"># `Decimal((1, (2,), 3)) == -2000`.</span>
@@ -882,7 +882,7 @@ str/repr/print(MyDataClass(obj))
 </code></pre></div>
 
 
-<div><h3 id="dataclass">Dataclass</h3><p><strong>Decorator that uses class variables to generate init(), repr() and eq() special methods.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> dataclasses <span class="hljs-keyword">as</span> dc
+<div><h3 id="dataclass">Dataclass</h3><p><strong>Decorator that generates init(), repr() and eq() special methods.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> dataclasses <span class="hljs-keyword">as</span> dc
 
 <span class="hljs-meta">@dc.dataclass(order=False, frozen=False)</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span>:</span>
@@ -2175,26 +2175,27 @@ $ snakeviz test.prof                                       <span class="hljs-com
 ┗━━━━━━━━━━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━┷━━━━━━┛
 </code></pre></div>
 
-<div><h2 id="numpy"><a href="#numpy" name="numpy">#</a>NumPy</h2><p><strong>Array manipulation mini-language. It can run up to one hundred times faster than the equivalent Python code. An even faster alternative that runs on a GPU is called CuPy.</strong></p><pre><code class="python language-python hljs"><span class="hljs-comment"># $ pip3 install numpy</span>
+<div><h2 id="numpy"><a href="#numpy" name="numpy">#</a>NumPy</h2><p><strong>Array manipulation library. Can run hundred times faster than equivalent Python code.</strong></p><pre><code class="python language-python hljs"><span class="hljs-comment"># $ pip3 install numpy</span>
 <span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
 </code></pre></div>
 
 
 <pre><code class="python language-python hljs">&lt;array&gt; = np.array(&lt;list/list_of_lists/…&gt;)          <span class="hljs-comment"># NumPy array. Accepts `dtype=np.int64`.</span>
-&lt;array&gt; = np.zeros/ones/empty(shape)                <span class="hljs-comment"># Pass a tuple of ints (dimension sizes).</span>
+&lt;array&gt; = np.load(&lt;path/file&gt;)                      <span class="hljs-comment"># Save array with np.save(&lt;path&gt;, &lt;arr&gt;).</span>
+</code></pre>
+<pre><code class="python language-python hljs">&lt;array&gt; = np.zeros/ones/empty(shape)                <span class="hljs-comment"># Pass a tuple of ints (dimension sizes).</span>
 &lt;array&gt; = np.arange(from, to_exc, ±step)            <span class="hljs-comment"># Also np.linspace(start, stop, length).</span>
 &lt;array&gt; = np.random.randint(from, to_exc, shape)    <span class="hljs-comment"># Also random.uniform(low, high, shape).</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;view&gt;  = &lt;array&gt;.reshape(shape)                    <span class="hljs-comment"># Also `&lt;array&gt;.shape = (&lt;int&gt;, [...])`.</span>
 &lt;array&gt; = &lt;array&gt;.flatten()                         <span class="hljs-comment"># Returns 1d copy. Also &lt;array&gt;.ravel().</span>
-&lt;view&gt;  = &lt;array&gt;.transpose()                       <span class="hljs-comment"># Flips the table over its main diagonal.</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;array&gt; = np.abs/sqrt/log/copy(&lt;array&gt;)             <span class="hljs-comment"># Returns a new array of the same shape.</span>
 &lt;array&gt; = &lt;array&gt;.sum/max/mean/argmax(axis)         <span class="hljs-comment"># Aggregates dimension with passed index.</span>
 &lt;array&gt; = np.apply_along_axis(&lt;func&gt;, axis, &lt;arr&gt;)  <span class="hljs-comment"># Func. can return a scalar or an array.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;array&gt; = np.concat(&lt;list_of_arrs&gt;, axis=<span class="hljs-number">0</span>)         <span class="hljs-comment"># Links arrays along first axis (rows).</span>
-&lt;array&gt; = np.vstack/column_stack(&lt;list_of_arrs&gt;)    <span class="hljs-comment"># A 1d array is treated as a row/column.</span>
+<pre><code class="python language-python hljs">&lt;array&gt; = np.concat(&lt;arrays&gt;, axis=<span class="hljs-number">0</span>)               <span class="hljs-comment"># Links arrays along first axis (rows).</span>
+&lt;array&gt; = np.vstack/column_stack(&lt;arrays&gt;)          <span class="hljs-comment"># A 1d array is treated as a row/column.</span>
 &lt;array&gt; = np.tile/repeat(&lt;arr&gt;, &lt;int/s&gt; [, axis])   <span class="hljs-comment"># Tiles whole array or repeats elements.</span>
 </code></pre>
 <ul>
@@ -2934,7 +2935,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>June 5, 2026</aside>
+    <aside>June 17, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 

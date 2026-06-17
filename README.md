@@ -145,7 +145,7 @@ Set
 
 ### Frozen Set
 * **Frozenset is immutable and hashable version of the normal set.**
-* **That means it can be used as a key in a dictionary or as an item in a set.**
+* **That means it can be used as a key in a dict or as an item in a set.**
 ```python
 <frozenset> = frozenset(<collection>)
 ```
@@ -334,7 +334,7 @@ String
 ```python
 <str>  = <str>.lower()                # Lowers the case. Also upper/capitalize/title().
 <str>  = <str>.casefold()             # Lower() that converts ẞ/ß to ss, Σ/ς to σ, etc.
-<str>  = <str>.replace(old, new)      # Converts every occurrence of string old to new.
+<str>  = <str>.replace(old, new)      # Removes occurrences of string old if new is ''.
 <str>  = <str>.translate(table)       # Get table via str.maketrans(<chr_to_str_dict>).
 ```
 
@@ -453,31 +453,31 @@ Format
 
 #### Comparison of presentation types:
 ```text
-+--------------+----------------+----------------+----------------+----------------+
-|              |    {<float>}   |   {<float>:f}  |   {<float>:e}  |   {<float>:%}  |
-+--------------+----------------+----------------+----------------+----------------+
-|  0.000056789 |   '5.6789e-05' |    '0.000057'  | '5.678900e-05' |    '0.005679%' |
-|  0.00056789  |   '0.00056789' |    '0.000568'  | '5.678900e-04' |    '0.056789%' |
-|  0.0056789   |   '0.0056789'  |    '0.005679'  | '5.678900e-03' |    '0.567890%' |
-|  0.056789    |   '0.056789'   |    '0.056789'  | '5.678900e-02' |    '5.678900%' |
-|  0.56789     |   '0.56789'    |    '0.567890'  | '5.678900e-01' |   '56.789000%' |
-|  5.6789      |   '5.6789'     |    '5.678900'  | '5.678900e+00' |  '567.890000%' |
-| 56.789       |  '56.789'      |   '56.789000'  | '5.678900e+01' | '5678.900000%' |
-+--------------+----------------+----------------+----------------+----------------+
++--------------+---------------+----------------+----------------+----------------+
+|              |   {<float>}   |   {<float>:f}  |   {<float>:e}  |   {<float>:%}  |
++--------------+---------------+----------------+----------------+----------------+
+|  0.000056789 |  '5.6789e-05' |    '0.000057'  | '5.678900e-05' |    '0.005679%' |
+|  0.00056789  |  '0.00056789' |    '0.000568'  | '5.678900e-04' |    '0.056789%' |
+|  0.0056789   |  '0.0056789'  |    '0.005679'  | '5.678900e-03' |    '0.567890%' |
+|  0.056789    |  '0.056789'   |    '0.056789'  | '5.678900e-02' |    '5.678900%' |
+|  0.56789     |  '0.56789'    |    '0.567890'  | '5.678900e-01' |   '56.789000%' |
+|  5.6789      |  '5.6789'     |    '5.678900'  | '5.678900e+00' |  '567.890000%' |
+| 56.789       | '56.789'      |   '56.789000'  | '5.678900e+01' | '5678.900000%' |
++--------------+---------------+----------------+----------------+----------------+
 ```
 
 ```text
-+--------------+----------------+----------------+----------------+----------------+
-|              |  {<float>:.2}  |  {<float>:.2f} |  {<float>:.2e} |  {<float>:.2%} |
-+--------------+----------------+----------------+----------------+----------------+
-|  0.000056789 |    '5.7e-05'   |      '0.00'    |   '5.68e-05'   |      '0.01%'   |
-|  0.00056789  |    '0.00057'   |      '0.00'    |   '5.68e-04'   |      '0.06%'   |
-|  0.0056789   |    '0.0057'    |      '0.01'    |   '5.68e-03'   |      '0.57%'   |
-|  0.056789    |    '0.057'     |      '0.06'    |   '5.68e-02'   |      '5.68%'   |
-|  0.56789     |    '0.57'      |      '0.57'    |   '5.68e-01'   |     '56.79%'   |
-|  5.6789      |    '5.7'       |      '5.68'    |   '5.68e+00'   |    '567.89%'   |
-| 56.789       |    '5.7e+01'   |     '56.79'    |   '5.68e+01'   |   '5678.90%'   |
-+--------------+----------------+----------------+----------------+----------------+
++--------------+---------------+----------------+----------------+----------------+
+|              | {<float>:.2}  |  {<float>:.2f} |  {<float>:.2e} |  {<float>:.2%} |
++--------------+---------------+----------------+----------------+----------------+
+|  0.000056789 |   '5.7e-05'   |      '0.00'    |   '5.68e-05'   |      '0.01%'   |
+|  0.00056789  |   '0.00057'   |      '0.00'    |   '5.68e-04'   |      '0.06%'   |
+|  0.0056789   |   '0.0057'    |      '0.01'    |   '5.68e-03'   |      '0.57%'   |
+|  0.056789    |   '0.057'     |      '0.06'    |   '5.68e-02'   |      '5.68%'   |
+|  0.56789     |   '0.57'      |      '0.57'    |   '5.68e-01'   |     '56.79%'   |
+|  5.6789      |   '5.7'       |      '5.68'    |   '5.68e+00'   |    '567.89%'   |
+| 56.789       |   '5.7e+01'   |     '56.79'    |   '5.68e+01'   |   '5678.90%'   |
++--------------+---------------+----------------+----------------+----------------+
 ```
 * **`'{<num>:g}'` is `'{<float>:.6}'` that strips `'.0'` and has exponent starting at `'1e+06'`.**
 * **When both rounding up and rounding down are possible, the one that returns result with even last digit is chosen. Hence `'{6.5:.0f}'` becomes a `'6'`, while `'{7.5:.0f}'` an `'8'`.**
@@ -485,8 +485,8 @@ Format
 
 ### Ints
 ```python
-{90:b}                                 # Converts 90 to binary number '1011010'.
 {90:x}                                 # Converts 90 to hexadecimal number '5a'.
+{90:b}                                 # Converts 90 to binary number '1011010'.
 {90:c}                                 # Converts 90 to Unicode character 'Z'.
 ```
 
@@ -495,7 +495,7 @@ Numbers
 -------
 ```python
 <integer>  = int(<float/str/bool>)             # A whole number. Truncates floats.
-<float>    = float(<integer/str/bool>)         # 64-bit decimal. Also <fl>e±<int>.
+<float>    = float(<integer/str/bool>)         # 8-byte decimal. Also <fl>e±<int>.
 <complex>  = complex(real=0, imag=0)           # Complex number. Also <fl> ± <fl>j.
 <Fraction> = fractions.Fraction(numr, denom)   # `<Fraction> = <Fraction> / <int>`.
 <Decimal>  = decimal.Decimal(<str/int/tuple>)  # `Decimal((1, (2,), 3)) == -2000`.
@@ -1033,7 +1033,7 @@ from collections import abc
 ```
 
 ### Dataclass
-**Decorator that uses class variables to generate init(), repr() and eq() special methods.**
+**Decorator that generates init(), repr() and eq() special methods.**
 ```python
 import dataclasses as dc
 
@@ -2645,7 +2645,7 @@ $ snakeviz test.prof                                       # Displays a flame gr
 
 NumPy
 -----
-**Array manipulation mini-language. It can run up to one hundred times faster than the equivalent Python code. An even faster alternative that runs on a GPU is called CuPy.**
+**Array manipulation library. Can run hundred times faster than equivalent Python code.**
 
 ```python
 # $ pip3 install numpy
@@ -2654,15 +2654,18 @@ import numpy as np
 
 ```python
 <array> = np.array(<list/list_of_lists/…>)          # NumPy array. Accepts `dtype=np.int64`.
+<array> = np.load(<path/file>)                      # Save array with np.save(<path>, <arr>).
+```
+
+```python
 <array> = np.zeros/ones/empty(shape)                # Pass a tuple of ints (dimension sizes).
-<array> = np.arange(form, to_exc, ±step)            # Also np.linspace(start, stop, length).
-<array> = np.random.randint(form, to_exc, shape)    # Also random.uniform(low, high, shape).
+<array> = np.arange(from, to_exc, ±step)            # Also np.linspace(start, stop, length).
+<array> = np.random.randint(from, to_exc, shape)    # Also random.uniform(low, high, shape).
 ```
 
 ```python
 <view>  = <array>.reshape(shape)                    # Also `<array>.shape = (<int>, [...])`.
 <array> = <array>.flatten()                         # Returns 1d copy. Also <array>.ravel().
-<view>  = <array>.transpose()                       # Flips the table over its main diagonal.
 ```
 
 ```python
@@ -2672,8 +2675,8 @@ import numpy as np
 ```
 
 ```python
-<array> = np.concat(<list_of_arrs>, axis=0)         # Links arrays along first axis (rows).
-<array> = np.vstack/column_stack(<list_of_arrs>)    # A 1d array is treated as a row/column.
+<array> = np.concat(<arrays>, axis=0)               # Links arrays along first axis (rows).
+<array> = np.vstack/column_stack(<arrays>)          # A 1d array is treated as a row/column.
 <array> = np.tile/repeat(<arr>, <int/s> [, axis])   # Tiles whole array or repeats elements.
 ```
 * **Shape is a tuple of dimension sizes. A 100x50 RGB image has shape (50, 100, 3).**
