@@ -56,7 +56,7 @@
 
 <body style="margin-top: 17.1px">
   <header>
-    <aside>June 17, 2026</aside>
+    <aside>June 18, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -617,7 +617,7 @@ shuffle(&lt;list&gt;)                                <span class="hljs-comment">
 &lt;obj&gt; = &lt;function&gt;(&lt;positional_args&gt;, &lt;keyword_args&gt;)    <span class="hljs-comment"># E.g. `my_func(0, y=0)`.</span>
 </code></pre></div>
 
-<div><h2 id="splatoperator"><a href="#splatoperator" name="splatoperator">#</a>Splat Operator</h2><p><strong>Splat expands a collection into positional arguments, while splatty-splat expands a dictionary into keyword arguments.</strong></p><pre><code class="python language-python hljs">args, kwargs = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), {<span class="hljs-string">'z'</span>: <span class="hljs-number">3</span>}
+<div><h2 id="splatoperator"><a href="#splatoperator" name="splatoperator">#</a>Splat Operator</h2><p><strong>Splat expands collection into positional arguments, while splatty-splat expands a dictionary into keyword arguments.</strong></p><pre><code class="python language-python hljs">args, kwargs = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), {<span class="hljs-string">'z'</span>: <span class="hljs-number">3</span>}
 func(*args, **kwargs)
 </code></pre></div>
 
@@ -650,8 +650,8 @@ func(*args, **kwargs)
 
 <pre><code class="python language-python hljs">head, *body, tail = &lt;collection&gt;   <span class="hljs-comment"># Head or tail can be omitted.</span>
 </code></pre>
-<div><h2 id="inline"><a href="#inline" name="inline">#</a>Inline</h2><div><h3 id="lambda">Lambda</h3><pre><code class="python language-python hljs">&lt;func&gt; = <span class="hljs-keyword">lambda</span>: &lt;return_value&gt;                   <span class="hljs-comment"># A single statement function.</span>
-&lt;func&gt; = <span class="hljs-keyword">lambda</span> &lt;arg_1&gt; [, ...]: &lt;return_value&gt;   <span class="hljs-comment"># Also allows default arguments.</span>
+<div><h2 id="inline"><a href="#inline" name="inline">#</a>Inline</h2><div><h3 id="lambda">Lambda</h3><pre><code class="python language-python hljs">&lt;func&gt; = <span class="hljs-keyword">lambda</span>: &lt;return_val&gt;                     <span class="hljs-comment"># A single statement function.</span>
+&lt;func&gt; = <span class="hljs-keyword">lambda</span> &lt;arg_1&gt; [, ...]: &lt;return_val&gt;     <span class="hljs-comment"># Also allows default arguments.</span>
 </code></pre></div></div>
 
 
@@ -661,8 +661,8 @@ func(*args, **kwargs)
 &lt;dict&gt; = {i: i**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>)}           <span class="hljs-comment"># Returns `{1: 1, 2: 4, 3: 9}`.</span>
 </code></pre></div>
 
-<pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>[l+r <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> <span class="hljs-string">'abc'</span> <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> <span class="hljs-string">'abc'</span>]           <span class="hljs-comment"># Inner loop is on right side.</span>
-[<span class="hljs-string">'aa'</span>, <span class="hljs-string">'ab'</span>, <span class="hljs-string">'ac'</span>, ..., <span class="hljs-string">'cc'</span>]
+<pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>[l+r <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> <span class="hljs-string">'abc'</span> <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> <span class="hljs-string">'123'</span>]           <span class="hljs-comment"># Inner loop is on right side.</span>
+[<span class="hljs-string">'a1'</span>, <span class="hljs-string">'a2'</span>, <span class="hljs-string">'a3'</span>, ..., <span class="hljs-string">'c3'</span>]
 </code></pre>
 <div><h3 id="mapfilterreduce">Map, Filter, Reduce</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce
 </code></pre></div>
@@ -848,7 +848,7 @@ str/repr/print(MyDataClass(obj))
 </code></pre></div>
 
 <div><h3 id="subclass">Subclass</h3><ul>
-<li><strong>Inheritance is a mechanism that enables a class to extend some other class (i.e. sub­class&nbsp;to extend its parent), and by doing so inherit all of its methods and attributes.</strong></li>
+<li><strong>Inheritance is a mechanism that enables a class to extend some other class (i.e. sub­class&nbsp;to extend its parent) and by doing so inherit all of its methods and attributes.</strong></li>
 <li><strong>Subclass can then add its own methods and attributes or override inherited ones by reusing their names.</strong></li>
 </ul><pre><code class="python language-python hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name)</span>:</span>
@@ -928,7 +928,7 @@ P = dc.make_dataclass(<span class="hljs-string">'P'</span>, [(<span class="hljs-
 &lt;object&gt; = copy/deepcopy(&lt;object&gt;)
 </code></pre></div>
 
-<div><h2 id="ducktypes"><a href="#ducktypes" name="ducktypes">#</a>Duck Types</h2><p><strong>A duck type is an implicit type that prescribes a set of special methods. Any object that has those methods defined is considered a member of that duck type.</strong></p><div><h3 id="comparable">Comparable</h3><ul>
+<div><h2 id="ducktypes"><a href="#ducktypes" name="ducktypes">#</a>Duck Types</h2><p><strong>A duck type is an implicit type that prescribes a set of special methods. Any object that pos­sesses all of the duck type's prescribed methods is considered a member of that duck type.</strong></p><div><h3 id="comparable">Comparable</h3><ul>
 <li><strong>If eq() method is not overridden, it returns <code class="python hljs"><span class="hljs-string">'id(self) == id(other)'</span></code>, which is the same as <code class="python hljs"><span class="hljs-string">'self is other'</span></code>. That means all user-defined objects compare not equal by default (because id() returns object's memory address that is guaranteed to be unique).</strong></li>
 <li><strong>Only the left side object has eq() method called, unless it returns NotImplemented, in which case the right object is consulted. Result is False if both return NotImplemented.</strong></li>
 <li><strong>Method ne() (called by <code class="python hljs"><span class="hljs-string">'!='</span></code>) automatically works on any object that has eq() defined.</strong></li>
@@ -1106,8 +1106,8 @@ Hello World!
 
 
 <div><h4 id="discrepanciesbetweenglossarydefinitionsandabstractbaseclasses">Discrepancies between glossary definitions and abstract base classes:</h4><ul>
-<li><strong>Python's glossary defines iterable as any object with special methods iter() or getitem(), and sequence as any object with getitem() and len(). It doesn't define the term <em>collection</em>.</strong></li>
-<li><strong>Passing ABC Iterable to isinstance() or issubclass() only checks whether object/class has special method iter(), while ABC Collection checks for iter(), contains() and len().</strong></li>
+<li><strong>Python's <a href="https://docs.python.org/3/glossary.html">glossary</a> defines iterable as any object with special methods iter() or getitem(), and sequence as any object with getitem() and len(). It doesn't define the term <em>collection</em>.</strong></li>
+<li><strong>Using <a href="#abstractbaseclasses">ABC</a> Iterable with isinstance() or issubclass() only checks whether object/class has special method iter(), while ABC Collection checks for iter(), contains() and len().</strong></li>
 </ul></div>
 
 
@@ -2586,8 +2586,8 @@ Name: a, dtype: int64
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;S&gt;  = pd.Series(&lt;list&gt;)                       <span class="hljs-comment"># Uses list's indices for 'index'.</span>
-&lt;S&gt;  = pd.Series(&lt;dict&gt;)                       <span class="hljs-comment"># Uses dictionary's keys for 'index'.</span>
+<pre><code class="python language-python hljs">&lt;S&gt;  = pd.Series(&lt;list&gt;)                       <span class="hljs-comment"># Returns a series. Uses indices for 'index'.</span>
+&lt;S&gt;  = pd.Series(&lt;dict&gt;)                       <span class="hljs-comment"># Returns a series. Uses keys for 'index'.</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;el&gt; = &lt;S&gt;.loc[key]                            <span class="hljs-comment"># Or: &lt;S&gt;.iloc[i]</span>
 &lt;S&gt;  = &lt;S&gt;.loc[coll_of_keys]                   <span class="hljs-comment"># Or: &lt;S&gt;.iloc[coll_of_i]</span>
@@ -2601,15 +2601,15 @@ Name: a, dtype: int64
 &lt;S&gt;  = &lt;S&gt; + &lt;el/S&gt;                            <span class="hljs-comment"># Items with non-matching keys get value NaN.</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;S&gt;  = &lt;S&gt;.head/describe/sort_values()         <span class="hljs-comment"># Also &lt;S&gt;.unique/value_counts/round/dropna().</span>
-&lt;S&gt;  = &lt;S&gt;.str.strip/lower/contains/replace()  <span class="hljs-comment"># Also split().str[i] or split(expand=True).</span>
+&lt;S&gt;  = &lt;S&gt;.str.strip/lower/contains/replace()  <span class="hljs-comment"># Also split().str[i] and split(expand=True).</span>
 &lt;S&gt;  = &lt;S&gt;.dt.year/month/day/hour              <span class="hljs-comment"># Use pd.to_datetime(&lt;S&gt;) to get S of datetimes.</span>
-&lt;S&gt;  = &lt;S&gt;.dt.to_period(<span class="hljs-string">'y/m/d/h'</span>)             <span class="hljs-comment"># Quantizes datetimes into Period objects.</span>
+&lt;S&gt;  = &lt;S&gt;.dt.to_period(<span class="hljs-string">'y/m/d/h'</span>)             <span class="hljs-comment"># Quantizes datetimes into S of Period objects.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;S&gt;.plot.line/area/bar/pie/hist()              <span class="hljs-comment"># Generates a plot. Accepts `title=&lt;str&gt;`.</span>
+<pre><code class="python language-python hljs">&lt;S&gt;.plot.line/area/bar/pie/hist()              <span class="hljs-comment"># Generates a plot. Accepts `title=&lt;str&gt;` arg.</span>
 plt.show()                                     <span class="hljs-comment"># Displays the plot. Also plt.savefig(&lt;path&gt;).</span>
 </code></pre>
 <ul>
-<li><strong>Use <code class="python hljs"><span class="hljs-string">'print(&lt;S&gt;.to_string())'</span></code> to print a Series that has more than sixty items.</strong></li>
+<li><strong>Use <code class="python hljs"><span class="hljs-string">'print(&lt;S&gt;.to_string())'</span></code> to print a Series that contains more than sixty items.</strong></li>
 <li><strong>Use <code class="python hljs"><span class="hljs-string">'&lt;S&gt;.index'</span></code> to get collection of keys and <code class="python hljs"><span class="hljs-string">'&lt;S&gt;.index = &lt;coll&gt;'</span></code> to update them.</strong></li>
 <li><strong>Only pass a list or Series to loc/iloc because <code class="python hljs"><span class="hljs-string">'obj[x, y]'</span></code> is converted to <code class="python hljs"><span class="hljs-string">'obj[(x, y)]'</span></code> and <code class="python hljs"><span class="hljs-string">'&lt;S&gt;.loc[key_1, key_2]'</span></code> is how you retrieve a value from a multi-indexed Series.</strong></li>
 <li><strong>Pandas uses NumPy types like <code class="python hljs"><span class="hljs-string">'np.int64'</span></code>. Series is converted to <code class="python hljs"><span class="hljs-string">'float64'</span></code> if np.nan is assigned to any item. Use <code class="python hljs"><span class="hljs-string">'&lt;S&gt;.astype(&lt;str/type&gt;)'</span></code> to get converted Series.</strong></li>
@@ -2935,7 +2935,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>June 17, 2026</aside>
+    <aside>June 18, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 

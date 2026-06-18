@@ -694,7 +694,7 @@ def my_function(<nondefault_args>, <default_args>): ...  # E.g. `my_func(x, y=0)
 
 Splat Operator
 --------------
-**Splat expands a collection into positional arguments, while splatty-splat expands a dictionary into keyword arguments.**
+**Splat expands collection into positional arguments, while splatty-splat expands a dictionary into keyword arguments.**
 ```python
 args, kwargs = (1, 2), {'z': 3}
 func(*args, **kwargs)
@@ -745,8 +745,8 @@ Inline
 ------
 ### Lambda
 ```python
-<func> = lambda: <return_value>                   # A single statement function.
-<func> = lambda <arg_1> [, ...]: <return_value>   # Also allows default arguments.
+<func> = lambda: <return_val>                     # A single statement function.
+<func> = lambda <arg_1> [, ...]: <return_val>     # Also allows default arguments.
 ```
 
 ### Comprehensions
@@ -758,8 +758,8 @@ Inline
 ```
 
 ```python
->>> [l+r for l in 'abc' for r in 'abc']           # Inner loop is on right side.
-['aa', 'ab', 'ac', ..., 'cc']
+>>> [l+r for l in 'abc' for r in '123']           # Inner loop is on right side.
+['a1', 'a2', 'a3', ..., 'c3']
 ```
 
 ### Map, Filter, Reduce
@@ -995,7 +995,7 @@ str/repr/print(MyDataClass(obj))
 ```
 
 ### Subclass
-* **Inheritance is a mechanism that enables a class to extend some other class (i.e. sub&shy;class&nbsp;to extend its parent), and by doing so inherit all of its methods and attributes.**
+* **Inheritance is a mechanism that enables a class to extend some other class (i.e. sub&shy;class&nbsp;to extend its parent) and by doing so inherit all of its methods and attributes.**
 * **Subclass can then add its own methods and attributes or override inherited ones by reusing their names.**
 
 ```python
@@ -1092,7 +1092,7 @@ from copy import copy, deepcopy
 
 Duck Types
 ----------
-**A duck type is an implicit type that prescribes a set of special methods. Any object that has those methods defined is considered a member of that duck type.**
+**A duck type is an implicit type that prescribes a set of special methods. Any object that pos&shy;sesses all of the duck type's prescribed methods is considered a member of that duck type.**
 
 ### Comparable
 * **If eq() method is not overridden, it returns `'id(self) == id(other)'`, which is the same as `'self is other'`. That means all user-defined objects compare not equal by default (because id() returns object's memory address that is guaranteed to be unique).**
@@ -1282,8 +1282,8 @@ class MySequence:
 ```
 
 #### Discrepancies between glossary definitions and abstract base classes:
-* **Python's glossary defines iterable as any object with special methods iter() or getitem(), and sequence as any object with getitem() and len(). It doesn't define the term _collection_.**
-* **Passing ABC Iterable to isinstance() or issubclass() only checks whether object/class has special method iter(), while ABC Collection checks for iter(), contains() and len().**
+* **Python's [glossary](https://docs.python.org/3/glossary.html) defines iterable as any object with special methods iter() or getitem(), and sequence as any object with getitem() and len(). It doesn't define the term _collection_.**
+* **Using [ABC](#abstract-base-classes) Iterable with isinstance() or issubclass() only checks whether object/class has special method iter(), while ABC Collection checks for iter(), contains() and len().**
 
 ### ABC Sequence
 * **It's a richer interface than the basic sequence that also requires just getitem() and len().**
@@ -3155,8 +3155,8 @@ Name: a, dtype: int64
 ```
 
 ```python
-<S>  = pd.Series(<list>)                       # Uses list's indices for 'index'.
-<S>  = pd.Series(<dict>)                       # Uses dictionary's keys for 'index'.
+<S>  = pd.Series(<list>)                       # Returns a series. Uses indices for 'index'.
+<S>  = pd.Series(<dict>)                       # Returns a series. Uses keys for 'index'.
 ```
 
 ```python
@@ -3178,16 +3178,16 @@ Name: a, dtype: int64
 
 ```python
 <S>  = <S>.head/describe/sort_values()         # Also <S>.unique/value_counts/round/dropna().
-<S>  = <S>.str.strip/lower/contains/replace()  # Also split().str[i] or split(expand=True).
+<S>  = <S>.str.strip/lower/contains/replace()  # Also split().str[i] and split(expand=True).
 <S>  = <S>.dt.year/month/day/hour              # Use pd.to_datetime(<S>) to get S of datetimes.
-<S>  = <S>.dt.to_period('y/m/d/h')             # Quantizes datetimes into Period objects.
+<S>  = <S>.dt.to_period('y/m/d/h')             # Quantizes datetimes into S of Period objects.
 ```
 
 ```python
-<S>.plot.line/area/bar/pie/hist()              # Generates a plot. Accepts `title=<str>`.
+<S>.plot.line/area/bar/pie/hist()              # Generates a plot. Accepts `title=<str>` arg.
 plt.show()                                     # Displays the plot. Also plt.savefig(<path>).
 ```
-* **Use `'print(<S>.to_string())'` to print a Series that has more than sixty items.**
+* **Use `'print(<S>.to_string())'` to print a Series that contains more than sixty items.**
 * **Use `'<S>.index'` to get collection of keys and `'<S>.index = <coll>'` to update them.**
 * **Only pass a list or Series to loc/iloc because `'obj[x, y]'` is converted to `'obj[(x, y)]'` and `'<S>.loc[key_1, key_2]'` is how you retrieve a value from a multi-indexed Series.**
 * **Pandas uses NumPy types like `'np.int64'`. Series is converted to `'float64'` if np.nan is assigned to any item. Use `'<S>.astype(<str/type>)'` to get converted Series.**
