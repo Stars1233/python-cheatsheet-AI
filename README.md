@@ -11,7 +11,7 @@ Contents
 **&nbsp;&nbsp;&nbsp;** **1. Collections:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** **[`List`](#list)**__,__ **[`Dictionary`](#dictionary)**__,__ **[`Set`](#set)**__,__ **[`Tuple`](#tuple)**__,__ **[`Range`](#range)**__,__ **[`Enumerate`](#enumerate)**__,__ **[`Iterator`](#iterator)**__,__ **[`Generator`](#generator)**__.__  
 **&nbsp;&nbsp;&nbsp;** **2. Data Types:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Type`](#type)**__,__ **[`String`](#string)**__,__ **[`Regular_Exp`](#regex)**__,__ **[`Format`](#format)**__,__ **[`Numbers`](#numbers-1)**__,__ **[`Combinatorics`](#combinatorics)**__,__ **[`Datetime`](#datetime)**__.__  
 **&nbsp;&nbsp;&nbsp;** **3. Syntax Rules:** **&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Function`](#function)**__,__ **[`Inline`](#inline)**__,__ **[`Import`](#import)**__,__ **[`Decorator`](#decorator)**__,__ **[`Class`](#class)**__,__ **[`Duck_Type`](#duck-types)**__,__ **[`Enum`](#enum)**__,__ **[`Except`](#exceptions)**__.__  
-**&nbsp;&nbsp;&nbsp;** **4. System Calls:** **&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Exit`](#exit)**__,__ **[`Print`](#print)**__,__ **[`Input`](#input)**__,__ **[`Command_Line_Arguments`](#command-line-arguments)**__,__ **[`Open`](#open)**__,__ **[`Path`](#paths)**__,__ **[`OS_Commands`](#os-commands)**__.__  
+**&nbsp;&nbsp;&nbsp;** **4. System Calls:** **&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Exit`](#exit)**__,__ **[`Print`](#print)**__,__ **[`Input`](#input)**__,__ **[`Command_Line_Arguments`](#arguments)**__,__ **[`Open`](#open)**__,__ **[`Path`](#paths)**__,__ **[`OS_Commands`](#os-commands)**__.__  
 **&nbsp;&nbsp;&nbsp;** **5. Data Formats:** **&nbsp;&nbsp;**  **[`JSON`](#json)**__,__ **[`Pickle`](#pickle)**__,__ **[`CSV`](#csv)**__,__ **[`SQLite`](#sqlite)**__,__ **[`Bytes`](#bytes)**__,__ **[`Struct`](#struct)**__,__ **[`Array`](#array)**__,__ **[`Memory_View`](#memory-view)**__,__ **[`Deque`](#deque)**__.__  
 **&nbsp;&nbsp;&nbsp;** **6. Misc Topics:** **&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**  **[`Operator`](#operator)**__,__ **[`Match_Statement`](#match-statement)**__,__ **[`Logging`](#logging)**__,__ **[`Introspection`](#introspection)**__,__ **[`Threads`](#threading)**__,__ **[`Asyncio`](#asyncio)**__.__  
 **&nbsp;&nbsp;&nbsp;** **7. Pip Packages:** **&nbsp;&nbsp;&nbsp;**  **[`Progress_Bar`](#progress-bar)**__,__ **[`Plot`](#plot)**__,__ **[`Table`](#table)**__,__ **[`Console_App`](#console-app)**__,__ **[`GUI`](#gui-app)**__,__ **[`Scraping`](#scraping)**__,__ **[`Web`](#web-app)**__,__ **[`Profile`](#profiling)**__.__  
@@ -1334,7 +1334,7 @@ class MyEnum(Enum):
     <member_name> = <el_1>, <el_2>      # Value can be a collection, e.g. a tuple.
 ```
 * **Methods receive the member they were called on as the 'self' argument.**
-* **Accessing a member named after a reserved keyword causes SyntaxError.**
+* **Accessing a member named after a reserved keyword raises SyntaxError.**
 
 ```python
 <member> = <enum>.<member_name>         # Accesses a member via enum's attribute.
@@ -1365,9 +1365,10 @@ Cutlery = Enum('Cutlery', {'FORK': 1, 'KNIFE': 2, 'SPOON': 3})
 
 #### User-defined functions cannot be values, so they must be wrapped:
 ```python
-from functools import partial
-LogicOp = Enum('LogicOp', {'AND': partial(lambda l, r: l and r),
-                           'OR':  partial(lambda l, r: l or r)})
+import functools as ft
+and_ = ft.partial(lambda l, r: l and r)
+or_ = ft.partial(lambda l, r: l or r)
+LogicOp = Enum('LogicOp', {'AND': and_, 'OR': or_})
 ```
 
 
@@ -1402,13 +1403,12 @@ finally:
 ```python
 except <exception>: ...
 except <exception> as <name>: ...
-except (<exception>, [...]): ...
-except (<exception>, [...]) as <name>: ...
+except (<exception>, ...) [as <name>]: ...
 ```
 * **It also catches subclasses, e.g. `'ArithmeticError'` is caught by `'except Exception:'`.**
 * **Use `'traceback.print_exc()'` to print the full error message to standard error stream.**
 * **Use `'print(<name>)'` to print just the cause of the exception (its arguments) to stdout.**
-* **Use `'logging.exception(<str>)'` to log the passed message, followed by the full error message of the caught exception. For details about how to set up the logger see [Logging](#logging).**
+* **Use `'logging.exception(<str>)'` to log the passed message followed by the full error message of the caught exception. For details about how to set up the logger see [Logging](#logging).**
 * **`'sys.exc_info()'` returns type, object and traceback of the caught exception as a tuple.**
 
 ### Raising Exceptions
@@ -1526,8 +1526,8 @@ Input
 * **EOFError is raised if user hits EOF (ctrl-d/ctrl-z⏎) or stream is already exhausted.**
 
 
-Command Line Arguments
-----------------------
+Arguments
+---------
 ```python
 import sys
 scripts_path = sys.argv[0]
@@ -1537,14 +1537,14 @@ arguments    = sys.argv[1:]
 ### Argument Parser
 ```python
 from argparse import ArgumentParser
-p = ArgumentParser(description=<str>)                       # Also accepts 'usage' str.
-p.add_argument('-<char>', '--<name>', action='store_true')  # Flag (defaults to False).
-p.add_argument('-<char>', '--<name>', type=<type>)          # Option (defaults to None).
-p.add_argument('<name>', type=<type>, nargs=1)              # Mandatory first argument.
-p.add_argument('<name>', type=<type>, nargs='+')            # Mandatory remaining args.
-p.add_argument('<name>', type=<type>, nargs='?')            # Optional argument. Also *.
-args  = p.parse_args()                                      # Exits on a parsing error.
-<obj> = args.<name>                                         # Returns `<type>(<arg>)`.
+p = ArgumentParser(description=<str>)                      # Also accepts 'usage' str.
+p.add_argument('-<chr>', '--<name>', action='store_true')  # Flag (defaults to False).
+p.add_argument('-<chr>', '--<name>', type=<type>)          # Option (defaults to None).
+p.add_argument('<name>', type=<type>, nargs=1)             # Mandatory first argument.
+p.add_argument('<name>', type=<type>, nargs='+')           # Mandatory remaining args.
+p.add_argument('<name>', type=<type>, nargs='?')           # Optional argument. Also *.
+args  = p.parse_args()                                     # Exits on a parsing error.
+<obj> = args.<name>                                        # Returns `<type>(<arg>)`.
 ```
 * **Use `'help=<str>'` to set argument description that is used by `'-h'`.**
 * **Use `'default=<obj>'` to set option's or argument's default value.**
