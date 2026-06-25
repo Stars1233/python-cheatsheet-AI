@@ -95,14 +95,14 @@ const CONSTRUCTOR_OVERLOADING =
   '        self.a = a\n';
 
 const SHUTIL_COPY =
-  'shutil.copy(from, to)           <span class="hljs-comment"># Copies file (arg. \'to\' can exist or be a dir).</span>\n' +
-  'shutil.copy2(from, to)          <span class="hljs-comment"># Also copies the creation and modification time.</span>\n' +
-  'shutil.copytree(from, to)       <span class="hljs-comment"># Copies directory (arg. \'to\' should not exist).</span>\n';
+  'sh.copy(from, to)              <span class="hljs-comment"># Copies file (arg. \'to\' can exist or be a dir).</span>\n' +
+  'sh.copy2(from, to)             <span class="hljs-comment"># Also copies the creation and modification time.</span>\n' +
+  'sh.copytree(from, to)          <span class="hljs-comment"># Copies directory (arg. \'to\' should not exist).</span>\n';
 
 const OS_RENAME =
-  'os.rename(from, to)             <span class="hljs-comment"># Renames or moves the file or directory \'from\'.</span>\n' +
-  'os.replace(from, to)            <span class="hljs-comment"># Same, but overwrites file \'to\' even on Windows.</span>\n' +
-  'shutil.move(from, to)           <span class="hljs-comment"># `rename()` that moves into \'to\' if it\'s a dir.</span>\n';
+  'os.rename(from, to)            <span class="hljs-comment"># Renames or moves the file or directory \'from\'.</span>\n' +
+  'os.replace(from, to)           <span class="hljs-comment"># Same, but overwrites file \'to\' even on Windows.</span>\n' +
+  'sh.move(from, to)              <span class="hljs-comment"># `rename()` that moves into \'to\' if it\'s a dir.</span>\n';
 
 const STRUCT_FORMAT =
   '<span class="hljs-section">\'&lt;n&gt;s\'</span><span class="hljs-attribute"></span>';
@@ -957,11 +957,11 @@ function fixHighlights() {
   $(`code:contains(@debug(print_result=True))`).html(PARAMETRIZED_DECORATOR);
   $(`code:contains(print(obj))`).html(STR_USE_CASES);
   $(`code:contains(print/str/repr([obj]))`).html(REPR_USE_CASES);
-  $(`code:contains(shutil.copy)`).html(SHUTIL_COPY);
+  $(`code:contains(sh.copy)`).html(SHUTIL_COPY);
   $(`code:contains(os.rename)`).html(OS_RENAME);
   $(`code:contains(\'<n>s\')`).html(STRUCT_FORMAT);
   $(`code:contains(match <object/expression>:)`).html(MATCH);
-  $(`code:contains(>>> match Path)`).html(MATCH_EXAMPLE);
+  // $(`code:contains(>>> match Path)`).html(MATCH_EXAMPLE);
   $(`code:contains(>>> log.basicConfig()`).html(LOGGING_EXAMPLE);
   $(`code:contains(import asyncio as aio, collections, curses, curses.textpad, enum, random)`).html(COROUTINES);
   $(`code:contains(pip3 install tqdm)`).html(PROGRESS_BAR);

@@ -56,7 +56,7 @@
 
 <body style="margin-top: 17.1px">
   <header>
-    <aside>June 19, 2026</aside>
+    <aside>June 25, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -146,26 +146,25 @@ flatter_list     = list(itertools.chain.from_iterable(&lt;list&gt;))
 &lt;list&gt;.remove(&lt;el&gt;)             <span class="hljs-comment"># Removes the first occurrence or raises ValueError.</span>
 &lt;list&gt;.clear()                  <span class="hljs-comment"># Removes all items. Also provided by dict and set.</span>
 </code></pre>
-<div><h2 id="dictionary"><a href="#dictionary" name="dictionary">#</a>Dictionary</h2><pre><code class="python language-python hljs">&lt;dict&gt; = {key_1: val_1, key_2: val_2, ...}      <span class="hljs-comment"># Use `&lt;dict&gt;[key]` to get or assign the value.</span>
+<div><h2 id="dictionary"><a href="#dictionary" name="dictionary">#</a>Dictionary</h2><pre><code class="python language-python hljs">&lt;dict&gt; = {key_1: val_1, key_2: val_2, ...}    <span class="hljs-comment"># Use `&lt;dict&gt;[key]` to get or assign the value.</span>
 </code></pre></div>
 
-<pre><code class="python language-python hljs">&lt;view&gt; = &lt;dict&gt;.keys()                          <span class="hljs-comment"># A collection of keys reflecting all changes.</span>
-&lt;view&gt; = &lt;dict&gt;.values()                        <span class="hljs-comment"># A collection of values that reflects changes.</span>
-&lt;view&gt; = &lt;dict&gt;.items()                         <span class="hljs-comment"># Coll. of tuples. Each contains key and value.</span>
+<pre><code class="python language-python hljs">&lt;view&gt; = &lt;dict&gt;.keys()                        <span class="hljs-comment"># A collection of keys reflecting all changes.</span>
+&lt;view&gt; = &lt;dict&gt;.values()                      <span class="hljs-comment"># A collection of values that reflects changes.</span>
+&lt;view&gt; = &lt;dict&gt;.items()                       <span class="hljs-comment"># Coll. of tuples. Each contains key and value.</span>
 </code></pre>
-<pre><code class="python language-python hljs">value  = &lt;dict&gt;.get(key, default=<span class="hljs-keyword">None</span>)          <span class="hljs-comment"># Returns 'default' argument if key is missing.</span>
-value  = &lt;dict&gt;.setdefault(key, default=<span class="hljs-keyword">None</span>)   <span class="hljs-comment"># Returns/writes 'default' when key is missing.</span>
-&lt;dict&gt; = collections.defaultdict(&lt;type&gt;)        <span class="hljs-comment"># Dict with automatic default value `&lt;type&gt;()`.</span>
-&lt;dict&gt; = collections.defaultdict(<span class="hljs-keyword">lambda</span>: <span class="hljs-number">1</span>)     <span class="hljs-comment"># Dictionary with automatic default value `1`.</span>
+<pre><code class="python language-python hljs">value  = &lt;dict&gt;.get(key, default=<span class="hljs-keyword">None</span>)        <span class="hljs-comment"># Returns 'default' argument if key is missing.</span>
+value  = &lt;dict&gt;.setdefault(key, default)      <span class="hljs-comment"># Returns/writes 'default' when key is missing.</span>
+&lt;dict&gt; = collections.defaultdict(&lt;type&gt;)      <span class="hljs-comment"># Dict with automatic default value `&lt;type&gt;()`.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;dict&gt; = dict(&lt;collection&gt;)                     <span class="hljs-comment"># Creates a dict from coll. of key-value pairs.</span>
-&lt;dict&gt; = dict(zip(keys, values))                <span class="hljs-comment"># Creates key-value pairs from two collections.</span>
-&lt;dict&gt; = dict.fromkeys(keys [, value])          <span class="hljs-comment"># Items get value None if only keys are passed.</span>
+<pre><code class="python language-python hljs">&lt;dict&gt; = dict(&lt;collection&gt;)                   <span class="hljs-comment"># Creates a dict from coll. of key-value pairs.</span>
+&lt;dict&gt; = dict(zip(keys, values))              <span class="hljs-comment"># Creates key-value pairs from two collections.</span>
+&lt;dict&gt; = dict.fromkeys(keys [, value])        <span class="hljs-comment"># Items get value None if only keys are passed.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;dict&gt;.update(&lt;dict&gt;)                           <span class="hljs-comment"># Adds items to dict. Passed dict has priority.</span>
-value = &lt;dict&gt;.pop(key)                         <span class="hljs-comment"># Removes item or raises KeyError when missing.</span>
-{k <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> &lt;dict&gt;.items() <span class="hljs-keyword">if</span> v == <span class="hljs-number">123</span>}      <span class="hljs-comment"># Returns a set of keys whose value equals 123.</span>
-{k: v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> &lt;dict&gt;.items() <span class="hljs-keyword">if</span> k <span class="hljs-keyword">in</span> keys}  <span class="hljs-comment"># Returns a dict of items with specified keys.</span>
+<pre><code class="python language-python hljs">&lt;dict&gt;.update(&lt;dict&gt;)                         <span class="hljs-comment"># Adds items to dict. Passed dict has priority.</span>
+value = &lt;dict&gt;.pop(key)                       <span class="hljs-comment"># Removes item or raises KeyError when missing.</span>
+{k <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> &lt;dict&gt;.items() <span class="hljs-keyword">if</span> v == <span class="hljs-number">123</span>}    <span class="hljs-comment"># Returns a set of keys whose value equals 123.</span>
+{k: v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> &lt;dict&gt;.items() <span class="hljs-keyword">if</span> k <span class="hljs-keyword">in</span> ks}  <span class="hljs-comment"># Returns a dict of items with specified keys.</span>
 </code></pre>
 <div><h3 id="counter">Counter</h3><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter
 <span class="hljs-meta">&gt;&gt;&gt; </span>counter = Counter([<span class="hljs-string">'blue'</span>, <span class="hljs-string">'blue'</span>, <span class="hljs-string">'red'</span>])
@@ -174,22 +173,22 @@ value = &lt;dict&gt;.pop(key)                         <span class="hljs-comment"
 [(<span class="hljs-string">'yellow'</span>, <span class="hljs-number">3</span>), (<span class="hljs-string">'blue'</span>, <span class="hljs-number">2</span>), (<span class="hljs-string">'red'</span>, <span class="hljs-number">1</span>)]
 </code></pre></div>
 
-<div><h2 id="set"><a href="#set" name="set">#</a>Set</h2><pre><code class="python language-python hljs">&lt;set&gt; = {&lt;el_1&gt;, &lt;el_2&gt;, ...}           <span class="hljs-comment"># Coll. of unique items. Also set(), set(&lt;coll&gt;).</span>
+<div><h2 id="set"><a href="#set" name="set">#</a>Set</h2><pre><code class="python language-python hljs">&lt;set&gt; = {&lt;el_1&gt;, &lt;el_2&gt;, ...}       <span class="hljs-comment"># Coll. of unique items. Also set(), set(&lt;coll&gt;).</span>
 </code></pre></div>
 
-<pre><code class="python language-python hljs">&lt;set&gt;.add(&lt;el&gt;)                         <span class="hljs-comment"># Adds item to the set. Same as `&lt;set&gt; |= {&lt;el&gt;}`.</span>
-&lt;set&gt;.update(&lt;collection&gt; [, ...])      <span class="hljs-comment"># Adds items to the set. Same as `&lt;set&gt; |= &lt;set&gt;`.</span>
+<pre><code class="python language-python hljs">&lt;set&gt;.add(&lt;el&gt;)                     <span class="hljs-comment"># Adds item to the set. Same as `&lt;set&gt; |= {&lt;el&gt;}`.</span>
+&lt;set&gt;.update(&lt;coll&gt; [, ...])        <span class="hljs-comment"># Adds items to the set. Same as `&lt;set&gt; |= &lt;set&gt;`.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;set&gt;  = &lt;set&gt;.union(&lt;coll&gt;)            <span class="hljs-comment"># Returns a set of all items. Also &lt;set&gt; | &lt;set&gt;.</span>
-&lt;set&gt;  = &lt;set&gt;.intersection(&lt;coll&gt;)     <span class="hljs-comment"># Returns every shared item. Also &lt;set&gt; &amp; &lt;set&gt;.</span>
-&lt;set&gt;  = &lt;set&gt;.difference(&lt;coll&gt;)       <span class="hljs-comment"># Returns set's unique items. Also &lt;set&gt; - &lt;set&gt;.</span>
-&lt;set&gt;  = &lt;set&gt;.symmetric_diff…(&lt;coll&gt;)  <span class="hljs-comment"># Returns all nonshared items. Also &lt;set&gt; ^ &lt;set&gt;.</span>
-&lt;bool&gt; = &lt;set&gt;.issuperset(&lt;coll&gt;)       <span class="hljs-comment"># Returns False when collection has unique items.</span>
-&lt;bool&gt; = &lt;set&gt;.issubset(&lt;coll&gt;)         <span class="hljs-comment"># Is collection a superset? Also &lt;set&gt; &lt;= &lt;set&gt;.</span>
+<pre><code class="python language-python hljs">&lt;set&gt; = &lt;set&gt;.union(&lt;coll&gt;)         <span class="hljs-comment"># Returns a set of all items. Also &lt;set&gt; | &lt;set&gt;.</span>
+&lt;set&gt; = &lt;set&gt;.intersection(&lt;coll&gt;)  <span class="hljs-comment"># Returns every shared item. Also &lt;set&gt; &amp; &lt;set&gt;.</span>
+&lt;set&gt; = &lt;set&gt;.difference(&lt;coll&gt;)    <span class="hljs-comment"># Returns set's unique items. Also &lt;set&gt; - &lt;set&gt;.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;el&gt; = &lt;set&gt;.pop()                      <span class="hljs-comment"># Removes one of items. Raises KeyError if empty.</span>
-&lt;set&gt;.remove(&lt;el&gt;)                      <span class="hljs-comment"># Removes the item or raises KeyError if missing.</span>
-&lt;set&gt;.discard(&lt;el&gt;)                     <span class="hljs-comment"># Same as remove() but it doesn't raise an error.</span>
+<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;set&gt;.issuperset(&lt;coll&gt;)   <span class="hljs-comment"># Returns False when collection has unique items.</span>
+&lt;bool&gt; = &lt;set&gt;.issubset(&lt;coll&gt;)     <span class="hljs-comment"># Is collection a superset? Also &lt;set&gt; &lt;= &lt;set&gt;.</span>
+</code></pre>
+<pre><code class="python language-python hljs">&lt;el&gt; = &lt;set&gt;.pop()                  <span class="hljs-comment"># Removes one of items. Raises KeyError if empty.</span>
+&lt;set&gt;.remove(&lt;el&gt;)                  <span class="hljs-comment"># Removes the item or raises KeyError if missing.</span>
+&lt;set&gt;.discard(&lt;el&gt;)                 <span class="hljs-comment"># Same as remove() but it doesn't raise an error.</span>
 </code></pre>
 <div><h3 id="frozenset">Frozen Set</h3><ul>
 <li><strong>Frozenset is immutable and hashable version of the normal set.</strong></li>
@@ -204,8 +203,8 @@ value = &lt;dict&gt;.pop(key)                         <span class="hljs-comment"
 </code></pre></div>
 
 
-<div><h3 id="namedtuple">Named Tuple</h3><p><strong>Tuple's subclass with named elements.</strong></p><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
-<span class="hljs-meta">&gt;&gt;&gt; </span>Point = namedtuple(<span class="hljs-string">'Point'</span>, <span class="hljs-string">'x y'</span>)
+<div><h3 id="namedtuple">Named Tuple</h3><p><strong>Tuple's subclass with named elements.</strong></p><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> collections <span class="hljs-keyword">as</span> co
+<span class="hljs-meta">&gt;&gt;&gt; </span>Point = co.namedtuple(<span class="hljs-string">'Point'</span>, <span class="hljs-string">'x y'</span>)
 <span class="hljs-meta">&gt;&gt;&gt; </span>p = Point(<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>)
 <span class="hljs-meta">&gt;&gt;&gt; </span>print(p)
 Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>)
@@ -1423,7 +1422,7 @@ args  = p.parse_args()                                     <span class="hljs-com
 <pre><code class="python language-python hljs">&lt;Path&gt; = Path()                     <span class="hljs-comment"># Returns current working dir. Also Path('.').</span>
 &lt;Path&gt; = Path.cwd()                 <span class="hljs-comment"># Returns absolute CWD. Also Path().resolve().</span>
 &lt;Path&gt; = Path.home()                <span class="hljs-comment"># Returns the user's absolute home directory.</span>
-&lt;Path&gt; = Path(__file__).resolve()   <span class="hljs-comment"># Returns module's path if CWD wasn't changed.</span>
+&lt;Path&gt; = Path(__file__)             <span class="hljs-comment"># Use resolve() to get module's absolute path.</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;Path&gt; = &lt;Path&gt;.parent              <span class="hljs-comment"># Returns the path without its final component.</span>
 &lt;str&gt;  = &lt;Path&gt;.name                <span class="hljs-comment"># Returns final component (i.e. file/dirname).</span>
@@ -1432,50 +1431,50 @@ args  = p.parse_args()                                     <span class="hljs-com
 &lt;tup.&gt; = &lt;Path&gt;.parts               <span class="hljs-comment"># Starts with '/' or 'C:\' if path is absolute.</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;iter&gt; = &lt;Path&gt;.iterdir()           <span class="hljs-comment"># Returns directory contents as Path objects.</span>
-&lt;iter&gt; = &lt;Path&gt;.glob(<span class="hljs-string">'&lt;pattern&gt;'</span>)   <span class="hljs-comment"># Returns Paths matching the wildcard pattern.</span>
+&lt;iter&gt; = &lt;Path&gt;.glob(<span class="hljs-string">'&lt;patt&gt;'</span>)      <span class="hljs-comment"># Returns Paths matching the wildcard pattern.</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;str&gt;  = str(&lt;Path&gt;)                <span class="hljs-comment"># Returns path as string. Also &lt;Path&gt;.as_uri().</span>
 &lt;file&gt; = open(&lt;Path&gt;)               <span class="hljs-comment"># Also &lt;Path&gt;.read_text/write_bytes/…(&lt;args&gt;).</span>
 </code></pre>
-<div><h2 id="oscommands"><a href="#oscommands" name="oscommands">#</a>OS Commands</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> os, shutil
+<div><h2 id="oscommands"><a href="#oscommands" name="oscommands">#</a>OS Commands</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> os, shutil <span class="hljs-keyword">as</span> sh
 </code></pre></div>
 
-<pre><code class="python language-python hljs">os.chdir(&lt;path&gt;)                <span class="hljs-comment"># Changes the current working directory (or CWD).</span>
-os.mkdir(&lt;path&gt;)                <span class="hljs-comment"># Creates dir. Set permissions with `mode=0o777`.</span>
-os.makedirs(&lt;path&gt;)             <span class="hljs-comment"># Creates all path's dirs. Also `exist_ok=False`.</span>
+<pre><code class="python language-python hljs">os.chdir(&lt;path&gt;)               <span class="hljs-comment"># Changes the current working directory (or CWD).</span>
+os.mkdir(&lt;path&gt;)               <span class="hljs-comment"># Creates dir. Set permissions with `mode=0o777`.</span>
+os.makedirs(&lt;path&gt;)            <span class="hljs-comment"># Creates all path's dirs. Also `exist_ok=False`.</span>
 </code></pre>
-<pre><code class="python language-python hljs">shutil.copy(from, to)           <span class="hljs-comment"># Copies file (arg. 'to' can exist or be a dir).</span>
-shutil.copy2(from, to)          <span class="hljs-comment"># Also copies the creation and modification time.</span>
-shutil.copytree(from, to)       <span class="hljs-comment"># Copies directory (arg. 'to' should not exist).</span>
+<pre><code class="python language-python hljs">sh.copy(from, to)              <span class="hljs-comment"># Copies file (arg. 'to' can exist or be a dir).</span>
+sh.copy2(from, to)             <span class="hljs-comment"># Also copies the creation and modification time.</span>
+sh.copytree(from, to)          <span class="hljs-comment"># Copies directory (arg. 'to' should not exist).</span>
 </code></pre>
-<pre><code class="python language-python hljs">os.rename(from, to)             <span class="hljs-comment"># Renames or moves the file or directory 'from'.</span>
-os.replace(from, to)            <span class="hljs-comment"># Same, but overwrites file 'to' even on Windows.</span>
-shutil.move(from, to)           <span class="hljs-comment"># `rename()` that moves into 'to' if it's a dir.</span>
+<pre><code class="python language-python hljs">os.rename(from, to)            <span class="hljs-comment"># Renames or moves the file or directory 'from'.</span>
+os.replace(from, to)           <span class="hljs-comment"># Same, but overwrites file 'to' even on Windows.</span>
+sh.move(from, to)              <span class="hljs-comment"># `rename()` that moves into 'to' if it's a dir.</span>
 </code></pre>
-<pre><code class="python language-python hljs">os.remove(&lt;path&gt;)               <span class="hljs-comment"># Deletes file. Also `$ pip3 install send2trash`.</span>
-os.rmdir(&lt;path&gt;)                <span class="hljs-comment"># Deletes empty dir. Raises OSError if it's not.</span>
-shutil.rmtree(&lt;path&gt;)           <span class="hljs-comment"># Deletes the directory and all of its contents.</span>
+<pre><code class="python language-python hljs">os.remove(&lt;path&gt;)              <span class="hljs-comment"># Deletes file. Also `$ pip3 install send2trash`.</span>
+os.rmdir(&lt;path&gt;)               <span class="hljs-comment"># Deletes empty dir. Raises OSError if it's not.</span>
+sh.rmtree(&lt;path&gt;)              <span class="hljs-comment"># Deletes the directory and all of its contents.</span>
 </code></pre>
 <ul>
 <li><strong>Passed paths can be either strings, Path objects, or DirEntry objects.</strong></li>
 <li><strong>Functions report errors by raising OSError or one of its <a href="#exceptions-1">subclasses</a>.</strong></li>
 </ul>
-<div><h2 id="shellcommands"><a href="#shellcommands" name="shellcommands">#</a>Shell Commands</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> os, subprocess, shlex
+<div><h2 id="shellcommands"><a href="#shellcommands" name="shellcommands">#</a>Shell Commands</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> os, subprocess <span class="hljs-keyword">as</span> sp
 </code></pre></div>
 
-<pre><code class="python language-python hljs">&lt;int&gt;  = os.system(<span class="hljs-string">'&lt;commands&gt;'</span>)     <span class="hljs-comment"># Runs commands in sh/cmd shell. Prints results.</span>
-&lt;proc&gt; = subprocess.run(&lt;str/list&gt;)  <span class="hljs-comment"># For parameters see examples. Prints by default.</span>
-&lt;pipe&gt; = os.popen(<span class="hljs-string">'&lt;commands&gt;'</span>)      <span class="hljs-comment"># Prints only stderr. Soft deprecated since 3.14.</span>
-&lt;str&gt;  = &lt;pipe&gt;.read(size=<span class="hljs-number">-1</span>)        <span class="hljs-comment"># Returns combined stdout. Provides readline/s().</span>
-&lt;int&gt;  = &lt;pipe&gt;.close()              <span class="hljs-comment"># Returns None if last command had returncode 0.</span>
+<pre><code class="python language-python hljs">&lt;int&gt;  = os.system(<span class="hljs-string">'&lt;commands&gt;'</span>)  <span class="hljs-comment"># Runs commands in sh/cmd shell. Prints results.</span>
+&lt;proc&gt; = sp.run(&lt;str/list&gt;)       <span class="hljs-comment"># For parameters see examples. Prints by default.</span>
+&lt;pipe&gt; = os.popen(<span class="hljs-string">'&lt;commands&gt;'</span>)   <span class="hljs-comment"># Prints only stderr. Soft deprecated since 3.14.</span>
+&lt;str&gt;  = &lt;pipe&gt;.read(size=<span class="hljs-number">-1</span>)     <span class="hljs-comment"># Returns combined stdout. Provides readline/s().</span>
+&lt;int&gt;  = &lt;pipe&gt;.close()           <span class="hljs-comment"># Returns None if last command had returncode 0.</span>
 </code></pre>
-<div><h4 id="sends11tothebasiccalculatorandcapturesitsstdoutandstderrstreams">Sends "1 + 1" to the basic calculator and captures its stdout and stderr streams:</h4><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>subprocess.run(<span class="hljs-string">'bc'</span>, input=<span class="hljs-string">'1 + 1\n'</span>, capture_output=<span class="hljs-keyword">True</span>, text=<span class="hljs-keyword">True</span>)
+<div><h4 id="sends11tothebasiccalculatorandcapturesitsstdoutandstderrstreams">Sends "1+1" to the basic calculator and captures its stdout and stderr streams:</h4><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>sp.run(<span class="hljs-string">'bc'</span>, input=<span class="hljs-string">'1+1\n'</span>, capture_output=<span class="hljs-keyword">True</span>, text=<span class="hljs-keyword">True</span>)
 CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span class="hljs-number">0</span>, stdout=<span class="hljs-string">'2\n'</span>, stderr=<span class="hljs-string">''</span>)
 </code></pre></div>
 
-<div><h4 id="sendstestintothebcrunninginstandardmodeandsavesitsstdouttotestout">Sends test.in to the 'bc' running in standard mode and saves its stdout to test.out:</h4><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> os.system(<span class="hljs-string">'echo 1 + 1 &gt; test.in'</span>) == <span class="hljs-number">0</span>:
-<span class="hljs-meta">... </span>    <span class="hljs-keyword">with</span> open(<span class="hljs-string">'test.in'</span>) <span class="hljs-keyword">as</span> file_in, open(<span class="hljs-string">'test.out'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> file_out:
-<span class="hljs-meta">... </span>        subprocess.run(shlex.split(<span class="hljs-string">'bc -s'</span>), stdin=file_in, stdout=file_out)
+<div><h4 id="sendstestintobcrunninginstandardmodeandsavesitsstdouttotestout">Sends test.in to `bc` running in standard mode and saves its stdout to test.out:</h4><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> os.system(<span class="hljs-string">'echo 1+1 &gt; test.in'</span>) == <span class="hljs-number">0</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">with</span> open(<span class="hljs-string">'test.in'</span>) <span class="hljs-keyword">as</span> in_, open(<span class="hljs-string">'test.out'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> out:
+<span class="hljs-meta">... </span>        sp.run(shlex.split(<span class="hljs-string">'bc -s'</span>), stdin=in_, stdout=out)
 <span class="hljs-meta">... </span>    print(open(<span class="hljs-string">'test.out'</span>).read())
 <span class="hljs-number">2</span>
 </code></pre></div>
@@ -1515,9 +1514,9 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 
 
 <pre><code class="python language-python hljs">&lt;file&gt;   = open(&lt;path&gt;, newline=<span class="hljs-string">''</span>)             <span class="hljs-comment"># Opens the text file for reading.</span>
-&lt;reader&gt; = csv.reader(&lt;file&gt;, dialect=<span class="hljs-string">'excel'</span>)  <span class="hljs-comment"># Also `delimiter=','`. See Params.</span>
+&lt;reader&gt; = csv.reader(&lt;file&gt;, <span class="hljs-string">'excel'</span>)          <span class="hljs-comment"># Also `delimiter=','`. See Params.</span>
 &lt;list&gt;   = next(&lt;reader&gt;)                       <span class="hljs-comment"># Returns a row as list of strings.</span>
-&lt;list&gt;   = list(&lt;reader&gt;)                       <span class="hljs-comment"># Returns a list of remaining rows.</span>
+&lt;list&gt;   = list(&lt;reader&gt;)                       <span class="hljs-comment"># Returns list of remaining rows.</span>
 </code></pre>
 <ul>
 <li><strong>Without the <code class="python hljs"><span class="hljs-string">'newline=""'</span></code> argument, every '\r\n' sequence that is embedded inside a quoted field will get converted to '\n'. For details about the newline argument see <a href="#open">Open</a>.</strong></li>
@@ -1525,8 +1524,8 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 <li><strong>For XML and binary Excel files (with extensions xlsx, xlsm and xlsb) use <a href="#fileformats">Pandas</a> library.</strong></li>
 <li><strong>Reader can consume any iterator or collection of strings, not just text files.</strong></li>
 </ul>
-<div><h3 id="write">Write</h3><pre><code class="python language-python hljs">&lt;file&gt;   = open(&lt;path&gt;, mode=<span class="hljs-string">'a'</span>, newline=<span class="hljs-string">''</span>)   <span class="hljs-comment"># Opens the text file for writing.</span>
-&lt;writer&gt; = csv.writer(&lt;file&gt;, dialect=<span class="hljs-string">'excel'</span>)  <span class="hljs-comment"># Also `delimiter=','`. See Params.</span>
+<div><h3 id="write">Write</h3><pre><code class="python language-python hljs">&lt;file&gt;   = open(&lt;path&gt;, <span class="hljs-string">'a'</span>, newline=<span class="hljs-string">''</span>)        <span class="hljs-comment"># Opens the text file for writing.</span>
+&lt;writer&gt; = csv.writer(&lt;file&gt;, <span class="hljs-string">'excel'</span>)          <span class="hljs-comment"># Also `delimiter=','`. See Params.</span>
 &lt;writer&gt;.writerow(&lt;collection&gt;)                 <span class="hljs-comment"># Encodes objects using str(&lt;obj&gt;).</span>
 &lt;writer&gt;.writerows(&lt;coll_of_coll&gt;)              <span class="hljs-comment"># Appends rows to the opened file.</span>
 </code></pre></div>
@@ -1781,12 +1780,12 @@ sorted_by_both   = sorted(&lt;coll&gt;, key=op.itemgetter(<span class="hljs-numb
 <li><strong>All names that are bound in the matching case, as well as variables initialized in its body, are visible after the match statement (only function block delimits scope).</strong></li>
 </ul>
 <div><h3 id="example-2">Example</h3><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
-<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">match</span> Path(<span class="hljs-string">'/home/ken/python-cheatsheet/README.md'</span>):
-<span class="hljs-meta">... </span>    <span class="hljs-keyword">case</span> Path(
+<span class="hljs-meta">&gt;&gt;&gt; </span>match Path(<span class="hljs-string">'/home/ken/python-cheatsheet/README.md'</span>):
+<span class="hljs-meta">... </span>    case Path(
 <span class="hljs-meta">... </span>        parts=[<span class="hljs-string">'/'</span>, <span class="hljs-string">'home'</span>, user, *_]
 <span class="hljs-meta">... </span>    ) <span class="hljs-keyword">as</span> p <span class="hljs-keyword">if</span> p.name.lower().startswith(<span class="hljs-string">'readme'</span>) <span class="hljs-keyword">and</span> p.is_file():
 <span class="hljs-meta">... </span>        print(<span class="hljs-string">f'<span class="hljs-subst">{p.name}</span> is a readme file that belongs to user <span class="hljs-subst">{user}</span>.'</span>)
-README.md is a readme file that belongs to user ken.
+README.md <span class="hljs-keyword">is</span> a readme file that belongs to user ken.
 </code></pre></div>
 
 <div><h2 id="logging"><a href="#logging" name="logging">#</a>Logging</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> logging <span class="hljs-keyword">as</span> log
@@ -2935,7 +2934,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>June 19, 2026</aside>
+    <aside>June 25, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 

@@ -78,33 +78,32 @@ flatter_list     = list(itertools.chain.from_iterable(<list>))
 Dictionary
 ----------
 ```python
-<dict> = {key_1: val_1, key_2: val_2, ...}      # Use `<dict>[key]` to get or assign the value.
+<dict> = {key_1: val_1, key_2: val_2, ...}    # Use `<dict>[key]` to get or assign the value.
 ```
 
 ```python
-<view> = <dict>.keys()                          # A collection of keys reflecting all changes.
-<view> = <dict>.values()                        # A collection of values that reflects changes.
-<view> = <dict>.items()                         # Coll. of tuples. Each contains key and value.
+<view> = <dict>.keys()                        # A collection of keys reflecting all changes.
+<view> = <dict>.values()                      # A collection of values that reflects changes.
+<view> = <dict>.items()                       # Coll. of tuples. Each contains key and value.
 ```
 
 ```python
-value  = <dict>.get(key, default=None)          # Returns 'default' argument if key is missing.
-value  = <dict>.setdefault(key, default=None)   # Returns/writes 'default' when key is missing.
-<dict> = collections.defaultdict(<type>)        # Dict with automatic default value `<type>()`.
-<dict> = collections.defaultdict(lambda: 1)     # Dictionary with automatic default value `1`.
+value  = <dict>.get(key, default=None)        # Returns 'default' argument if key is missing.
+value  = <dict>.setdefault(key, default)      # Returns/writes 'default' when key is missing.
+<dict> = collections.defaultdict(<type>)      # Dict with automatic default value `<type>()`.
 ```
 
 ```python
-<dict> = dict(<collection>)                     # Creates a dict from coll. of key-value pairs.
-<dict> = dict(zip(keys, values))                # Creates key-value pairs from two collections.
-<dict> = dict.fromkeys(keys [, value])          # Items get value None if only keys are passed.
+<dict> = dict(<collection>)                   # Creates a dict from coll. of key-value pairs.
+<dict> = dict(zip(keys, values))              # Creates key-value pairs from two collections.
+<dict> = dict.fromkeys(keys [, value])        # Items get value None if only keys are passed.
 ```
 
 ```python
-<dict>.update(<dict>)                           # Adds items to dict. Passed dict has priority.
-value = <dict>.pop(key)                         # Removes item or raises KeyError when missing.
-{k for k, v in <dict>.items() if v == 123}      # Returns a set of keys whose value equals 123.
-{k: v for k, v in <dict>.items() if k in keys}  # Returns a dict of items with specified keys.
+<dict>.update(<dict>)                         # Adds items to dict. Passed dict has priority.
+value = <dict>.pop(key)                       # Removes item or raises KeyError when missing.
+{k for k, v in <dict>.items() if v == 123}    # Returns a set of keys whose value equals 123.
+{k: v for k, v in <dict>.items() if k in ks}  # Returns a dict of items with specified keys.
 ```
 
 ### Counter
@@ -120,27 +119,29 @@ value = <dict>.pop(key)                         # Removes item or raises KeyErro
 Set
 ---
 ```python
-<set> = {<el_1>, <el_2>, ...}           # Coll. of unique items. Also set(), set(<coll>).
+<set> = {<el_1>, <el_2>, ...}       # Coll. of unique items. Also set(), set(<coll>).
 ```
 
 ```python
-<set>.add(<el>)                         # Adds item to the set. Same as `<set> |= {<el>}`.
-<set>.update(<collection> [, ...])      # Adds items to the set. Same as `<set> |= <set>`.
+<set>.add(<el>)                     # Adds item to the set. Same as `<set> |= {<el>}`.
+<set>.update(<coll> [, ...])        # Adds items to the set. Same as `<set> |= <set>`.
 ```
 
 ```python
-<set>  = <set>.union(<coll>)            # Returns a set of all items. Also <set> | <set>.
-<set>  = <set>.intersection(<coll>)     # Returns every shared item. Also <set> & <set>.
-<set>  = <set>.difference(<coll>)       # Returns set's unique items. Also <set> - <set>.
-<set>  = <set>.symmetric_diff…(<coll>)  # Returns all nonshared items. Also <set> ^ <set>.
-<bool> = <set>.issuperset(<coll>)       # Returns False when collection has unique items.
-<bool> = <set>.issubset(<coll>)         # Is collection a superset? Also <set> <= <set>.
+<set> = <set>.union(<coll>)         # Returns a set of all items. Also <set> | <set>.
+<set> = <set>.intersection(<coll>)  # Returns every shared item. Also <set> & <set>.
+<set> = <set>.difference(<coll>)    # Returns set's unique items. Also <set> - <set>.
 ```
 
 ```python
-<el> = <set>.pop()                      # Removes one of items. Raises KeyError if empty.
-<set>.remove(<el>)                      # Removes the item or raises KeyError if missing.
-<set>.discard(<el>)                     # Same as remove() but it doesn't raise an error.
+<bool> = <set>.issuperset(<coll>)   # Returns False when collection has unique items.
+<bool> = <set>.issubset(<coll>)     # Is collection a superset? Also <set> <= <set>.
+```
+
+```python
+<el> = <set>.pop()                  # Removes one of items. Raises KeyError if empty.
+<set>.remove(<el>)                  # Removes the item or raises KeyError if missing.
+<set>.discard(<el>)                 # Same as remove() but it doesn't raise an error.
 ```
 
 ### Frozen Set
@@ -163,8 +164,8 @@ Tuple
 ### Named Tuple
 **Tuple's subclass with named elements.**
 ```python
->>> from collections import namedtuple
->>> Point = namedtuple('Point', 'x y')
+>>> import collections as co
+>>> Point = co.namedtuple('Point', 'x y')
 >>> p = Point(1, y=2)
 >>> print(p)
 Point(x=1, y=2)
@@ -1672,7 +1673,7 @@ from pathlib import Path
 <Path> = Path()                     # Returns current working dir. Also Path('.').
 <Path> = Path.cwd()                 # Returns absolute CWD. Also Path().resolve().
 <Path> = Path.home()                # Returns the user's absolute home directory.
-<Path> = Path(__file__).resolve()   # Returns module's path if CWD wasn't changed.
+<Path> = Path(__file__)             # Use resolve() to get module's absolute path.
 ```
 
 ```python
@@ -1685,7 +1686,7 @@ from pathlib import Path
 
 ```python
 <iter> = <Path>.iterdir()           # Returns directory contents as Path objects.
-<iter> = <Path>.glob('<pattern>')   # Returns Paths matching the wildcard pattern.
+<iter> = <Path>.glob('<patt>')      # Returns Paths matching the wildcard pattern.
 ```
 
 ```python
@@ -1697,31 +1698,31 @@ from pathlib import Path
 OS Commands
 -----------
 ```python
-import os, shutil
+import os, shutil as sh
 ```
 
 ```python
-os.chdir(<path>)                # Changes the current working directory (or CWD).
-os.mkdir(<path>)                # Creates dir. Set permissions with `mode=0o777`.
-os.makedirs(<path>)             # Creates all path's dirs. Also `exist_ok=False`.
+os.chdir(<path>)               # Changes the current working directory (or CWD).
+os.mkdir(<path>)               # Creates dir. Set permissions with `mode=0o777`.
+os.makedirs(<path>)            # Creates all path's dirs. Also `exist_ok=False`.
 ```
 
 ```python
-shutil.copy(from, to)           # Copies file (arg. 'to' can exist or be a dir).
-shutil.copy2(from, to)          # Also copies the creation and modification time.
-shutil.copytree(from, to)       # Copies directory (arg. 'to' should not exist).
+sh.copy(from, to)              # Copies file (arg. 'to' can exist or be a dir).
+sh.copy2(from, to)             # Also copies the creation and modification time.
+sh.copytree(from, to)          # Copies directory (arg. 'to' should not exist).
 ```
 
 ```python
-os.rename(from, to)             # Renames or moves the file or directory 'from'.
-os.replace(from, to)            # Same, but overwrites file 'to' even on Windows.
-shutil.move(from, to)           # `rename()` that moves into 'to' if it's a dir.
+os.rename(from, to)            # Renames or moves the file or directory 'from'.
+os.replace(from, to)           # Same, but overwrites file 'to' even on Windows.
+sh.move(from, to)              # `rename()` that moves into 'to' if it's a dir.
 ```
 
 ```python
-os.remove(<path>)               # Deletes file. Also `$ pip3 install send2trash`.
-os.rmdir(<path>)                # Deletes empty dir. Raises OSError if it's not.
-shutil.rmtree(<path>)           # Deletes the directory and all of its contents.
+os.remove(<path>)              # Deletes file. Also `$ pip3 install send2trash`.
+os.rmdir(<path>)               # Deletes empty dir. Raises OSError if it's not.
+sh.rmtree(<path>)              # Deletes the directory and all of its contents.
 ```
 * **Passed paths can be either strings, Path objects, or DirEntry objects.**
 * **Functions report errors by raising OSError or one of its [subclasses](#exceptions-1).**
@@ -1730,28 +1731,28 @@ shutil.rmtree(<path>)           # Deletes the directory and all of its contents.
 Shell Commands
 --------------
 ```python
-import os, subprocess, shlex
+import os, subprocess as sp
 ```
 
 ```python
-<int>  = os.system('<commands>')     # Runs commands in sh/cmd shell. Prints results.
-<proc> = subprocess.run(<str/list>)  # For parameters see examples. Prints by default.
-<pipe> = os.popen('<commands>')      # Prints only stderr. Soft deprecated since 3.14.
-<str>  = <pipe>.read(size=-1)        # Returns combined stdout. Provides readline/s().
-<int>  = <pipe>.close()              # Returns None if last command had returncode 0.
+<int>  = os.system('<commands>')  # Runs commands in sh/cmd shell. Prints results.
+<proc> = sp.run(<str/list>)       # For parameters see examples. Prints by default.
+<pipe> = os.popen('<commands>')   # Prints only stderr. Soft deprecated since 3.14.
+<str>  = <pipe>.read(size=-1)     # Returns combined stdout. Provides readline/s().
+<int>  = <pipe>.close()           # Returns None if last command had returncode 0.
 ```
 
-#### Sends "1 + 1" to the basic calculator and captures its stdout and stderr streams:
+#### Sends "1+1" to the basic calculator and captures its stdout and stderr streams:
 ```python
->>> subprocess.run('bc', input='1 + 1\n', capture_output=True, text=True)
+>>> sp.run('bc', input='1+1\n', capture_output=True, text=True)
 CompletedProcess(args='bc', returncode=0, stdout='2\n', stderr='')
 ```
 
-#### Sends test.in to the 'bc' running in standard mode and saves its stdout to test.out:
+#### Sends test.in to \`bc\` running in standard mode and saves its stdout to test.out:
 ```python
->>> if os.system('echo 1 + 1 > test.in') == 0:
-...     with open('test.in') as file_in, open('test.out', 'w') as file_out:
-...         subprocess.run(shlex.split('bc -s'), stdin=file_in, stdout=file_out)
+>>> if os.system('echo 1+1 > test.in') == 0:
+...     with open('test.in') as in_, open('test.out', 'w') as out:
+...         sp.run(shlex.split('bc -s'), stdin=in_, stdout=out)
 ...     print(open('test.out').read())
 2
 ```
@@ -1813,9 +1814,9 @@ import csv
 
 ```python
 <file>   = open(<path>, newline='')             # Opens the text file for reading.
-<reader> = csv.reader(<file>, dialect='excel')  # Also `delimiter=','`. See Params.
+<reader> = csv.reader(<file>, 'excel')          # Also `delimiter=','`. See Params.
 <list>   = next(<reader>)                       # Returns a row as list of strings.
-<list>   = list(<reader>)                       # Returns a list of remaining rows.
+<list>   = list(<reader>)                       # Returns list of remaining rows.
 ```
 * **Without the `'newline=""'` argument, every '\r\n' sequence that is embedded inside a quoted field will get converted to '\n'. For details about the newline argument see [Open](#open).**
 * **To nicely print the spreadsheet to the console use either [Tabulate](#table) or PrettyTable library.**
@@ -1824,8 +1825,8 @@ import csv
 
 ### Write
 ```python
-<file>   = open(<path>, mode='a', newline='')   # Opens the text file for writing.
-<writer> = csv.writer(<file>, dialect='excel')  # Also `delimiter=','`. See Params.
+<file>   = open(<path>, 'a', newline='')        # Opens the text file for writing.
+<writer> = csv.writer(<file>, 'excel')          # Also `delimiter=','`. See Params.
 <writer>.writerow(<collection>)                 # Encodes objects using str(<obj>).
 <writer>.writerows(<coll_of_coll>)              # Appends rows to the opened file.
 ```
