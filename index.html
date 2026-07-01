@@ -56,7 +56,7 @@
 
 <body style="margin-top: 17.1px">
   <header>
-    <aside>June 25, 2026</aside>
+    <aside>July 1, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -306,40 +306,40 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 ┃ decimal.Decimal    │     ✓     │           │          │          │          ┃
 ┗━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━┷━━━━━━━━━━┷━━━━━━━━━━┛
 </code></pre>
-<div><h2 id="string"><a href="#string" name="string">#</a>String</h2><p><strong>Immutable sequence of characters.</strong></p><pre><code class="python language-python hljs">&lt;str&gt;  = <span class="hljs-string">'abc'</span>                        <span class="hljs-comment"># Also "abc". Interprets \n, \t, \x00-\xff, etc.</span>
+<div><h2 id="string"><a href="#string" name="string">#</a>String</h2><p><strong>Immutable sequence of characters.</strong></p><pre><code class="python language-python hljs">&lt;str&gt;  = <span class="hljs-string">'abc'</span>                         <span class="hljs-comment"># Also "abc". Interprets \n, \t, \x00-\xff, etc.</span>
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;str&gt;  = &lt;str&gt;.strip()                <span class="hljs-comment"># Strips all whitespace characters from both ends.</span>
-&lt;str&gt;  = &lt;str&gt;.strip(<span class="hljs-string">'&lt;chars&gt;'</span>)       <span class="hljs-comment"># Strips passed characters. Also lstrip/rstrip().</span>
+<pre><code class="python language-python hljs">&lt;str&gt;  = &lt;str&gt;.strip()                 <span class="hljs-comment"># Strips all whitespace characters from both ends.</span>
+&lt;str&gt;  = &lt;str&gt;.strip(<span class="hljs-string">'&lt;chars&gt;'</span>)        <span class="hljs-comment"># Strips passed characters. Also lstrip/rstrip().</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;list&gt; = &lt;str&gt;.split()                <span class="hljs-comment"># Splits it on one or more whitespace characters.</span>
-&lt;list&gt; = &lt;str&gt;.split(&lt;str&gt;)           <span class="hljs-comment"># Splits on passed string. Also `maxsplit=&lt;int&gt;`.</span>
-&lt;list&gt; = &lt;str&gt;.splitlines()           <span class="hljs-comment"># On [\n\r\f\v\x1c-\x1e\x85\u2028\u2029] and \r\n.</span>
-&lt;str&gt;  = &lt;str&gt;.join(&lt;coll_of_str&gt;)    <span class="hljs-comment"># Joins items by using the string as a separator.</span>
+<pre><code class="python language-python hljs">&lt;list&gt; = &lt;str&gt;.split()                 <span class="hljs-comment"># Splits it on one or more whitespace characters.</span>
+&lt;list&gt; = &lt;str&gt;.split(&lt;str&gt;)            <span class="hljs-comment"># Splits on passed string. Also `maxsplit=&lt;int&gt;`.</span>
+&lt;list&gt; = &lt;str&gt;.splitlines()            <span class="hljs-comment"># On [\n\r\f\v\x1c-\x1e\x85\u2028\u2029] and \r\n.</span>
+&lt;str&gt;  = &lt;str&gt;.join(&lt;coll_of_str&gt;)     <span class="hljs-comment"># Joins items by using the string as a separator.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;sub_str&gt; <span class="hljs-keyword">in</span> &lt;str&gt;           <span class="hljs-comment"># Returns True if string contains the substring.</span>
-&lt;bool&gt; = &lt;str&gt;.startswith(&lt;sub_str&gt;)  <span class="hljs-comment"># Pass tuple of strings to give multiple options.</span>
-&lt;int&gt;  = &lt;str&gt;.find(&lt;sub_str&gt;)        <span class="hljs-comment"># Returns start index of the first match or `-1`.</span>
+<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;sub_str&gt; <span class="hljs-keyword">in</span> &lt;str&gt;            <span class="hljs-comment"># Returns True if string contains the substring.</span>
+&lt;bool&gt; = &lt;str&gt;.startswith(&lt;sub_str&gt;)   <span class="hljs-comment"># Pass tuple of strings to give multiple options.</span>
+&lt;int&gt;  = &lt;str&gt;.find(&lt;sub_str&gt;)         <span class="hljs-comment"># Returns start index of the first match or `-1`.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;str&gt;  = &lt;str&gt;.lower()                <span class="hljs-comment"># Lowers the case. Also upper/capitalize/title().</span>
-&lt;str&gt;  = &lt;str&gt;.casefold()             <span class="hljs-comment"># Lower() that converts ẞ/ß to ss, Σ/ς to σ, etc.</span>
-&lt;str&gt;  = &lt;str&gt;.replace(old, new)      <span class="hljs-comment"># Removes occurrences of string old if new is ''.</span>
-&lt;str&gt;  = &lt;str&gt;.translate(table)       <span class="hljs-comment"># Get table via str.maketrans(&lt;chr_to_str_dict&gt;).</span>
+<pre><code class="python language-python hljs">&lt;str&gt;  = &lt;str&gt;.lower()                 <span class="hljs-comment"># Lowers the case. Also upper/capitalize/title().</span>
+&lt;str&gt;  = &lt;str&gt;.casefold()              <span class="hljs-comment"># Lower() that converts ẞ/ß to ss, Σ/ς to σ, etc.</span>
+&lt;str&gt;  = &lt;str&gt;.replace(old, new)       <span class="hljs-comment"># Removes occurrences of string old if new is ''.</span>
+&lt;str&gt;  = &lt;str&gt;.translate(table)        <span class="hljs-comment"># Get table via str.maketrans(&lt;chr_to_str_dict&gt;).</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;str&gt;  = chr(&lt;int&gt;)                   <span class="hljs-comment"># Converts passed integer into Unicode character.</span>
-&lt;int&gt;  = ord(&lt;str&gt;)                   <span class="hljs-comment"># Converts passed Unicode character into integer.</span>
+<pre><code class="python language-python hljs">&lt;str&gt;  = chr(&lt;int&gt;)                    <span class="hljs-comment"># Converts passed integer into Unicode character.</span>
+&lt;int&gt;  = ord(&lt;str&gt;)                    <span class="hljs-comment"># Converts passed Unicode character into integer.</span>
 </code></pre>
 <ul>
 <li><strong>Use <code class="python hljs"><span class="hljs-string">'unicodedata.normalize("NFC", &lt;str&gt;)'</span></code> on strings like <code class="python hljs"><span class="hljs-string">'Motörhead'</span></code> before comparing them to other strings, because <code class="python hljs"><span class="hljs-string">'ö'</span></code> can be stored as one or two characters.</strong></li>
 <li><strong><code class="python hljs"><span class="hljs-string">'NFC'</span></code> converts such characters to a single character, while <code class="python hljs"><span class="hljs-string">'NFD'</span></code> converts them to two.</strong></li>
 </ul>
-<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;str&gt;.isdecimal()            <span class="hljs-comment"># Checks all chars for [0-9]. Also [०-९], [٠-٩].</span>
-&lt;bool&gt; = &lt;str&gt;.isdigit()              <span class="hljs-comment"># Checks for [²³¹…] and isdecimal(). Also [፩-፱].</span>
-&lt;bool&gt; = &lt;str&gt;.isnumeric()            <span class="hljs-comment"># Checks for [¼½¾…] and isdigit(). Also [零〇一…].</span>
-&lt;bool&gt; = &lt;str&gt;.isalnum()              <span class="hljs-comment"># Checks for [ABC…] and isnumeric(). Also [ªµº…].</span>
-&lt;bool&gt; = &lt;str&gt;.isprintable()          <span class="hljs-comment"># Checks for [ !"#…], basic emojis and isalnum().</span>
-&lt;bool&gt; = &lt;str&gt;.isspace()              <span class="hljs-comment"># Checks for [ \t\n\r\f\v\x1c\x1d\x1e\x1f\x85…].</span>
+<pre><code class="python language-python hljs">&lt;bool&gt; = &lt;str&gt;.isdecimal()             <span class="hljs-comment"># Checks all chars for [0-9]. Also [०-९], [٠-٩].</span>
+&lt;bool&gt; = &lt;str&gt;.isdigit()               <span class="hljs-comment"># Checks for [²³¹…] and isdecimal(). Also [፩-፱].</span>
+&lt;bool&gt; = &lt;str&gt;.isnumeric()             <span class="hljs-comment"># Checks for [¼½¾…] and isdigit(). Also [零〇一…].</span>
+&lt;bool&gt; = &lt;str&gt;.isalnum()               <span class="hljs-comment"># Checks for [ABC…] and isnumeric(). Also [ªµº…].</span>
+&lt;bool&gt; = &lt;str&gt;.isprintable()           <span class="hljs-comment"># Checks for [ !"#…], basic emojis and isalnum().</span>
+&lt;bool&gt; = &lt;str&gt;.isspace()               <span class="hljs-comment"># Checks for [ \t\n\r\f\v\x1c\x1d\x1e\x1f\x85…].</span>
 </code></pre>
 <div><h2 id="regex"><a href="#regex" name="regex">#</a>Regex</h2><p><strong>Functions for regular expression matching.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> re
 &lt;str&gt;   = re.sub(<span class="hljs-string">r'&lt;regex&gt;'</span>, new, text)  <span class="hljs-comment"># Substitutes occurrences with string 'new'.</span>
@@ -701,10 +701,10 @@ Player = make_dataclass(<span class="hljs-string">'Player'</span>, [<span class=
 player = Player(point, direction)                 <span class="hljs-comment"># Returns its instance.</span>
 </code></pre></div>
 
-<div><h2 id="import"><a href="#import" name="import">#</a>Import</h2><p><strong>Mechanism that makes code in one file available to another file.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> &lt;module&gt;                    <span class="hljs-comment"># Imports a built-in module or './&lt;module&gt;.py'.</span>
-<span class="hljs-keyword">import</span> &lt;package&gt;                   <span class="hljs-comment"># Built-in package or './&lt;package&gt;/__init__.py'.</span>
-<span class="hljs-keyword">import</span> &lt;package&gt;.&lt;module&gt;          <span class="hljs-comment"># Package's module or './&lt;package&gt;/&lt;module&gt;.py'.</span>
-<span class="hljs-keyword">from</span> &lt;pkg/mod&gt;[.…] <span class="hljs-keyword">import</span> &lt;obj&gt;    <span class="hljs-comment"># Imports module, function, class or variable.</span>
+<div><h2 id="import"><a href="#import" name="import">#</a>Import</h2><p><strong>Mechanism that makes code in one file available to another file.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> &lt;module&gt;                     <span class="hljs-comment"># Imports a built-in module or `&lt;module&gt;.py`.</span>
+<span class="hljs-keyword">import</span> &lt;package&gt;                    <span class="hljs-comment"># Built-in package or `&lt;package&gt;/__init__.py`.</span>
+<span class="hljs-keyword">import</span> &lt;package&gt;.&lt;module&gt;           <span class="hljs-comment"># Package's module or `&lt;package&gt;/&lt;module&gt;.py`.</span>
+<span class="hljs-keyword">from</span> &lt;pkg/mod&gt;[.…] <span class="hljs-keyword">import</span> &lt;obj&gt;     <span class="hljs-comment"># Imports a module, class, variable or func.</span>
 </code></pre></div>
 
 
@@ -780,8 +780,7 @@ player = Player(point, direction)                 <span class="hljs-comment"># R
 
 <span class="hljs-meta">@cache</span>
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fibonacci</span><span class="hljs-params">(n)</span>:</span>
-    <span class="hljs-keyword">return</span> n <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">else</span> fibonacci(n<span class="hljs-number">-2</span>) + fibonacci(n<span class="hljs-number">-1</span>)
-</code></pre></div>
+    <span class="hljs-keyword">return</span> n <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">else</span> fibonacci(n-<span class="hljs-number">2</span>) + fibonacci(n-<span class="hljs-number">1</span>)</code></pre></div>
 
 
 <ul>
@@ -1576,7 +1575,7 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 
 
 <div><h3 id="read">Read</h3><pre><code class="python language-python hljs">&lt;cursor&gt; = &lt;con&gt;.execute(<span class="hljs-string">'SELECT …'</span>)      <span class="hljs-comment"># Can raise a subclass of the `sqlite3.Error`.</span>
-&lt;tuple&gt;  = &lt;cursor&gt;.fetchone()            <span class="hljs-comment"># Returns the next row. Also next(&lt;cursor&gt;).</span>
+&lt;tuple&gt;  = &lt;cursor&gt;.fetchone()            <span class="hljs-comment"># Returns the next row. Same as next(&lt;cursor&gt;).</span>
 &lt;list&gt;   = &lt;cursor&gt;.fetchall()            <span class="hljs-comment"># Returns remaining rows. Also list(&lt;cursor&gt;).</span>
 </code></pre></div>
 
@@ -1732,7 +1731,7 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 &lt;deque&gt;.rotate(n=<span class="hljs-number">1</span>)            <span class="hljs-comment"># Moves last element to the start of deque.</span>
 &lt;el&gt; = &lt;deque&gt;.popleft()       <span class="hljs-comment"># Removes and returns deque's first element.</span>
 </code></pre>
-<div><h2 id="operator"><a href="#operator" name="operator">#</a>Operator</h2><p><strong>Module of functions that provide the functionality of operators. Functions are grouped by operator precedence, from least to most binding. Functions and operators in first and third line are also ordered by precedence within a line.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> operator <span class="hljs-keyword">as</span> op
+<div><h2 id="operator"><a href="#operator" name="operator">#</a>Operator</h2><p><strong>Module of functions that provide the functionality of operators. Functions are grouped by operator precedence, from least to most binding. Functions/operators in first and third line are also ordered by precedence within a line.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> operator <span class="hljs-keyword">as</span> op
 </code></pre></div>
 
 
@@ -1755,22 +1754,22 @@ sorted_by_both   = sorted(&lt;coll&gt;, key=op.itemgetter(<span class="hljs-numb
 <li><strong><code class="python hljs"><span class="hljs-string">'and/or'</span></code> can't be emulated by a function because they might not evaluate all operands.</strong></li>
 <li><strong>Comparisons can be chained: <code class="python hljs"><span class="hljs-string">'x &lt; y &lt; z'</span></code> gets converted to <code class="python hljs"><span class="hljs-string">'(x &lt; y) and (y &lt; z)'</span></code>.</strong></li>
 </ul>
-<div><h2 id="matchstatement"><a href="#matchstatement" name="matchstatement">#</a>Match Statement</h2><p><strong>Executes the first block with matching pattern.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">match</span> &lt;object/expression&gt;:
-    <span class="hljs-keyword">case</span> &lt;pattern&gt; [<span class="hljs-keyword">if</span> &lt;condition&gt;]:
+<div><h2 id="matchstatement"><a href="#matchstatement" name="matchstatement">#</a>Match Statement</h2><p><strong>Executes the first block with matching pattern.</strong></p><pre><code class="python language-python hljs"><code class="python language-python hljs"><span class="hljs-keyword">match</span> &lt;obj/expr&gt;:
+    <span class="hljs-keyword">case</span> &lt;pattern&gt; [<span class="hljs-keyword">if</span> &lt;cond&gt;]:
         &lt;code&gt;
     ...
-</code></pre></div>
+</code></code></pre></div>
 
 
-<div><h3 id="patterns">Patterns</h3><pre><code class="python language-python hljs">&lt;val_patt&gt; = <span class="hljs-number">1</span>/<span class="hljs-string">'a'</span>/<span class="hljs-keyword">True</span>/<span class="hljs-keyword">None</span>/math.pi        <span class="hljs-comment"># Matches the literal or attribute's value.</span>
-&lt;cls_patt&gt; = &lt;type&gt;()                       <span class="hljs-comment"># Matches any object of that type (or ABC).</span>
-&lt;wildcard&gt; = _                              <span class="hljs-comment"># Matches any object. Useful in last case.</span>
-&lt;capture&gt;  = &lt;name&gt;                         <span class="hljs-comment"># Matches any object and binds it to name.</span>
-&lt;as_patt&gt;  = &lt;pattern&gt; <span class="hljs-keyword">as</span> &lt;name&gt;            <span class="hljs-comment"># Binds match to name. Also &lt;type&gt;(&lt;name&gt;).</span>
-&lt;or_patt&gt;  = &lt;pattern&gt; | &lt;pattern&gt; [| ...]  <span class="hljs-comment"># Matches if any of listed patterns match.</span>
-&lt;seq_patt&gt; = [&lt;pattern&gt;, ...]               <span class="hljs-comment"># Matches a sequence. All items must match.</span>
-&lt;map_patt&gt; = {&lt;val_patt&gt;: &lt;patt&gt;, ...}      <span class="hljs-comment"># Matches a dict if it has matching items.</span>
-&lt;cls_patt&gt; = &lt;type&gt;(&lt;name&gt;=&lt;patt&gt;, ...)     <span class="hljs-comment"># Matches object with matching attributes.</span>
+<div><h3 id="patterns">Patterns</h3><pre><code class="python language-python hljs">&lt;val_patt&gt; = <span class="hljs-number">1</span>/<span class="hljs-string">'a'</span>/<span class="hljs-keyword">True</span>/<span class="hljs-keyword">None</span>/math.pi     <span class="hljs-comment"># Matches the literal or attribute's value.</span>
+&lt;cls_patt&gt; = &lt;type&gt;()                    <span class="hljs-comment"># Matches any object of that type (or ABC).</span>
+&lt;wildcard&gt; = _                           <span class="hljs-comment"># Matches any object. Useful in last case.</span>
+&lt;capture&gt;  = &lt;name&gt;                      <span class="hljs-comment"># Matches any object and binds it to name.</span>
+&lt;as_patt&gt;  = &lt;pattern&gt; <span class="hljs-keyword">as</span> &lt;name&gt;         <span class="hljs-comment"># Binds match to name. Also &lt;type&gt;(&lt;name&gt;).</span>
+&lt;or_patt&gt;  = &lt;pattern&gt; | ...             <span class="hljs-comment"># Matches if any of listed patterns match.</span>
+&lt;seq_patt&gt; = [&lt;pattern&gt;, ...]            <span class="hljs-comment"># Matches a sequence. All items must match.</span>
+&lt;map_patt&gt; = {&lt;val_patt&gt;: &lt;patt&gt;, ...}   <span class="hljs-comment"># Matches a dict if it has matching items.</span>
+&lt;cls_patt&gt; = &lt;type&gt;(&lt;name&gt;=&lt;patt&gt;, ...)  <span class="hljs-comment"># Matches object with matching attributes.</span>
 </code></pre></div>
 
 <ul>
@@ -1779,14 +1778,14 @@ sorted_by_both   = sorted(&lt;coll&gt;, key=op.itemgetter(<span class="hljs-numb
 <li><strong>Patterns can be surrounded with brackets to override their precedence: <code class="python hljs"><span class="hljs-string">'|'</span></code> &gt; <code class="python hljs"><span class="hljs-string">'as'</span></code> &gt; <code class="python hljs"><span class="hljs-string">','</span></code>. For example, <code class="python hljs"><span class="hljs-string">'[1, 2]'</span></code> is matched by expression <code class="python hljs"><span class="hljs-string">'case 1|2, 2|3 as y if y == 2:'</span></code>.</strong></li>
 <li><strong>All names that are bound in the matching case, as well as variables initialized in its body, are visible after the match statement (only function block delimits scope).</strong></li>
 </ul>
-<div><h3 id="example-2">Example</h3><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
-<span class="hljs-meta">&gt;&gt;&gt; </span>match Path(<span class="hljs-string">'/home/ken/python-cheatsheet/README.md'</span>):
-<span class="hljs-meta">... </span>    case Path(
-<span class="hljs-meta">... </span>        parts=[<span class="hljs-string">'/'</span>, <span class="hljs-string">'home'</span>, user, *_]
-<span class="hljs-meta">... </span>    ) <span class="hljs-keyword">as</span> p <span class="hljs-keyword">if</span> p.name.lower().startswith(<span class="hljs-string">'readme'</span>) <span class="hljs-keyword">and</span> p.is_file():
-<span class="hljs-meta">... </span>        print(<span class="hljs-string">f'<span class="hljs-subst">{p.name}</span> is a readme file that belongs to user <span class="hljs-subst">{user}</span>.'</span>)
-README.md <span class="hljs-keyword">is</span> a readme file that belongs to user ken.
-</code></pre></div>
+<div><h3 id="example-2">Example</h3><pre><code class="python language-python hljs"><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">match</span> Path(<span class="hljs-string">'/home/bwk/documents/README.md'</span>):
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">case</span> Path(
+<span class="hljs-meta">... </span>        parts=[<span class="hljs-string">'/'</span>, <span class="hljs-string">'home'</span>, user, *_, name]
+<span class="hljs-meta">... </span>    ) <span class="hljs-keyword">as</span> p <span class="hljs-keyword">if</span> p.is_file() <span class="hljs-keyword">and</span> <span class="hljs-string">'readme'</span> <span class="hljs-keyword">in</span> name.lower():
+<span class="hljs-meta">... </span>        print(<span class="hljs-string">f"{name} is {user}'s readme file."</span>)
+README.md is bwk's readme file.
+</code></code></pre></div>
 
 <div><h2 id="logging"><a href="#logging" name="logging">#</a>Logging</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> logging <span class="hljs-keyword">as</span> log
 </code></pre></div>
@@ -1849,7 +1848,7 @@ value  = getattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)  
 setattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>, value)      <span class="hljs-comment"># Only works on objects with __dict__ attribute.</span>
 delattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)             <span class="hljs-comment"># Deletes from __dict__. Also `del &lt;obj&gt;.&lt;name&gt;`.</span>
 </code></pre>
-<div><h2 id="threading"><a href="#threading" name="threading">#</a>Threading</h2><p><strong>CPython interpreter can only run a single thread at a time. Using multiple threads won't result in a faster execution, unless at least one of the threads contains an I/O operation.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> threading <span class="hljs-keyword">as</span> thr, queue <span class="hljs-keyword">as</span> q
+<div><h2 id="threading"><a href="#threading" name="threading">#</a>Threading</h2><p><strong>CPython interpreter can only run a single thread at a time. Using multiple threads won't result in a faster execution, unless at least one of the threads contains an I/O operation.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> threading <span class="hljs-keyword">as</span> thr, queue <span class="hljs-keyword">as</span> qu
 <span class="hljs-keyword">import</span> concurrent.futures <span class="hljs-keyword">as</span> cf
 </code></pre></div>
 
@@ -1877,11 +1876,11 @@ delattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)           
 &lt;Barrier&gt; = thr.Barrier(parties)            <span class="hljs-comment"># Wait() blocks until it's called parties times.</span>
 </code></pre></div>
 
-<div><h3 id="queue">Queue</h3><pre><code class="python language-python hljs">&lt;Queue&gt; = q.Queue(maxsize=<span class="hljs-number">0</span>)                <span class="hljs-comment"># A first-in-first-out queue. It's thread safe.</span>
+<div><h3 id="queue">Queue</h3><pre><code class="python language-python hljs">&lt;Queue&gt; = qu.Queue(maxsize=<span class="hljs-number">0</span>)               <span class="hljs-comment"># A first-in-first-out queue. It's thread safe.</span>
 &lt;Queue&gt;.put(&lt;obj&gt;)                          <span class="hljs-comment"># The call blocks until queue stops being full.</span>
-&lt;Queue&gt;.put_nowait(&lt;obj&gt;)                   <span class="hljs-comment"># Raises the q.Full exception if queue is full.</span>
+&lt;Queue&gt;.put_nowait(&lt;obj&gt;)                   <span class="hljs-comment"># Raises the qu.Full exception if queue is full.</span>
 &lt;obj&gt; = &lt;Queue&gt;.get()                       <span class="hljs-comment"># The call blocks until queue stops being empty.</span>
-&lt;obj&gt; = &lt;Queue&gt;.get_nowait()                <span class="hljs-comment"># Raises the q.Empty exception if it is empty.</span>
+&lt;obj&gt; = &lt;Queue&gt;.get_nowait()                <span class="hljs-comment"># Raises the qu.Empty exception if it is empty.</span>
 </code></pre></div>
 
 <div><h3 id="executorfuture">Executor, Future</h3><pre><code class="python language-python hljs">&lt;Exec&gt; = cf.ThreadPoolExecutor()            <span class="hljs-comment"># Or use `with ThreadPoolExecutor() as &lt;name&gt;:`.</span>
@@ -2934,7 +2933,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>June 25, 2026</aside>
+    <aside>July 1, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 

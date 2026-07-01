@@ -311,48 +311,48 @@ String
 ------
 **Immutable sequence of characters.**
 ```python
-<str>  = 'abc'                        # Also "abc". Interprets \n, \t, \x00-\xff, etc.
+<str>  = 'abc'                         # Also "abc". Interprets \n, \t, \x00-\xff, etc.
 ```
 
 ```python
-<str>  = <str>.strip()                # Strips all whitespace characters from both ends.
-<str>  = <str>.strip('<chars>')       # Strips passed characters. Also lstrip/rstrip().
+<str>  = <str>.strip()                 # Strips all whitespace characters from both ends.
+<str>  = <str>.strip('<chars>')        # Strips passed characters. Also lstrip/rstrip().
 ```
 
 ```python
-<list> = <str>.split()                # Splits it on one or more whitespace characters.
-<list> = <str>.split(<str>)           # Splits on passed string. Also `maxsplit=<int>`.
-<list> = <str>.splitlines()           # On [\n\r\f\v\x1c-\x1e\x85\u2028\u2029] and \r\n.
-<str>  = <str>.join(<coll_of_str>)    # Joins items by using the string as a separator.
+<list> = <str>.split()                 # Splits it on one or more whitespace characters.
+<list> = <str>.split(<str>)            # Splits on passed string. Also `maxsplit=<int>`.
+<list> = <str>.splitlines()            # On [\n\r\f\v\x1c-\x1e\x85\u2028\u2029] and \r\n.
+<str>  = <str>.join(<coll_of_str>)     # Joins items by using the string as a separator.
 ```
 
 ```python
-<bool> = <sub_str> in <str>           # Returns True if string contains the substring.
-<bool> = <str>.startswith(<sub_str>)  # Pass tuple of strings to give multiple options.
-<int>  = <str>.find(<sub_str>)        # Returns start index of the first match or `-1`.
+<bool> = <sub_str> in <str>            # Returns True if string contains the substring.
+<bool> = <str>.startswith(<sub_str>)   # Pass tuple of strings to give multiple options.
+<int>  = <str>.find(<sub_str>)         # Returns start index of the first match or `-1`.
 ```
 
 ```python
-<str>  = <str>.lower()                # Lowers the case. Also upper/capitalize/title().
-<str>  = <str>.casefold()             # Lower() that converts ẞ/ß to ss, Σ/ς to σ, etc.
-<str>  = <str>.replace(old, new)      # Removes occurrences of string old if new is ''.
-<str>  = <str>.translate(table)       # Get table via str.maketrans(<chr_to_str_dict>).
+<str>  = <str>.lower()                 # Lowers the case. Also upper/capitalize/title().
+<str>  = <str>.casefold()              # Lower() that converts ẞ/ß to ss, Σ/ς to σ, etc.
+<str>  = <str>.replace(old, new)       # Removes occurrences of string old if new is ''.
+<str>  = <str>.translate(table)        # Get table via str.maketrans(<chr_to_str_dict>).
 ```
 
 ```python
-<str>  = chr(<int>)                   # Converts passed integer into Unicode character.
-<int>  = ord(<str>)                   # Converts passed Unicode character into integer.
+<str>  = chr(<int>)                    # Converts passed integer into Unicode character.
+<int>  = ord(<str>)                    # Converts passed Unicode character into integer.
 ```
 * **Use `'unicodedata.normalize("NFC", <str>)'` on strings like `'Motörhead'` before comparing them to other strings, because `'ö'` can be stored as one or two characters.**
 * **`'NFC'` converts such characters to a single character, while `'NFD'` converts them to two.**
 
 ```python
-<bool> = <str>.isdecimal()            # Checks all chars for [0-9]. Also [०-९], [٠-٩].
-<bool> = <str>.isdigit()              # Checks for [²³¹…] and isdecimal(). Also [፩-፱].
-<bool> = <str>.isnumeric()            # Checks for [¼½¾…] and isdigit(). Also [零〇一…].
-<bool> = <str>.isalnum()              # Checks for [ABC…] and isnumeric(). Also [ªµº…].
-<bool> = <str>.isprintable()          # Checks for [ !"#…], basic emojis and isalnum().
-<bool> = <str>.isspace()              # Checks for [ \t\n\r\f\v\x1c\x1d\x1e\x1f\x85…].
+<bool> = <str>.isdecimal()             # Checks all chars for [0-9]. Also [०-९], [٠-٩].
+<bool> = <str>.isdigit()               # Checks for [²³¹…] and isdecimal(). Also [፩-፱].
+<bool> = <str>.isnumeric()             # Checks for [¼½¾…] and isdigit(). Also [零〇一…].
+<bool> = <str>.isalnum()               # Checks for [ABC…] and isnumeric(). Also [ªµº…].
+<bool> = <str>.isprintable()           # Checks for [ !"#…], basic emojis and isalnum().
+<bool> = <str>.isspace()               # Checks for [ \t\n\r\f\v\x1c\x1d\x1e\x1f\x85…].
 ```
 
 
@@ -823,10 +823,10 @@ Import
 **Mechanism that makes code in one file available to another file.**
 
 ```python
-import <module>                    # Imports a built-in module or './<module>.py'.
-import <package>                   # Built-in package or './<package>/__init__.py'.
-import <package>.<module>          # Package's module or './<package>/<module>.py'.
-from <pkg/mod>[.…] import <obj>    # Imports module, function, class or variable.
+import <module>                     # Imports a built-in module or `<module>.py`.
+import <package>                    # Built-in package or `<package>/__init__.py`.
+import <package>.<module>           # Package's module or `<package>/<module>.py`.
+from <pkg/mod>[.…] import <obj>     # Imports a module, class, variable or func.
 ```
 * **Package is a collection of modules, but it can also define its own functions, variables, etc. On a filesystem this corresponds to a directory of Python files with an optional init script.**
 * **`'import <package>'` only exposes modules that are imported inside `'__init__.py'`.**
@@ -1887,7 +1887,7 @@ import sqlite3
 ### Read
 ```python
 <cursor> = <con>.execute('SELECT …')      # Can raise a subclass of the `sqlite3.Error`.
-<tuple>  = <cursor>.fetchone()            # Returns the next row. Also next(<cursor>).
+<tuple>  = <cursor>.fetchone()            # Returns the next row. Same as next(<cursor>).
 <list>   = <cursor>.fetchall()            # Returns remaining rows. Also list(<cursor>).
 ```
 
@@ -2096,7 +2096,7 @@ from collections import deque
 
 Operator
 --------
-**Module of functions that provide the functionality of operators. Functions are grouped by operator precedence, from least to most binding. Functions and operators in first and third line are also ordered by precedence within a line.**
+**Module of functions that provide the functionality of operators. Functions are grouped by operator precedence, from least to most binding. Functions/operators in first and third line are also ordered by precedence within a line.**
 ```python
 import operator as op
 ```
@@ -2128,23 +2128,23 @@ Match Statement
 **Executes the first block with matching pattern.**
 
 ```python
-match <object/expression>:
-    case <pattern> [if <condition>]:
+match <obj/expr>:
+    case <pattern> [if <cond>]:
         <code>
     ...
 ```
 
 ### Patterns
 ```python
-<val_patt> = 1/'a'/True/None/math.pi        # Matches the literal or attribute's value.
-<cls_patt> = <type>()                       # Matches any object of that type (or ABC).
-<wildcard> = _                              # Matches any object. Useful in last case.
-<capture>  = <name>                         # Matches any object and binds it to name.
-<as_patt>  = <pattern> as <name>            # Binds match to name. Also <type>(<name>).
-<or_patt>  = <pattern> | <pattern> [| ...]  # Matches if any of listed patterns match.
-<seq_patt> = [<pattern>, ...]               # Matches a sequence. All items must match.
-<map_patt> = {<val_patt>: <patt>, ...}      # Matches a dict if it has matching items.
-<cls_patt> = <type>(<name>=<patt>, ...)     # Matches object with matching attributes.
+<val_patt> = 1/'a'/True/None/math.pi     # Matches the literal or attribute's value.
+<cls_patt> = <type>()                    # Matches any object of that type (or ABC).
+<wildcard> = _                           # Matches any object. Useful in last case.
+<capture>  = <name>                      # Matches any object and binds it to name.
+<as_patt>  = <pattern> as <name>         # Binds match to name. Also <type>(<name>).
+<or_patt>  = <pattern> | ...             # Matches if any of listed patterns match.
+<seq_patt> = [<pattern>, ...]            # Matches a sequence. All items must match.
+<map_patt> = {<val_patt>: <patt>, ...}   # Matches a dict if it has matching items.
+<cls_patt> = <type>(<name>=<patt>, ...)  # Matches object with matching attributes.
 ```
 * **The sequence pattern can also be written as a tuple, either with or without the brackets.**
 * **Use `'*<name>'` and `'**<name>'` in sequence/mapping patterns to bind remaining items.**
@@ -2154,12 +2154,12 @@ match <object/expression>:
 ### Example
 ```python
 >>> from pathlib import Path
->>> match Path('/home/ken/python-cheatsheet/README.md'):
+>>> match Path('/home/bwk/documents/README.md'):
 ...     case Path(
-...         parts=['/', 'home', user, *_]
-...     ) as p if p.name.lower().startswith('readme') and p.is_file():
-...         print(f'{p.name} is a readme file that belongs to user {user}.')
-README.md is a readme file that belongs to user ken.
+...         parts=['/', 'home', user, *_, name]
+...     ) as p if p.is_file() and 'readme' in name.lower():
+...         print(f"{name} is {user}'s readme file.")
+README.md is bwk's readme file.
 ```
 
 
@@ -2244,7 +2244,7 @@ Threading
 ---------
 **CPython interpreter can only run a single thread at a time. Using multiple threads won't result in a faster execution, unless at least one of the threads contains an I/O operation.**
 ```python
-import threading as thr, queue as q
+import threading as thr, queue as qu
 import concurrent.futures as cf
 ```
 
@@ -2279,11 +2279,11 @@ with <lock>:                                # Enters the block by calling method
 
 ### Queue
 ```python
-<Queue> = q.Queue(maxsize=0)                # A first-in-first-out queue. It's thread safe.
+<Queue> = qu.Queue(maxsize=0)               # A first-in-first-out queue. It's thread safe.
 <Queue>.put(<obj>)                          # The call blocks until queue stops being full.
-<Queue>.put_nowait(<obj>)                   # Raises the q.Full exception if queue is full.
+<Queue>.put_nowait(<obj>)                   # Raises the qu.Full exception if queue is full.
 <obj> = <Queue>.get()                       # The call blocks until queue stops being empty.
-<obj> = <Queue>.get_nowait()                # Raises the q.Empty exception if it is empty.
+<obj> = <Queue>.get_nowait()                # Raises the qu.Empty exception if it is empty.
 ```
 
 ### Executor, Future

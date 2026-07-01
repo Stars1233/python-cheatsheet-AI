@@ -47,19 +47,18 @@ const BIN_HEX =
   '&lt;int&gt; = int(<span class="hljs-string">\'±&lt;hex&gt;\'</span>, <span class="hljs-number">16</span>)                      <span class="hljs-comment"># Also int(\'±0x&lt;hex&gt;/±0b&lt;bin&gt;\', 0).</span>\n' +
   '&lt;str&gt; = hex(&lt;int&gt;)                             <span class="hljs-comment"># Returns \'[-]0x&lt;hex&gt;\'. Also bin().</span>\n';
 
-const CACHE =
-  '<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> cache\n' +
-  '\n' +
-  '<span class="hljs-meta">@cache</span>\n' +
-  '<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fib</span><span class="hljs-params">(n)</span>:</span>\n' +
-  '    <span class="hljs-keyword">return</span> n <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">else</span> fib(n-<span class="hljs-number">2</span>) + fib(n-<span class="hljs-number">1</span>)';
-
 const SPLAT =
   '<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(*a)</span>:</span>\n' +
   '<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> sum(a)\n' +
   '<span class="hljs-meta">... </span>\n' +
   '<span class="hljs-meta">&gt;&gt;&gt; </span>add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)\n' +
   '<span class="hljs-number">6</span>\n';
+
+const CACHE = `<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> cache
+
+<span class="hljs-meta">@cache</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fibonacci</span><span class="hljs-params">(n)</span>:</span>
+    <span class="hljs-keyword">return</span> n <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">else</span> fibonacci(n-<span class="hljs-number">2</span>) + fibonacci(n-<span class="hljs-number">1</span>)`;
 
 const PARAMETRIZED_DECORATOR =
   '<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps\n' +
@@ -107,20 +106,20 @@ const OS_RENAME =
 const STRUCT_FORMAT =
   '<span class="hljs-section">\'&lt;n&gt;s\'</span><span class="hljs-attribute"></span>';
 
-const MATCH =
-  '<span class="hljs-keyword">match</span> &lt;object/expression&gt;:\n' +
-  '    <span class="hljs-keyword">case</span> &lt;pattern&gt; [<span class="hljs-keyword">if</span> &lt;condition&gt;]:\n' +
-  '        &lt;code&gt;\n' +
-  '    ...\n';
+const MATCH = `<code class="python language-python hljs"><span class="hljs-keyword">match</span> &lt;obj/expr&gt;:
+    <span class="hljs-keyword">case</span> &lt;pattern&gt; [<span class="hljs-keyword">if</span> &lt;cond&gt;]:
+        &lt;code&gt;
+    ...
+`;
 
-const MATCH_EXAMPLE =
-  '<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path\n' +
-  '<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">match</span> Path(<span class="hljs-string">\'/home/ken/python-cheatsheet/README.md\'</span>):\n' +
-  '<span class="hljs-meta">... </span>    <span class="hljs-keyword">case</span> Path(\n' +
-  '<span class="hljs-meta">... </span>        parts=[<span class="hljs-string">\'/\'</span>, <span class="hljs-string">\'home\'</span>, user, *_]\n' +
-  '<span class="hljs-meta">... </span>    ) <span class="hljs-keyword">as</span> p <span class="hljs-keyword">if</span> p.name.lower().startswith(<span class="hljs-string">\'readme\'</span>) <span class="hljs-keyword">and</span> p.is_file():\n' +
-  '<span class="hljs-meta">... </span>        print(<span class="hljs-string">f\'<span class="hljs-subst">{p.name}</span> is a readme file that belongs to user <span class="hljs-subst">{user}</span>.\'</span>)\n' +
-  'README.md is a readme file that belongs to user ken.\n';
+const MATCH_EXAMPLE = `<code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">match</span> Path(<span class="hljs-string">'/home/bwk/documents/README.md'</span>):
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">case</span> Path(
+<span class="hljs-meta">... </span>        parts=[<span class="hljs-string">'/'</span>, <span class="hljs-string">'home'</span>, user, *_, name]
+<span class="hljs-meta">... </span>    ) <span class="hljs-keyword">as</span> p <span class="hljs-keyword">if</span> p.is_file() <span class="hljs-keyword">and</span> <span class="hljs-string">'readme'</span> <span class="hljs-keyword">in</span> name.lower():
+<span class="hljs-meta">... </span>        print(<span class="hljs-string">f"{name} is {user}'s readme file."</span>)
+README.md is bwk's readme file.
+</code>`;
 
 const COROUTINES =
 `<span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> aio, collections, curses, curses.textpad, enum, random
@@ -952,16 +951,16 @@ function fixClasses() {
 
 function fixHighlights() {
   $(`code:contains(<int> = 0x<hex>)`).html(BIN_HEX);
-  $(`code:contains( + fib(n)`).html(CACHE);
   $(`code:contains(>>> def add)`).html(SPLAT);
+  $(`code:contains(return n if n < 2)`).html(CACHE);
   $(`code:contains(@debug(print_result=True))`).html(PARAMETRIZED_DECORATOR);
   $(`code:contains(print(obj))`).html(STR_USE_CASES);
   $(`code:contains(print/str/repr([obj]))`).html(REPR_USE_CASES);
   $(`code:contains(sh.copy)`).html(SHUTIL_COPY);
   $(`code:contains(os.rename)`).html(OS_RENAME);
   $(`code:contains(\'<n>s\')`).html(STRUCT_FORMAT);
-  $(`code:contains(match <object/expression>:)`).html(MATCH);
-  // $(`code:contains(>>> match Path)`).html(MATCH_EXAMPLE);
+  $(`code:contains(match <obj/expr>:)`).html(MATCH);
+  $(`code:contains(>>> match Path)`).html(MATCH_EXAMPLE);
   $(`code:contains(>>> log.basicConfig()`).html(LOGGING_EXAMPLE);
   $(`code:contains(import asyncio as aio, collections, curses, curses.textpad, enum, random)`).html(COROUTINES);
   $(`code:contains(pip3 install tqdm)`).html(PROGRESS_BAR);
