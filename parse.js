@@ -405,30 +405,83 @@ const DIAGRAM_4_A =
   "|              |   {<float>}   |   {<float>:f}  |   {<float>:e}  |   {<float>:%}  |\n" +
   "+--------------+---------------+----------------+----------------+----------------+\n";
 
+
 const DIAGRAM_4_B =
   "┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓\n" +
   "┃              │   {&lt;float&gt;}   │   {&lt;float&gt;:f}  │   {&lt;float&gt;:e}  │   {&lt;float&gt;:%}  ┃\n" +
   "┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨\n" +
-  "┃  0.000056789 │  '5.6789e-05' │    '0.000057'  │ '5.678900e-05' │    '0.005679%' ┃\n" +
-  "┃  0.00056789  │  '0.00056789' │    '0.000568'  │ '5.678900e-04' │    '0.056789%' ┃\n" +
-  "┃  0.0056789   │  '0.0056789'  │    '0.005679'  │ '5.678900e-03' │    '0.567890%' ┃\n" +
-  "┃  0.056789    │  '0.056789'   │    '0.056789'  │ '5.678900e-02' │    '5.678900%' ┃\n" +
-  "┃  0.56789     │  '0.56789'    │    '0.567890'  │ '5.678900e-01' │   '56.789000%' ┃\n" +
-  "┃  5.6789      │  '5.6789'     │    '5.678900'  │ '5.678900e+00' │  '567.890000%' ┃\n" +
-  "┃ 56.789       │ '56.789'      │   '56.789000'  │ '5.678900e+01' │ '5678.900000%' ┃\n" +
+  "┃  0.000056789 │   5.6789e-05  │     0.000057   │  5.678900e-05  │     0.005679%  ┃\n" +
+  "┃  0.00056789  │   0.00056789  │     0.000568   │  5.678900e-04  │     0.056789%  ┃\n" +
+  "┃  0.0056789   │   0.0056789   │     0.005679   │  5.678900e-03  │     0.567890%  ┃\n" +
+  "┃  0.056789    │   0.056789    │     0.056789   │  5.678900e-02  │     5.678900%  ┃\n" +
+  "┃  0.56789     │   0.56789     │     0.567890   │  5.678900e-01  │    56.789000%  ┃\n" +
+  "┃  5.6789      │   5.6789      │     5.678900   │  5.678900e+00  │   567.890000%  ┃\n" +
+  "┃ 56.789       │  56.789       │    56.789000   │  5.678900e+01  │  5678.900000%  ┃\n" +
   "┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛\n" +
   "\n" +
   "┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓\n" +
   "┃              │ {&lt;float&gt;:.2}  │  {&lt;float&gt;:.2f} │  {&lt;float&gt;:.2e} │  {&lt;float&gt;:.2%} ┃\n" +
   "┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨\n" +
-  "┃  0.000056789 │   '5.7e-05'   │      '0.00'    │   '5.68e-05'   │      '0.01%'   ┃\n" +
-  "┃  0.00056789  │   '0.00057'   │      '0.00'    │   '5.68e-04'   │      '0.06%'   ┃\n" +
-  "┃  0.0056789   │   '0.0057'    │      '0.01'    │   '5.68e-03'   │      '0.57%'   ┃\n" +
-  "┃  0.056789    │   '0.057'     │      '0.06'    │   '5.68e-02'   │      '5.68%'   ┃\n" +
-  "┃  0.56789     │   '0.57'      │      '0.57'    │   '5.68e-01'   │     '56.79%'   ┃\n" +
-  "┃  5.6789      │   '5.7'       │      '5.68'    │   '5.68e+00'   │    '567.89%'   ┃\n" +
-  "┃ 56.789       │   '5.7e+01'   │     '56.79'    │   '5.68e+01'   │   '5678.90%'   ┃\n" +
+  "┃  0.000056789 │    5.7e-05    │       0.00     │    5.68e-05    │       0.01%    ┃\n" +
+  "┃  0.00056789  │    0.00057    │       0.00     │    5.68e-04    │       0.06%    ┃\n" +
+  "┃  0.0056789   │    0.0057     │       0.01     │    5.68e-03    │       0.57%    ┃\n" +
+  "┃  0.056789    │    0.057      │       0.06     │    5.68e-02    │       5.68%    ┃\n" +
+  "┃  0.56789     │    0.57       │       0.57     │    5.68e-01    │      56.79%    ┃\n" +
+  "┃  5.6789      │    5.7        │       5.68     │    5.68e+00    │     567.89%    ┃\n" +
+  "┃ 56.789       │    5.7e+01    │      56.79     │    5.68e+01    │    5678.90%    ┃\n" +
   "┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛\n";
+
+
+// const DIAGRAM_4_B =
+//   "┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┓\n" +
+//   "┃              │   {&lt;float&gt;}   │  {&lt;float&gt;:f}  │  {&lt;float&gt;:e}  │  {&lt;float&gt;:%}  ┃\n" +
+//   "┠──────────────┼───────────────┼───────────────┼───────────────┼───────────────┨\n" +
+//   "┃  0.000056789 │   5.6789e-05  │    0.000057   │ 5.678900e-05  │    0.005679%  ┃\n" +
+//   "┃  0.00056789  │   0.00056789  │    0.000568   │ 5.678900e-04  │    0.056789%  ┃\n" +
+//   "┃  0.0056789   │   0.0056789   │    0.005679   │ 5.678900e-03  │    0.567890%  ┃\n" +
+//   "┃  0.056789    │   0.056789    │    0.056789   │ 5.678900e-02  │    5.678900%  ┃\n" +
+//   "┃  0.56789     │   0.56789     │    0.567890   │ 5.678900e-01  │   56.789000%  ┃\n" +
+//   "┃  5.6789      │   5.6789      │    5.678900   │ 5.678900e+00  │  567.890000%  ┃\n" +
+//   "┃ 56.789       │  56.789       │   56.789000   │ 5.678900e+01  │ 5678.900000%  ┃\n" +
+//   "┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┛\n" +
+//   "\n" +
+//   "┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┓\n" +
+//   "┃              │ {&lt;float&gt;:.2}  │ {&lt;float&gt;:.2f} │ {&lt;float&gt;:.2e} │ {&lt;float&gt;:.2%} ┃\n" +
+//   "┠──────────────┼───────────────┼───────────────┼───────────────┼───────────────┨\n" +
+//   "┃  0.000056789 │    5.7e-05    │      0.00     │   5.68e-05    │      0.01%    ┃\n" +
+//   "┃  0.00056789  │    0.00057    │      0.00     │   5.68e-04    │      0.06%    ┃\n" +
+//   "┃  0.0056789   │    0.0057     │      0.01     │   5.68e-03    │      0.57%    ┃\n" +
+//   "┃  0.056789    │    0.057      │      0.06     │   5.68e-02    │      5.68%    ┃\n" +
+//   "┃  0.56789     │    0.57       │      0.57     │   5.68e-01    │     56.79%    ┃\n" +
+//   "┃  5.6789      │    5.7        │      5.68     │   5.68e+00    │    567.89%    ┃\n" +
+//   "┃ 56.789       │    5.7e+01    │     56.79     │   5.68e+01    │   5678.90%    ┃\n" +
+//   "┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┛\n";
+
+
+// const DIAGRAM_4_B =
+//   "┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓\n" +
+//   "┃              │   {&lt;float&gt;}   │   {&lt;float&gt;:f}  │   {&lt;float&gt;:e}  │   {&lt;float&gt;:%}  ┃\n" +
+//   "┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨\n" +
+//   "┃  0.000056789 │  '5.6789e-05' │    '0.000057'  │ '5.678900e-05' │    '0.005679%' ┃\n" +
+//   "┃  0.00056789  │  '0.00056789' │    '0.000568'  │ '5.678900e-04' │    '0.056789%' ┃\n" +
+//   "┃  0.0056789   │  '0.0056789'  │    '0.005679'  │ '5.678900e-03' │    '0.567890%' ┃\n" +
+//   "┃  0.056789    │  '0.056789'   │    '0.056789'  │ '5.678900e-02' │    '5.678900%' ┃\n" +
+//   "┃  0.56789     │  '0.56789'    │    '0.567890'  │ '5.678900e-01' │   '56.789000%' ┃\n" +
+//   "┃  5.6789      │  '5.6789'     │    '5.678900'  │ '5.678900e+00' │  '567.890000%' ┃\n" +
+//   "┃ 56.789       │ '56.789'      │   '56.789000'  │ '5.678900e+01' │ '5678.900000%' ┃\n" +
+//   "┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛\n" +
+//   "\n" +
+//   "┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓\n" +
+//   "┃              │ {&lt;float&gt;:.2}  │  {&lt;float&gt;:.2f} │  {&lt;float&gt;:.2e} │  {&lt;float&gt;:.2%} ┃\n" +
+//   "┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨\n" +
+//   "┃  0.000056789 │   '5.7e-05'   │      '0.00'    │   '5.68e-05'   │      '0.01%'   ┃\n" +
+//   "┃  0.00056789  │   '0.00057'   │      '0.00'    │   '5.68e-04'   │      '0.06%'   ┃\n" +
+//   "┃  0.0056789   │   '0.0057'    │      '0.01'    │   '5.68e-03'   │      '0.57%'   ┃\n" +
+//   "┃  0.056789    │   '0.057'     │      '0.06'    │   '5.68e-02'   │      '5.68%'   ┃\n" +
+//   "┃  0.56789     │   '0.57'      │      '0.57'    │   '5.68e-01'   │     '56.79%'   ┃\n" +
+//   "┃  5.6789      │   '5.7'       │      '5.68'    │   '5.68e+00'   │    '567.89%'   ┃\n" +
+//   "┃ 56.789       │   '5.7e+01'   │     '56.79'    │   '5.68e+01'   │   '5678.90%'   ┃\n" +
+//   "┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛\n";
 
 const DIAGRAM_5_A =
   "+--------------+---------------+----------------+----------------+----------------+\n" +
@@ -439,75 +492,87 @@ const DIAGRAM_55_A =
   "+---------------------------+----------------+--------------+--------------+\n";
 
 const DIAGRAM_55_B =
-  '┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓\n' +
-  '┃                           │ func(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>) │ func(<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>) │  func(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)  ┃\n' +
-  '┠───────────────────────────┼────────────────┼──────────────┼──────────────┨\n' +
-  '┃ <span class="hljs-title">func</span>(x, *args, **kwargs): │       ✓        │      ✓       │      ✓       ┃\n' +
-  '┃ <span class="hljs-title">func</span>(*args, y, **kwargs): │       ✓        │      ✓       │              ┃\n' +
-  '┃ <span class="hljs-title">func</span>(*, x, **kwargs):     │       ✓        │              │              ┃\n' +
-  '┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛\n';
+  '┏━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓\n' +
+  '┃                         │ fn(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>) │  fn(<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>)  │   fn(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)   ┃\n' +
+  '┠─────────────────────────┼──────────────┼──────────────┼──────────────┨\n' +
+  '┃ <span class="hljs-title">fn</span>(x, *args, **kwargs): │      ✓       │      ✓       │      ✓       ┃\n' +
+  '┃ <span class="hljs-title">fn</span>(*args, y, **kwargs): │      ✓       │      ✓       │              ┃\n' +
+  '┃ <span class="hljs-title">fn</span>(*, x, **kwargs):     │      ✓       │              │              ┃\n' +
+  '┗━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛\n';
 
 
 const DIAGRAM_6_A =
-  '+------------+------------+------------+------------+--------------+\n' +
-  '|            |  Iterable  | Collection |  Sequence  | abc.Sequence |\n' +
-  '+------------+------------+------------+------------+--------------+\n';
+  '+----------------+------------+------------+------------+--------------+\n' +
+  '|                |  Iterable  | Collection |  Sequence  | abc.Sequence |\n' +
+  '+----------------+------------+------------+------------+--------------+\n';
 
-const DIAGRAM_6_B =
-  '┏━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓\n' +
-  '┃            │  Iterable  │ Collection │  Sequence  │ abc.Sequence ┃\n' +
-  '┠────────────┼────────────┼────────────┼────────────┼──────────────┨\n' +
-  '┃ iter()     │     !      │     !      │     ✓      │      ✓       ┃\n' +
-  '┃ contains() │     ✓      │     ✓      │     ✓      │      ✓       ┃\n' +
-  '┃ len()      │            │     !      │     !      │      !       ┃\n' +
-  '┃ getitem()  │            │            │     !      │      !       ┃\n' +
-  '┃ reversed() │            │            │     ✓      │      ✓       ┃\n' +
-  '┃ index()    │            │            │            │      ✓       ┃\n' +
-  '┃ count()    │            │            │            │      ✓       ┃\n' +
-  '┗━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛\n';
+const DIAGRAM_6_B = `┏━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓
+┃                │  Iterable  │ Collection │  Sequence  │ abc.Sequence ┃
+┠────────────────┼────────────┼────────────┼────────────┼──────────────┨
+┃ __iter__()     │     !      │     !      │     ✓      │      ✓       ┃
+┃ __contains__() │     ✓      │     ✓      │     ✓      │      ✓       ┃
+┃ __len__()      │            │     !      │     !      │      !       ┃
+┃ __getitem__()  │            │            │     !      │      !       ┃
+┃ __reversed__() │            │            │     ✓      │      ✓       ┃
+┃ index()        │            │            │            │      ✓       ┃
+┃ count()        │            │            │            │      ✓       ┃
+┗━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛
+`;
+
+  // '┏━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓\n' +
+  // '┃            │  Iterable  │ Collection │  Sequence  │ abc.Sequence ┃\n' +
+  // '┠────────────┼────────────┼────────────┼────────────┼──────────────┨\n' +
+  // '┃ iter()     │     !      │     !      │     ✓      │      ✓       ┃\n' +
+  // '┃ contains() │     ✓      │     ✓      │     ✓      │      ✓       ┃\n' +
+  // '┃ len()      │            │     !      │     !      │      !       ┃\n' +
+  // '┃ getitem()  │            │            │     !      │      !       ┃\n' +
+  // '┃ reversed() │            │            │     ✓      │      ✓       ┃\n' +
+  // '┃ index()    │            │            │            │      ✓       ┃\n' +
+  // '┃ count()    │            │            │            │      ✓       ┃\n' +
+  // '┗━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛\n';
 
 const DIAGRAM_7_A =
   'BaseException\n' +
-  ' +-- SystemExit';
+  ' +- SystemExit';
 
 const DIAGRAM_7_B =
   "BaseException\n" +
-  " ├── SystemExit                   <span class='hljs-comment'># Raised when `sys.exit()` is called. See #Exit for details.</span>\n" +
-  " ├── KeyboardInterrupt            <span class='hljs-comment'># Raised when the user hits the interrupt key, i.e. `ctrl-c`.</span>\n" +
-  " └── Exception                    <span class='hljs-comment'># User-defined exceptions should be derived from this class.</span>\n" +
-  "      ├── ArithmeticError         <span class='hljs-comment'># Base class for arithmetic errors such as ZeroDivisionError.</span>\n" +
-  "      ├── AssertionError          <span class='hljs-comment'># Raised by `assert &lt;exp&gt;` if expression returns false value.</span>\n" +
-  "      ├── AttributeError          <span class='hljs-comment'># Raised when object doesn't have requested attribute/method.</span>\n" +
-  "      ├── EOFError                <span class='hljs-comment'># Raised by `input()` when it hits an end-of-file condition.</span>\n" +
-  "      ├── LookupError             <span class='hljs-comment'># Base class for errors when a collection can't find an item.</span>\n" +
-  "      │    ├── IndexError         <span class='hljs-comment'># Raised when index of a sequence (list/str) is out of range.</span>\n" +
-  "      │    └── KeyError           <span class='hljs-comment'># Raised when a dictionary's key or a set element is missing.</span>\n" +
-  "      ├── MemoryError             <span class='hljs-comment'># Out of memory. May be too late to start deleting variables.</span>\n" +
-  "      ├── NameError               <span class='hljs-comment'># Raised when nonexistent name (variable/func/class) is used.</span>\n" +
-  "      │    └── UnboundLocalError  <span class='hljs-comment'># Raised when a local name is used before it's being defined.</span>\n" +
-  "      ├── OSError                 <span class='hljs-comment'># Errors such as FileExistsError and TimeoutError. See #Open.</span>\n" +
-  "      │    └── ConnectionError    <span class='hljs-comment'># Errors such as BrokenPipeError and ConnectionAbortedError.</span>\n" +
-  "      ├── RuntimeError            <span class='hljs-comment'># Is raised by errors that do not fit into other categories.</span>\n" +
-  "      │    ├── NotImplementedEr…  <span class='hljs-comment'># Can be raised by abstract methods or by an unfinished code.</span>\n" +
-  "      │    └── RecursionError     <span class='hljs-comment'># Raised if max recursion depth is exceeded (3k by default).</span>\n" +
-  "      ├── StopIteration           <span class='hljs-comment'># Raised when exhausted (empty) iterator is passed to next().</span>\n" +
-  "      ├── TypeError               <span class='hljs-comment'># Raised when argument of wrong type is passed to a function.</span>\n" +
-  "      └── ValueError              <span class='hljs-comment'># Raised when it has the right type but inappropriate value.</span>\n";
+  " ├─ SystemExit                 <span class='hljs-comment'># Raised when `sys.exit()` is called. See #Exit for details.</span>\n" +
+  " ├─ KeyboardInterrupt          <span class='hljs-comment'># Raised when the user hits the interrupt key, i.e. `ctrl-c`.</span>\n" +
+  " └─ Exception                  <span class='hljs-comment'># User-defined exceptions should be derived from this class.</span>\n" +
+  "     ├─ ArithmeticError        <span class='hljs-comment'># Base class for arithmetic errors such as ZeroDivisionError.</span>\n" +
+  "     ├─ AssertionError         <span class='hljs-comment'># Raised by `assert &lt;exp&gt;` if expression returns false value.</span>\n" +
+  "     ├─ AttributeError         <span class='hljs-comment'># Raised when object doesn't have requested attribute/method.</span>\n" +
+  "     ├─ EOFError               <span class='hljs-comment'># Raised by `input()` when it hits an end-of-file condition.</span>\n" +
+  "     ├─ LookupError            <span class='hljs-comment'># Base class for errors when a collection can't find an item.</span>\n" +
+  "     │   ├─ IndexError         <span class='hljs-comment'># Raised when index of a sequence (list/str) is out of range.</span>\n" +
+  "     │   └─ KeyError           <span class='hljs-comment'># Raised when a dictionary's key or a set element is missing.</span>\n" +
+  "     ├─ MemoryError            <span class='hljs-comment'># Out of memory. May be too late to start deleting variables.</span>\n" +
+  "     ├─ NameError              <span class='hljs-comment'># Raised when nonexistent name (variable/func/class) is used.</span>\n" +
+  "     │   └─ UnboundLocalError  <span class='hljs-comment'># Raised when a local name is used before it's being defined.</span>\n" +
+  "     ├─ OSError                <span class='hljs-comment'># Errors such as FileExistsError and TimeoutError. See #Open.</span>\n" +
+  "     │   └─ ConnectionError    <span class='hljs-comment'># Errors such as BrokenPipeError and ConnectionAbortedError.</span>\n" +
+  "     ├─ RuntimeError           <span class='hljs-comment'># Is raised by errors that do not fit into other categories.</span>\n" +
+  "     │   ├─ NotImplementedEr…  <span class='hljs-comment'># Can be raised by abstract methods or by an unfinished code.</span>\n" +
+  "     │   └─ RecursionError     <span class='hljs-comment'># Raised if max recursion depth is exceeded (3k by default).</span>\n" +
+  "     ├─ StopIteration          <span class='hljs-comment'># Raised when exhausted (empty) iterator is passed to next().</span>\n" +
+  "     ├─ TypeError              <span class='hljs-comment'># Raised when argument of wrong type is passed to a function.</span>\n" +
+  "     └─ ValueError             <span class='hljs-comment'># Raised when it has the right type but inappropriate value.</span>\n";
 
 const DIAGRAM_8_A =
-  '+-----------+------------+------------+------------+\n' +
-  '|           |    List    |    Set     |    Dict    |\n' +
-  '+-----------+------------+------------+------------+\n';
+  '+-----------+------------+----------+----------+\n' +
+  '|           |    List    |   Set    |   Dict   |\n' +
+  '+-----------+------------+----------+----------+\n';
 
 const DIAGRAM_8_B =
-  '┏━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┓\n' +
-  '┃           │    List    │    Set     │    Dict    ┃\n' +
-  '┠───────────┼────────────┼────────────┼────────────┨\n' +
-  '┃ getitem() │ IndexError │            │  KeyError  ┃\n' +
-  '┃ pop()     │ IndexError │  KeyError  │  KeyError  ┃\n' +
-  '┃ remove()  │ ValueError │  KeyError  │            ┃\n' +
-  '┃ index()   │ ValueError │            │            ┃\n' +
-  '┗━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┛\n';
+  '┏━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━┯━━━━━━━━━━┓\n' +
+  '┃           │    List    │   Set    │   Dict   ┃\n' +
+  '┠───────────┼────────────┼──────────┼──────────┨\n' +
+  '┃ getitem() │ IndexError │          │ KeyError ┃\n' +
+  '┃ pop()     │ IndexError │ KeyError │ KeyError ┃\n' +
+  '┃ remove()  │ ValueError │ KeyError │          ┃\n' +
+  '┃ index()   │ ValueError │          │          ┃\n' +
+  '┗━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━┷━━━━━━━━━━┛\n';
 
 const DIAGRAM_9_A =
   '+------------------+--------------+--------------+--------------+\n' +
@@ -1037,7 +1102,7 @@ function removePlotImages() {
 }
 
 function fixABCSequenceDiv() {
-  $('#abcsequence').parent().insertBefore($('#tableofrequiredandautomaticallyavailablespecialmethods').parent())
+  $('#abcsequence').parent().insertBefore($('#requiredandautomaticallyavailablemethods').parent())
 }
 
 function fixStructFormatDiv() {

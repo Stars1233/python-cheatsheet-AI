@@ -407,8 +407,8 @@ Format
 ### Example
 ```python
 >>> Person = collections.namedtuple('Person', 'name height')
->>> person = Person('Jean-Luc', 187)
->>> f'{person.name} is {person.height / 100} meters tall.'
+>>> jean = Person('Jean-Luc', 187)
+>>> f'{jean.name} is {jean.height / 100} meters tall.'
 'Jean-Luc is 1.87 meters tall.'
 ```
 
@@ -605,10 +605,10 @@ import zoneinfo, dateutil.tz
 <DT> = datetime(year, month, day, hour=0)   # Accepts `minute=0, second=0, microsecond=0, …`.
 <TD> = timedelta(weeks=0, days=0, hours=0)  # Accepts `minutes=0, seconds=0, microseconds=0`.
 ```
-* **Times and datetimes that have defined timezone are called aware and ones that don't, naive. If time or datetime object is naive, it is presumed to be in the system's timezone.**
+* **Times and datetimes that have defined timezone are called _aware_ and ones that don't, _naive_. If time or datetime object is naive, it is presumed to be in the system's timezone.**
 * **`'fold=1'` means the second pass in case of time jumping back (usually for one hour).**
 * **Timedelta normalizes arguments to ±days, seconds (< 86 400) and microseconds (< 1M). Its str() method returns `'[±D, ]H:MM:SS[.…]'` and total_seconds() a float of seconds.**
-* **Use `'<D/DT>.weekday()'` to get the day of the week as an int (with Monday being 0).**
+* **Use `'<D/DT>.weekday()'` to get the day of the week as an int, with Monday being 0.**
 
 ### Now
 ```python
@@ -621,7 +621,6 @@ import zoneinfo, dateutil.tz
 ```python
 <tzinfo> = timezone.utc                     # Coordinated universal time. London without DST.
 <tzinfo> = timezone(<timedelta>)            # Timezone with fixed offset from universal time.
-<tzinfo> = dateutil.tz.tzlocal()            # Local timezone with dynamic offset from the UTC.
 <tzinfo> = zoneinfo.ZoneInfo('<iana_key>')  # 'Continent/City_Name' zone with dynamic offset.
 <DTa>    = <DT>.astimezone(<tzinfo>)        # Converts to the passed or local fixed timezone.
 <Ta/DTa> = <T/DT>.replace(tzinfo=<tzinfo>)  # Changes the timezone object without conversion.
@@ -656,7 +655,7 @@ import zoneinfo, dateutil.tz
 "14th of August '25 (Thu), 11:39 PM UTC+02:00"
 ```
 * **`'%z'` accepts `'±HH[:]MM'` and returns `'±HHMM'` or empty string if object is naive.**
-* **`'%Z'` accepts `'UTC/GMT'` and local timezone's code and returns timezone's name, `'UTC[±HH:MM]'` if timezone is nameless, or an empty string if object is naive.**
+* **`'%Z'` accepts `'UTC'`, `'GMT'` or local timezone's code and returns timezone's name, `'UTC[±HH:MM]'` if timezone is nameless, or an empty string if object is naive.**
 
 ### Arithmetics
 ```python
@@ -826,7 +825,7 @@ Import
 import <module>                     # Imports a built-in module or `<module>.py`.
 import <package>                    # Built-in package or `<package>/__init__.py`.
 import <package>.<module>           # Package's module or `<package>/<module>.py`.
-from <pkg/mod>[.…] import <obj>     # Imports a module, class, variable or func.
+from <pkg/mod>[.…] import <obj>     # Imports a module, class, func or variable.
 ```
 * **Package is a collection of modules, but it can also define its own functions, variables, etc. On a filesystem this corresponds to a directory of Python files with an optional init script.**
 * **`'import <package>'` only exposes modules that are imported inside `'__init__.py'`.**
@@ -864,7 +863,7 @@ from functools import partial
 >>> multiply_by_3(10)
 30
 ```
-* **Partial is also useful in cases when a function needs to be passed as an argument because it enables us to set its arguments beforehand (`'collections.defaultdict(<func>)'`, `'iter(<func>, to_exc)'` and `'dataclasses.field(default_factory=<func>)'`).**
+* **Partial is also useful in cases when a function needs to be passed as an argument because it enables us to set its arguments in advance (`'collections.defaultdict(<func>)'`, `'iter(<func>, to_exc)'` and `'dataclasses.field(default_factory=<func>)'`).**
 
 ### Non-Local
 **If variable is being assigned to anywhere in the scope (i.e., body of a function), it is treated as&nbsp;a local variable unless it is declared `'global'` or `'nonlocal'` before its first usage.**
@@ -1023,7 +1022,7 @@ class Employee(Person):
 ```
 
 ### Type Annotations
-* **They add type hints to variables, arguments and functions (`'def f() -> <type>:'`).**
+* **They add type hints to variables, arguments and functions. E.g., `'def f() -> int: …'`.**
 * **Hints are used by type checkers like [mypy](https://pypi.org/project/mypy/), data validation libraries such as [Pydantic](https://pypi.org/project/pydantic/) and lately also by [Cython](https://pypi.org/project/Cython/) compiler. However, they are not enforced by CPython interpreter.**
 ```python
 from collections import abc
@@ -1188,14 +1187,14 @@ class Counter:
 class Counter:
     def __init__(self):
         self.i = 0
-    def __call__(self):
-        self.i += 1
+    def __call__(self, step):
+        self.i += step
         return self.i
 ```
 
 ```python
 >>> counter = Counter()
->>> counter(), counter(), counter()
+>>> counter(1), counter(1), counter(1)
 (1, 2, 3)
 ```
 
@@ -1263,9 +1262,9 @@ class MyCollection:
 ```
 
 ### Sequence
-* **Only required methods are getitem() and len(). Getitem() should return an item at the passed index or raise IndexError (it may also support negative indices and/or slices).**
+* **Only required methods are len() and getitem(). Getitem() should return an item at the passed index or raise IndexError (it may also support negative indices and/or slices).**
 * **Iter() and contains() automatically work on any object with defined getitem() method.**
-* **Reversed() automatically works on any object that has getitem() and len() defined. It returns reversed iterator of object's items.**
+* **Reversed() automatically works on any object that has len() and getitem() defined. It returns reversed iterator of object's items.**
 ```python
 class MySequence:
     def __init__(self, a):
@@ -1287,7 +1286,7 @@ class MySequence:
 * **Using [ABC](#abstract-base-classes) Iterable with isinstance() or issubclass() only checks whether object/class has special method iter(), while ABC Collection checks for iter(), contains() and len().**
 
 ### ABC Sequence
-* **It's a richer interface than the basic sequence that also requires just getitem() and len().**
+* **It's a richer interface than the basic sequence that also requires just len() and getitem().**
 * **Extending it generates iter(), contains(), reversed(), index() and count() special methods.**
 * **Unlike `'abc.Iterable'` and `'abc.Collection'`, it is not a duck type. That is why exp. `'issubclass(MySequence, abc.Sequence)'` would return False even if MySequence had all methods defined. It however recognizes list, tuple, range, string, bytes, bytearray, array, memoryview and deque, since they are registered as Sequence's virtual subclasses.**
 ```python
@@ -1302,19 +1301,19 @@ class MyAbcSequence(abc.Sequence):
         return self.a[i]
 ```
 
-#### Table of required and automatically available special methods:
+#### Required and automatically available methods:
 ```text
-+------------+------------+------------+------------+--------------+
-|            |  Iterable  | Collection |  Sequence  | abc.Sequence |
-+------------+------------+------------+------------+--------------+
-| iter()     |    REQ     |    REQ     |    Yes     |     Yes      |
-| contains() |    Yes     |    Yes     |    Yes     |     Yes      |
-| len()      |            |    REQ     |    REQ     |     REQ      |
-| getitem()  |            |            |    REQ     |     REQ      |
-| reversed() |            |            |    Yes     |     Yes      |
-| index()    |            |            |            |     Yes      |
-| count()    |            |            |            |     Yes      |
-+------------+------------+------------+------------+--------------+
++----------------+------------+------------+------------+--------------+
+|                |  Iterable  | Collection |  Sequence  | abc.Sequence |
++----------------+------------+------------+------------+--------------+
+| __iter__()     |    REQ     |    REQ     |    Yes     |     Yes      |
+| __contains__() |    Yes     |    Yes     |    Yes     |     Yes      |
+| __len__()      |            |    REQ     |    REQ     |     REQ      |
+| __getitem__()  |            |            |    REQ     |     REQ      |
+| __reversed__() |            |            |    Yes     |     Yes      |
+| index()        |            |            |            |     Yes      |
+| count()        |            |            |            |     Yes      |
++----------------+------------+------------+------------+--------------+
 ```
 * **Method iter() is required for `'isinstance(<obj>, abc.Iterable)'` to return True, however any object with getitem() method works with any code expecting an iterable.**
 * **MutableSequence, Set, MutableSet, Mapping and MutableMapping ABCs are also ex&shy;tendable. Use `'<abc>.__abstractmethods__'` to get names of required methods.**
@@ -1440,45 +1439,45 @@ error_msg = ''.join(traceback.format_exception(*sys.exc_info()))
 ### Built-in Exceptions
 ```text
 BaseException
- +-- SystemExit                   # Raised when `sys.exit()` is called. See #Exit for details.
- +-- KeyboardInterrupt            # Raised when the user hits the interrupt key, i.e. `ctrl-c`.
- +-- Exception                    # User-defined exceptions should be derived from this class.
-      +-- ArithmeticError         # Base class for arithmetic errors such as ZeroDivisionError.
-      +-- AssertionError          # Raised by `assert <exp>` if expression returns false value.
-      +-- AttributeError          # Raised when object doesn't have requested attribute/method.
-      +-- EOFError                # Raised by `input()` when it hits an end-of-file condition.
-      +-- LookupError             # Base class for errors when a collection can't find an item.
-      |    +-- IndexError         # Raised when index of a sequence (list/str) is out of range.
-      |    +-- KeyError           # Raised when a dictionary's key or a set element is missing.
-      +-- MemoryError             # Out of memory. May be too late to start deleting variables.
-      +-- NameError               # Raised when nonexistent name (variable/func/class) is used.
-      |    +-- UnboundLocalError  # Raised when a local name is used before it's being defined.
-      +-- OSError                 # Errors such as FileExistsError and TimeoutError. See #Open.
-      |    +-- ConnectionError    # Errors such as BrokenPipeError and ConnectionAbortedError.
-      +-- RuntimeError            # Is raised by errors that do not fit into other categories.
-      |    +-- NotImplementedEr…  # Can be raised by abstract methods or by an unfinished code.
-      |    +-- RecursionError     # Raised if max recursion depth is exceeded (3k by default).
-      +-- StopIteration           # Raised when exhausted (empty) iterator is passed to next().
-      +-- TypeError               # Raised when argument of wrong type is passed to a function.
-      +-- ValueError              # Raised when it has the right type but inappropriate value.
+ +- SystemExit                  # Raised when `sys.exit()` is called. See #Exit for details.
+ +- KeyboardInterrupt           # Raised when the user hits the interrupt key, i.e. `ctrl-c`.
+ +- Exception                   # User-defined exceptions should be derived from this class.
+      +- ArithmeticError        # Base class for arithmetic errors such as ZeroDivisionError.
+      +- AssertionError         # Raised by `assert <exp>` if expression returns false value.
+      +- AttributeError         # Raised when object doesn't have requested attribute/method.
+      +- EOFError               # Raised by `input()` when it hits an end-of-file condition.
+      +- LookupError            # Base class for errors when a collection can't find an item.
+      |   +- IndexError         # Raised when index of a sequence (list/str) is out of range.
+      |   +- KeyError           # Raised when a dictionary's key or a set element is missing.
+      +- MemoryError            # Out of memory. May be too late to start deleting variables.
+      +- NameError              # Raised when nonexistent name (variable/func/class) is used.
+      |   +- UnboundLocalError  # Raised when a local name is used before it's being defined.
+      +- OSError                # Errors such as FileExistsError and TimeoutError. See #Open.
+      |   +- ConnectionError    # Errors such as BrokenPipeError and ConnectionAbortedError.
+      +- RuntimeError           # Is raised by errors that do not fit into other categories.
+      |   +- NotImplementedEr…  # Can be raised by abstract methods or by an unfinished code.
+      |   +- RecursionError     # Raised if max recursion depth is exceeded (3k by default).
+      +- StopIteration          # Raised when exhausted (empty) iterator is passed to next().
+      +- TypeError              # Raised when argument of wrong type is passed to a function.
+      +- ValueError             # Raised when it has the right type but inappropriate value.
 ```
 
-#### Collections and their exceptions:
+#### Exceptions raised by collections:
 ```text
-+-----------+------------+------------+------------+
-|           |    List    |    Set     |    Dict    |
-+-----------+------------+------------+------------+
-| getitem() | IndexError |            |  KeyError  |
-| pop()     | IndexError |  KeyError  |  KeyError  |
-| remove()  | ValueError |  KeyError  |            |
-| index()   | ValueError |            |            |
-+-----------+------------+------------+------------+
++-----------+------------+----------+----------+
+|           |    List    |   Set    |   Dict   |
++-----------+------------+----------+----------+
+| getitem() | IndexError |          | KeyError |
+| pop()     | IndexError | KeyError | KeyError |
+| remove()  | ValueError | KeyError |          |
+| index()   | ValueError |          |          |
++-----------+------------+----------+----------+
 ```
 
 #### Useful built-in exceptions:
 ```python
 raise TypeError('Function received argument of the wrong type!')
-raise ValueError('Argument has the right type but its value is off!')
+raise ValueError('Argument has right type but its value is off!')
 raise RuntimeError('I am too lazy to define my own exception!')
 ```
 
@@ -2382,7 +2381,6 @@ async def view(state, scr):
 if __name__ == '__main__':
     curses.wrapper(main)
 ```
-<br>
 
 
 Libraries
@@ -2542,8 +2540,8 @@ import flask as fl
 ```
 
 ```python
-app = fl.Flask(__name__)                   # Returns application obj. Put at the top.
-app.run(host=None, port=None, debug=None)  # Also `$ flask --app FILE run --ARG=VAL`.
+app = fl.Flask(__name__)                   # Returns app object. Put at the top.
+app.run(host=None, port=None, debug=None)  # Or `$ flask --app FILE run --ARG=…`.
 ```
 * **Starts the app at `'http://localhost:5000'`. Use `'host="0.0.0.0"'` to run externally.**
 * **Install a [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) server like [Waitress](https://flask.palletsprojects.com/en/latest/deploying/waitress/) and a HTTP server such as [Nginx](https://flask.palletsprojects.com/en/latest/deploying/nginx/) to get better security.**
@@ -2799,10 +2797,10 @@ from PIL import Image
 ### Examples
 #### Creates a PNG image of a rainbow gradient:
 ```python
-WIDTH, HEIGHT = 100, 100
-n_pixels = WIDTH * HEIGHT
+W, H = 100, 100
+n_pixels = W * H
 hues = (255 * i/n_pixels for i in range(n_pixels))
-img = Image.new('HSV', (WIDTH, HEIGHT))
+img = Image.new('HSV', (W, H))
 img.putdata([(int(h), 255, 255) for h in hues])
 img.convert('RGB').save('test.png')
 ```
@@ -2810,7 +2808,7 @@ img.convert('RGB').save('test.png')
 #### Adds noise to the PNG image and displays it:
 ```python
 from random import randint
-add_noise = lambda value: max(0, min(255, value + randint(-20, 20)))
+add_noise = lambda i: max(0, min(255, i + randint(-20, 20)))
 img = Image.open('test.png').convert('HSV')
 img.putdata([(add_noise(h), s, v) for h, s, v in img.getdata()])
 img.show()

@@ -55,8 +55,9 @@
 </head>
 
 <body style="margin-top: 17.1px">
+  <div class="pagebreak"></div>
   <header>
-    <aside>July 1, 2026</aside>
+    <aside>July 5, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -381,8 +382,8 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 </code></pre></div>
 
 <div><h3 id="example">Example</h3><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>Person = collections.namedtuple(<span class="hljs-string">'Person'</span>, <span class="hljs-string">'name height'</span>)
-<span class="hljs-meta">&gt;&gt;&gt; </span>person = Person(<span class="hljs-string">'Jean-Luc'</span>, <span class="hljs-number">187</span>)
-<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">f'<span class="hljs-subst">{person.name}</span> is <span class="hljs-subst">{person.height / <span class="hljs-number">100</span>}</span> meters tall.'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>jean = Person(<span class="hljs-string">'Jean-Luc'</span>, <span class="hljs-number">187</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">f'<span class="hljs-subst">{jean.name}</span> is <span class="hljs-subst">{jean.height / <span class="hljs-number">100</span>}</span> meters tall.'</span>
 <span class="hljs-string">'Jean-Luc is 1.87 meters tall.'</span>
 </code></pre></div>
 
@@ -423,25 +424,25 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 <div><h4 id="comparisonofpresentationtypes">Comparison of presentation types:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓
 ┃              │   {&lt;float&gt;}   │   {&lt;float&gt;:f}  │   {&lt;float&gt;:e}  │   {&lt;float&gt;:%}  ┃
 ┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨
-┃  0.000056789 │  '5.6789e-05' │    '0.000057'  │ '5.678900e-05' │    '0.005679%' ┃
-┃  0.00056789  │  '0.00056789' │    '0.000568'  │ '5.678900e-04' │    '0.056789%' ┃
-┃  0.0056789   │  '0.0056789'  │    '0.005679'  │ '5.678900e-03' │    '0.567890%' ┃
-┃  0.056789    │  '0.056789'   │    '0.056789'  │ '5.678900e-02' │    '5.678900%' ┃
-┃  0.56789     │  '0.56789'    │    '0.567890'  │ '5.678900e-01' │   '56.789000%' ┃
-┃  5.6789      │  '5.6789'     │    '5.678900'  │ '5.678900e+00' │  '567.890000%' ┃
-┃ 56.789       │ '56.789'      │   '56.789000'  │ '5.678900e+01' │ '5678.900000%' ┃
+┃  0.000056789 │   5.6789e-05  │     0.000057   │  5.678900e-05  │     0.005679%  ┃
+┃  0.00056789  │   0.00056789  │     0.000568   │  5.678900e-04  │     0.056789%  ┃
+┃  0.0056789   │   0.0056789   │     0.005679   │  5.678900e-03  │     0.567890%  ┃
+┃  0.056789    │   0.056789    │     0.056789   │  5.678900e-02  │     5.678900%  ┃
+┃  0.56789     │   0.56789     │     0.567890   │  5.678900e-01  │    56.789000%  ┃
+┃  5.6789      │   5.6789      │     5.678900   │  5.678900e+00  │   567.890000%  ┃
+┃ 56.789       │  56.789       │    56.789000   │  5.678900e+01  │  5678.900000%  ┃
 ┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛
 
 ┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓
 ┃              │ {&lt;float&gt;:.2}  │  {&lt;float&gt;:.2f} │  {&lt;float&gt;:.2e} │  {&lt;float&gt;:.2%} ┃
 ┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨
-┃  0.000056789 │   '5.7e-05'   │      '0.00'    │   '5.68e-05'   │      '0.01%'   ┃
-┃  0.00056789  │   '0.00057'   │      '0.00'    │   '5.68e-04'   │      '0.06%'   ┃
-┃  0.0056789   │   '0.0057'    │      '0.01'    │   '5.68e-03'   │      '0.57%'   ┃
-┃  0.056789    │   '0.057'     │      '0.06'    │   '5.68e-02'   │      '5.68%'   ┃
-┃  0.56789     │   '0.57'      │      '0.57'    │   '5.68e-01'   │     '56.79%'   ┃
-┃  5.6789      │   '5.7'       │      '5.68'    │   '5.68e+00'   │    '567.89%'   ┃
-┃ 56.789       │   '5.7e+01'   │     '56.79'    │   '5.68e+01'   │   '5678.90%'   ┃
+┃  0.000056789 │    5.7e-05    │       0.00     │    5.68e-05    │       0.01%    ┃
+┃  0.00056789  │    0.00057    │       0.00     │    5.68e-04    │       0.06%    ┃
+┃  0.0056789   │    0.0057     │       0.01     │    5.68e-03    │       0.57%    ┃
+┃  0.056789    │    0.057      │       0.06     │    5.68e-02    │       5.68%    ┃
+┃  0.56789     │    0.57       │       0.57     │    5.68e-01    │      56.79%    ┃
+┃  5.6789      │    5.7        │       5.68     │    5.68e+00    │     567.89%    ┃
+┃ 56.789       │    5.7e+01    │      56.79     │    5.68e+01    │    5678.90%    ┃
 ┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛
 </code></pre></div>
 
@@ -539,10 +540,10 @@ shuffle(&lt;list&gt;)                                <span class="hljs-comment">
 &lt;TD&gt; = timedelta(weeks=<span class="hljs-number">0</span>, days=<span class="hljs-number">0</span>, hours=<span class="hljs-number">0</span>)  <span class="hljs-comment"># Accepts `minutes=0, seconds=0, microseconds=0`.</span>
 </code></pre>
 <ul>
-<li><strong>Times and datetimes that have defined timezone are called aware and ones that don't, naive. If time or datetime object is naive, it is presumed to be in the system's timezone.</strong></li>
+<li><strong>Times and datetimes that have defined timezone are called <em>aware</em> and ones that don't, <em>naive</em>. If time or datetime object is naive, it is presumed to be in the system's timezone.</strong></li>
 <li><strong><code class="python hljs"><span class="hljs-string">'fold=1'</span></code> means the second pass in case of time jumping back (usually for one hour).</strong></li>
 <li><strong>Timedelta normalizes arguments to ±days, seconds (&lt; 86 400) and microseconds (&lt; 1M). Its str() method returns <code class="python hljs"><span class="hljs-string">'[±D, ]H:MM:SS[.…]'</span></code> and total_seconds() a float of seconds.</strong></li>
-<li><strong>Use <code class="python hljs"><span class="hljs-string">'&lt;D/DT&gt;.weekday()'</span></code> to get the day of the week as an int (with Monday being 0).</strong></li>
+<li><strong>Use <code class="python hljs"><span class="hljs-string">'&lt;D/DT&gt;.weekday()'</span></code> to get the day of the week as an int, with Monday being 0.</strong></li>
 </ul>
 <div><h3 id="now">Now</h3><pre><code class="python language-python hljs">&lt;D/DTn&gt; = D/DT.today()                      <span class="hljs-comment"># Current local date or naive DT. Also DT.now().</span>
 &lt;DTa&gt;   = DT.now(&lt;tzinfo&gt;)                  <span class="hljs-comment"># Aware DT from current time in passed timezone.</span>
@@ -553,7 +554,6 @@ shuffle(&lt;list&gt;)                                <span class="hljs-comment">
 </ul>
 <div><h3 id="timezones">Timezones</h3><pre><code class="python language-python apache hljs">&lt;tzinfo&gt; = timezone.utc                     <span class="hljs-comment"># Coordinated universal time. London without DST.</span>
 &lt;tzinfo&gt; = timezone(&lt;timedelta&gt;)            <span class="hljs-comment"># Timezone with fixed offset from universal time.</span>
-&lt;tzinfo&gt; = dateutil.tz.tzlocal()            <span class="hljs-comment"># Local timezone with dynamic offset from the UTC.</span>
 &lt;tzinfo&gt; = zoneinfo.ZoneInfo(<span class="hljs-string">'&lt;iana_key&gt;'</span>)  <span class="hljs-comment"># 'Continent/City_Name' zone with dynamic offset.</span>
 &lt;DTa&gt;    = &lt;DT&gt;.astimezone(&lt;tzinfo&gt;)        <span class="hljs-comment"># Converts to the passed or local fixed timezone.</span>
 &lt;Ta/DTa&gt; = &lt;T/DT&gt;.replace(tzinfo=&lt;tzinfo&gt;)  <span class="hljs-comment"># Changes the timezone object without conversion.</span>
@@ -588,7 +588,7 @@ shuffle(&lt;list&gt;)                                <span class="hljs-comment">
 
 <ul>
 <li><strong><code class="python hljs"><span class="hljs-string">'%z'</span></code> accepts <code class="python hljs"><span class="hljs-string">'±HH[:]MM'</span></code> and returns <code class="python hljs"><span class="hljs-string">'±HHMM'</span></code> or empty string if object is naive.</strong></li>
-<li><strong><code class="python hljs"><span class="hljs-string">'%Z'</span></code> accepts <code class="python hljs"><span class="hljs-string">'UTC/GMT'</span></code> and local timezone's code and returns timezone's name, <code class="python hljs"><span class="hljs-string">'UTC[±HH:MM]'</span></code> if timezone is nameless, or an empty string if object is naive.</strong></li>
+<li><strong><code class="python hljs"><span class="hljs-string">'%Z'</span></code> accepts <code class="python hljs"><span class="hljs-string">'UTC'</span></code>, <code class="python hljs"><span class="hljs-string">'GMT'</span></code> or local timezone's code and returns timezone's name, <code class="python hljs"><span class="hljs-string">'UTC[±HH:MM]'</span></code> if timezone is nameless, or an empty string if object is naive.</strong></li>
 </ul>
 <div><h3 id="arithmetics">Arithmetics</h3><pre><code class="python language-python apache hljs">&lt;bool&gt;  =  &lt;D/DTn&gt;  &gt;  &lt;D/DTn&gt;              <span class="hljs-comment"># Ignores time jumps (fold attribute). Also `==`.</span>
 &lt;bool&gt;  =  &lt;DTa&gt;    &gt;  &lt;DTa&gt;                <span class="hljs-comment"># Ignores time jumps if they share tzinfo object.</span>
@@ -632,13 +632,13 @@ func(*args, **kwargs)
 <pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 <span class="hljs-number">6</span>
 </code></pre>
-<div><h4 id="allowedcompositionsofargumentsandthewaystheycanbecalled">Allowed compositions of arguments and the ways they can be called:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓
-┃                           │ func(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>) │ func(<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>) │  func(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)  ┃
-┠───────────────────────────┼────────────────┼──────────────┼──────────────┨
-┃ <span class="hljs-title">func</span>(x, *args, **kwargs): │       ✓        │      ✓       │      ✓       ┃
-┃ <span class="hljs-title">func</span>(*args, y, **kwargs): │       ✓        │      ✓       │              ┃
-┃ <span class="hljs-title">func</span>(*, x, **kwargs):     │       ✓        │              │              ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛
+<div><h4 id="allowedcompositionsofargumentsandthewaystheycanbecalled">Allowed compositions of arguments and the ways they can be called:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓
+┃                         │ fn(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>) │  fn(<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>)  │   fn(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)   ┃
+┠─────────────────────────┼──────────────┼──────────────┼──────────────┨
+┃ <span class="hljs-title">fn</span>(x, *args, **kwargs): │      ✓       │      ✓       │      ✓       ┃
+┃ <span class="hljs-title">fn</span>(*args, y, **kwargs): │      ✓       │      ✓       │              ┃
+┃ <span class="hljs-title">fn</span>(*, x, **kwargs):     │      ✓       │              │              ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛
 </code></pre></div>
 
 <div><h3 id="otheruses">Other Uses</h3><pre><code class="python language-python hljs">&lt;list&gt;  = [*&lt;collection&gt; [, ...]]  <span class="hljs-comment"># Same as `list(&lt;coll&gt;) [+ ...]`.</span>
@@ -704,7 +704,7 @@ player = Player(point, direction)                 <span class="hljs-comment"># R
 <div><h2 id="import"><a href="#import" name="import">#</a>Import</h2><p><strong>Mechanism that makes code in one file available to another file.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> &lt;module&gt;                     <span class="hljs-comment"># Imports a built-in module or `&lt;module&gt;.py`.</span>
 <span class="hljs-keyword">import</span> &lt;package&gt;                    <span class="hljs-comment"># Built-in package or `&lt;package&gt;/__init__.py`.</span>
 <span class="hljs-keyword">import</span> &lt;package&gt;.&lt;module&gt;           <span class="hljs-comment"># Package's module or `&lt;package&gt;/&lt;module&gt;.py`.</span>
-<span class="hljs-keyword">from</span> &lt;pkg/mod&gt;[.…] <span class="hljs-keyword">import</span> &lt;obj&gt;     <span class="hljs-comment"># Imports a module, class, variable or func.</span>
+<span class="hljs-keyword">from</span> &lt;pkg/mod&gt;[.…] <span class="hljs-keyword">import</span> &lt;obj&gt;     <span class="hljs-comment"># Imports a module, class, func or variable.</span>
 </code></pre></div>
 
 
@@ -736,7 +736,7 @@ player = Player(point, direction)                 <span class="hljs-comment"># R
 <span class="hljs-number">30</span>
 </code></pre>
 <ul>
-<li><strong>Partial is also useful in cases when a function needs to be passed as an argument because it enables us to set its arguments beforehand (<code class="python hljs"><span class="hljs-string">'collections.defaultdict(&lt;func&gt;)'</span></code>, <code class="python hljs"><span class="hljs-string">'iter(&lt;func&gt;, to_exc)'</span></code> and <code class="python hljs"><span class="hljs-string">'dataclasses.field(default_factory=&lt;func&gt;)'</span></code>).</strong></li>
+<li><strong>Partial is also useful in cases when a function needs to be passed as an argument because it enables us to set its arguments in advance (<code class="python hljs"><span class="hljs-string">'collections.defaultdict(&lt;func&gt;)'</span></code>, <code class="python hljs"><span class="hljs-string">'iter(&lt;func&gt;, to_exc)'</span></code> and <code class="python hljs"><span class="hljs-string">'dataclasses.field(default_factory=&lt;func&gt;)'</span></code>).</strong></li>
 </ul>
 <div><h3 id="nonlocal">Non-Local</h3><p><strong>If variable is being assigned to anywhere in the scope (i.e., body of a function), it is treated as&nbsp;a local variable unless it is declared <code class="python hljs"><span class="hljs-string">'global'</span></code> or <code class="python hljs"><span class="hljs-string">'nonlocal'</span></code> before its first usage.</strong></p><pre><code class="python language-python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_counter</span><span class="hljs-params">()</span>:</span>
     i = <span class="hljs-number">0</span>
@@ -870,7 +870,7 @@ str/repr/print(MyDataClass(obj))
 [Employee(<span class="hljs-string">'Ann'</span>, <span class="hljs-number">0</span>), Person(<span class="hljs-string">'Bob'</span>)]
 </code></pre>
 <div><h3 id="typeannotations">Type Annotations</h3><ul>
-<li><strong>They add type hints to variables, arguments and functions (<code class="python hljs"><span class="hljs-string">'def f() -&gt; &lt;type&gt;:'</span></code>).</strong></li>
+<li><strong>They add type hints to variables, arguments and functions. E.g., <code class="python hljs"><span class="hljs-string">'def f() -&gt; int: …'</span></code>.</strong></li>
 <li><strong>Hints are used by type checkers like <a href="https://pypi.org/project/mypy/">mypy</a>, data validation libraries such as <a href="https://pypi.org/project/pydantic/">Pydantic</a> and lately also by <a href="https://pypi.org/project/Cython/">Cython</a> compiler. However, they are not enforced by CPython interpreter.</strong></li>
 </ul><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> abc
 
@@ -1014,8 +1014,8 @@ P = dc.make_dataclass(<span class="hljs-string">'P'</span>, [(<span class="hljs-
 </ul><pre><code class="python language-python hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Counter</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
         self.i = <span class="hljs-number">0</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self)</span>:</span>
-        self.i += <span class="hljs-number">1</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, step)</span>:</span>
+        self.i += step
         <span class="hljs-keyword">return</span> self.i
 </code></pre></div></div>
 
@@ -1023,7 +1023,7 @@ P = dc.make_dataclass(<span class="hljs-string">'P'</span>, [(<span class="hljs-
 
 
 <pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>counter = Counter()
-<span class="hljs-meta">&gt;&gt;&gt; </span>counter(), counter(), counter()
+<span class="hljs-meta">&gt;&gt;&gt; </span>counter(<span class="hljs-number">1</span>), counter(<span class="hljs-number">1</span>), counter(<span class="hljs-number">1</span>)
 (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 </code></pre>
 <div><h3 id="contextmanager">Context Manager</h3><ul>
@@ -1084,9 +1084,9 @@ Hello World!
 
 
 <div><h3 id="sequence">Sequence</h3><ul>
-<li><strong>Only required methods are getitem() and len(). Getitem() should return an item at the passed index or raise IndexError (it may also support negative indices and/or slices).</strong></li>
+<li><strong>Only required methods are len() and getitem(). Getitem() should return an item at the passed index or raise IndexError (it may also support negative indices and/or slices).</strong></li>
 <li><strong>Iter() and contains() automatically work on any object with defined getitem() method.</strong></li>
-<li><strong>Reversed() automatically works on any object that has getitem() and len() defined. It returns reversed iterator of object's items.</strong></li>
+<li><strong>Reversed() automatically works on any object that has len() and getitem() defined. It returns reversed iterator of object's items.</strong></li>
 </ul><pre><code class="python language-python hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySequence</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, a)</span>:</span>
         self.a = a
@@ -1112,7 +1112,7 @@ Hello World!
 
 
 <div><h3 id="abcsequence">ABC Sequence</h3><ul>
-<li><strong>It's a richer interface than the basic sequence that also requires just getitem() and len().</strong></li>
+<li><strong>It's a richer interface than the basic sequence that also requires just len() and getitem().</strong></li>
 <li><strong>Extending it generates iter(), contains(), reversed(), index() and count() special methods.</strong></li>
 <li><strong>Unlike <code class="python hljs"><span class="hljs-string">'abc.Iterable'</span></code> and <code class="python hljs"><span class="hljs-string">'abc.Collection'</span></code>, it is not a duck type. That is why exp. <code class="python hljs"><span class="hljs-string">'issubclass(MySequence, abc.Sequence)'</span></code> would return False even if MySequence had all methods defined. It however recognizes list, tuple, range, string, bytes, bytearray, array, memoryview and deque, since they are registered as Sequence's virtual subclasses.</strong></li>
 </ul><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> abc
@@ -1124,17 +1124,17 @@ Hello World!
         <span class="hljs-keyword">return</span> len(self.a)
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span><span class="hljs-params">(self, i)</span>:</span>
         <span class="hljs-keyword">return</span> self.a[i]
-</code></pre></div><div><h4 id="tableofrequiredandautomaticallyavailablespecialmethods">Table of required and automatically available special methods:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓
-┃            │  Iterable  │ Collection │  Sequence  │ abc.Sequence ┃
-┠────────────┼────────────┼────────────┼────────────┼──────────────┨
-┃ iter()     │     !      │     !      │     ✓      │      ✓       ┃
-┃ contains() │     ✓      │     ✓      │     ✓      │      ✓       ┃
-┃ len()      │            │     !      │     !      │      !       ┃
-┃ getitem()  │            │            │     !      │      !       ┃
-┃ reversed() │            │            │     ✓      │      ✓       ┃
-┃ index()    │            │            │            │      ✓       ┃
-┃ count()    │            │            │            │      ✓       ┃
-┗━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛
+</code></pre></div><div><h4 id="requiredandautomaticallyavailablemethods">Required and automatically available methods:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓
+┃                │  Iterable  │ Collection │  Sequence  │ abc.Sequence ┃
+┠────────────────┼────────────┼────────────┼────────────┼──────────────┨
+┃ __iter__()     │     !      │     !      │     ✓      │      ✓       ┃
+┃ __contains__() │     ✓      │     ✓      │     ✓      │      ✓       ┃
+┃ __len__()      │            │     !      │     !      │      !       ┃
+┃ __getitem__()  │            │            │     !      │      !       ┃
+┃ __reversed__() │            │            │     ✓      │      ✓       ┃
+┃ index()        │            │            │            │      ✓       ┃
+┃ count()        │            │            │            │      ✓       ┃
+┗━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛
 </code></pre></div>
 
 <ul>
@@ -1235,41 +1235,41 @@ error_msg = <span class="hljs-string">''</span>.join(traceback.format_exception(
 </code></pre></div>
 
 <div><h3 id="builtinexceptions">Built-in Exceptions</h3><pre><code class="text language-text">BaseException
- ├── SystemExit                   <span class="hljs-comment"># Raised when `sys.exit()` is called. See #Exit for details.</span>
- ├── KeyboardInterrupt            <span class="hljs-comment"># Raised when the user hits the interrupt key, i.e. `ctrl-c`.</span>
- └── Exception                    <span class="hljs-comment"># User-defined exceptions should be derived from this class.</span>
-      ├── ArithmeticError         <span class="hljs-comment"># Base class for arithmetic errors such as ZeroDivisionError.</span>
-      ├── AssertionError          <span class="hljs-comment"># Raised by `assert &lt;exp&gt;` if expression returns false value.</span>
-      ├── AttributeError          <span class="hljs-comment"># Raised when object doesn't have requested attribute/method.</span>
-      ├── EOFError                <span class="hljs-comment"># Raised by `input()` when it hits an end-of-file condition.</span>
-      ├── LookupError             <span class="hljs-comment"># Base class for errors when a collection can't find an item.</span>
-      │    ├── IndexError         <span class="hljs-comment"># Raised when index of a sequence (list/str) is out of range.</span>
-      │    └── KeyError           <span class="hljs-comment"># Raised when a dictionary's key or a set element is missing.</span>
-      ├── MemoryError             <span class="hljs-comment"># Out of memory. May be too late to start deleting variables.</span>
-      ├── NameError               <span class="hljs-comment"># Raised when nonexistent name (variable/func/class) is used.</span>
-      │    └── UnboundLocalError  <span class="hljs-comment"># Raised when a local name is used before it's being defined.</span>
-      ├── OSError                 <span class="hljs-comment"># Errors such as FileExistsError and TimeoutError. See #Open.</span>
-      │    └── ConnectionError    <span class="hljs-comment"># Errors such as BrokenPipeError and ConnectionAbortedError.</span>
-      ├── RuntimeError            <span class="hljs-comment"># Is raised by errors that do not fit into other categories.</span>
-      │    ├── NotImplementedEr…  <span class="hljs-comment"># Can be raised by abstract methods or by an unfinished code.</span>
-      │    └── RecursionError     <span class="hljs-comment"># Raised if max recursion depth is exceeded (3k by default).</span>
-      ├── StopIteration           <span class="hljs-comment"># Raised when exhausted (empty) iterator is passed to next().</span>
-      ├── TypeError               <span class="hljs-comment"># Raised when argument of wrong type is passed to a function.</span>
-      └── ValueError              <span class="hljs-comment"># Raised when it has the right type but inappropriate value.</span>
+ ├─ SystemExit                 <span class="hljs-comment"># Raised when `sys.exit()` is called. See #Exit for details.</span>
+ ├─ KeyboardInterrupt          <span class="hljs-comment"># Raised when the user hits the interrupt key, i.e. `ctrl-c`.</span>
+ └─ Exception                  <span class="hljs-comment"># User-defined exceptions should be derived from this class.</span>
+     ├─ ArithmeticError        <span class="hljs-comment"># Base class for arithmetic errors such as ZeroDivisionError.</span>
+     ├─ AssertionError         <span class="hljs-comment"># Raised by `assert &lt;exp&gt;` if expression returns false value.</span>
+     ├─ AttributeError         <span class="hljs-comment"># Raised when object doesn't have requested attribute/method.</span>
+     ├─ EOFError               <span class="hljs-comment"># Raised by `input()` when it hits an end-of-file condition.</span>
+     ├─ LookupError            <span class="hljs-comment"># Base class for errors when a collection can't find an item.</span>
+     │   ├─ IndexError         <span class="hljs-comment"># Raised when index of a sequence (list/str) is out of range.</span>
+     │   └─ KeyError           <span class="hljs-comment"># Raised when a dictionary's key or a set element is missing.</span>
+     ├─ MemoryError            <span class="hljs-comment"># Out of memory. May be too late to start deleting variables.</span>
+     ├─ NameError              <span class="hljs-comment"># Raised when nonexistent name (variable/func/class) is used.</span>
+     │   └─ UnboundLocalError  <span class="hljs-comment"># Raised when a local name is used before it's being defined.</span>
+     ├─ OSError                <span class="hljs-comment"># Errors such as FileExistsError and TimeoutError. See #Open.</span>
+     │   └─ ConnectionError    <span class="hljs-comment"># Errors such as BrokenPipeError and ConnectionAbortedError.</span>
+     ├─ RuntimeError           <span class="hljs-comment"># Is raised by errors that do not fit into other categories.</span>
+     │   ├─ NotImplementedEr…  <span class="hljs-comment"># Can be raised by abstract methods or by an unfinished code.</span>
+     │   └─ RecursionError     <span class="hljs-comment"># Raised if max recursion depth is exceeded (3k by default).</span>
+     ├─ StopIteration          <span class="hljs-comment"># Raised when exhausted (empty) iterator is passed to next().</span>
+     ├─ TypeError              <span class="hljs-comment"># Raised when argument of wrong type is passed to a function.</span>
+     └─ ValueError             <span class="hljs-comment"># Raised when it has the right type but inappropriate value.</span>
 </code></pre></div>
 
-<div><h4 id="collectionsandtheirexceptions">Collections and their exceptions:</h4><pre><code class="text language-text">┏━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┓
-┃           │    List    │    Set     │    Dict    ┃
-┠───────────┼────────────┼────────────┼────────────┨
-┃ getitem() │ IndexError │            │  KeyError  ┃
-┃ pop()     │ IndexError │  KeyError  │  KeyError  ┃
-┃ remove()  │ ValueError │  KeyError  │            ┃
-┃ index()   │ ValueError │            │            ┃
-┗━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┛
+<div><h4 id="exceptionsraisedbycollections">Exceptions raised by collections:</h4><pre><code class="text language-text">┏━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━┯━━━━━━━━━━┓
+┃           │    List    │   Set    │   Dict   ┃
+┠───────────┼────────────┼──────────┼──────────┨
+┃ getitem() │ IndexError │          │ KeyError ┃
+┃ pop()     │ IndexError │ KeyError │ KeyError ┃
+┃ remove()  │ ValueError │ KeyError │          ┃
+┃ index()   │ ValueError │          │          ┃
+┗━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━┷━━━━━━━━━━┛
 </code></pre></div>
 
 <div><h4 id="usefulbuiltinexceptions">Useful built-in exceptions:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">raise</span> TypeError(<span class="hljs-string">'Function received argument of the wrong type!'</span>)
-<span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">'Argument has the right type but its value is off!'</span>)
+<span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">'Argument has right type but its value is off!'</span>)
 <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">'I am too lazy to define my own exception!'</span>)
 </code></pre></div>
 
@@ -1969,7 +1969,6 @@ W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>  
     curses.wrapper(main)
 </code></pre></div>
 
-<p><br></p>
 <div><h1 id="libraries" style="font-size: 64px;">Libraries</h1><div><h2 id="progressbar"><a href="#progressbar" name="progressbar">#</a>Progress Bar</h2><pre><code class="python language-python hljs"><span class="hljs-comment"># $ pip3 install tqdm</span>
 <span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> tqdm, time
 <span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> el <span class="hljs-keyword">in</span> tqdm.tqdm([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], desc=<span class="hljs-string">'Processing'</span>):
@@ -2090,8 +2089,8 @@ print(<span class="hljs-string">f'URL: <span class="hljs-subst">{python_url}</sp
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">app = fl.Flask(__name__)                   <span class="hljs-comment"># Returns application obj. Put at the top.</span>
-app.run(host=<span class="hljs-keyword">None</span>, port=<span class="hljs-keyword">None</span>, debug=<span class="hljs-keyword">None</span>)  <span class="hljs-comment"># Also `$ flask --app FILE run --ARG=VAL`.</span>
+<pre><code class="python language-python hljs">app = fl.Flask(__name__)                   <span class="hljs-comment"># Returns app object. Put at the top.</span>
+app.run(host=<span class="hljs-keyword">None</span>, port=<span class="hljs-keyword">None</span>, debug=<span class="hljs-keyword">None</span>)  <span class="hljs-comment"># Or `$ flask --app FILE run --ARG=…`.</span>
 </code></pre>
 <ul>
 <li><strong>Starts the app at <code class="python hljs"><span class="hljs-string">'http://localhost:5000'</span></code>. Use <code class="python hljs"><span class="hljs-string">'host="0.0.0.0"'</span></code> to run externally.</strong></li>
@@ -2286,10 +2285,10 @@ array_b = np.array([[<span class="hljs-number">0.1</span>,  <span class="hljs-nu
 <li><strong><code class="python hljs"><span class="hljs-string">'RGB'</span></code> - Red, green, blue (true color image). Each pixel is a tuple of three integers.</strong></li>
 <li><strong><code class="python hljs"><span class="hljs-string">'RGBA'</span></code> - RGB with alpha. Low alpha (i.e. fourth int) makes pixel more transparent.</strong></li>
 <li><strong><code class="python hljs"><span class="hljs-string">'HSV'</span></code> - Hue, saturation, value. Three ints representing color in HSV color space.</strong></li>
-</ul><div><h3 id="examples">Examples</h3><div><h4 id="createsapngimageofarainbowgradient">Creates a PNG image of a rainbow gradient:</h4><pre><code class="python language-python hljs">WIDTH, HEIGHT = <span class="hljs-number">100</span>, <span class="hljs-number">100</span>
-n_pixels = WIDTH * HEIGHT
+</ul><div><h3 id="examples">Examples</h3><div><h4 id="createsapngimageofarainbowgradient">Creates a PNG image of a rainbow gradient:</h4><pre><code class="python language-python hljs">W, H = <span class="hljs-number">100</span>, <span class="hljs-number">100</span>
+n_pixels = W * H
 hues = (<span class="hljs-number">255</span> * i/n_pixels <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n_pixels))
-img = Image.new(<span class="hljs-string">'HSV'</span>, (WIDTH, HEIGHT))
+img = Image.new(<span class="hljs-string">'HSV'</span>, (W, H))
 img.putdata([(int(h), <span class="hljs-number">255</span>, <span class="hljs-number">255</span>) <span class="hljs-keyword">for</span> h <span class="hljs-keyword">in</span> hues])
 img.convert(<span class="hljs-string">'RGB'</span>).save(<span class="hljs-string">'test.png'</span>)
 </code></pre></div></div></div>
@@ -2298,7 +2297,7 @@ img.convert(<span class="hljs-string">'RGB'</span>).save(<span class="hljs-strin
 
 
 <div><h4 id="addsnoisetothepngimageanddisplaysit">Adds noise to the PNG image and displays it:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint
-add_noise = <span class="hljs-keyword">lambda</span> value: max(<span class="hljs-number">0</span>, min(<span class="hljs-number">255</span>, value + randint(<span class="hljs-number">-20</span>, <span class="hljs-number">20</span>)))
+add_noise = <span class="hljs-keyword">lambda</span> i: max(<span class="hljs-number">0</span>, min(<span class="hljs-number">255</span>, i + randint(<span class="hljs-number">-20</span>, <span class="hljs-number">20</span>)))
 img = Image.open(<span class="hljs-string">'test.png'</span>).convert(<span class="hljs-string">'HSV'</span>)
 img.putdata([(add_noise(h), s, v) <span class="hljs-keyword">for</span> h, s, v <span class="hljs-keyword">in</span> img.getdata()])
 img.show()
@@ -2933,7 +2932,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>July 1, 2026</aside>
+    <aside>July 5, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 
