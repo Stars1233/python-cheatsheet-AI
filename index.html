@@ -57,7 +57,7 @@
 <body style="margin-top: 17.1px">
   <div class="pagebreak"></div>
   <header>
-    <aside>July 5, 2026</aside>
+    <aside>July 6, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -1124,17 +1124,17 @@ Hello World!
         <span class="hljs-keyword">return</span> len(self.a)
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span><span class="hljs-params">(self, i)</span>:</span>
         <span class="hljs-keyword">return</span> self.a[i]
-</code></pre></div><div><h4 id="requiredandautomaticallyavailablemethods">Required and automatically available methods:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓
-┃                │  Iterable  │ Collection │  Sequence  │ abc.Sequence ┃
-┠────────────────┼────────────┼────────────┼────────────┼──────────────┨
-┃ __iter__()     │     !      │     !      │     ✓      │      ✓       ┃
-┃ __contains__() │     ✓      │     ✓      │     ✓      │      ✓       ┃
-┃ __len__()      │            │     !      │     !      │      !       ┃
-┃ __getitem__()  │            │            │     !      │      !       ┃
-┃ __reversed__() │            │            │     ✓      │      ✓       ┃
-┃ index()        │            │            │            │      ✓       ┃
-┃ count()        │            │            │            │      ✓       ┃
-┗━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛
+</code></pre></div><div><h4 id="requiredandautomaticallyavailablemethods">Required and automatically available methods:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓
+┃              │  Iterable  │  Collection  │  Sequence  │ abc.Sequence ┃
+┠──────────────┼────────────┼──────────────┼────────────┼──────────────┨
+┃ __iter__     │     !      │      !       │     ✓      │      ✓       ┃
+┃ __contains__ │     ✓      │      ✓       │     ✓      │      ✓       ┃
+┃ __len__      │            │      !       │     !      │      !       ┃
+┃ __getitem__  │            │              │     !      │      !       ┃
+┃ __reversed__ │            │              │     ✓      │      ✓       ┃
+┃ index        │            │              │            │      ✓       ┃
+┃ count        │            │              │            │      ✓       ┃
+┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛
 </code></pre></div>
 
 <ul>
@@ -1258,14 +1258,14 @@ error_msg = <span class="hljs-string">''</span>.join(traceback.format_exception(
      └─ ValueError             <span class="hljs-comment"># Raised when it has the right type but inappropriate value.</span>
 </code></pre></div>
 
-<div><h4 id="exceptionsraisedbycollections">Exceptions raised by collections:</h4><pre><code class="text language-text">┏━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━┯━━━━━━━━━━┓
-┃           │    List    │   Set    │   Dict   ┃
-┠───────────┼────────────┼──────────┼──────────┨
-┃ getitem() │ IndexError │          │ KeyError ┃
-┃ pop()     │ IndexError │ KeyError │ KeyError ┃
-┃ remove()  │ ValueError │ KeyError │          ┃
-┃ index()   │ ValueError │          │          ┃
-┗━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━┷━━━━━━━━━━┛
+<div><h4 id="exceptionsraisedbycollections">Exceptions raised by collections:</h4><pre><code class="text language-text">┏━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┓
+┃           │   &lt;list&gt;   │   &lt;set&gt;    │   &lt;dict&gt;   ┃
+┠───────────┼────────────┼────────────┼────────────┨
+┃ [i/key]   │ IndexError │            │  KeyError  ┃
+┃ .pop()    │ IndexError │  KeyError  │  KeyError  ┃
+┃ .remove() │ ValueError │  KeyError  │            ┃
+┃ .index()  │ ValueError │            │            ┃
+┗━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┛
 </code></pre></div>
 
 <div><h4 id="usefulbuiltinexceptions">Useful built-in exceptions:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">raise</span> TypeError(<span class="hljs-string">'Function received argument of the wrong type!'</span>)
@@ -1848,7 +1848,7 @@ value  = getattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)  
 setattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>, value)      <span class="hljs-comment"># Only works on objects with __dict__ attribute.</span>
 delattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)             <span class="hljs-comment"># Deletes from __dict__. Also `del &lt;obj&gt;.&lt;name&gt;`.</span>
 </code></pre>
-<div><h2 id="threading"><a href="#threading" name="threading">#</a>Threading</h2><p><strong>CPython interpreter can only run a single thread at a time. Using multiple threads won't result in a faster execution, unless at least one of the threads contains an I/O operation.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> threading <span class="hljs-keyword">as</span> thr, queue <span class="hljs-keyword">as</span> qu
+<div><h2 id="threading"><a href="#threading" name="threading">#</a>Threading</h2><p><strong>Threads are functions that run concurrently. Things can get messy when they share objects. <code class="python hljs"><span class="hljs-string">'$ uv init --python 3.15t'</span></code> installs interpreter that can run threads on multiple cores.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> threading <span class="hljs-keyword">as</span> thr, queue <span class="hljs-keyword">as</span> qu
 <span class="hljs-keyword">import</span> concurrent.futures <span class="hljs-keyword">as</span> cf
 </code></pre></div>
 
@@ -2932,7 +2932,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>July 5, 2026</aside>
+    <aside>July 6, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 

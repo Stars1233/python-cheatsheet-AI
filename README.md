@@ -1303,17 +1303,17 @@ class MyAbcSequence(abc.Sequence):
 
 #### Required and automatically available methods:
 ```text
-+----------------+------------+------------+------------+--------------+
-|                |  Iterable  | Collection |  Sequence  | abc.Sequence |
-+----------------+------------+------------+------------+--------------+
-| __iter__()     |    REQ     |    REQ     |    Yes     |     Yes      |
-| __contains__() |    Yes     |    Yes     |    Yes     |     Yes      |
-| __len__()      |            |    REQ     |    REQ     |     REQ      |
-| __getitem__()  |            |            |    REQ     |     REQ      |
-| __reversed__() |            |            |    Yes     |     Yes      |
-| index()        |            |            |            |     Yes      |
-| count()        |            |            |            |     Yes      |
-+----------------+------------+------------+------------+--------------+
++--------------+------------+--------------+------------+--------------+
+|              |  Iterable  |  Collection  |  Sequence  | abc.Sequence |
++--------------+------------+--------------+------------+--------------+
+| __iter__     |    REQ     |     REQ      |    Yes     |     Yes      |
+| __contains__ |    Yes     |     Yes      |    Yes     |     Yes      |
+| __len__      |            |     REQ      |    REQ     |     REQ      |
+| __getitem__  |            |              |    REQ     |     REQ      |
+| __reversed__ |            |              |    Yes     |     Yes      |
+| index        |            |              |            |     Yes      |
+| count        |            |              |            |     Yes      |
++--------------+------------+--------------+------------+--------------+
 ```
 * **Method iter() is required for `'isinstance(<obj>, abc.Iterable)'` to return True, however any object with getitem() method works with any code expecting an iterable.**
 * **MutableSequence, Set, MutableSet, Mapping and MutableMapping ABCs are also ex&shy;tendable. Use `'<abc>.__abstractmethods__'` to get names of required methods.**
@@ -1464,14 +1464,14 @@ BaseException
 
 #### Exceptions raised by collections:
 ```text
-+-----------+------------+----------+----------+
-|           |    List    |   Set    |   Dict   |
-+-----------+------------+----------+----------+
-| getitem() | IndexError |          | KeyError |
-| pop()     | IndexError | KeyError | KeyError |
-| remove()  | ValueError | KeyError |          |
-| index()   | ValueError |          |          |
-+-----------+------------+----------+----------+
++-----------+------------+------------+------------+
+|           |   <list>   |   <set>    |   <dict>   |
++-----------+------------+------------+------------+
+| [i/key]   | IndexError |            |  KeyError  |
+| .pop()    | IndexError |  KeyError  |  KeyError  |
+| .remove() | ValueError |  KeyError  |            |
+| .index()  | ValueError |            |            |
++-----------+------------+------------+------------+
 ```
 
 #### Useful built-in exceptions:
@@ -2241,7 +2241,8 @@ delattr(<obj>, '<name>')             # Deletes from __dict__. Also `del <obj>.<n
 
 Threading
 ---------
-**CPython interpreter can only run a single thread at a time. Using multiple threads won't result in a faster execution, unless at least one of the threads contains an I/O operation.**
+**Threads are functions that run concurrently. Things can get messy when they share objects. `'$ uv init --python 3.15t'` installs interpreter that can run threads on multiple cores.**
+
 ```python
 import threading as thr, queue as qu
 import concurrent.futures as cf
