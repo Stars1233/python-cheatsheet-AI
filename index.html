@@ -57,7 +57,7 @@
 <body style="margin-top: 17.1px">
   <div class="pagebreak"></div>
   <header>
-    <aside>July 6, 2026</aside>
+    <aside>July 9, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -121,9 +121,9 @@ const browser_prefers_dark = window.matchMedia('(prefers-color-scheme: dark)').m
 <pre><code class="python language-python hljs">&lt;list&gt;.append(&lt;el&gt;)             <span class="hljs-comment"># Appends element to the end. Also `&lt;list&gt; += [&lt;el&gt;]`.</span>
 &lt;list&gt;.extend(&lt;collection&gt;)     <span class="hljs-comment"># Appends multiple elements. Also `&lt;list&gt; += &lt;coll&gt;`.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;list&gt;.sort(reverse=<span class="hljs-keyword">False</span>)      <span class="hljs-comment"># Sorts the elements of the list in ascending order.</span>
+<pre><code class="python language-python hljs">&lt;list&gt;.sort()                   <span class="hljs-comment"># Sorts in ascending order. Accepts `reverse=True`.</span>
 &lt;list&gt;.reverse()                <span class="hljs-comment"># Reverses the order of elements. Takes linear time.</span>
-&lt;list&gt; = sorted(&lt;collection&gt;)   <span class="hljs-comment"># Returns a new sorted list. Accepts `reverse=True`.</span>
+&lt;list&gt; = sorted(&lt;coll&gt;)         <span class="hljs-comment"># Returns a new sorted list. Accepts `reverse=True`.</span>
 &lt;iter&gt; = reversed(&lt;list&gt;)       <span class="hljs-comment"># Returns reversed iterator. Also list(&lt;iterator&gt;).</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;el&gt;  = max(&lt;collection&gt;)       <span class="hljs-comment"># Returns the largest element. Also min(&lt;el_1&gt;, ...).</span>
@@ -147,7 +147,7 @@ flatter_list     = list(itertools.chain.from_iterable(&lt;list&gt;))
 &lt;list&gt;.remove(&lt;el&gt;)             <span class="hljs-comment"># Removes the first occurrence or raises ValueError.</span>
 &lt;list&gt;.clear()                  <span class="hljs-comment"># Removes all items. Also provided by dict and set.</span>
 </code></pre>
-<div><h2 id="dictionary"><a href="#dictionary" name="dictionary">#</a>Dictionary</h2><pre><code class="python language-python hljs">&lt;dict&gt; = {key_1: val_1, key_2: val_2, ...}    <span class="hljs-comment"># Use `&lt;dict&gt;[key]` to get or assign the value.</span>
+<div><h2 id="dictionary"><a href="#dictionary" name="dictionary">#</a>Dictionary</h2><pre><code class="python language-python hljs">&lt;dict&gt; = {key_1: val, key_2: val, ...}        <span class="hljs-comment"># Use `&lt;dict&gt;[key]` to get or assign the value.</span>
 </code></pre></div>
 
 <pre><code class="python language-python hljs">&lt;view&gt; = &lt;dict&gt;.keys()                        <span class="hljs-comment"># A collection of keys reflecting all changes.</span>
@@ -198,9 +198,9 @@ value = &lt;dict&gt;.pop(key)                       <span class="hljs-comment">#
 </code></pre></div>
 
 
-<div><h2 id="tuple"><a href="#tuple" name="tuple">#</a>Tuple</h2><p><strong>Tuple is an immutable and hashable list.</strong></p><pre><code class="python language-python hljs">&lt;tuple&gt; = ()                        <span class="hljs-comment"># Returns an empty tuple. Also tuple(), tuple(&lt;coll&gt;).</span>
-&lt;tuple&gt; = (&lt;el&gt;,)                   <span class="hljs-comment"># Returns a tuple with single element. Same as `&lt;el&gt;,`.</span>
-&lt;tuple&gt; = (&lt;el_1&gt;, &lt;el_2&gt; [, ...])  <span class="hljs-comment"># Returns a tuple. Same as `&lt;el_1&gt;, &lt;el_2&gt; [, ...]`.</span>
+<div><h2 id="tuple"><a href="#tuple" name="tuple">#</a>Tuple</h2><p><strong>Tuple is an immutable and hashable list.</strong></p><pre><code class="python language-python hljs">&lt;tuple&gt; = ()                        <span class="hljs-comment"># Returns empty tuple. Also tuple(), tuple(&lt;coll&gt;).</span>
+&lt;tuple&gt; = (&lt;el&gt;,)                   <span class="hljs-comment"># Returns tuple with one element. Same as `&lt;el&gt;,`.</span>
+&lt;tuple&gt; = (&lt;el_1&gt;, &lt;el_2&gt; [, ...])  <span class="hljs-comment"># Returns tuple. Same as `&lt;el_1&gt;, &lt;el_2&gt; [, ...]`.</span>
 </code></pre></div>
 
 
@@ -214,33 +214,34 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 </code></pre></div>
 
 
-<div><h2 id="range"><a href="#range" name="range">#</a>Range</h2><p><strong>A sequence of evenly spaced integers.</strong></p><pre><code class="python language-python hljs">&lt;range&gt; = range(stop)                <span class="hljs-comment"># I.e. range(to_exclusive). Integers from 0 to `stop-1`.</span>
-&lt;range&gt; = range(start, stop)         <span class="hljs-comment"># I.e. range(from_inc, to_exc). From start to `stop-1`.</span>
-&lt;range&gt; = range(start, stop, ±step)  <span class="hljs-comment"># I.e. range(from_inclusive, to_exclusive, ±step_size).</span>
+<div><h2 id="range"><a href="#range" name="range">#</a>Range</h2><p><strong>A sequence of evenly spaced integers.</strong></p><pre><code class="python language-python hljs">&lt;range&gt; = range(stop)                <span class="hljs-comment"># I.e. range(to_exclusive). Ints from 0 to `stop-1`.</span>
+&lt;range&gt; = range(start, stop)         <span class="hljs-comment"># I.e. range(from, to_exc). From start to `stop-1`.</span>
+&lt;range&gt; = range(start, stop, step)   <span class="hljs-comment"># I.e. range(from_inclusive, to_exclusive, ±step).</span>
 </code></pre></div>
 
 
 <pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>[i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>)]
 [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
 </code></pre>
-<div><h2 id="enumerate"><a href="#enumerate" name="enumerate">#</a>Enumerate</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">for</span> i, el <span class="hljs-keyword">in</span> enumerate(&lt;coll&gt;, start=<span class="hljs-number">0</span>):  <span class="hljs-comment"># Returns next element and its index on each pass.</span>
+<div><h3 id="enumerate">Enumerate</h3><p><strong>Iterator that zips collection with range.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">for</span> i, el <span class="hljs-keyword">in</span> enumerate(&lt;coll&gt;):
     ...
 </code></pre></div>
 
-<div><h2 id="iterator"><a href="#iterator" name="iterator">#</a>Iterator</h2><p><strong>Potentially endless stream of elements.</strong></p><pre><code class="python language-python hljs">&lt;iter&gt; = iter(&lt;collection&gt;)              <span class="hljs-comment"># Iterator that returns passed elements one by one.</span>
+
+<div><h2 id="iterator"><a href="#iterator" name="iterator">#</a>Iterator</h2><p><strong>Potentially endless stream of elements.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> itertools <span class="hljs-keyword">as</span> it
+</code></pre></div>
+
+
+<pre><code class="python language-python hljs">&lt;iter&gt; = iter(&lt;collection&gt;)              <span class="hljs-comment"># Iterator that returns passed elements one by one.</span>
 &lt;iter&gt; = iter(&lt;func&gt;, to_exc)            <span class="hljs-comment"># Calls `&lt;func&gt;()` until it receives 'to_exc' value.</span>
 &lt;iter&gt; = (&lt;expr&gt; <span class="hljs-keyword">for</span> &lt;name&gt; <span class="hljs-keyword">in</span> &lt;coll&gt;)   <span class="hljs-comment"># E.g. `(i+1 for i in range(3))`. Evaluates lazily.</span>
 &lt;el&gt;   = next(&lt;iter&gt; [, default])        <span class="hljs-comment"># Raises StopIteration or returns 'default' on end.</span>
 &lt;list&gt; = list(&lt;iter&gt;)                    <span class="hljs-comment"># Returns a list of iterator's remaining elements.</span>
-</code></pre></div>
-
-
+</code></pre>
 <ul>
 <li><strong>For loops call <code class="python hljs"><span class="hljs-string">'iter(&lt;collection&gt;)'</span></code> at the start and <code class="python hljs"><span class="hljs-string">'next(&lt;iter&gt;)'</span></code> on each pass.</strong></li>
 <li><strong>Calling <code class="python hljs"><span class="hljs-string">'iter(&lt;iter&gt;)'</span></code> returns unmodified iterator. For details see <a href="#iterator-1">Iterator</a> duck type.</strong></li>
 </ul>
-<pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> itertools <span class="hljs-keyword">as</span> it
-</code></pre>
 <pre><code class="python language-python hljs">&lt;iter&gt; = it.count(start=<span class="hljs-number">0</span>, step=<span class="hljs-number">1</span>)       <span class="hljs-comment"># Returns updated 'start' endlessly. Accepts floats.</span>
 &lt;iter&gt; = it.repeat(&lt;obj&gt; [, times])      <span class="hljs-comment"># Returns passed element endlessly or 'times' times.</span>
 &lt;iter&gt; = it.cycle(&lt;collection&gt;)          <span class="hljs-comment"># Repeats the sequence endlessly. Accepts iterators.</span>
@@ -1595,7 +1596,7 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 
 <ul>
 <li><strong>Accepts strings, ints, floats, bytes, None objects, and bools (stored as 1 or 0).</strong></li>
-<li><strong>Columns are not restricted to any type unless table is declared as strict.</strong></li>
+<li><strong>Columns are not restricted to any specific type unless table is declared strict.</strong></li>
 </ul>
 <div><h3 id="example-1">Example</h3><p><strong>Values are not actually saved in this example because <code class="python hljs"><span class="hljs-string">'con.commit()'</span></code> is omitted!</strong></p><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>con = sqlite3.connect(<span class="hljs-string">'test.db'</span>)
 <span class="hljs-meta">&gt;&gt;&gt; </span>con.execute(<span class="hljs-string">'CREATE TABLE person (name TEXT, height INTEGER) STRICT'</span>)
@@ -1609,7 +1610,7 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 <span class="hljs-keyword">import</span> sqlalchemy <span class="hljs-keyword">as</span> sa
 &lt;engine&gt; = sa.create_engine(&lt;url&gt;)        <span class="hljs-comment"># Url: 'dialect://user:password@host/dbname'.</span>
 &lt;con&gt;    = &lt;engine&gt;.connect()             <span class="hljs-comment"># Creates new connection. Also &lt;con&gt;.close().</span>
-&lt;cursor&gt; = &lt;con&gt;.execute(sa.text(&lt;sql&gt;))  <span class="hljs-comment"># Pass a dict to execute() to replace :&lt;key&gt;.</span>
+&lt;cursor&gt; = &lt;con&gt;.execute(sa.text(&lt;sql&gt;))  <span class="hljs-comment"># Add dict to execute() to replace ':&lt;key&gt;'s.</span>
 <span class="hljs-keyword">with</span> &lt;con&gt;.begin(): ...                   <span class="hljs-comment"># Exits the block with a commit or rollback.</span>
 </code></pre></div>
 
@@ -1743,7 +1744,7 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 &lt;obj&gt;  = op.mul/truediv/floordiv/mod(&lt;obj&gt;, &lt;obj&gt;)         <span class="hljs-comment"># *, /, //, % (evaluated l to r).</span>
 &lt;num&gt;  = op.neg/invert(&lt;num&gt;)                              <span class="hljs-comment"># -, ~ (negate and bitwise not).</span>
 &lt;num&gt;  = op.pow(&lt;num&gt;, &lt;num&gt;)                              <span class="hljs-comment"># ** (pow() accepts 3 arguments).</span>
-&lt;func&gt; = op.itemgetter/attrgetter/methodcaller(&lt;obj&gt;, …)   <span class="hljs-comment"># [index/key], .name, .name([…]).</span>
+&lt;func&gt; = op.itemgetter/attrgetter/methodcaller(&lt;obj&gt;, …)   <span class="hljs-comment"># [i/key], .attr_name, .name(…).</span>
 </code></pre>
 <pre><code class="python language-python hljs">elementwise_sum  = map(op.add, list_a, list_b)
 sorted_by_second = sorted(&lt;coll&gt;, key=op.itemgetter(<span class="hljs-number">1</span>))
@@ -1841,7 +1842,7 @@ CRITICAL:my_module:Missing config file.
 &lt;dict&gt; = globals()                   <span class="hljs-comment"># Global names and their objects. E.g. __builtin__.</span>
 </code></pre></div>
 
-<pre><code class="python language-python hljs">&lt;list&gt; = dir(&lt;obj&gt;)                  <span class="hljs-comment"># Names of object's attributes including methods.</span>
+<pre><code class="python language-python hljs">&lt;list&gt; = dir(&lt;obj&gt;)                  <span class="hljs-comment"># Names of object's attributes, including methods.</span>
 &lt;dict&gt; = vars(&lt;obj&gt;)                 <span class="hljs-comment"># Dict of writable attributes. Or &lt;obj&gt;.__dict__.</span>
 &lt;bool&gt; = hasattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)    <span class="hljs-comment"># Checks if object possesses attr. of passed name.</span>
 value  = getattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)    <span class="hljs-comment"># Returns object's attr. or raises AttributeError.</span>
@@ -1860,7 +1861,7 @@ delattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)           
 
 <ul>
 <li><strong>Use <code class="python hljs"><span class="hljs-string">'kwargs=&lt;dict&gt;'</span></code> to pass keyword arguments to the function, i.e. thread.</strong></li>
-<li><strong>Use <code class="python hljs"><span class="hljs-string">'daemon=True'</span></code>, or the program won't be able to exit while the thread is alive.</strong></li>
+<li><strong>Use <code class="python hljs"><span class="hljs-string">'daemon=True'</span></code>, or the program won't be able to exit while thread is alive.</strong></li>
 </ul>
 <div><h3 id="lock">Lock</h3><pre><code class="python language-python hljs">&lt;lock&gt; = thr.Lock/RLock()                   <span class="hljs-comment"># RLock can only be released by acquirer thread.</span>
 &lt;lock&gt;.acquire()                            <span class="hljs-comment"># Waits/blocks until the lock becomes available.</span>
@@ -1903,20 +1904,20 @@ delattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)           
 <li><strong>Coroutines have a lot in common with threads, but unlike threads, they only give up control when they call another coroutine and they don’t consume as much memory.</strong></li>
 <li><strong>Coroutine definition starts with <code class="python hljs"><span class="hljs-string">'async'</span></code> keyword and its call with <code class="python hljs"><span class="hljs-string">'await'</span></code> keyword.</strong></li>
 <li><strong>Execute <code class="python hljs"><span class="hljs-string">'asyncio.run(&lt;coroutine&gt;)'</span></code> to start running the first/main coroutine.</strong></li>
-</ul><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> aio
+</ul><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> ac
 </code></pre></div>
 
 
 <pre><code class="python language-python hljs">&lt;coro&gt; = &lt;async_function&gt;(&lt;args&gt;)         <span class="hljs-comment"># Creates a coroutine by calling async func.</span>
 &lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;coroutine&gt;                <span class="hljs-comment"># Starts coroutine. Returns result or None.</span>
-&lt;task&gt; = aio.create_task(&lt;coroutine&gt;)     <span class="hljs-comment"># Schedules coroutine. Always keep the task.</span>
+&lt;task&gt; = ac.create_task(&lt;coroutine&gt;)      <span class="hljs-comment"># Schedules coroutine. Always keep the task.</span>
 &lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;task&gt;                     <span class="hljs-comment"># Returns the result. Also &lt;task&gt;.cancel().</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;coro&gt; = aio.gather(&lt;coro/task&gt;, ...)     <span class="hljs-comment"># Schedules coros. Returns list of results.</span>
-&lt;iter&gt; = aio.as_completed(&lt;coros/tasks&gt;)  <span class="hljs-comment"># `await next(&lt;iter&gt;)` returns next result.</span>
-&lt;coro&gt; = aio.wait(&lt;tasks&gt;)                <span class="hljs-comment"># Accepts `return_when=aio.FIRST_COMPLETED`.</span>
+<pre><code class="python language-python hljs">&lt;coro&gt; = ac.gather(&lt;coro/task&gt;, ...)      <span class="hljs-comment"># Schedules coros. Returns list of results.</span>
+&lt;iter&gt; = ac.as_completed(&lt;coros/tasks&gt;)   <span class="hljs-comment"># `await next(&lt;iter&gt;)` returns next result.</span>
+&lt;coro&gt; = ac.wait(&lt;tasks&gt;)                 <span class="hljs-comment"># Accepts `return_when=ac.FIRST_COMPLETED`.</span>
 </code></pre>
-<div><h4 id="runsaterminalgamewhereyoucontrolanasteriskthatmustavoidnumbers">Runs a terminal game where you control an asterisk that must avoid numbers:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> aio, collections, curses, curses.textpad, enum, random
+<div><h4 id="runsaterminalgamewhereyoucontrolanasteriskthatmustavoidnumbers">Runs a terminal game where you control an asterisk that must avoid numbers:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> ac, collections, curses, curses.textpad, enum, random
 
 P = collections.namedtuple(<span class="hljs-string">'P'</span>, <span class="hljs-string">'x y'</span>)    <span class="hljs-comment"># Position (x and y coordinates).</span>
 D = enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)             <span class="hljs-comment"># Direction (north, east, etc.).</span>
@@ -1925,28 +1926,28 @@ W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>  
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(screen)</span>:</span>
     curses.curs_set(<span class="hljs-number">0</span>)                    <span class="hljs-comment"># Makes the cursor invisible.</span>
     screen.nodelay(<span class="hljs-keyword">True</span>)                  <span class="hljs-comment"># Makes getch() non-blocking.</span>
-    aio.run(main_coroutine(screen))       <span class="hljs-comment"># Starts running asyncio code.</span>
+    ac.run(main_coroutine(screen))        <span class="hljs-comment"># Starts running asyncio code.</span>
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main_coroutine</span><span class="hljs-params">(scr)</span>:</span>
-    moves = aio.Queue()
+    moves = ac.Queue()
     state = {<span class="hljs-string">'*'</span>: P(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)} | dict.fromkeys(range(<span class="hljs-number">10</span>), P(W//<span class="hljs-number">2</span>, H//<span class="hljs-number">2</span>))
     ai = [random_controller(id_, moves) <span class="hljs-keyword">for</span> id_ <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)]
     mvc = [controller(scr, moves), model(moves, state), view(state, scr)]
-    tasks = [aio.create_task(coro) <span class="hljs-keyword">for</span> coro <span class="hljs-keyword">in</span> ai + mvc]
-    <span class="hljs-keyword">await</span> aio.wait(tasks, return_when=aio.FIRST_COMPLETED)
+    tasks = [ac.create_task(coro) <span class="hljs-keyword">for</span> coro <span class="hljs-keyword">in</span> ai + mvc]
+    <span class="hljs-keyword">await</span> ac.wait(tasks, return_when=ac.FIRST_COMPLETED)
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">random_controller</span><span class="hljs-params">(id_, moves)</span>:</span>
     <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
         d = random.choice(list(D))
         moves.put_nowait((id_, d))
-        <span class="hljs-keyword">await</span> aio.sleep(random.triangular(<span class="hljs-number">0.01</span>, <span class="hljs-number">0.65</span>))
+        <span class="hljs-keyword">await</span> ac.sleep(random.triangular(<span class="hljs-number">0.01</span>, <span class="hljs-number">0.65</span>))
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">controller</span><span class="hljs-params">(scr, moves)</span>:</span>
     <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
         key_mappings = {<span class="hljs-number">258</span>: D.s, <span class="hljs-number">259</span>: D.n, <span class="hljs-number">260</span>: D.w, <span class="hljs-number">261</span>: D.e}
         <span class="hljs-keyword">if</span> d := key_mappings.get(scr.getch()):
             moves.put_nowait((<span class="hljs-string">'*'</span>, d))
-        <span class="hljs-keyword">await</span> aio.sleep(<span class="hljs-number">0.005</span>)
+        <span class="hljs-keyword">await</span> ac.sleep(<span class="hljs-number">0.005</span>)
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">model</span><span class="hljs-params">(moves, state)</span>:</span>
     <span class="hljs-keyword">while</span> state[<span class="hljs-string">'*'</span>] <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (state[id_] <span class="hljs-keyword">for</span> id_ <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)):
@@ -1958,12 +1959,12 @@ W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>  
     y, x = curses.LINES//<span class="hljs-number">2</span> - H//<span class="hljs-number">2</span>, curses.COLS//<span class="hljs-number">2</span> - W//<span class="hljs-number">2</span>
     <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
         scr.erase()
-        curses.textpad.rectangle(scr, y-<span class="hljs-number">1</span>, x-<span class="hljs-number">1</span>, y+H, x+W)
+        curses.textpad.rectangle(scr, y<span class="hljs-number">-1</span>, x<span class="hljs-number">-1</span>, y+H, x+W)
         <span class="hljs-keyword">for</span> id_, p <span class="hljs-keyword">in</span> state.items():
             dy, dx = p.y - state[<span class="hljs-string">'*'</span>].y + H//<span class="hljs-number">2</span>, p.x - state[<span class="hljs-string">'*'</span>].x + W//<span class="hljs-number">2</span>
             scr.addstr(y + (dy % H), x + (dx % W), str(id_))
         scr.refresh()
-        <span class="hljs-keyword">await</span> aio.sleep(<span class="hljs-number">0.005</span>)
+        <span class="hljs-keyword">await</span> ac.sleep(<span class="hljs-number">0.005</span>)
 
 <span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
     curses.wrapper(main)
@@ -2123,9 +2124,9 @@ app.run(host=<span class="hljs-keyword">None</span>, port=<span class="hljs-keyw
 <span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> threading, requests
 <span class="hljs-meta">&gt;&gt;&gt; </span>threading.Thread(target=app.run, daemon=<span class="hljs-keyword">True</span>).start()
 <span class="hljs-meta">&gt;&gt;&gt; </span>url = <span class="hljs-string">'http://localhost:5000/football/odds'</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span>response = requests.post(url, data={<span class="hljs-string">'team'</span>: <span class="hljs-string">'arsenal f.c.'</span>})
-<span class="hljs-meta">&gt;&gt;&gt; </span>response.json()
-{<span class="hljs-string">'team'</span>: <span class="hljs-string">'arsenal f.c.'</span>, <span class="hljs-string">'odds'</span>: [<span class="hljs-number">2.09</span>, <span class="hljs-number">3.74</span>, <span class="hljs-number">3.68</span>]}
+<span class="hljs-meta">&gt;&gt;&gt; </span>resp = requests.post(url, data={<span class="hljs-string">'team'</span>: <span class="hljs-string">'Arsenal FC'</span>})
+<span class="hljs-meta">&gt;&gt;&gt; </span>resp.json()
+{<span class="hljs-string">'team'</span>: <span class="hljs-string">'Arsenal FC'</span>, <span class="hljs-string">'odds'</span>: [<span class="hljs-number">2.09</span>, <span class="hljs-number">3.74</span>, <span class="hljs-number">3.68</span>]}
 </code></pre></div>
 
 <div><h2 id="profiling"><a href="#profiling" name="profiling">#</a>Profiling</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> perf_counter
@@ -2135,23 +2136,23 @@ duration_in_seconds = perf_counter() - start_time
 </code></pre></div>
 
 <div><h3 id="timingasnippet">Timing a Snippet</h3><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> timeit <span class="hljs-keyword">import</span> timeit
-<span class="hljs-meta">&gt;&gt;&gt; </span>timeit(<span class="hljs-string">'list(range(10000))'</span>, number=<span class="hljs-number">1000</span>, globals=globals(), setup=<span class="hljs-string">'pass'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>timeit(<span class="hljs-string">'list(range(10_000))'</span>, number=<span class="hljs-number">1000</span>, globals=globals())
 <span class="hljs-number">0.19373</span>
 </code></pre></div>
 
 <div><h3 id="profilingbyline">Profiling by Line</h3><pre><code class="text language-text">$ pip3 install line_profiler
 $ echo '@profile
 def main():
-    a = list(range(10000))
-    b = set(range(10000))
+    a = list(range(10_000))
+    b = set(range(10_000))
 main()' &gt; test.py
 $ kernprof -lv test.py
 Line #      Hits         Time  Per Hit   % Time  Line Contents
 ==============================================================
      1                                           @profile
      2                                           def main():
-     3         1        253.4    253.4     32.2      a = list(range(10000))
-     4         1        534.1    534.1     67.8      b = set(range(10000))
+     3         1        253.4    253.4     32.2      a = list(range(10_000))
+     4         1        534.1    534.1     67.8      b = set(range(10_000))
 </code></pre></div>
 
 <div><h3 id="callandflamegraphs">Call and Flame Graphs</h3><pre><code class="bash language-bash hljs">$ apt install graphviz &amp;&amp; pip3 install gprof2dot snakeviz  <span class="hljs-comment"># Or install graphviz.exe.</span>
@@ -2324,13 +2325,13 @@ img.show()
 <span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image, ImageDraw
 <span class="hljs-keyword">import</span> imageio
 
-WIDTH, HEIGHT, R = <span class="hljs-number">126</span>, <span class="hljs-number">126</span>, <span class="hljs-number">10</span>
+W, H, R = <span class="hljs-number">126</span>, <span class="hljs-number">126</span>, <span class="hljs-number">10</span>  <span class="hljs-comment"># Width, Height, Radius.</span>
 frames = []
 <span class="hljs-keyword">for</span> velocity <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">16</span>):
     y = sum(range(velocity))
-    frame = Image.new(<span class="hljs-string">'L'</span>, (WIDTH, HEIGHT))
+    frame = Image.new(<span class="hljs-string">'L'</span>, (W, H))
     draw = ImageDraw.Draw(frame)
-    draw.ellipse((WIDTH/<span class="hljs-number">2</span>-R, y, WIDTH/<span class="hljs-number">2</span>+R, y+<span class="hljs-number">2</span>*R), fill=<span class="hljs-string">'white'</span>)
+    draw.ellipse((W/<span class="hljs-number">2</span>-R, y, W/<span class="hljs-number">2</span>+R, y+<span class="hljs-number">2</span>*R), fill=<span class="hljs-string">'white'</span>)
     frames.append(frame)
 frames += reversed(frames[<span class="hljs-number">1</span>:<span class="hljs-number">-1</span>])
 imageio.mimsave(<span class="hljs-string">'test.gif'</span>, frames, duration=<span class="hljs-number">0.03</span>)
@@ -2340,19 +2341,19 @@ imageio.mimsave(<span class="hljs-string">'test.gif'</span>, frames, duration=<s
 <div><h2 id="audio"><a href="#audio" name="audio">#</a>Audio</h2><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> wave
 </code></pre></div>
 
-<pre><code class="python language-python hljs">&lt;Wave&gt;  = wave.open(<span class="hljs-string">'&lt;path&gt;'</span>)               <span class="hljs-comment"># Opens specified WAV file for reading.</span>
-&lt;int&gt;   = &lt;Wave&gt;.getframerate()             <span class="hljs-comment"># Returns number of frames per second.</span>
-&lt;int&gt;   = &lt;Wave&gt;.getnchannels()             <span class="hljs-comment"># Returns number of samples per frame.</span>
-&lt;int&gt;   = &lt;Wave&gt;.getsampwidth()             <span class="hljs-comment"># Returns how many bytes are in sample.</span>
-&lt;tuple&gt; = &lt;Wave&gt;.getparams()                <span class="hljs-comment"># Returns namedtuple of all parameters.</span>
-&lt;bytes&gt; = &lt;Wave&gt;.readframes(nframes)        <span class="hljs-comment"># Returns all frames if `-1` is passed.</span>
+<pre><code class="python language-python hljs">&lt;Wave&gt;  = wave.open(<span class="hljs-string">'&lt;path&gt;'</span>)              <span class="hljs-comment"># Opens specified WAV file for reading.</span>
+&lt;int&gt;   = &lt;Wave&gt;.getframerate()            <span class="hljs-comment"># Returns number of frames per second.</span>
+&lt;int&gt;   = &lt;Wave&gt;.getnchannels()            <span class="hljs-comment"># Returns number of samples per frame.</span>
+&lt;int&gt;   = &lt;Wave&gt;.getsampwidth()            <span class="hljs-comment"># Returns how many bytes are in sample.</span>
+&lt;tuple&gt; = &lt;Wave&gt;.getparams()               <span class="hljs-comment"># Returns namedtuple of all parameters.</span>
+&lt;bytes&gt; = &lt;Wave&gt;.readframes(&lt;int&gt;)         <span class="hljs-comment"># Returns all frames if `-1` is passed.</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;Wave&gt; = wave.open(<span class="hljs-string">'&lt;path&gt;'</span>, <span class="hljs-string">'wb'</span>)          <span class="hljs-comment"># Creates/truncates a file for writing.</span>
-&lt;Wave&gt;.setframerate(&lt;int&gt;)                  <span class="hljs-comment"># Pass 44100, or 48000 for video track.</span>
-&lt;Wave&gt;.setnchannels(&lt;int&gt;)                  <span class="hljs-comment"># Pass 1 for mono, 2 for stereo signal.</span>
-&lt;Wave&gt;.setsampwidth(&lt;int&gt;)                  <span class="hljs-comment"># Pass 2 for CD, 3 for hi-res quality.</span>
-&lt;Wave&gt;.setparams(&lt;tuple&gt;)                   <span class="hljs-comment"># Passed tuple must contain all params.</span>
-&lt;Wave&gt;.writeframes(&lt;bytes&gt;)                 <span class="hljs-comment"># Appends passed frames to audio file.</span>
+<pre><code class="python language-python hljs">&lt;Wave&gt; = wave.open(<span class="hljs-string">'&lt;path&gt;'</span>, <span class="hljs-string">'wb'</span>)         <span class="hljs-comment"># Creates/truncates a file for writing.</span>
+&lt;Wave&gt;.setframerate(&lt;int&gt;)                 <span class="hljs-comment"># Pass 44100, or 48000 for video track.</span>
+&lt;Wave&gt;.setnchannels(&lt;int&gt;)                 <span class="hljs-comment"># Pass 1 for mono, 2 for stereo signal.</span>
+&lt;Wave&gt;.setsampwidth(&lt;int&gt;)                 <span class="hljs-comment"># Pass 2 for CD, 3 for hi-res quality.</span>
+&lt;Wave&gt;.setparams(&lt;tuple&gt;)                  <span class="hljs-comment"># Passed tuple must contain all params.</span>
+&lt;Wave&gt;.writeframes(&lt;bytes&gt;)                <span class="hljs-comment"># Appends passed frames to audio file.</span>
 </code></pre>
 <ul>
 <li><strong>The bytes object contains a sequence of frames, each consisting of one or more samples.</strong></li>
@@ -2512,9 +2513,9 @@ W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</spa
         Mario = dc.make_dataclass(<span class="hljs-string">'Mario'</span>, [<span class="hljs-string">'rect'</span>, <span class="hljs-string">'vx'</span>, <span class="hljs-string">'vy'</span>, <span class="hljs-string">'dir'</span>, <span class="hljs-string">'img_i'</span>])
         <span class="hljs-keyword">return</span> Mario(get_rect(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, D.e, itertools.cycle(range(<span class="hljs-number">3</span>)))
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_tiles</span><span class="hljs-params">()</span>:</span>
-        is_border = <span class="hljs-keyword">lambda</span> x, y: x <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, W-<span class="hljs-number">1</span>] <span class="hljs-keyword">or</span> y <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, H-<span class="hljs-number">1</span>]
+        is_border = <span class="hljs-keyword">lambda</span> x, y: x <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, W<span class="hljs-number">-1</span>] <span class="hljs-keyword">or</span> y <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, H<span class="hljs-number">-1</span>]
         borders = [(x, y) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(W) <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(H) <span class="hljs-keyword">if</span> is_border(x, y)]
-        platforms = [(r.randint(<span class="hljs-number">1</span>, W-<span class="hljs-number">2</span>), r.randint(<span class="hljs-number">2</span>, H-<span class="hljs-number">2</span>)) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">200</span>)]
+        platforms = [(r.randint(<span class="hljs-number">1</span>, W<span class="hljs-number">-2</span>), r.randint(<span class="hljs-number">2</span>, H<span class="hljs-number">-2</span>)) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">200</span>)]
         <span class="hljs-keyword">return</span> [get_rect(x, y) <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> borders + platforms]
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_rect</span><span class="hljs-params">(x, y)</span>:</span>
         <span class="hljs-keyword">return</span> pg.Rect(x*<span class="hljs-number">16</span>, y*<span class="hljs-number">16</span>, <span class="hljs-number">16</span>, <span class="hljs-number">16</span>)
@@ -2563,7 +2564,7 @@ W, H, D = <span class="hljs-number">50</span>, <span class="hljs-number">50</spa
     img_i = <span class="hljs-number">4</span> <span class="hljs-keyword">if</span> is_airborne(mario, tiles) <span class="hljs-keyword">else</span> next(mario.img_i) <span class="hljs-keyword">if</span> mario.vx <span class="hljs-keyword">else</span> <span class="hljs-number">6</span>
     window.blit(images[img_i + ((mario.dir == D.w) * <span class="hljs-number">9</span>)], mario.rect)
     <span class="hljs-keyword">for</span> tile <span class="hljs-keyword">in</span> tiles:
-        is_border = tile.x <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, (W-<span class="hljs-number">1</span>)*<span class="hljs-number">16</span>] <span class="hljs-keyword">or</span> tile.y <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, (H-<span class="hljs-number">1</span>)*<span class="hljs-number">16</span>]
+        is_border = tile.x <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, (W<span class="hljs-number">-1</span>)*<span class="hljs-number">16</span>] <span class="hljs-keyword">or</span> tile.y <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, (H<span class="hljs-number">-1</span>)*<span class="hljs-number">16</span>]
         window.blit(images[<span class="hljs-number">18</span> <span class="hljs-keyword">if</span> is_border <span class="hljs-keyword">else</span> <span class="hljs-number">19</span>], tile)
     pg.display.flip()
 
@@ -2932,7 +2933,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>July 6, 2026</aside>
+    <aside>July 9, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 

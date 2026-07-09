@@ -43,9 +43,9 @@ List
 ```
 
 ```python
-<list>.sort(reverse=False)      # Sorts the elements of the list in ascending order.
+<list>.sort()                   # Sorts in ascending order. Accepts `reverse=True`.
 <list>.reverse()                # Reverses the order of elements. Takes linear time.
-<list> = sorted(<collection>)   # Returns a new sorted list. Accepts `reverse=True`.
+<list> = sorted(<coll>)         # Returns a new sorted list. Accepts `reverse=True`.
 <iter> = reversed(<list>)       # Returns reversed iterator. Also list(<iterator>).
 ```
 
@@ -78,7 +78,7 @@ flatter_list     = list(itertools.chain.from_iterable(<list>))
 Dictionary
 ----------
 ```python
-<dict> = {key_1: val_1, key_2: val_2, ...}    # Use `<dict>[key]` to get or assign the value.
+<dict> = {key_1: val, key_2: val, ...}        # Use `<dict>[key]` to get or assign the value.
 ```
 
 ```python
@@ -156,9 +156,9 @@ Tuple
 -----
 **Tuple is an immutable and hashable list.**
 ```python
-<tuple> = ()                        # Returns an empty tuple. Also tuple(), tuple(<coll>).
-<tuple> = (<el>,)                   # Returns a tuple with single element. Same as `<el>,`.
-<tuple> = (<el_1>, <el_2> [, ...])  # Returns a tuple. Same as `<el_1>, <el_2> [, ...]`.
+<tuple> = ()                        # Returns empty tuple. Also tuple(), tuple(<coll>).
+<tuple> = (<el>,)                   # Returns tuple with one element. Same as `<el>,`.
+<tuple> = (<el_1>, <el_2> [, ...])  # Returns tuple. Same as `<el_1>, <el_2> [, ...]`.
 ```
 
 ### Named Tuple
@@ -178,9 +178,9 @@ Range
 -----
 **A sequence of evenly spaced integers.**
 ```python
-<range> = range(stop)                # I.e. range(to_exclusive). Integers from 0 to `stop-1`.
-<range> = range(start, stop)         # I.e. range(from_inc, to_exc). From start to `stop-1`.
-<range> = range(start, stop, ±step)  # I.e. range(from_inclusive, to_exclusive, ±step_size).
+<range> = range(stop)                # I.e. range(to_exclusive). Ints from 0 to `stop-1`.
+<range> = range(start, stop)         # I.e. range(from, to_exc). From start to `stop-1`.
+<range> = range(start, stop, step)   # I.e. range(from_inclusive, to_exclusive, ±step).
 ```
 
 ```python
@@ -188,11 +188,10 @@ Range
 [0, 1, 2]
 ```
 
-
-Enumerate
----------
+### Enumerate
+**Iterator that zips collection with range.**
 ```python
-for i, el in enumerate(<coll>, start=0):  # Returns next element and its index on each pass.
+for i, el in enumerate(<coll>):
     ...
 ```
 
@@ -200,6 +199,10 @@ for i, el in enumerate(<coll>, start=0):  # Returns next element and its index o
 Iterator
 --------
 **Potentially endless stream of elements.**
+
+```python
+import itertools as it
+```
 
 ```python
 <iter> = iter(<collection>)              # Iterator that returns passed elements one by one.
@@ -210,10 +213,6 @@ Iterator
 ```
 * **For loops call `'iter(<collection>)'` at the start and `'next(<iter>)'` on each pass.**
 * **Calling `'iter(<iter>)'` returns unmodified iterator. For details see [Iterator](#iterator-1) duck type.**
-
-```python
-import itertools as it
-```
 
 ```python
 <iter> = it.count(start=0, step=1)       # Returns updated 'start' endlessly. Accepts floats.
@@ -1910,7 +1909,7 @@ with <con>:                               # Exits the block with commit() or rol
 <con>.executemany(<sql>, <colls>)         # Executes statement once for each collection.
 ```
 * **Accepts strings, ints, floats, bytes, None objects, and bools (stored as 1 or 0).**
-* **Columns are not restricted to any type unless table is declared as strict.**
+* **Columns are not restricted to any specific type unless table is declared strict.**
 
 ### Example
 **Values are not actually saved in this example because `'con.commit()'` is omitted!**
@@ -1929,7 +1928,7 @@ with <con>:                               # Exits the block with commit() or rol
 import sqlalchemy as sa
 <engine> = sa.create_engine(<url>)        # Url: 'dialect://user:password@host/dbname'.
 <con>    = <engine>.connect()             # Creates new connection. Also <con>.close().
-<cursor> = <con>.execute(sa.text(<sql>))  # Pass a dict to execute() to replace :<key>.
+<cursor> = <con>.execute(sa.text(<sql>))  # Add dict to execute() to replace ':<key>'s.
 with <con>.begin(): ...                   # Exits the block with a commit or rollback.
 ```
 
@@ -2109,7 +2108,7 @@ import operator as op
 <obj>  = op.mul/truediv/floordiv/mod(<obj>, <obj>)         # *, /, //, % (evaluated l to r).
 <num>  = op.neg/invert(<num>)                              # -, ~ (negate and bitwise not).
 <num>  = op.pow(<num>, <num>)                              # ** (pow() accepts 3 arguments).
-<func> = op.itemgetter/attrgetter/methodcaller(<obj>, …)   # [index/key], .name, .name([…]).
+<func> = op.itemgetter/attrgetter/methodcaller(<obj>, …)   # [i/key], .attr_name, .name(…).
 ```
 
 ```python
@@ -2230,7 +2229,7 @@ Introspection
 ```
 
 ```python
-<list> = dir(<obj>)                  # Names of object's attributes including methods.
+<list> = dir(<obj>)                  # Names of object's attributes, including methods.
 <dict> = vars(<obj>)                 # Dict of writable attributes. Or <obj>.__dict__.
 <bool> = hasattr(<obj>, '<name>')    # Checks if object possesses attr. of passed name.
 value  = getattr(<obj>, '<name>')    # Returns object's attr. or raises AttributeError.
@@ -2255,7 +2254,7 @@ import concurrent.futures as cf
 <Thread>.join()                             # Waits until the function finishes executing.
 ```
 * **Use `'kwargs=<dict>'` to pass keyword arguments to the function, i.e. thread.**
-* **Use `'daemon=True'`, or the program won't be able to exit while the thread is alive.**
+* **Use `'daemon=True'`, or the program won't be able to exit while thread is alive.**
 
 ### Lock
 ```python
@@ -2312,25 +2311,25 @@ Asyncio
 * **Execute `'asyncio.run(<coroutine>)'` to start running the first/main coroutine.**
 
 ```python
-import asyncio as aio
+import asyncio as ac
 ```
 
 ```python
 <coro> = <async_function>(<args>)         # Creates a coroutine by calling async func.
 <obj>  = await <coroutine>                # Starts coroutine. Returns result or None.
-<task> = aio.create_task(<coroutine>)     # Schedules coroutine. Always keep the task.
+<task> = ac.create_task(<coroutine>)      # Schedules coroutine. Always keep the task.
 <obj>  = await <task>                     # Returns the result. Also <task>.cancel().
 ```
 
 ```python
-<coro> = aio.gather(<coro/task>, ...)     # Schedules coros. Returns list of results.
-<iter> = aio.as_completed(<coros/tasks>)  # `await next(<iter>)` returns next result.
-<coro> = aio.wait(<tasks>)                # Accepts `return_when=aio.FIRST_COMPLETED`.
+<coro> = ac.gather(<coro/task>, ...)      # Schedules coros. Returns list of results.
+<iter> = ac.as_completed(<coros/tasks>)   # `await next(<iter>)` returns next result.
+<coro> = ac.wait(<tasks>)                 # Accepts `return_when=ac.FIRST_COMPLETED`.
 ```
 
 #### Runs a terminal game where you control an asterisk that must avoid numbers:
 ```python
-import asyncio as aio, collections, curses, curses.textpad, enum, random
+import asyncio as ac, collections, curses, curses.textpad, enum, random
 
 P = collections.namedtuple('P', 'x y')    # Position (x and y coordinates).
 D = enum.Enum('D', 'n e s w')             # Direction (north, east, etc.).
@@ -2339,28 +2338,28 @@ W, H = 15, 7                              # Width and height of the field.
 def main(screen):
     curses.curs_set(0)                    # Makes the cursor invisible.
     screen.nodelay(True)                  # Makes getch() non-blocking.
-    aio.run(main_coroutine(screen))       # Starts running asyncio code.
+    ac.run(main_coroutine(screen))        # Starts running asyncio code.
 
 async def main_coroutine(scr):
-    moves = aio.Queue()
+    moves = ac.Queue()
     state = {'*': P(0, 0)} | dict.fromkeys(range(10), P(W//2, H//2))
     ai = [random_controller(id_, moves) for id_ in range(10)]
     mvc = [controller(scr, moves), model(moves, state), view(state, scr)]
-    tasks = [aio.create_task(coro) for coro in ai + mvc]
-    await aio.wait(tasks, return_when=aio.FIRST_COMPLETED)
+    tasks = [ac.create_task(coro) for coro in ai + mvc]
+    await ac.wait(tasks, return_when=ac.FIRST_COMPLETED)
 
 async def random_controller(id_, moves):
     while True:
         d = random.choice(list(D))
         moves.put_nowait((id_, d))
-        await aio.sleep(random.triangular(0.01, 0.65))
+        await ac.sleep(random.triangular(0.01, 0.65))
 
 async def controller(scr, moves):
     while True:
         key_mappings = {258: D.s, 259: D.n, 260: D.w, 261: D.e}
         if d := key_mappings.get(scr.getch()):
             moves.put_nowait(('*', d))
-        await aio.sleep(0.005)
+        await ac.sleep(0.005)
 
 async def model(moves, state):
     while state['*'] not in (state[id_] for id_ in range(10)):
@@ -2377,7 +2376,7 @@ async def view(state, scr):
             dy, dx = p.y - state['*'].y + H//2, p.x - state['*'].x + W//2
             scr.addstr(y + (dy % H), x + (dx % W), str(id_))
         scr.refresh()
-        await aio.sleep(0.005)
+        await ac.sleep(0.005)
 
 if __name__ == '__main__':
     curses.wrapper(main)
@@ -2580,9 +2579,9 @@ def serve_json(sport):
 >>> import threading, requests
 >>> threading.Thread(target=app.run, daemon=True).start()
 >>> url = 'http://localhost:5000/football/odds'
->>> response = requests.post(url, data={'team': 'arsenal f.c.'})
->>> response.json()
-{'team': 'arsenal f.c.', 'odds': [2.09, 3.74, 3.68]}
+>>> resp = requests.post(url, data={'team': 'Arsenal FC'})
+>>> resp.json()
+{'team': 'Arsenal FC', 'odds': [2.09, 3.74, 3.68]}
 ```
 
 
@@ -2599,7 +2598,7 @@ duration_in_seconds = perf_counter() - start_time
 ### Timing a Snippet
 ```python
 >>> from timeit import timeit
->>> timeit('list(range(10000))', number=1000, globals=globals(), setup='pass')
+>>> timeit('list(range(10_000))', number=1000, globals=globals())
 0.19373
 ```
 
@@ -2608,16 +2607,16 @@ duration_in_seconds = perf_counter() - start_time
 $ pip3 install line_profiler
 $ echo '@profile
 def main():
-    a = list(range(10000))
-    b = set(range(10000))
+    a = list(range(10_000))
+    b = set(range(10_000))
 main()' > test.py
 $ kernprof -lv test.py
 Line #      Hits         Time  Per Hit   % Time  Line Contents
 ==============================================================
      1                                           @profile
      2                                           def main():
-     3         1        253.4    253.4     32.2      a = list(range(10000))
-     4         1        534.1    534.1     67.8      b = set(range(10000))
+     3         1        253.4    253.4     32.2      a = list(range(10_000))
+     4         1        534.1    534.1     67.8      b = set(range(10_000))
 ```
 
 ### Call and Flame Graphs
@@ -2841,13 +2840,13 @@ Animation
 from PIL import Image, ImageDraw
 import imageio
 
-WIDTH, HEIGHT, R = 126, 126, 10
+W, H, R = 126, 126, 10  # Width, Height, Radius.
 frames = []
 for velocity in range(1, 16):
     y = sum(range(velocity))
-    frame = Image.new('L', (WIDTH, HEIGHT))
+    frame = Image.new('L', (W, H))
     draw = ImageDraw.Draw(frame)
-    draw.ellipse((WIDTH/2-R, y, WIDTH/2+R, y+2*R), fill='white')
+    draw.ellipse((W/2-R, y, W/2+R, y+2*R), fill='white')
     frames.append(frame)
 frames += reversed(frames[1:-1])
 imageio.mimsave('test.gif', frames, duration=0.03)
@@ -2861,21 +2860,21 @@ import wave
 ```
 
 ```python
-<Wave>  = wave.open('<path>')               # Opens specified WAV file for reading.
-<int>   = <Wave>.getframerate()             # Returns number of frames per second.
-<int>   = <Wave>.getnchannels()             # Returns number of samples per frame.
-<int>   = <Wave>.getsampwidth()             # Returns how many bytes are in sample.
-<tuple> = <Wave>.getparams()                # Returns namedtuple of all parameters.
-<bytes> = <Wave>.readframes(nframes)        # Returns all frames if `-1` is passed.
+<Wave>  = wave.open('<path>')              # Opens specified WAV file for reading.
+<int>   = <Wave>.getframerate()            # Returns number of frames per second.
+<int>   = <Wave>.getnchannels()            # Returns number of samples per frame.
+<int>   = <Wave>.getsampwidth()            # Returns how many bytes are in sample.
+<tuple> = <Wave>.getparams()               # Returns namedtuple of all parameters.
+<bytes> = <Wave>.readframes(<int>)         # Returns all frames if `-1` is passed.
 ```
 
 ```python
-<Wave> = wave.open('<path>', 'wb')          # Creates/truncates a file for writing.
-<Wave>.setframerate(<int>)                  # Pass 44100, or 48000 for video track.
-<Wave>.setnchannels(<int>)                  # Pass 1 for mono, 2 for stereo signal.
-<Wave>.setsampwidth(<int>)                  # Pass 2 for CD, 3 for hi-res quality.
-<Wave>.setparams(<tuple>)                   # Passed tuple must contain all params.
-<Wave>.writeframes(<bytes>)                 # Appends passed frames to audio file.
+<Wave> = wave.open('<path>', 'wb')         # Creates/truncates a file for writing.
+<Wave>.setframerate(<int>)                 # Pass 44100, or 48000 for video track.
+<Wave>.setnchannels(<int>)                 # Pass 1 for mono, 2 for stereo signal.
+<Wave>.setsampwidth(<int>)                 # Pass 2 for CD, 3 for hi-res quality.
+<Wave>.setparams(<tuple>)                  # Passed tuple must contain all params.
+<Wave>.writeframes(<bytes>)                # Appends passed frames to audio file.
 ```
 * **The bytes object contains a sequence of frames, each consisting of one or more samples.**
 * **In stereo signal, first sample of a frame belongs to the left channel (second to the right).**

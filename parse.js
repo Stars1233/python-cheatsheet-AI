@@ -1015,13 +1015,13 @@ function fixHighlights() {
   $(`code:contains(match <obj/expr>:)`).html(MATCH);
   $(`code:contains(>>> match Path)`).html(MATCH_EXAMPLE);
   $(`code:contains(>>> log.basicConfig()`).html(LOGGING_EXAMPLE);
-  $(`code:contains(import asyncio as aio, collections, curses, curses.textpad, enum, random)`).html(COROUTINES);
+  // $(`code:contains(import asyncio as aio, collections, curses, curses.textpad, enum, random)`).html(COROUTINES);
   $(`code:contains(pip3 install tqdm)`).html(PROGRESS_BAR);
   $(`code:contains(import curses, os)`).html(CURSES);
   $(`code:contains(np.zeros/ones/empty)`).html(NUMPY);
   $(`code:contains(a_float = max()`).html(AUDIO_1);
   $(`code:contains(get_sin = )`).html(AUDIO_2);
-  $(`code:contains(dc, enum, io, itertools, random)`).html(MARIO);
+  // $(`code:contains(dc, enum, io, itertools, random)`).html(MARIO);
   $(`code:contains(>>> gb = df.groupby)`).html(GROUPBY);
   $(`code:contains(cdef <type> <var_name> [= <obj/var>])`).html(CYTHON_1);
   $(`code:contains(cdef <type> <func_name>(<type> [*]<arg_name>): ...)`).html(CYTHON_2);
