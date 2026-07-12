@@ -57,7 +57,7 @@
 <body style="margin-top: 17.1px">
   <div class="pagebreak"></div>
   <header>
-    <aside>July 9, 2026</aside>
+    <aside>July 12, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -224,7 +224,7 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
 </code></pre>
 <div><h3 id="enumerate">Enumerate</h3><p><strong>Iterator that zips collection with range.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">for</span> i, el <span class="hljs-keyword">in</span> enumerate(&lt;coll&gt;):
-    ...
+    print(<span class="hljs-string">f'Element <span class="hljs-subst">{el}</span> has index <span class="hljs-subst">{i}</span>.'</span>)
 </code></pre></div>
 
 
@@ -232,25 +232,25 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;iter&gt; = iter(&lt;collection&gt;)              <span class="hljs-comment"># Iterator that returns passed elements one by one.</span>
+<pre><code class="python language-python hljs">&lt;iter&gt; = iter(&lt;coll&gt;)                    <span class="hljs-comment"># Iterator that returns passed elements one by one.</span>
 &lt;iter&gt; = iter(&lt;func&gt;, to_exc)            <span class="hljs-comment"># Calls `&lt;func&gt;()` until it receives 'to_exc' value.</span>
 &lt;iter&gt; = (&lt;expr&gt; <span class="hljs-keyword">for</span> &lt;name&gt; <span class="hljs-keyword">in</span> &lt;coll&gt;)   <span class="hljs-comment"># E.g. `(i+1 for i in range(3))`. Evaluates lazily.</span>
 &lt;el&gt;   = next(&lt;iter&gt; [, default])        <span class="hljs-comment"># Raises StopIteration or returns 'default' on end.</span>
 &lt;list&gt; = list(&lt;iter&gt;)                    <span class="hljs-comment"># Returns a list of iterator's remaining elements.</span>
 </code></pre>
-<ul>
-<li><strong>For loops call <code class="python hljs"><span class="hljs-string">'iter(&lt;collection&gt;)'</span></code> at the start and <code class="python hljs"><span class="hljs-string">'next(&lt;iter&gt;)'</span></code> on each pass.</strong></li>
-<li><strong>Calling <code class="python hljs"><span class="hljs-string">'iter(&lt;iter&gt;)'</span></code> returns unmodified iterator. For details see <a href="#iterator-1">Iterator</a> duck type.</strong></li>
-</ul>
 <pre><code class="python language-python hljs">&lt;iter&gt; = it.count(start=<span class="hljs-number">0</span>, step=<span class="hljs-number">1</span>)       <span class="hljs-comment"># Returns updated 'start' endlessly. Accepts floats.</span>
 &lt;iter&gt; = it.repeat(&lt;obj&gt; [, times])      <span class="hljs-comment"># Returns passed element endlessly or 'times' times.</span>
-&lt;iter&gt; = it.cycle(&lt;collection&gt;)          <span class="hljs-comment"># Repeats the sequence endlessly. Accepts iterators.</span>
+&lt;iter&gt; = it.cycle(&lt;coll&gt;)                <span class="hljs-comment"># Repeats the sequence endlessly. Accepts iterators.</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;iter&gt; = it.chain(&lt;coll&gt;, &lt;coll&gt;, ...)   <span class="hljs-comment"># Returns each element of each collection in order.</span>
 &lt;iter&gt; = it.chain.from_iterable(&lt;coll&gt;)  <span class="hljs-comment"># Accepts collection (i.e. iterable) of collections.</span>
 &lt;iter&gt; = it.islice(&lt;coll&gt;, stop)         <span class="hljs-comment"># Also accepts 'start' and 'step'. Args can be None.</span>
 &lt;iter&gt; = it.product(&lt;coll&gt;, &lt;coll&gt;)      <span class="hljs-comment"># Same as `((a, b) for a in arg_1 for b in arg_2)`.</span>
 </code></pre>
+<ul>
+<li><strong>For loops call <code class="python hljs"><span class="hljs-string">'iter(&lt;collection&gt;)'</span></code> at the start and <code class="python hljs"><span class="hljs-string">'next(&lt;iter&gt;)'</span></code> on each pass.</strong></li>
+<li><strong>Calling <code class="python hljs"><span class="hljs-string">'iter(&lt;iter&gt;)'</span></code> returns unmodified iterator. For details see <a href="#iterator-1">Iterator</a> duck type.</strong></li>
+</ul>
 <div><h2 id="generator"><a href="#generator" name="generator">#</a>Generator</h2><ul>
 <li><strong>Any function that contains a yield statement returns a generator.</strong></li>
 <li><strong>Generators and iterators are interchangeable (see <a href="#iterator-1">Iterator</a> duck type).</strong></li>
@@ -266,7 +266,7 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 (<span class="hljs-number">10</span>, <span class="hljs-number">12</span>, <span class="hljs-number">14</span>)
 </code></pre>
 <div><h2 id="type"><a href="#type" name="type">#</a>Type</h2><ul>
-<li><strong>Everything in Python is an object.</strong></li>
+<li><strong>All values in Python are objects.</strong></li>
 <li><strong>Every object has a certain type.</strong></li>
 <li><strong>Type and class are synonymous.</strong></li>
 </ul><pre><code class="python language-python hljs">&lt;type&gt; = type(&lt;obj&gt;)                <span class="hljs-comment"># Object's type. Same as `&lt;obj&gt;.__class__`.</span>
@@ -1654,7 +1654,7 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 </code></pre></div>
 
 <div><h2 id="struct"><a href="#struct" name="struct">#</a>Struct</h2><ul>
-<li><strong>Module that performs conversions between a sequence of nums and a bytes obj.</strong></li>
+<li><strong>Performs conversions between a sequence of numbers and a bytes object.</strong></li>
 <li><strong>System’s type sizes, byte order, and alignment rules are used by default.</strong></li>
 </ul><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> struct <span class="hljs-keyword">import</span> pack, unpack
 
@@ -1726,11 +1726,11 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;deque&gt; = deque(&lt;collection&gt;)  <span class="hljs-comment"># Pass `maxlen=&lt;int&gt;` to set the size limit.</span>
-&lt;deque&gt;.appendleft(&lt;el&gt;)       <span class="hljs-comment"># Drops last element if maxlen is exceeded.</span>
-&lt;deque&gt;.extendleft(&lt;coll&gt;)     <span class="hljs-comment"># Prepends reversed collection to the deque.</span>
-&lt;deque&gt;.rotate(n=<span class="hljs-number">1</span>)            <span class="hljs-comment"># Moves last element to the start of deque.</span>
-&lt;el&gt; = &lt;deque&gt;.popleft()       <span class="hljs-comment"># Removes and returns deque's first element.</span>
+<pre><code class="python language-python hljs">&lt;deque&gt; = deque(&lt;coll&gt;)          <span class="hljs-comment"># Pass `maxlen=&lt;int&gt;` to set the size limit.</span>
+&lt;deque&gt;.appendleft(&lt;el&gt;)         <span class="hljs-comment"># Drops last element if maxlen is exceeded.</span>
+&lt;deque&gt;.extendleft(&lt;coll&gt;)       <span class="hljs-comment"># Prepends reversed collection to the deque.</span>
+&lt;deque&gt;.rotate(n=<span class="hljs-number">1</span>)              <span class="hljs-comment"># Moves last element to the start of deque.</span>
+&lt;el&gt; = &lt;deque&gt;.popleft()         <span class="hljs-comment"># Removes and returns deque's first element.</span>
 </code></pre>
 <div><h2 id="operator"><a href="#operator" name="operator">#</a>Operator</h2><p><strong>Module of functions that provide the functionality of operators. Functions are grouped by operator precedence, from least to most binding. Functions/operators in first and third line are also ordered by precedence within a line.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> operator <span class="hljs-keyword">as</span> op
 </code></pre></div>
@@ -1806,7 +1806,7 @@ log.debug/info/warning/error/critical(&lt;str&gt;)    <span class="hljs-comment"
 )
 </code></pre></div>
 
-<pre><code class="python language-python hljs">&lt;Formatter&gt; = log.Formatter(<span class="hljs-string">'&lt;format&gt;'</span>)         <span class="hljs-comment"># Formats messages using the format str.</span>
+<pre><code class="python language-python hljs">&lt;Formatr&gt; = log.Formatter(<span class="hljs-string">'&lt;format&gt;'</span>)           <span class="hljs-comment"># Formats messages using the format str.</span>
 &lt;Handler&gt; = log.FileHandler(&lt;path&gt;, mode=<span class="hljs-string">'a'</span>)   <span class="hljs-comment"># Appends to file. Also `encoding=None`.</span>
 &lt;Handler&gt;.setFormatter(&lt;Formatter&gt;)             <span class="hljs-comment"># Only outputs bare messages by default.</span>
 &lt;Handler&gt;.setLevel(&lt;str/int&gt;)                   <span class="hljs-comment"># Prints/saves every message by default.</span>
@@ -2933,7 +2933,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>July 9, 2026</aside>
+    <aside>July 12, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 

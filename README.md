@@ -192,7 +192,7 @@ Range
 **Iterator that zips collection with range.**
 ```python
 for i, el in enumerate(<coll>):
-    ...
+    print(f'Element {el} has index {i}.')
 ```
 
 
@@ -205,19 +205,17 @@ import itertools as it
 ```
 
 ```python
-<iter> = iter(<collection>)              # Iterator that returns passed elements one by one.
+<iter> = iter(<coll>)                    # Iterator that returns passed elements one by one.
 <iter> = iter(<func>, to_exc)            # Calls `<func>()` until it receives 'to_exc' value.
 <iter> = (<expr> for <name> in <coll>)   # E.g. `(i+1 for i in range(3))`. Evaluates lazily.
 <el>   = next(<iter> [, default])        # Raises StopIteration or returns 'default' on end.
 <list> = list(<iter>)                    # Returns a list of iterator's remaining elements.
 ```
-* **For loops call `'iter(<collection>)'` at the start and `'next(<iter>)'` on each pass.**
-* **Calling `'iter(<iter>)'` returns unmodified iterator. For details see [Iterator](#iterator-1) duck type.**
 
 ```python
 <iter> = it.count(start=0, step=1)       # Returns updated 'start' endlessly. Accepts floats.
 <iter> = it.repeat(<obj> [, times])      # Returns passed element endlessly or 'times' times.
-<iter> = it.cycle(<collection>)          # Repeats the sequence endlessly. Accepts iterators.
+<iter> = it.cycle(<coll>)                # Repeats the sequence endlessly. Accepts iterators.
 ```
 
 ```python
@@ -226,6 +224,8 @@ import itertools as it
 <iter> = it.islice(<coll>, stop)         # Also accepts 'start' and 'step'. Args can be None.
 <iter> = it.product(<coll>, <coll>)      # Same as `((a, b) for a in arg_1 for b in arg_2)`.
 ```
+* **For loops call `'iter(<collection>)'` at the start and `'next(<iter>)'` on each pass.**
+* **Calling `'iter(<iter>)'` returns unmodified iterator. For details see [Iterator](#iterator-1) duck type.**
 
 
 Generator
@@ -249,7 +249,7 @@ def count(start, step):
 
 Type
 ----
-* **Everything in Python is an object.**
+* **All values in Python are objects.**
 * **Every object has a certain type.**
 * **Type and class are synonymous.**
 
@@ -1989,7 +1989,7 @@ def write_bytes(filename, bytes_obj):
 
 Struct
 ------
-* **Module that performs conversions between a sequence of nums and a bytes obj.**
+* **Performs conversions between a sequence of numbers and a bytes object.**
 * **System’s type sizes, byte order, and alignment rules are used by default.**
 
 ```python
@@ -2084,11 +2084,11 @@ from collections import deque
 ```
 
 ```python
-<deque> = deque(<collection>)  # Pass `maxlen=<int>` to set the size limit.
-<deque>.appendleft(<el>)       # Drops last element if maxlen is exceeded.
-<deque>.extendleft(<coll>)     # Prepends reversed collection to the deque.
-<deque>.rotate(n=1)            # Moves last element to the start of deque.
-<el> = <deque>.popleft()       # Removes and returns deque's first element.
+<deque> = deque(<coll>)          # Pass `maxlen=<int>` to set the size limit.
+<deque>.appendleft(<el>)         # Drops last element if maxlen is exceeded.
+<deque>.extendleft(<coll>)       # Prepends reversed collection to the deque.
+<deque>.rotate(n=1)              # Moves last element to the start of deque.
+<el> = <deque>.popleft()         # Removes and returns deque's first element.
 ```
 
 
@@ -2187,7 +2187,7 @@ log.basicConfig(
 ```
 
 ```python
-<Formatter> = log.Formatter('<format>')         # Formats messages using the format str.
+<Formatr> = log.Formatter('<format>')           # Formats messages using the format str.
 <Handler> = log.FileHandler(<path>, mode='a')   # Appends to file. Also `encoding=None`.
 <Handler>.setFormatter(<Formatter>)             # Only outputs bare messages by default.
 <Handler>.setLevel(<str/int>)                   # Prints/saves every message by default.
