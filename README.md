@@ -254,8 +254,8 @@ Type
 * **Type and class are synonymous.**
 
 ```python
-<type> = type(<obj>)                # Object's type. Same as `<obj>.__class__`.
-<bool> = isinstance(<obj>, <type>)  # Same as `issubclass(type(<obj>), <type>)`.
+<type> = type(<obj>)                   # Object's type. Also `<obj>.__class__`.
+<bool> = isinstance(<obj>, <type>)     # Also `issubclass(type(<obj>), <type>)`.
 ```
 
 ```python
@@ -294,15 +294,15 @@ True
 ```
 
 ```text
-+--------------------+-----------+-----------+----------+----------+----------+
-|                    |   Number  |  Complex  |   Real   | Rational | Integral |
-+--------------------+-----------+-----------+----------+----------+----------+
-| int                |    yes    |    yes    |   yes    |   yes    |   yes    |
-| fractions.Fraction |    yes    |    yes    |   yes    |   yes    |          |
-| float              |    yes    |    yes    |   yes    |          |          |
-| complex            |    yes    |    yes    |          |          |          |
-| decimal.Decimal    |    yes    |           |          |          |          |
-+--------------------+-----------+-----------+----------+----------+----------+
++--------------------+---------+---------+---------+----------+----------+
+|                    |  Number | Complex |  Real   | Rational | Integral |
++--------------------+---------+---------+---------+----------+----------+
+| int                |   yes   |   yes   |   yes   |   yes    |   yes    |
+| fractions.Fraction |   yes   |   yes   |   yes   |   yes    |          |
+| float              |   yes   |   yes   |   yes   |          |          |
+| complex            |   yes   |   yes   |         |          |          |
+| decimal.Decimal    |   yes   |         |         |          |          |
++--------------------+---------+---------+---------+----------+----------+
 ```
 
 
@@ -310,48 +310,48 @@ String
 ------
 **Immutable sequence of characters.**
 ```python
-<str>  = 'abc'                         # Also "abc". Interprets \n, \t, \x00-\xff, etc.
+<str>  = 'abc'                       # Also "abc". Interprets \n, \t, \x00-\xff, etc.
 ```
 
 ```python
-<str>  = <str>.strip()                 # Strips all whitespace characters from both ends.
-<str>  = <str>.strip('<chars>')        # Strips passed characters. Also lstrip/rstrip().
+<str>  = <str>.strip()               # Strips all whitespace characters from both ends.
+<str>  = <str>.strip('<chars>')      # Strips passed characters. Also lstrip/rstrip().
 ```
 
 ```python
-<list> = <str>.split()                 # Splits it on one or more whitespace characters.
-<list> = <str>.split(<str>)            # Splits on passed string. Also `maxsplit=<int>`.
-<list> = <str>.splitlines()            # On [\n\r\f\v\x1c-\x1e\x85\u2028\u2029] and \r\n.
-<str>  = <str>.join(<coll_of_str>)     # Joins items by using the string as a separator.
+<list> = <str>.split()               # Splits it on one or more whitespace characters.
+<list> = <str>.split(<str>)          # Splits on passed string. Also `maxsplit=<int>`.
+<list> = <str>.splitlines()          # On [\n\r\f\v\x1c-\x1e\x85\u2028\u2029] and \r\n.
+<str>  = <str>.join(<coll_of_str>)   # Joins items by using the string as a separator.
 ```
 
 ```python
-<bool> = <sub_str> in <str>            # Returns True if string contains the substring.
-<bool> = <str>.startswith(<sub_str>)   # Pass tuple of strings to give multiple options.
-<int>  = <str>.find(<sub_str>)         # Returns start index of the first match or `-1`.
+<bool> = <str> in <str>              # Returns True if string contains the substring.
+<bool> = <str>.startswith(<str>)     # Pass tuple of strings to give multiple options.
+<int>  = <str>.find(<str>)           # Returns start index of the first match or `-1`.
 ```
 
 ```python
-<str>  = <str>.lower()                 # Lowers the case. Also upper/capitalize/title().
-<str>  = <str>.casefold()              # Lower() that converts ẞ/ß to ss, Σ/ς to σ, etc.
-<str>  = <str>.replace(old, new)       # Removes occurrences of string old if new is ''.
-<str>  = <str>.translate(table)        # Get table via str.maketrans(<chr_to_str_dict>).
+<str>  = <str>.lower()               # Lowers the case. Also upper/capitalize/title().
+<str>  = <str>.casefold()            # Lower() that converts ẞ/ß to ss, Σ/ς to σ, etc.
+<str>  = <str>.replace(old, new)     # Removes occurrences of string old if new is ''.
+<str>  = <str>.translate(table)      # Get table via str.maketrans(<chr_to_str_dict>).
 ```
 
 ```python
-<str>  = chr(<int>)                    # Converts passed integer into Unicode character.
-<int>  = ord(<str>)                    # Converts passed Unicode character into integer.
+<str>  = chr(<int>)                  # Converts passed integer into Unicode character.
+<int>  = ord(<str>)                  # Converts passed Unicode character into integer.
 ```
 * **Use `'unicodedata.normalize("NFC", <str>)'` on strings like `'Motörhead'` before comparing them to other strings, because `'ö'` can be stored as one or two characters.**
 * **`'NFC'` converts such characters to a single character, while `'NFD'` converts them to two.**
 
 ```python
-<bool> = <str>.isdecimal()             # Checks all chars for [0-9]. Also [०-९], [٠-٩].
-<bool> = <str>.isdigit()               # Checks for [²³¹…] and isdecimal(). Also [፩-፱].
-<bool> = <str>.isnumeric()             # Checks for [¼½¾…] and isdigit(). Also [零〇一…].
-<bool> = <str>.isalnum()               # Checks for [ABC…] and isnumeric(). Also [ªµº…].
-<bool> = <str>.isprintable()           # Checks for [ !"#…], basic emojis and isalnum().
-<bool> = <str>.isspace()               # Checks for [ \t\n\r\f\v\x1c\x1d\x1e\x1f\x85…].
+<bool> = <str>.isdecimal()           # Checks all chars for [0-9]. Also [०-९], [٠-٩].
+<bool> = <str>.isdigit()             # Checks for [²³¹…] and isdecimal(). Also [፩-፱].
+<bool> = <str>.isnumeric()           # Checks for [¼½¾…] and isdigit(). Also [零〇一…].
+<bool> = <str>.isalnum()             # Checks for [ABC…] and isnumeric(). Also [ªµº…].
+<bool> = <str>.isprintable()         # Checks for [ !"#…], basic emojis and isalnum().
+<bool> = <str>.isspace()             # Checks for [ \t\n\r\f\v\x1c\x1d\x1e\x1f\x85…].
 ```
 
 
@@ -716,7 +716,7 @@ def add(*a):
 6
 ```
 
-#### Allowed compositions of arguments and the ways they can be called:
+#### Allowed compositions of arguments:
 ```text
 +---------------------------+----------------+--------------+--------------+
 |                           | func(x=1, y=2) | func(1, y=2) |  func(1, 2)  |
@@ -1811,24 +1811,23 @@ import csv
 ```
 
 ```python
-<file>   = open(<path>, newline='')             # Opens the text file for reading.
-<reader> = csv.reader(<file>, 'excel')          # Also `delimiter=','`. See Params.
-<list>   = next(<reader>)                       # Returns a row as list of strings.
-<list>   = list(<reader>)                       # Returns list of remaining rows.
+<file> = open(<path>, newline='')              # Opens the text file for reading.
+<read> = csv.reader(<file>, 'excel')           # Also `delimiter=','`. See Params.
+<list> = next(<read>)                          # Returns a row as list of strings.
+<list> = list(<read>)                          # Returns list of remaining rows.
 ```
-* **Without the `'newline=""'` argument, every '\r\n' sequence that is embedded inside a quoted field will get converted to '\n'. For details about the newline argument see [Open](#open).**
-* **To nicely print the spreadsheet to the console use either [Tabulate](#table) or PrettyTable library.**
 * **For XML and binary Excel files (with extensions xlsx, xlsm and xlsb) use [Pandas](#file-formats) library.**
+* **To nicely print the spreadsheet to the console use either [Tabulate](#table) or PrettyTable library.**
 * **Reader can consume any iterator or collection of strings, not just text files.**
 
 ### Write
 ```python
-<file>   = open(<path>, 'a', newline='')        # Opens the text file for writing.
-<writer> = csv.writer(<file>, 'excel')          # Also `delimiter=','`. See Params.
-<writer>.writerow(<collection>)                 # Encodes objects using str(<obj>).
-<writer>.writerows(<coll_of_coll>)              # Appends rows to the opened file.
+<file>  = open(<path>, 'a', newline='')        # Opens the text file for writing.
+<write> = csv.writer(<file>, 'excel')          # Also `delimiter=','`. See Params.
+<write>.writerow(<collection>)                 # Encodes objects using str(<obj>).
+<write>.writerows(<coll_of_coll>)              # Appends rows to the opened file.
 ```
-* **If file is opened without the `'newline=""'` argument, '\r' will be added in front of every '\n' on platforms that use '\r\n' line endings. I.e., newlines may get doubled on Windows.**
+* **Always pass `'newline=""'` argument to open(), or newlines embedded inside quoted fields will flip between '\n' and '\r\n' (in some cases '\r\n' may even change to '\r\r\n'). Also rows won't be terminated with passed or dialect's `'lineterminator'` parameter.**
 * **Open existing file with `'mode="a"'` to append to it or `'mode="w"'` to overwrite it.**
 
 ### Parameters
@@ -2084,11 +2083,11 @@ from collections import deque
 ```
 
 ```python
-<deque> = deque(<coll>)          # Pass `maxlen=<int>` to set the size limit.
-<deque>.appendleft(<el>)         # Drops last element if maxlen is exceeded.
-<deque>.extendleft(<coll>)       # Prepends reversed collection to the deque.
-<deque>.rotate(n=1)              # Moves last element to the start of deque.
-<el> = <deque>.popleft()         # Removes and returns deque's first element.
+<deque> = deque(<coll>)            # Pass `maxlen=<int>` to set the size limit.
+<deque>.appendleft(<el>)           # Drops last element if maxlen is exceeded.
+<deque>.extendleft(<coll>)         # Prepends reversed collection to the deque.
+<deque>.rotate(n=1)                # Moves last element to the start of deque.
+<el> = <deque>.popleft()           # Removes and returns deque's first element.
 ```
 
 
@@ -2233,7 +2232,7 @@ Introspection
 <dict> = vars(<obj>)                 # Dict of writable attributes. Or <obj>.__dict__.
 <bool> = hasattr(<obj>, '<name>')    # Checks if object possesses attr. of passed name.
 value  = getattr(<obj>, '<name>')    # Returns object's attr. or raises AttributeError.
-setattr(<obj>, '<name>', value)      # Only works on objects with __dict__ attribute.
+setattr(<obj>, '<name>', value)      # Only works on objects with `__dict__` attribute.
 delattr(<obj>, '<name>')             # Deletes from __dict__. Also `del <obj>.<name>`.
 ```
 
