@@ -422,29 +422,29 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 {<span class="hljs-number">1.23456</span>:<span class="hljs-number">10.3</span>%}                        <span class="hljs-comment"># '  123.456%'.</span>
 </code></pre></div>
 
-<div><h4 id="comparisonofpresentationtypes">Comparison of presentation types:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓
-┃              │   {&lt;float&gt;}   │   {&lt;float&gt;:f}  │   {&lt;float&gt;:e}  │   {&lt;float&gt;:%}  ┃
-┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨
-┃  0.000056789 │   5.6789e-05  │     0.000057   │  5.678900e-05  │     0.005679%  ┃
-┃  0.00056789  │   0.00056789  │     0.000568   │  5.678900e-04  │     0.056789%  ┃
-┃  0.0056789   │   0.0056789   │     0.005679   │  5.678900e-03  │     0.567890%  ┃
-┃  0.056789    │   0.056789    │     0.056789   │  5.678900e-02  │     5.678900%  ┃
-┃  0.56789     │   0.56789     │     0.567890   │  5.678900e-01  │    56.789000%  ┃
-┃  5.6789      │   5.6789      │     5.678900   │  5.678900e+00  │   567.890000%  ┃
-┃ 56.789       │  56.789       │    56.789000   │  5.678900e+01  │  5678.900000%  ┃
-┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛
+<div><h4 id="comparisonofpresentationtypes">Comparison of presentation types:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┓
+┃               │  {&lt;number&gt;}   │   {&lt;num&gt;:f}   │   {&lt;num&gt;:e}   │   {&lt;num&gt;:%}   ┃
+┠───────────────┼───────────────┼───────────────┼───────────────┼───────────────┨
+┃   0.000056789 │   5.6789e-05  │    0.000057   │  5.678900e-05 │    0.005679%  ┃
+┃   0.00056789  │   0.00056789  │    0.000568   │  5.678900e-04 │    0.056789%  ┃
+┃   0.0056789   │   0.0056789   │    0.005679   │  5.678900e-03 │    0.567890%  ┃
+┃   0.056789    │   0.056789    │    0.056789   │  5.678900e-02 │    5.678900%  ┃
+┃   0.56789     │   0.56789     │    0.567890   │  5.678900e-01 │   56.789000%  ┃
+┃   5.6789      │   5.6789      │    5.678900   │  5.678900e+00 │  567.890000%  ┃
+┃  56.789       │  56.789       │   56.789000   │  5.678900e+01 │ 5678.900000%  ┃
+┗━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━┓
-┃              │ {&lt;float&gt;:.2}  │  {&lt;float&gt;:.2f} │  {&lt;float&gt;:.2e} │  {&lt;float&gt;:.2%} ┃
-┠──────────────┼───────────────┼────────────────┼────────────────┼────────────────┨
-┃  0.000056789 │    5.7e-05    │       0.00     │    5.68e-05    │       0.01%    ┃
-┃  0.00056789  │    0.00057    │       0.00     │    5.68e-04    │       0.06%    ┃
-┃  0.0056789   │    0.0057     │       0.01     │    5.68e-03    │       0.57%    ┃
-┃  0.056789    │    0.057      │       0.06     │    5.68e-02    │       5.68%    ┃
-┃  0.56789     │    0.57       │       0.57     │    5.68e-01    │      56.79%    ┃
-┃  5.6789      │    5.7        │       5.68     │    5.68e+00    │     567.89%    ┃
-┃ 56.789       │    5.7e+01    │      56.79     │    5.68e+01    │    5678.90%    ┃
-┗━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┛
+┏━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┓
+┃               │  {&lt;float&gt;:.2} │  {&lt;num&gt;:.2f}  │  {&lt;num&gt;:.2e}  │  {&lt;num&gt;:.2%}  ┃
+┠───────────────┼───────────────┼───────────────┼───────────────┼───────────────┨
+┃   0.000056789 │    5.7e-05    │      0.00     │    5.68e-05   │      0.01%    ┃
+┃   0.00056789  │    0.00057    │      0.00     │    5.68e-04   │      0.06%    ┃
+┃   0.0056789   │    0.0057     │      0.01     │    5.68e-03   │      0.57%    ┃
+┃   0.056789    │    0.057      │      0.06     │    5.68e-02   │      5.68%    ┃
+┃   0.56789     │    0.57       │      0.57     │    5.68e-01   │     56.79%    ┃
+┃   5.6789      │    5.7        │      5.68     │    5.68e+00   │    567.89%    ┃
+┃  56.789       │    5.7e+01    │     56.79     │    5.68e+01   │   5678.90%    ┃
+┗━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┛
 </code></pre></div>
 
 
@@ -600,9 +600,9 @@ shuffle(&lt;list&gt;)                                <span class="hljs-comment">
 &lt;num&gt;   =  &lt;TD&gt;     /  &lt;TD&gt;                 <span class="hljs-comment"># Calling divmod(&lt;TD&gt;, &lt;TD&gt;) returns int and TD.</span>
 </code></pre></div>
 
-<div><h2 id="function"><a href="#function" name="function">#</a>Function</h2><p><strong>Independent block of code that returns a value when called.</strong></p><pre><code class="python language-python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_function</span><span class="hljs-params">(&lt;nondefault_args&gt;)</span>:</span> ...                  <span class="hljs-comment"># E.g. `my_func(x, y):`.</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_function</span><span class="hljs-params">(&lt;default_args&gt;)</span>:</span> ...                     <span class="hljs-comment"># E.g. `my_func(x=0, y=0):`.</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_function</span><span class="hljs-params">(&lt;nondefault_args&gt;, &lt;default_args&gt;)</span>:</span> ...  <span class="hljs-comment"># E.g. `my_func(x, y=0):`.</span>
+<div><h2 id="function"><a href="#function" name="function">#</a>Function</h2><p><strong>Independent block of code that returns a value when called.</strong></p><pre><code class="python language-python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_func</span><span class="hljs-params">(&lt;nondefault_args&gt;)</span>:</span> ...                   <span class="hljs-comment"># E.g. `my_func(x, y):`.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_func</span><span class="hljs-params">(&lt;default_args&gt;)</span>:</span> ...                      <span class="hljs-comment"># E.g. `my_func(x=0, y=0):`.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_func</span><span class="hljs-params">(&lt;nondef_args&gt;, &lt;def_args&gt;)</span>:</span> ...           <span class="hljs-comment"># E.g. `my_func(x, y=0):`.</span>
 </code></pre></div>
 
 
@@ -612,12 +612,12 @@ shuffle(&lt;list&gt;)                                <span class="hljs-comment">
 <li><strong>Value of a default argument is evaluated when function is first encountered in the scope.</strong></li>
 <li><strong>Any mutation of a default argument value will persist between function invocations!</strong></li>
 </ul>
-<div><h3 id="functioncall">Function Call</h3><pre><code class="python language-python hljs">&lt;obj&gt; = &lt;function&gt;(&lt;positional_args&gt;)                    <span class="hljs-comment"># E.g. `my_func(0, 0)`.</span>
-&lt;obj&gt; = &lt;function&gt;(&lt;keyword_args&gt;)                       <span class="hljs-comment"># E.g. `my_func(x=0, y=0)`.</span>
-&lt;obj&gt; = &lt;function&gt;(&lt;positional_args&gt;, &lt;keyword_args&gt;)    <span class="hljs-comment"># E.g. `my_func(0, y=0)`.</span>
+<div><h3 id="functioncall">Function Call</h3><pre><code class="python language-python hljs">&lt;obj&gt; = &lt;func&gt;(&lt;positional_args&gt;)                     <span class="hljs-comment"># E.g. `my_func(0, 0)`.</span>
+&lt;obj&gt; = &lt;func&gt;(&lt;keyword_args&gt;)                        <span class="hljs-comment"># E.g. `my_func(x=0, y=0)`.</span>
+&lt;obj&gt; = &lt;func&gt;(&lt;pos_args&gt;, &lt;key_args&gt;)                <span class="hljs-comment"># E.g. `my_func(0, y=0)`.</span>
 </code></pre></div>
 
-<div><h2 id="splatoperator"><a href="#splatoperator" name="splatoperator">#</a>Splat Operator</h2><p><strong>Splat expands collection into positional arguments, while splatty-splat expands a dictionary into keyword arguments.</strong></p><pre><code class="python language-python hljs">args, kwargs = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), {<span class="hljs-string">'z'</span>: <span class="hljs-number">3</span>}
+<div><h2 id="splat"><a href="#splat" name="splat">#</a>Splat</h2><p><strong>Splat operator, i.e. <code class="python hljs"><span class="hljs-string">'*'</span></code>, expands collection into positional arguments, while splatty-splat, i.e. <code class="python hljs"><span class="hljs-string">'**'</span></code>, expands a dictionary into keyword arguments.</strong></p><pre><code class="python language-python hljs">args, kwargs = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), {<span class="hljs-string">'z'</span>: <span class="hljs-number">3</span>}
 func(*args, **kwargs)
 </code></pre></div>
 
@@ -633,13 +633,13 @@ func(*args, **kwargs)
 <pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 <span class="hljs-number">6</span>
 </code></pre>
-<div><h4 id="allowedcompositionsofarguments">Allowed compositions of arguments:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┓
-┃                         │ fn(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>) │  fn(<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>)  │   fn(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)   ┃
-┠─────────────────────────┼──────────────┼──────────────┼──────────────┨
-┃ <span class="hljs-title">fn</span>(x, *args, **kwargs): │      ✓       │      ✓       │      ✓       ┃
-┃ <span class="hljs-title">fn</span>(*args, y, **kwargs): │      ✓       │      ✓       │              ┃
-┃ <span class="hljs-title">fn</span>(*, x, **kwargs):     │      ✓       │              │              ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┛
+<div><h4 id="allowedcompositionsofarguments">Allowed compositions of arguments:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━┓
+┃                         │ fn(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>) │  fn(<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>)  │  fn(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)  ┃
+┠─────────────────────────┼──────────────┼──────────────┼────────────┨
+┃ <span class="hljs-title">fn</span>(x, *args, **kwargs): │      ✓       │      ✓       │     ✓      ┃
+┃ <span class="hljs-title">fn</span>(*args, y, **kwargs): │      ✓       │      ✓       │            ┃
+┃ <span class="hljs-title">fn</span>(*, x, **kwargs):     │      ✓       │              │            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━┛
 </code></pre></div>
 
 <div><h3 id="otheruses">Other Uses</h3><pre><code class="python language-python hljs">&lt;list&gt;  = [*&lt;collection&gt; [, ...]]  <span class="hljs-comment"># Same as `list(&lt;coll&gt;) [+ ...]`.</span>
@@ -702,10 +702,10 @@ Player = make_dataclass(<span class="hljs-string">'Player'</span>, [<span class=
 player = Player(point, direction)                 <span class="hljs-comment"># Returns its instance.</span>
 </code></pre></div>
 
-<div><h2 id="import"><a href="#import" name="import">#</a>Import</h2><p><strong>Mechanism that makes code in one file available to another file.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> &lt;module&gt;                     <span class="hljs-comment"># Imports a built-in module or `&lt;module&gt;.py`.</span>
-<span class="hljs-keyword">import</span> &lt;package&gt;                    <span class="hljs-comment"># Built-in package or `&lt;package&gt;/__init__.py`.</span>
-<span class="hljs-keyword">import</span> &lt;package&gt;.&lt;module&gt;           <span class="hljs-comment"># Package's module or `&lt;package&gt;/&lt;module&gt;.py`.</span>
-<span class="hljs-keyword">from</span> &lt;pkg/mod&gt;[.…] <span class="hljs-keyword">import</span> &lt;obj&gt;     <span class="hljs-comment"># Imports a module, class, func or variable.</span>
+<div><h2 id="import"><a href="#import" name="import">#</a>Import</h2><p><strong>Mechanism that makes code in one file available to another file.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> &lt;module&gt;                      <span class="hljs-comment"># Imports a built-in module or `&lt;module&gt;.py`.</span>
+<span class="hljs-keyword">import</span> &lt;package&gt;                     <span class="hljs-comment"># Built-in package or `&lt;package&gt;/__init__.py`.</span>
+<span class="hljs-keyword">import</span> &lt;package&gt;.&lt;module&gt;            <span class="hljs-comment"># Package's module or `&lt;package&gt;/&lt;module&gt;.py`.</span>
+<span class="hljs-keyword">from</span> &lt;pkg/mod&gt;[.…] <span class="hljs-keyword">import</span> &lt;obj&gt;      <span class="hljs-comment"># Imports a module, class, func or variable.</span>
 </code></pre></div>
 
 
@@ -1725,11 +1725,11 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;deque&gt; = deque(&lt;coll&gt;)            <span class="hljs-comment"># Pass `maxlen=&lt;int&gt;` to set the size limit.</span>
-&lt;deque&gt;.appendleft(&lt;el&gt;)           <span class="hljs-comment"># Drops last element if maxlen is exceeded.</span>
-&lt;deque&gt;.extendleft(&lt;coll&gt;)         <span class="hljs-comment"># Prepends reversed collection to the deque.</span>
-&lt;deque&gt;.rotate(n=<span class="hljs-number">1</span>)                <span class="hljs-comment"># Moves last element to the start of deque.</span>
-&lt;el&gt; = &lt;deque&gt;.popleft()           <span class="hljs-comment"># Removes and returns deque's first element.</span>
+<pre><code class="python language-python hljs">&lt;deque&gt; = deque(&lt;coll&gt;)           <span class="hljs-comment"># Pass `maxlen=&lt;int&gt;` to set the size limit.</span>
+&lt;deque&gt;.appendleft(&lt;el&gt;)          <span class="hljs-comment"># Drops last element if maxlen is exceeded.</span>
+&lt;deque&gt;.extendleft(&lt;coll&gt;)        <span class="hljs-comment"># Prepends reversed collection to the deque.</span>
+&lt;deque&gt;.rotate(n=<span class="hljs-number">1</span>)               <span class="hljs-comment"># Moves last element to the start of deque.</span>
+&lt;el&gt; = &lt;deque&gt;.popleft()          <span class="hljs-comment"># Removes and returns deque's first element.</span>
 </code></pre>
 <div><h2 id="operator"><a href="#operator" name="operator">#</a>Operator</h2><p><strong>Module of functions that provide the functionality of operators. Functions are grouped by operator precedence, from least to most binding. Functions/operators in first and third line are also ordered by precedence within a line.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> operator <span class="hljs-keyword">as</span> op
 </code></pre></div>

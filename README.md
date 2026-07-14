@@ -453,31 +453,31 @@ Format
 
 #### Comparison of presentation types:
 ```text
-+--------------+---------------+----------------+----------------+----------------+
-|              |   {<float>}   |   {<float>:f}  |   {<float>:e}  |   {<float>:%}  |
-+--------------+---------------+----------------+----------------+----------------+
-|  0.000056789 |  '5.6789e-05' |    '0.000057'  | '5.678900e-05' |    '0.005679%' |
-|  0.00056789  |  '0.00056789' |    '0.000568'  | '5.678900e-04' |    '0.056789%' |
-|  0.0056789   |  '0.0056789'  |    '0.005679'  | '5.678900e-03' |    '0.567890%' |
-|  0.056789    |  '0.056789'   |    '0.056789'  | '5.678900e-02' |    '5.678900%' |
-|  0.56789     |  '0.56789'    |    '0.567890'  | '5.678900e-01' |   '56.789000%' |
-|  5.6789      |  '5.6789'     |    '5.678900'  | '5.678900e+00' |  '567.890000%' |
-| 56.789       | '56.789'      |   '56.789000'  | '5.678900e+01' | '5678.900000%' |
-+--------------+---------------+----------------+----------------+----------------+
++---------------+---------------+---------------+---------------+---------------+
+|               |  {<number>}   |   {<num>:f}   |   {<num>:e}   |   {<num>:%}   |
++---------------+---------------+---------------+---------------+---------------+
+|   0.000056789 |   5.6789e-05  |    0.000057   |  5.678900e-05 |    0.005679%  |
+|   0.00056789  |   0.00056789  |    0.000568   |  5.678900e-04 |    0.056789%  |
+|   0.0056789   |   0.0056789   |    0.005679   |  5.678900e-03 |    0.567890%  |
+|   0.056789    |   0.056789    |    0.056789   |  5.678900e-02 |    5.678900%  |
+|   0.56789     |   0.56789     |    0.567890   |  5.678900e-01 |   56.789000%  |
+|   5.6789      |   5.6789      |    5.678900   |  5.678900e+00 |  567.890000%  |
+|  56.789       |  56.789       |   56.789000   |  5.678900e+01 | 5678.900000%  |
++---------------+---------------+---------------+---------------+---------------+
 ```
 
 ```text
-+--------------+---------------+----------------+----------------+----------------+
-|              | {<float>:.2}  |  {<float>:.2f} |  {<float>:.2e} |  {<float>:.2%} |
-+--------------+---------------+----------------+----------------+----------------+
-|  0.000056789 |   '5.7e-05'   |      '0.00'    |   '5.68e-05'   |      '0.01%'   |
-|  0.00056789  |   '0.00057'   |      '0.00'    |   '5.68e-04'   |      '0.06%'   |
-|  0.0056789   |   '0.0057'    |      '0.01'    |   '5.68e-03'   |      '0.57%'   |
-|  0.056789    |   '0.057'     |      '0.06'    |   '5.68e-02'   |      '5.68%'   |
-|  0.56789     |   '0.57'      |      '0.57'    |   '5.68e-01'   |     '56.79%'   |
-|  5.6789      |   '5.7'       |      '5.68'    |   '5.68e+00'   |    '567.89%'   |
-| 56.789       |   '5.7e+01'   |     '56.79'    |   '5.68e+01'   |   '5678.90%'   |
-+--------------+---------------+----------------+----------------+----------------+
++---------------+---------------+---------------+---------------+---------------+
+|               |  {<float>:.2} |  {<num>:.2f}  |  {<num>:.2e}  |  {<num>:.2%}  |
++---------------+---------------+---------------+---------------+---------------+
+|   0.000056789 |    5.7e-05    |      0.00     |    5.68e-05   |      0.01%    |
+|   0.00056789  |    0.00057    |      0.00     |    5.68e-04   |      0.06%    |
+|   0.0056789   |    0.0057     |      0.01     |    5.68e-03   |      0.57%    |
+|   0.056789    |    0.057      |      0.06     |    5.68e-02   |      5.68%    |
+|   0.56789     |    0.57       |      0.57     |    5.68e-01   |     56.79%    |
+|   5.6789      |    5.7        |      5.68     |    5.68e+00   |    567.89%    |
+|  56.789       |    5.7e+01    |     56.79     |    5.68e+01   |   5678.90%    |
++---------------+---------------+---------------+---------------+---------------+
 ```
 * **`'{<num>:g}'` is `'{<float>:.6}'` that strips `'.0'` and has exponent starting at `'1e+06'`.**
 * **When both rounding up and rounding down are possible, the one that returns result with even last digit is chosen. Hence `'{6.5:.0f}'` becomes a `'6'`, while `'{7.5:.0f}'` an `'8'`.**
@@ -673,9 +673,9 @@ Function
 **Independent block of code that returns a value when called.**
 
 ```python
-def my_function(<nondefault_args>): ...                  # E.g. `my_func(x, y):`.
-def my_function(<default_args>): ...                     # E.g. `my_func(x=0, y=0):`.
-def my_function(<nondefault_args>, <default_args>): ...  # E.g. `my_func(x, y=0):`.
+def my_func(<nondefault_args>): ...                   # E.g. `my_func(x, y):`.
+def my_func(<default_args>): ...                      # E.g. `my_func(x=0, y=0):`.
+def my_func(<nondef_args>, <def_args>): ...           # E.g. `my_func(x, y=0):`.
 ```
 * **Function returns None if it doesn't encounter the `'return <object/expr>'` statement.**
 * **Run `'global <var_name>'` inside the function before assigning to the global variable.**
@@ -685,15 +685,15 @@ def my_function(<nondefault_args>, <default_args>): ...  # E.g. `my_func(x, y=0)
 ### Function Call
 
 ```python
-<obj> = <function>(<positional_args>)                    # E.g. `my_func(0, 0)`.
-<obj> = <function>(<keyword_args>)                       # E.g. `my_func(x=0, y=0)`.
-<obj> = <function>(<positional_args>, <keyword_args>)    # E.g. `my_func(0, y=0)`.
+<obj> = <func>(<positional_args>)                     # E.g. `my_func(0, 0)`.
+<obj> = <func>(<keyword_args>)                        # E.g. `my_func(x=0, y=0)`.
+<obj> = <func>(<pos_args>, <key_args>)                # E.g. `my_func(0, y=0)`.
 ```
 
 
-Splat Operator
---------------
-**Splat expands collection into positional arguments, while splatty-splat expands a dictionary into keyword arguments.**
+Splat
+-----
+**Splat operator, i.e. `'*'`, expands collection into positional arguments, while splatty-splat, i.e. `'**'`, expands a dictionary into keyword arguments.**
 ```python
 args, kwargs = (1, 2), {'z': 3}
 func(*args, **kwargs)
@@ -821,10 +821,10 @@ Import
 **Mechanism that makes code in one file available to another file.**
 
 ```python
-import <module>                     # Imports a built-in module or `<module>.py`.
-import <package>                    # Built-in package or `<package>/__init__.py`.
-import <package>.<module>           # Package's module or `<package>/<module>.py`.
-from <pkg/mod>[.…] import <obj>     # Imports a module, class, func or variable.
+import <module>                      # Imports a built-in module or `<module>.py`.
+import <package>                     # Built-in package or `<package>/__init__.py`.
+import <package>.<module>            # Package's module or `<package>/<module>.py`.
+from <pkg/mod>[.…] import <obj>      # Imports a module, class, func or variable.
 ```
 * **Package is a collection of modules, but it can also define its own functions, variables, etc. On a filesystem this corresponds to a directory of Python files with an optional init script.**
 * **`'import <package>'` only exposes modules that are imported inside `'__init__.py'`.**
@@ -2083,11 +2083,11 @@ from collections import deque
 ```
 
 ```python
-<deque> = deque(<coll>)            # Pass `maxlen=<int>` to set the size limit.
-<deque>.appendleft(<el>)           # Drops last element if maxlen is exceeded.
-<deque>.extendleft(<coll>)         # Prepends reversed collection to the deque.
-<deque>.rotate(n=1)                # Moves last element to the start of deque.
-<el> = <deque>.popleft()           # Removes and returns deque's first element.
+<deque> = deque(<coll>)           # Pass `maxlen=<int>` to set the size limit.
+<deque>.appendleft(<el>)          # Drops last element if maxlen is exceeded.
+<deque>.extendleft(<coll>)        # Prepends reversed collection to the deque.
+<deque>.rotate(n=1)               # Moves last element to the start of deque.
+<el> = <deque>.popleft()          # Removes and returns deque's first element.
 ```
 
 
