@@ -43,22 +43,21 @@ const TOC =
   '</code></pre>\n';
 
 const BIN_HEX =
-  '&lt;int&gt; = <span class="hljs-number">0x</span>&lt;hex&gt;                                <span class="hljs-comment"># E.g. `0xFf == 255`. Also 0b&lt;bin&gt;.</span>\n' +
-  '&lt;int&gt; = int(<span class="hljs-string">\'±&lt;hex&gt;\'</span>, <span class="hljs-number">16</span>)                      <span class="hljs-comment"># Also int(\'±0x&lt;hex&gt;/±0b&lt;bin&gt;\', 0).</span>\n' +
-  '&lt;str&gt; = hex(&lt;int&gt;)                             <span class="hljs-comment"># Returns \'[-]0x&lt;hex&gt;\'. Also bin().</span>\n';
+  '&lt;int&gt; = <span class="hljs-number">0x</span>&lt;hex&gt;                               <span class="hljs-comment"># E.g. `0xFf == 255`. Also 0b&lt;bin&gt;.</span>\n' +
+  '&lt;int&gt; = int(<span class="hljs-string">\'±&lt;hex&gt;\'</span>, <span class="hljs-number">16</span>)                     <span class="hljs-comment"># Also int(\'±0x&lt;hex&gt;/±0b&lt;bin&gt;\', 0).</span>\n' +
+  '&lt;str&gt; = hex(&lt;int&gt;)                            <span class="hljs-comment"># Returns \'[-]0x&lt;hex&gt;\'. Also bin().</span>\n';
 
 const SPLAT =
-  '<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(*a)</span>:</span>\n' +
-  '<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> sum(a)\n' +
-  '<span class="hljs-meta">... </span>\n' +
+  '<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(*args)</span>:</span>\n' +
+  '<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> sum(args)\n' +
   '<span class="hljs-meta">&gt;&gt;&gt; </span>add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)\n' +
   '<span class="hljs-number">6</span>\n';
 
 const CACHE = `<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> cache
 
 <span class="hljs-meta">@cache</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fibonacci</span><span class="hljs-params">(n)</span>:</span>
-    <span class="hljs-keyword">return</span> n <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">else</span> fibonacci(n-<span class="hljs-number">2</span>) + fibonacci(n-<span class="hljs-number">1</span>)`;
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fib</span><span class="hljs-params">(n)</span>:</span>
+    <span class="hljs-keyword">return</span> n <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span> <span class="hljs-keyword">else</span> fib(n-<span class="hljs-number">2</span>) + fib(n-<span class="hljs-number">1</span>)`;
 
 const PARAMETRIZED_DECORATOR =
   '<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps\n' +
@@ -67,9 +66,9 @@ const PARAMETRIZED_DECORATOR =
   '    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorator</span><span class="hljs-params">(func)</span>:</span>\n' +
   '<span class="hljs-meta">        @wraps(func)</span>\n' +
   '        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">out</span><span class="hljs-params">(*args, **kwargs)</span>:</span>\n' +
-  '            result = func(*args, **kwargs)\n' +
-  '            print(func.__name__, result <span class="hljs-keyword">if</span> print_result <span class="hljs-keyword">else</span> <span class="hljs-string">\'\'</span>)\n' +
-  '            <span class="hljs-keyword">return</span> result\n' +
+  '            res = func(*args, **kwargs)\n' +
+  '            print(func.__name__, res <span class="hljs-keyword">if</span> print_result <span class="hljs-keyword">else</span> <span class="hljs-string">\'\'</span>)\n' +
+  '            <span class="hljs-keyword">return</span> res\n' +
   '        <span class="hljs-keyword">return</span> out\n' +
   '    <span class="hljs-keyword">return</span> decorator\n' +
   '\n' +
@@ -242,9 +241,10 @@ const AUDIO_1 =
   '        file.writeframes(<span class="hljs-string">b\'\'</span>.join(get_bytes(f) <span class="hljs-keyword">for</span> f <span class="hljs-keyword">in</span> samples_f))\n';
 
 const AUDIO_2 =
-  '<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> sin, pi\n' +
-  'get_sin = <span class="hljs-keyword">lambda</span> i: sin(i * <span class="hljs-number">2</span> * pi * <span class="hljs-number">440</span> / <span class="hljs-number">44100</span>) * <span class="hljs-number">0.2</span>\n' +
-  'write_to_wav_file(<span class="hljs-string">\'test.wav\'</span>, (get_sin(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">100_000</span>)))\n';
+`<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> sin, pi
+get_sin = <span class="hljs-keyword">lambda</span> i: sin(<span class="hljs-number">440</span> * pi*<span class="hljs-number">2</span> * i/<span class="hljs-number">44100</span>) * <span class="hljs-number">0.2</span>
+write_to_wav_file(<span class="hljs-string">'test.wav'</span>, (get_sin(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">100_000</span>)))
+`;
 
 const MARIO = `<span class="hljs-keyword">import</span> pygame <span class="hljs-keyword">as</span> pg, dataclasses <span class="hljs-keyword">as</span> dc, enum, io, itertools, random <span class="hljs-keyword">as</span> r, urllib.request
 
@@ -972,7 +972,7 @@ function fixHighlights() {
   $(`code:contains(np.zeros/ones/empty)`).html(NUMPY);
   $(`code:contains(a_float = max()`).html(AUDIO_1);
   $(`code:contains(get_sin = )`).html(AUDIO_2);
-  // $(`code:contains(dc, enum, io, itertools, random)`).html(MARIO);
+  $(`code:contains(dc, enum, io, itertools, random)`).html(MARIO);
   $(`code:contains(>>> gb = df.groupby)`).html(GROUPBY);
   $(`code:contains(cdef <type> <var_name> [= <obj/var>])`).html(CYTHON_1);
   $(`code:contains(cdef <type> <func_name>(<type> [*]<arg_name>): ...)`).html(CYTHON_2);

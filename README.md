@@ -494,11 +494,11 @@ Format
 Numbers
 -------
 ```python
-<integer>  = int(<float/str/bool>)             # A whole number. Truncates floats.
-<float>    = float(<integer/str/bool>)         # 8-byte decimal. Also <fl>e±<int>.
-<complex>  = complex(real=0, imag=0)           # Complex number. Also <fl> ± <fl>j.
-<Fraction> = fractions.Fraction(numr, denom)   # `<Fraction> = <Fraction> / <int>`.
-<Decimal>  = decimal.Decimal(<str/int/tuple>)  # `Decimal((1, (2,), 3)) == -2000`.
+<integer>  = int(<float/str/bool>)            # A whole number. Truncates floats.
+<float>    = float(<integer/str/bool>)        # 8-byte decimal. Also <fl>e±<int>.
+<complex>  = complex(real=0, imag=0)          # Complex number. Also <fl> ± <fl>j.
+<Fraction> = fractions.Fraction(numr, denom)  # `<Fraction> = <Fraction> / <int>`.
+<Decimal>  = decimal.Decimal(<str/int/tup>)   # `Decimal((1, (2,), 3)) == -2000`.
 ```
 * **`'int(<str>)'` and `'float(<str>)'` raise ValueError exception if string is malformed.**
 * **Decimal objects store numbers exactly, unlike most floats where `'1.1 + 2.2 != 3.3'`.**
@@ -508,55 +508,53 @@ Numbers
 
 ### Built-in Functions
 ```python
-<num> = pow(<num>, <num>)                      # E.g. `pow(3, 4) == 3 ** 4 == 81`.
-<num> = abs(<num>)                             # E.g. `abs(-50) == abs(50) == 50`.
-<num> = round(<num> [, ±ndigits])              # E.g. `round(123.45, -1) == 120`.
-<num> = min(<coll_of_nums>)                    # Also `max(<num>, <num> [, ...])`.
-<num> = sum(<coll_of_nums>)                    # Also `math.prod(<coll_of_nums>)`.
+<num> = abs(<num>)                            # E.g. `abs(-50) == abs(50) == 50`.
+<num> = pow(<num>, <num>)                     # E.g. `pow(3, 4) == 3 ** 4 == 81`.
+<num> = round(<num> [, ndigits])              # E.g. `round(123.45, -1) == 120`.
+<num> = min(<coll_of_nums>)                   # Also `max(<num>, <num> [, ...])`.
+<num> = sum(<coll_of_nums>)                   # Also `math.prod(<coll_of_nums>)`.
 ```
 
 ### Math
 ```python
-from math import floor, ceil, trunc            # Funcs that convert float into int.
-from math import pi, inf, nan, isnan           # `inf*0` and `nan+1` return `nan`.
-from math import sqrt, factorial               # `sqrt(-1)` will raise ValueError.
-from math import sin, cos, tan                 # Also: degrees, radians, asin, etc.
-from math import log, log10, log2              # Log() can accept 'base' argument.
+from math import floor, ceil, trunc           # Funcs that convert float into int.
+from math import pi, inf, nan, isnan          # `inf*0` and `nan+1` return `nan`.
+from math import sqrt, factorial              # `sqrt(-1)` will raise ValueError.
+from math import sin, cos, tan                # Also: degrees, radians, asin, etc.
+from math import log, log10, log2             # Log() can accept 'base' argument.
 ```
 
 ### Statistics
 ```python
-from statistics import mean, median, mode      # Mode returns most common element.
-from statistics import variance, stdev         # Also `cuts = quantiles(data, n)`.
+from statistics import mean, median, mode     # Mode returns most common element.
+from statistics import variance, stdev        # I.e. `<float> = variance(<coll>)`.
+from statistics import quantiles              # I.e. `cuts = quantiles(data, n)`.
 ```
 
 ### Random
 ```python
-from random import random, randint, uniform    # Also: gauss, choice, shuffle, etc.
-```
-
-```python
-<float> = random()                             # Selects random float from [0, 1).
-<num>   = randint/uniform(a, b)                # Selects an int/float from [a, b].
-<float> = gauss(mean, stdev)                   # Also triangular(low, high, mode).
-<obj>   = choice(<sequence>)                   # Doesn't mutate. Also sample(p, n).
-shuffle(<list>)                                # Works with all mutable sequences.
+import random as ra
+<float> = ra.random()                         # Selects random float from [0, 1).
+<num>   = ra.randint/uniform(a, b)            # Selects an int/float from [a, b].
+<float> = ra.gauss(mean, stdev)               # Also triangular(low, high, mode).
+<obj>   = ra.choice(<sequence>)               # Doesn't mutate. Also sample(p, n).
+ra.shuffle(<list>)                            # Works with all mutable sequences.
 ```
 
 ### Hexadecimal Numbers
 ```python
-<int> = 0x<hex>                                # E.g. `0xFf == 255`. Also 0b<bin>.
-<int> = int('±<hex>', 16)                      # Also int('±0x<hex>/±0b<bin>', 0).
-<str> = hex(<int>)                             # Returns '[-]0x<hex>'. Also bin().
+<int> = 0x<hex>                               # E.g. `0xFf == 255`. Also 0b<bin>.
+<int> = int('±<hex>', 16)                     # Also int('±0x<hex>/±0b<bin>', 0).
+<str> = hex(<int>)                            # Returns '[-]0x<hex>'. Also bin().
 ```
 
 ### Bitwise Operators
 ```python
-<int> = <int> & <int>                          # E.g. `0b1100 & 0b1010 == 0b1000`.
-<int> = <int> | <int>                          # E.g. `0b1100 | 0b1010 == 0b1110`.
-<int> = <int> ^ <int>                          # E.g. `0b1100 ^ 0b1010 == 0b0110`.
-<int> = <int> << n_bits                        # E.g. `0b1111 << 4 == 0b11110000`.
-<int> = ~<int>                                 # E.g. `~100 == -(100+1) == -101`.
+<int> = <int> & <int>                         # E.g. `0b1100 & 0b1010 == 0b1000`.
+<int> = <int> | <int>                         # E.g. `0b1100 | 0b1010 == 0b1110`.
+<int> = <int> ^ <int>                         # E.g. `0b1100 ^ 0b1010 == 0b0110`.
+<int> = <int> << n_bits                       # E.g. `0b1111 << 4 == 0b11110000`.
+<int> = ~<int>                                # E.g. `~100 == -(100+1) == -101`.
 ```
 
 
@@ -620,6 +618,7 @@ import zoneinfo, dateutil.tz
 ```python
 <tzinfo> = timezone.utc                     # Coordinated universal time. London without DST.
 <tzinfo> = timezone(<timedelta>)            # Timezone with fixed offset from universal time.
+<tzinfo> = dateutil.tz.tzlocal()            # Local timezone with dynamic offset from the UTC.
 <tzinfo> = zoneinfo.ZoneInfo('<iana_key>')  # 'Continent/City_Name' zone with dynamic offset.
 <DTa>    = <DT>.astimezone(<tzinfo>)        # Converts to the passed or local fixed timezone.
 <Ta/DTa> = <T/DT>.replace(tzinfo=<tzinfo>)  # Changes the timezone object without conversion.
@@ -844,25 +843,26 @@ def get_multiplier(a):
 ```
 
 ```python
->>> multiply_by_3 = get_multiplier(3)
->>> multiply_by_3(10)
+>>> mul_by_3 = get_multiplier(3)
+>>> mul_by_3(10)
 30
 ```
 
 ### Partial
+**Partial transforms a function by storing some (or all) of its arguments. It is useful when a function needs to be passed as an argument, e.g. `'collections.defaultdict(<func>)'`, `'iter(<func>, to_exc)'` and `'dataclasses.field(default_factory=<func>)'`.**
+
 ```python
 from functools import partial
-<function> = partial(<function> [, <arg_1> [, ...]])
+<func> = partial(<func>, <arg_1>, ...)
 ```
 
 ```python
->>> def multiply(a, b):
+>>> def mul(a, b):
 ...     return a * b
->>> multiply_by_3 = partial(multiply, 3)
->>> multiply_by_3(10)
+>>> mul_by_3 = partial(mul, 3)
+>>> mul_by_3(10)
 30
 ```
-* **Partial is also useful in cases when a function needs to be passed as an argument because it enables us to set its arguments in advance (`'collections.defaultdict(<func>)'`, `'iter(<func>, to_exc)'` and `'dataclasses.field(default_factory=<func>)'`).**
 
 ### Non-Local
 **If variable is being assigned to anywhere in the scope (i.e., body of a function), it is treated as&nbsp;a local variable unless it is declared `'global'` or `'nonlocal'` before its first usage.**
@@ -890,7 +890,7 @@ Decorator
 
 ```python
 @decorator_name
-def function_that_gets_passed_to_decorator():
+def function_that_is_passed_to_dec():
     ...
 ```
 
@@ -920,8 +920,8 @@ def add(x, y):
 from functools import cache
 
 @cache
-def fibonacci(n):
-    return n if n < 2 else fibonacci(n-2) + fibonacci(n-1)
+def fib(n):
+    return n if n < 2 else fib(n-2) + fib(n-1)
 ```
 * **Potential problem with cache is that it can grow indefinitely. To clear stored values run `'<func>.cache_clear()'`, or use `'@lru_cache(maxsize=<int>)'` decorator instead.**
 * **CPython interpreter limits recursion depth to 3000 by default. To increase this limit run `'sys.setrecursionlimit(<int>)'`.**
@@ -935,9 +935,9 @@ def debug(print_result=False):
     def decorator(func):
         @wraps(func)
         def out(*args, **kwargs):
-            result = func(*args, **kwargs)
-            print(func.__name__, result if print_result else '')
-            return result
+            res = func(*args, **kwargs)
+            print(func.__name__, res if print_result else '')
+            return res
         return out
     return decorator
 
@@ -1032,7 +1032,7 @@ from collections import abc
 ```
 
 ### Dataclass
-**Decorator that generates init(), repr() and eq() special methods.**
+**Decorator that adds init(), repr() and eq() methods.**
 ```python
 import dataclasses as dc
 
@@ -1075,7 +1075,7 @@ class Person:
 ```
 
 ### Slots
-**Mechanism that restricts objects to listed attributes.**
+**Mechanism restricting objects to listed attributes.**
 
 ```python
 class Point:
@@ -1773,9 +1773,9 @@ def read_json_file(filename):
 
 ### Write Collection to JSON File
 ```python
-def write_to_json_file(filename, collection):
+def write_to_json_file(filename, coll):
     with open(filename, 'w', encoding='utf-8') as file:
-        json.dump(collection, file, ensure_ascii=False, indent=2)
+        json.dump(coll, file, ensure_ascii=False, indent=2)
 ```
 
 
@@ -1877,35 +1877,35 @@ SQLite
 
 ```python
 import sqlite3
-<con> = sqlite3.connect(<path>)           # Opens existing or new file. Also ':memory:'.
-<con>.close()                             # Closes connection. Discards uncommitted data.
+<con> = sqlite3.connect(<path>)        # Opens existing or new file. Also ':memory:'.
+<con>.close()                          # Closes connection. Discards uncommitted data.
 ```
 
 ### Read
 ```python
-<cursor> = <con>.execute('SELECT …')      # Can raise a subclass of the `sqlite3.Error`.
-<tuple>  = <cursor>.fetchone()            # Returns the next row. Same as next(<cursor>).
-<list>   = <cursor>.fetchall()            # Returns remaining rows. Also list(<cursor>).
+<cursor> = <con>.execute('SELECT …')   # Can raise a subclass of the `sqlite3.Error`.
+<tuple>  = <cursor>.fetchone()         # Returns the next row. Same as next(<cursor>).
+<list>   = <cursor>.fetchall()         # Returns remaining rows. Also list(<cursor>).
 ```
 
 ### Write
 ```python
-<con>.execute('INSERT …')                 # Can raise a subclass of the `sqlite3.Error`.
-<con>.commit()                            # Saves all the changes since the last commit.
-<con>.rollback()                          # Discards all changes since the last commit.
+<con>.execute('INSERT …')              # Can raise a subclass of the `sqlite3.Error`.
+<con>.commit()                         # Saves all the changes since the last commit.
+<con>.rollback()                       # Discards all changes since the last commit.
 ```
 
 #### Or:
 ```python
-with <con>:                               # Exits the block with commit() or rollback(),
-    <con>.execute('INSERT …')             # depending on whether any exception occurred.
+with <con>:                            # Exits the block with commit() or rollback(),
+    <con>.execute('INSERT …')          # depending on whether any exception occurred.
 ```
 
 ### Placeholders
 ```python
-<con>.execute(<sql>, <list/tuple>)        # Replaces every '?' with corresponding item.
-<con>.execute(<sql>, <dict/namedtuple>)   # Replaces every ':<key>' with matching value.
-<con>.executemany(<sql>, <colls>)         # Executes statement once for each collection.
+<con>.execute(<sql>, <list/tuple>)     # Replaces every '?' with corresponding item.
+<con>.execute(<sql>, <dict/namedtup>)  # Replaces every ':<key>' with matching value.
+<con>.executemany(<sql>, <colls>)      # Executes statement once for each collection.
 ```
 * **Accepts strings, ints, floats, bytes, None objects, and bools (stored as 1 or 0).**
 * **Columns are not restricted to any specific type unless table is declared strict.**
@@ -1925,10 +1925,10 @@ with <con>:                               # Exits the block with commit() or rol
 ```python
 # $ pip3 install sqlalchemy
 import sqlalchemy as sa
-<engine> = sa.create_engine(<url>)        # Url: 'dialect://user:password@host/dbname'.
-<con>    = <engine>.connect()             # Creates new connection. Also <con>.close().
-<cursor> = <con>.execute(sa.text(<sql>))  # Add dict to execute() to replace ':<key>'s.
-with <con>.begin(): ...                   # Exits the block with a commit or rollback.
+<eng> = sa.create_engine(<url>)        # Url: 'dialect://user:password@host/dbname'.
+<con> = <eng>.connect()                # Creates new connection. Also <con>.close().
+<cur> = <con>.execute(sa.text(<sql>))  # Add dict to execute() to replace ':<key>'s.
+with <con>.begin(): ...                # Exits the block with a commit or rollback.
 ```
 
 ```text
@@ -2248,55 +2248,55 @@ import concurrent.futures as cf
 
 ### Thread
 ```python
-<Thread> = thr.Thread(target=<func>)        # Use `args=<coll>` to set function's arguments.
-<Thread>.start()                            # Runs function in background. Also is_alive().
-<Thread>.join()                             # Waits until the function finishes executing.
+<Thread> = thr.Thread(target=<func>)      # Use `args=<coll>` to set function's arguments.
+<Thread>.start()                          # Runs function in background. Also is_alive().
+<Thread>.join()                           # Waits until the function finishes executing.
 ```
 * **Use `'kwargs=<dict>'` to pass keyword arguments to the function, i.e. thread.**
 * **Use `'daemon=True'`, or the program won't be able to exit while thread is alive.**
 
 ### Lock
 ```python
-<lock> = thr.Lock/RLock()                   # RLock can only be released by acquirer thread.
-<lock>.acquire()                            # Waits/blocks until the lock becomes available.
-<lock>.release()                            # Releases the lock so it can be acquired again.
+<lock> = thr.Lock/RLock()                 # RLock can only be released by acquirer thread.
+<lock>.acquire()                          # Waits/blocks until the lock becomes available.
+<lock>.release()                          # Releases the lock so it can be acquired again.
 ```
 
 #### Or:
 ```python
-with <lock>:                                # Enters the block by calling method acquire().
-    ...                                     # Exits it by calling release(), even on error.
+with <lock>:                              # Enters the block by calling method acquire().
+    ...                                   # Exits it by calling release(), even on error.
 ```
 
 ### Semaphore, Event, Barrier
 ```python
-<Semaphr> = thr.Semaphore(value=1)          # A lock that can be acquired by value threads.
-<Event>   = thr.Event()                     # `<Event>.wait()` blocks until set() is called.
-<Barrier> = thr.Barrier(parties)            # Wait() blocks until it's called parties times.
+<Semaphr> = thr.Semaphore(value=1)        # A lock that can be acquired by value threads.
+<Event>   = thr.Event()                   # `<Event>.wait()` blocks until set() is called.
+<Barrier> = thr.Barrier(parties)          # Wait() blocks until it's called parties times.
 ```
 
 ### Queue
 ```python
-<Queue> = qu.Queue(maxsize=0)               # A first-in-first-out queue. It's thread safe.
-<Queue>.put(<obj>)                          # The call blocks until queue stops being full.
-<Queue>.put_nowait(<obj>)                   # Raises the qu.Full exception if queue is full.
-<obj> = <Queue>.get()                       # The call blocks until queue stops being empty.
-<obj> = <Queue>.get_nowait()                # Raises the qu.Empty exception if it is empty.
+<Queue> = qu.Queue(maxsize=0)             # A first-in-first-out queue. It's thread safe.
+<Queue>.put(<obj>)                        # The call blocks until queue stops being full.
+<Queue>.put_nowait(<obj>)                 # Raises the qu.Full exception if queue is full.
+<obj> = <Queue>.get()                     # The call blocks until queue stops being empty.
+<obj> = <Queue>.get_nowait()              # Raises the qu.Empty exception if it is empty.
 ```
 
 ### Executor, Future
 ```python
-<Exec> = cf.ThreadPoolExecutor()            # Or use `with ThreadPoolExecutor() as <name>:`.
-<iter> = <Exec>.map(<func>, <args_1>, …)    # Multithreaded and non-lazy map(). Keeps order.
-<Futr> = <Exec>.submit(<func>, <arg_1>, …)  # Queues function for execution. Returns Future.
-<Exec>.shutdown()                           # Waits until all submitted tasks are completed.
+<Exec> = cf.ThreadPoolExecutor()          # Or use `with ThreadPoolExecutor() as <name>:`.
+<iter> = <Exec>.map(<fn>, <args_1>, …)    # Multithreaded and non-lazy map(). Keeps order.
+<Futr> = <Exec>.submit(<fn>, <arg_1>, …)  # Queues function for execution. Returns Future.
+<Exec>.shutdown()                         # Waits until all submitted tasks are completed.
 ```
 
 ```python
-<bool> = <Future>.done()                    # Returns True if function has finished running.
-<obj>  = <Future>.result(timeout=None)      # Raises TimeoutError after 'timeout' seconds.
-<bool> = <Future>.cancel()                  # Just returns False if func is already running.
-<iter> = cf.as_completed(<Futures>)         # `next(<iter>)` returns next completed Future.
+<iter> = cf.as_completed(<Futrs>)         # `next(<iter>)` returns next completed Future.
+<obj>  = <Future>.result()                # Raises TimeoutError if `timeout=<fl>` is used.
+<bool> = <Future>.done()                  # Returns True if function has finished running.
+<bool> = <Future>.cancel()                # Just returns False if func is already running.
 ```
 * **Map() and as\_completed() also accept 'timeout' arg. It causes _futures.TimeoutError_ when next() is called or blocking. Map() times from original call and as_completed() from first call to next(). As\_completed() fails if next() is called too late, even if all tasks are done.**
 * **Exceptions that happen inside threads are raised when map's next() or Future's result() method is called. Future's exception() method returns caught exception object or None.**
@@ -2380,6 +2380,7 @@ async def view(state, scr):
 if __name__ == '__main__':
     curses.wrapper(main)
 ```
+<br>
 
 
 Libraries
@@ -2557,7 +2558,7 @@ def serve_file(filename):
 ```python
 @app.route('/<sport>')
 def serve_html(sport):
-    return fl.render_template_string('<h1>{{title}}</h1>', title=sport)
+    return fl.render_template_string('<h1>{{t}}</h1>', t=sport)
 ```
 * **`'fl.render_template(filename, <kwargs>)'` renders a file located in 'templates' dir.**
 * **`'fl.abort(<int>)'` returns error code and `'return fl.redirect(<url>)'` redirects.**
@@ -2591,7 +2592,7 @@ Profiling
 from time import perf_counter
 start_time = perf_counter()
 ...
-duration_in_seconds = perf_counter() - start_time
+seconds = perf_counter() - start_time
 ```
 
 ### Timing a Snippet
@@ -2859,26 +2860,26 @@ import wave
 ```
 
 ```python
-<Wave>  = wave.open('<path>')              # Opens specified WAV file for reading.
-<int>   = <Wave>.getframerate()            # Returns number of frames per second.
-<int>   = <Wave>.getnchannels()            # Returns number of samples per frame.
-<int>   = <Wave>.getsampwidth()            # Returns how many bytes are in sample.
-<tuple> = <Wave>.getparams()               # Returns namedtuple of all parameters.
-<bytes> = <Wave>.readframes(<int>)         # Returns all frames if `-1` is passed.
+<Wave>  = wave.open('<path>')               # Opens specified WAV file for reading.
+<int>   = <Wave>.getframerate()             # Returns number of frames per second.
+<int>   = <Wave>.getnchannels()             # Returns number of samples per frame.
+<int>   = <Wave>.getsampwidth()             # Returns how many bytes are in sample.
+<tuple> = <Wave>.getparams()                # Returns namedtuple of all parameters.
+<bytes> = <Wave>.readframes(<int>)          # Returns all frames if `-1` is passed.
 ```
 
 ```python
-<Wave> = wave.open('<path>', 'wb')         # Creates/truncates a file for writing.
-<Wave>.setframerate(<int>)                 # Pass 44100, or 48000 for video track.
-<Wave>.setnchannels(<int>)                 # Pass 1 for mono, 2 for stereo signal.
-<Wave>.setsampwidth(<int>)                 # Pass 2 for CD, 3 for hi-res quality.
-<Wave>.setparams(<tuple>)                  # Passed tuple must contain all params.
-<Wave>.writeframes(<bytes>)                # Appends passed frames to audio file.
+<Wave> = wave.open('<path>', 'wb')          # Creates/truncates a file for writing.
+<Wave>.setframerate(<int>)                  # Pass 44100, or 48000 for video track.
+<Wave>.setnchannels(<int>)                  # Pass 1 for mono, 2 for stereo signal.
+<Wave>.setsampwidth(<int>)                  # Pass 2 for CD, 3 for hi-res quality.
+<Wave>.setparams(<tuple>)                   # Passed tuple must contain all params.
+<Wave>.writeframes(<bytes>)                 # Appends passed frames to audio file.
 ```
 * **The bytes object contains a sequence of frames, each consisting of one or more samples.**
 * **In stereo signal, first sample of a frame belongs to the left channel (second to the right).**
 * **Each sample consists of one or more bytes (depending on sample width) that, when con&shy;verted to an integer, indicate the displacement of a speaker membrane at that moment.**
-* **If sample width is one byte, then the integer should be encoded unsigned. For all other sizes the integer should be encoded signed with little-endian byte order.**
+* **Integers should be encoded unsigned if sample width is one byte. For other sample sizes they should be encoded signed with little-endian byte order (least significant byte first).**
 
 ### Sample Values
 ```text
@@ -2922,7 +2923,7 @@ def write_to_wav_file(filename, samples_f, p=None, nchannels=1, sampwidth=2, fs=
 #### Saves a 440 Hz sine wave to a mono WAV file:
 ```python
 from math import sin, pi
-get_sin = lambda i: sin(i * 2 * pi * 440 / 44100) * 0.2
+get_sin = lambda i: sin(440 * pi*2 * i/44100) * 0.2
 write_to_wav_file('test.wav', (get_sin(i) for i in range(100_000)))
 ```
 
@@ -2957,6 +2958,7 @@ sounddevice.wait()
 Synthesizer
 -----------
 #### Plays Popcorn by Gershon Kingsley:
+
 ```python
 # $ pip3 install numpy sounddevice
 import itertools as it, math, numpy as np, sounddevice
@@ -2964,8 +2966,8 @@ import itertools as it, math, numpy as np, sounddevice
 def play_notes(notes, bpm=132, fs=44100, volume=0.1):
     beat_len  = 60/bpm * fs
     get_pause = lambda beats: it.repeat(0, int(beats * beat_len))
-    get_sinus = lambda i, hz: math.sin(i * 2 * math.pi * hz / fs) * volume
-    get_wave  = lambda hz, beats: (get_sinus(i, hz) for i in range(int(beats * beat_len)))
+    get_sinus = lambda hz, i: math.sin(hz * math.pi*2 * i/fs) * volume
+    get_wave  = lambda hz, beats: (get_sinus(hz, i) for i in range(int(beats * beat_len)))
     get_hertz = lambda note: 440 * 2 ** ((int(note[:2]) - 69) / 12)
     get_beats = lambda note: 1/2 if '♩' in note else 1/4 if '♪' in note else 1
     get_samps = lambda n: get_wave(get_hertz(n), get_beats(n)) if n else get_pause(1/4)
@@ -3002,27 +3004,27 @@ pg.quit()
 **Object for storing rectangular coordinates.**
 ```python
 <Rect> = pg.Rect(x, y, width, height)        # Creates Rect object. Truncates passed floats.
-<int>  = <Rect>.x/y/centerx/centery/…        # `top/right/bottom/left`. Allows assignments.
-<tup.> = <Rect>.topleft/center/…             # `topright/bottomright/bottomleft/size`. Same.
+<int>  = <Rect>.x/y/centerx/centery          # Also `top`, `right`, etc. Allows assignments.
+<tup.> = <Rect>.topleft/center               # Also `topright/bottomright/bottomleft/size`.
 <Rect> = <Rect>.move((dx, dy))               # Use move_ip() to move the rectangle in-place.
 ```
 
 ```python
 <bool> = <Rect>.collidepoint((x, y))         # Returns True if rectangle contains the point.
 <bool> = <Rect>.colliderect(<Rect>)          # Returns True if the rectangles are colliding.
-<int>  = <Rect>.collidelist(<list_of_Rect>)  # Returns index of first colliding Rect or -1.
-<list> = <Rect>.collidelistall(<list>)       # Returns indices of all colliding rectangles.
+<int>  = <Rect>.collidelist(<Rects>)         # Returns index of first colliding Rect or -1.
+<list> = <Rect>.collidelistall(<Rects>)      # Returns indices of all colliding rectangles.
 ```
 
 ### Surface
 **Object for representing images.**
 
 ```python
-<Surf> = pg.display.set_mode((w, h))         # Opens new window and returns surface object.
 <Surf> = pg.Surface((w, h))                  # New RGB surface. RGBA if `flags=pg.SRCALPHA`.
+<Surf> = pg.display.set_mode((w, h))         # Opens new window and returns surface object.
 <Surf> = pg.image.load(<path/file>)          # Loads the image. Also get_width/get_height().
-<Surf> = pg.surfarray.make_surface(<array>)  # Also `<np_arr> = surfarray.pixels3d(<Surf>)`.
 <Surf> = <Surf>.subsurface(<Rect>)           # Creates a new surface object from the cutout.
+<view> = <Surf>.get_view()                   # Use <view>.write(<array>) to write to image.
 ```
 
 ```python
