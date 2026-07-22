@@ -371,9 +371,9 @@ const DIAGRAM_1_B =
   '┗━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┛\n';
 
 const DIAGRAM_2_A =
-`+--------------------+---------+---------+---------+----------+----------+
-|                    |  Number | Complex |  Real   | Rational | Integral |
-+--------------------+---------+---------+---------+----------+----------+`;
+`+--------------------+---------+---------+--------+----------+----------+
+|                    |  Number | Complex |  Real  | Rational | Integral |
++--------------------+---------+---------+--------+----------+----------+`;
 
 const DIAGRAM_2_B =
 `┏━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━┯━━━━━━━━━┯━━━━━━━━━┯━━━━━━━━━━┯━━━━━━━━━━┓
@@ -440,7 +440,7 @@ const DIAGRAM_5_A =
 `;
 
 const DIAGRAM_55_A =
-  "+---------------------------+----------------+--------------+--------------+\n";
+  "+-------------------------+--------------+--------------+------------+\n";
 
 const DIAGRAM_55_B =
   '┏━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━┓\n' +
@@ -936,7 +936,7 @@ function highlightCode() {
 function changeCodeLanguages() {
   setApaches(['<D>', '<T>', '<DT>', '<TD>', '<a>', '<n>']);
   $('code').not('.python').not('.text').not('.bash').not('.apache').addClass('python');
-  $('code:contains(<element>  = <2d>[row_index, col_index])').removeClass().addClass('bash');
+  $('code:contains(<object>   = <2d>[row_index, col_index])').removeClass().addClass('bash');
   $('code:contains(<1d_array> = <2d>[row_indices, col_indices])').removeClass().addClass('bash');
   $('code:contains(<2d_bools> = <2d> > <el/1d/2d>)').removeClass().addClass('bash');
   $('code.perl').removeClass().addClass('python');

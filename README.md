@@ -29,7 +29,7 @@ if __name__ == '__main__':      # Skips indented lines of code if file was impor
 List
 ----
 ```python
-<list> = [<el_1>, <el_2>, ...]  # Creates new list object. E.g. `list_a = [1, 2, 3]`.
+<list> = [<el>, <el>, ...]      # Creates new list object. E.g. `list_a = [1, 2, 3]`.
 ```
 
 ```python
@@ -38,8 +38,8 @@ List
 ```
 
 ```python
-<list>.append(<el>)             # Appends element to the end. Also `<list> += [<el>]`.
-<list>.extend(<collection>)     # Appends multiple elements. Also `<list> += <coll>`.
+<list>.append(<el>)             # Appends element to the end. Or `<list> += [<el>]`.
+<list>.extend(<coll>)           # Appends collection's items. Or `<list> += <coll>`.
 ```
 
 ```python
@@ -50,8 +50,8 @@ List
 ```
 
 ```python
-<el>  = max(<collection>)       # Returns the largest element. Also min(<el_1>, ...).
-<num> = sum(<collection>)       # Returns a sum of elements. Also math.prod(<coll>).
+<el>  = max(<coll>)             # Returns the largest element. Also min(<el>, <el>).
+<num> = sum(<coll>)             # Returns a sum of elements. Also math.prod(<coll>).
 ```
 
 ```python
@@ -78,7 +78,7 @@ flatter_list     = list(itertools.chain.from_iterable(<list>))
 Dictionary
 ----------
 ```python
-<dict> = {key_1: val, key_2: val, ...}        # Use `<dict>[key]` to get or assign the value.
+<dict> = {key: val, key: val, ...}            # Use `<dict>[key]` to get or assign the value.
 ```
 
 ```python
@@ -119,7 +119,7 @@ value = <dict>.pop(key)                       # Removes item or raises KeyError 
 Set
 ---
 ```python
-<set> = {<el_1>, <el_2>, ...}       # Coll. of unique items. Also set(), set(<coll>).
+<set> = {<el>, <el>, ...}           # Coll. of unique items. Also set(), set(<coll>).
 ```
 
 ```python
@@ -156,9 +156,9 @@ Tuple
 -----
 **Tuple is an immutable and hashable list.**
 ```python
-<tuple> = ()                        # Returns empty tuple. Also tuple(), tuple(<coll>).
-<tuple> = (<el>,)                   # Returns tuple with one element. Same as `<el>,`.
-<tuple> = (<el_1>, <el_2> [, ...])  # Returns tuple. Same as `<el_1>, <el_2> [, ...]`.
+<tuple> = ()                        # Returns an empty tuple. Also tuple(), tuple(<coll>).
+<tuple> = (<el>,)                   # Returns tuple with one element. Or `<tup.> = <el>,`.
+<tuple> = (<el>, <el> [, ...])      # Returns a tuple. Or `<tuple> = <el>, <el> [, ...]`.
 ```
 
 ### Named Tuple
@@ -294,15 +294,15 @@ True
 ```
 
 ```text
-+--------------------+---------+---------+---------+----------+----------+
-|                    |  Number | Complex |  Real   | Rational | Integral |
-+--------------------+---------+---------+---------+----------+----------+
-| int                |   yes   |   yes   |   yes   |   yes    |   yes    |
-| fractions.Fraction |   yes   |   yes   |   yes   |   yes    |          |
-| float              |   yes   |   yes   |   yes   |          |          |
-| complex            |   yes   |   yes   |         |          |          |
-| decimal.Decimal    |   yes   |         |         |          |          |
-+--------------------+---------+---------+---------+----------+----------+
++--------------------+---------+---------+--------+----------+----------+
+|                    |  Number | Complex |  Real  | Rational | Integral |
++--------------------+---------+---------+--------+----------+----------+
+| int                |   yes   |   yes   |  yes   |   yes    |   yes    |
+| fractions.Fraction |   yes   |   yes   |  yes   |   yes    |          |
+| float              |   yes   |   yes   |  yes   |          |          |
+| complex            |   yes   |   yes   |        |          |          |
+| decimal.Decimal    |   yes   |         |        |          |          |
++--------------------+---------+---------+--------+----------+----------+
 ```
 
 
@@ -397,6 +397,7 @@ import re
 
 Format
 ------
+**String formatting methods.**
 ```perl
 <str> = f'{<obj>}, {<obj>}'            # Braces can also contain expressions.
 <str> = '{}, {}'.format(<obj>, <obj>)  # Or '{0}, {a}'.format(<obj>, a=<obj>).
@@ -439,8 +440,6 @@ Format
 {123456:10_}                           # '   123_456'.
 {123456:+10}                           # '   +123456'.
 {123456:=+10}                          # '+   123456'.
-{123456: }                             # ' 123456'.
-{-123456: }                            # '-123456'.
 ```
 
 ### Floats
@@ -517,28 +516,29 @@ Numbers
 
 ### Math
 ```python
-from math import floor, ceil, trunc           # Funcs that convert float into int.
-from math import pi, inf, nan, isnan          # `inf*0` and `nan+1` return `nan`.
-from math import sqrt, factorial              # `sqrt(-1)` will raise ValueError.
-from math import sin, cos, tan                # Also: degrees, radians, asin, etc.
-from math import log, log10, log2             # Log() can accept 'base' argument.
+import math
+<num> = math.pi/inf/nan                       # `inf*0` and `nan+1` return `nan`.
+<num> = math.sqrt/factorial(<num>)            # `sqrt(-1)` will raise ValueError.
+<num> = math.sin/cos/tan(<num>)               # Also degrees, radians, asin, etc.
+<num> = math.log/log10/log2(<num>)            # Log() can accept 'base' argument.
 ```
 
 ### Statistics
 ```python
-from statistics import mean, median, mode     # Mode returns most common element.
-from statistics import variance, stdev        # I.e. `<float> = variance(<coll>)`.
-from statistics import quantiles              # I.e. `cuts = quantiles(data, n)`.
+import statistics as st
+<obj>  = st.mean/median(<coll>)               # Mode returns most common element.
+<num>  = st.variance/stdev(<coll>)            # Estimates values from the sample.
+<list> = st.quantiles(<coll>, n=4)            # Estimates cut points from sample.
 ```
 
 ### Random
 ```python
-import random as ra
-<float> = ra.random()                         # Selects random float from [0, 1).
-<num>   = ra.randint/uniform(a, b)            # Selects an int/float from [a, b].
-<float> = ra.gauss(mean, stdev)               # Also triangular(low, high, mode).
-<obj>   = ra.choice(<sequence>)               # Doesn't mutate. Also sample(p, n).
-ra.shuffle(<list>)                            # Works with all mutable sequences.
+import random as rd
+<num> = rd.random()                           # Selects random float from [0, 1).
+<num> = rd.randint/uniform(a, b)              # Selects an int/float from [a, b].
+<num> = rd.gauss(mean, stdev)                 # Also triangular(low, high, mode).
+<obj> = rd.choice(<sequence>)                 # Doesn't mutate. Also sample(p, n).
+rd.shuffle(<list>)                            # Works with all mutable sequences.
 ```
 
 ### Hexadecimal Numbers
@@ -706,8 +706,8 @@ func(1, 2, z=3)
 ### Inside Function Definition
 **Splat combines zero or more positional arguments into a tuple, while splatty-splat combines zero or more keyword arguments into a dictionary.**
 ```python
-def add(*a):
-    return sum(a)
+def add(*args):
+    return sum(args)
 ```
 
 ```python
@@ -715,27 +715,27 @@ def add(*a):
 6
 ```
 
-#### Allowed compositions of arguments:
 ```text
-+---------------------------+----------------+--------------+--------------+
-|                           | func(x=1, y=2) | func(1, y=2) |  func(1, 2)  |
-+---------------------------+----------------+--------------+--------------+
-| func(x, *args, **kwargs): |      yes       |     yes      |     yes      |
-| func(*args, y, **kwargs): |      yes       |     yes      |              |
-| func(*, x, **kwargs):     |      yes       |              |              |
-+---------------------------+----------------+--------------+--------------+
++-------------------------+--------------+--------------+------------+
+|                         | fn(x=1, y=2) |  fn(1, y=2)  |  fn(1, 2)  |
++-------------------------+--------------+--------------+------------+
+| fn(x, *args, **kwargs): |     yes      |     yes      |    yes     |
+| fn(*args, y, **kwargs): |     yes      |     yes      |            |
+| fn(*, x, **kwargs):     |     yes      |              |            |
++-------------------------+--------------+--------------+------------+
 ```
 
-### Other Uses
+### Collection Unpacking
 ```python
-<list>  = [*<collection> [, ...]]  # Same as `list(<coll>) [+ ...]`.
-<tuple> = (*<collection>, [...])   # Same as `tuple(<coll>) [+ ...]`.
-<set>   = {*<collection> [, ...]}  # Same as `set(<coll>) [| ...]`.
-<dict>  = {**<dict> [, ...]}       # Last dict has priority. Also |.
+head, *body, tail = <collection>    # Head or tail can be omitted.
 ```
 
+### Inside Collection Literals
 ```python
-head, *body, tail = <collection>   # Head or tail can be omitted.
+<list>  = [*<coll> [, ...]]         # Same as `list(<coll>) [+ ...]`.
+<tuple> = (*<coll>, [...])          # Same as `tuple(<coll>) [+ ...]`.
+<set>   = {*<coll> [, ...]}         # Same as `set(<coll>) [| ...]`.
+<dict>  = {**<dict> [, ...]}        # Last dict has priority. Also |.
 ```
 
 
@@ -744,7 +744,7 @@ Inline
 ### Lambda
 ```python
 <func> = lambda: <return_val>                     # A single statement function.
-<func> = lambda <arg_1> [, ...]: <return_val>     # Also allows default arguments.
+<func> = lambda <arg> [, ...]: <return_val>       # Also allows default arguments.
 ```
 
 ### Comprehensions
@@ -795,7 +795,7 @@ from functools import reduce
 
 ### Walrus Operator
 ```python
->>> [i for ch in '0123' if (i := int(ch)) > 0]    # Assigns to var in mid-sentence.
+>>> [i for ch in '0123' if (i := int(ch))]        # Assigns to var in mid-sentence.
 [1, 2, 3]
 ```
 
@@ -852,14 +852,13 @@ def get_multiplier(a):
 **Partial transforms a function by storing some (or all) of its arguments. It is useful when a function needs to be passed as an argument, e.g. `'collections.defaultdict(<func>)'`, `'iter(<func>, to_exc)'` and `'dataclasses.field(default_factory=<func>)'`.**
 
 ```python
-from functools import partial
-<func> = partial(<func>, <arg_1>, ...)
+def mul(a, b):
+    return a * b
 ```
 
 ```python
->>> def mul(a, b):
-...     return a * b
->>> mul_by_3 = partial(mul, 3)
+>>> import functools as ft
+>>> mul_by_3 = ft.partial(mul, 3)
 >>> mul_by_3(10)
 30
 ```
@@ -1129,7 +1128,7 @@ class MyHashable:
 
 ### Sortable
 * **With 'total_ordering' decorator, you only need to provide eq() and one of lt(), gt(), le() or ge() special methods (called by <, >, <=, >=) and the rest will be automatically generated.**
-* **Built-in functions sorted() and min() only require lt() method, while max() only requires gt(). However, it's best to define them all so that confusion doesn't arise in other contexts.**
+* **Built-in functions sorted() and min() only require lt() method, while max() only requires gt(). However, it's best to define them all so that confusion doesn't arise in other context.**
 * **When two lists, strings, or data classes are compared, their values get compared one by one until a pair of unequal values is found. The comparison of this two values is then re&shy;turned. The shorter sequence is considered smaller in case of all their values being equal.**
 * **To sort collection of strings in proper alphabetical order pass `'key=locale.strxfrm'` to sorted() after running `'locale.setlocale(locale.LC_COLLATE, "en_US.UTF-8")'`.**
 
@@ -1827,7 +1826,7 @@ import csv
 <write>.writerow(<collection>)                 # Encodes objects using str(<obj>).
 <write>.writerows(<coll_of_coll>)              # Appends rows to the opened file.
 ```
-* **Always pass `'newline=""'` argument to open(), or newlines embedded inside quoted fields will flip between '\n' and '\r\n' (in some cases '\r\n' may even change to '\r\r\n'). Also rows won't be terminated with passed or dialect's `'lineterminator'` parameter.**
+* **Always pass `'newline=""'` argument to open(), or newlines embedded inside quoted fields will flip between '\n' and '\r\n' (in some cases '\r\n' may even change to '\r\r\n'). Also&nbsp;rows won't be terminated with passed or dialect's `'lineterminator'` parameter.**
 * **Open existing file with `'mode="a"'` to append to it or `'mode="w"'` to overwrite it.**
 
 ### Parameters
@@ -2242,61 +2241,61 @@ Threading
 **Threads are functions that run concurrently. Things can get messy when they share objects. `'$ uv init --python 3.15t'` installs interpreter that can run threads on multiple cores.**
 
 ```python
-import threading as thr, queue as qu
+import threading as th, queue as qu
 import concurrent.futures as cf
 ```
 
 ### Thread
 ```python
-<Thread> = thr.Thread(target=<func>)      # Use `args=<coll>` to set function's arguments.
-<Thread>.start()                          # Runs function in background. Also is_alive().
-<Thread>.join()                           # Waits until the function finishes executing.
+<Thread> = th.Thread(target=<func>)     # Use `args=<coll>` to set function's arguments.
+<Thread>.start()                        # Runs function in background. Also is_alive().
+<Thread>.join()                         # Waits until the function finishes executing.
 ```
 * **Use `'kwargs=<dict>'` to pass keyword arguments to the function, i.e. thread.**
 * **Use `'daemon=True'`, or the program won't be able to exit while thread is alive.**
 
 ### Lock
 ```python
-<lock> = thr.Lock/RLock()                 # RLock can only be released by acquirer thread.
-<lock>.acquire()                          # Waits/blocks until the lock becomes available.
-<lock>.release()                          # Releases the lock so it can be acquired again.
+<lock> = th.Lock/RLock()                # RLock can only be released by acquirer thread.
+<lock>.acquire()                        # Waits/blocks until the lock becomes available.
+<lock>.release()                        # Releases the lock so it can be acquired again.
 ```
 
 #### Or:
 ```python
-with <lock>:                              # Enters the block by calling method acquire().
-    ...                                   # Exits it by calling release(), even on error.
+with <lock>:                            # Enters the block by calling method acquire().
+    ...                                 # Exits it by calling release(), even on error.
 ```
 
 ### Semaphore, Event, Barrier
 ```python
-<Semaphr> = thr.Semaphore(value=1)        # A lock that can be acquired by value threads.
-<Event>   = thr.Event()                   # `<Event>.wait()` blocks until set() is called.
-<Barrier> = thr.Barrier(parties)          # Wait() blocks until it's called parties times.
+<Semaphr> = th.Semaphore(value=1)       # A lock that can be acquired by value threads.
+<Event>   = th.Event()                  # `<Event>.wait()` blocks until set() is called.
+<Barrier> = th.Barrier(parties)         # Wait() blocks until it's called parties times.
 ```
 
 ### Queue
 ```python
-<Queue> = qu.Queue(maxsize=0)             # A first-in-first-out queue. It's thread safe.
-<Queue>.put(<obj>)                        # The call blocks until queue stops being full.
-<Queue>.put_nowait(<obj>)                 # Raises the qu.Full exception if queue is full.
-<obj> = <Queue>.get()                     # The call blocks until queue stops being empty.
-<obj> = <Queue>.get_nowait()              # Raises the qu.Empty exception if it is empty.
+<Queue> = qu.Queue(maxsize=0)           # A first-in-first-out queue. It's thread safe.
+<Queue>.put(<obj>)                      # The call blocks until queue stops being full.
+<Queue>.put_nowait(<obj>)               # Raises the qu.Full exception if queue is full.
+<obj> = <Queue>.get()                   # The call blocks until queue stops being empty.
+<obj> = <Queue>.get_nowait()            # Raises the qu.Empty exception if it is empty.
 ```
 
 ### Executor, Future
 ```python
-<Exec> = cf.ThreadPoolExecutor()          # Or use `with ThreadPoolExecutor() as <name>:`.
-<iter> = <Exec>.map(<fn>, <args_1>, …)    # Multithreaded and non-lazy map(). Keeps order.
-<Futr> = <Exec>.submit(<fn>, <arg_1>, …)  # Queues function for execution. Returns Future.
-<Exec>.shutdown()                         # Waits until all submitted tasks are completed.
+<Exec> = cf.ThreadPoolExecutor()        # Or use `with ThreadPoolExecutor() as <name>:`.
+<iter> = <Exec>.map(<fn>, <args>, …)    # Multithreaded and non-lazy map(). Keeps order.
+<Futr> = <Exec>.submit(<fn>, <arg>, …)  # Queues function for execution. Returns Future.
+<Exec>.shutdown()                       # Waits until all submitted tasks are completed.
 ```
 
 ```python
-<iter> = cf.as_completed(<Futrs>)         # `next(<iter>)` returns next completed Future.
-<obj>  = <Future>.result()                # Raises TimeoutError if `timeout=<fl>` is used.
-<bool> = <Future>.done()                  # Returns True if function has finished running.
-<bool> = <Future>.cancel()                # Just returns False if func is already running.
+<iter> = cf.as_completed(<Futrs>)       # `next(<iter>)` returns next completed Future.
+<obj>  = <Future>.result()              # Raises TimeoutError if `timeout=<fl>` is used.
+<bool> = <Future>.done()                # Returns True if function has finished running.
+<bool> = <Future>.cancel()              # Just returns False if func is already running.
 ```
 * **Map() and as\_completed() also accept 'timeout' arg. It causes _futures.TimeoutError_ when next() is called or blocking. Map() times from original call and as_completed() from first call to next(). As\_completed() fails if next() is called too late, even if all tasks are done.**
 * **Exceptions that happen inside threads are raised when map's next() or Future's result() method is called. Future's exception() method returns caught exception object or None.**
@@ -2314,30 +2313,30 @@ import asyncio as ac
 ```
 
 ```python
-<coro> = <async_function>(<args>)         # Creates a coroutine by calling async func.
-<obj>  = await <coroutine>                # Starts coroutine. Returns result or None.
-<task> = ac.create_task(<coroutine>)      # Schedules coroutine. Always keep the task.
-<obj>  = await <task>                     # Returns the result. Also <task>.cancel().
+<coro> = <async_function>(<args>)        # Creates a coroutine by calling async func.
+<obj>  = await <coroutine>               # Starts coroutine. Returns result or None.
+<task> = ac.create_task(<coroutine>)     # Schedules coroutine. Always keep the task.
+<obj>  = await <task>                    # Returns the result. Also <task>.cancel().
 ```
 
 ```python
-<coro> = ac.gather(<coro/task>, ...)      # Schedules coros. Returns list of results.
-<iter> = ac.as_completed(<coros/tasks>)   # `await next(<iter>)` returns next result.
-<coro> = ac.wait(<tasks>)                 # Accepts `return_when=ac.FIRST_COMPLETED`.
+<coro> = ac.gather(<coro/task>, ...)     # Schedules coros. Returns list of results.
+<iter> = ac.as_completed(<coros/tasks>)  # `await next(<iter>)` returns next result.
+<coro> = ac.wait(<tasks>)                # Accepts `return_when=ac.FIRST_COMPLETED`.
 ```
 
 #### Runs a terminal game where you control an asterisk that must avoid numbers:
 ```python
-import asyncio as ac, collections, curses, curses.textpad, enum, random
+import asyncio as ac, collections as co, curses, curses.textpad, enum, random
 
-P = collections.namedtuple('P', 'x y')    # Position (x and y coordinates).
-D = enum.Enum('D', 'n e s w')             # Direction (north, east, etc.).
-W, H = 15, 7                              # Width and height of the field.
+P = co.namedtuple('P', 'x y')            # Position (x and y coordinates).
+D = enum.Enum('D', 'n e s w')            # Direction (north, east, etc.).
+W, H = 15, 7                             # Width and height of the field.
 
 def main(screen):
-    curses.curs_set(0)                    # Makes the cursor invisible.
-    screen.nodelay(True)                  # Makes getch() non-blocking.
-    ac.run(main_coroutine(screen))        # Starts running asyncio code.
+    curses.curs_set(0)                   # Makes the cursor invisible.
+    screen.nodelay(True)                 # Makes getch() non-blocking.
+    ac.run(main_coroutine(screen))       # Starts running asyncio code.
 
 async def main_coroutine(scr):
     moves = ac.Queue()
@@ -2367,12 +2366,12 @@ async def model(moves, state):
         state[id_] = P((state[id_].x + dx) % W, (state[id_].y + dy) % H)
 
 async def view(state, scr):
-    y, x = curses.LINES//2 - H//2, curses.COLS//2 - W//2
+    x, y = curses.COLS//2 - W//2, curses.LINES//2 - H//2
     while True:
         scr.erase()
         curses.textpad.rectangle(scr, y-1, x-1, y+H, x+W)
         for id_, p in state.items():
-            dy, dx = p.y - state['*'].y + H//2, p.x - state['*'].x + W//2
+            dx, dy = p.x - state['*'].x + W//2, p.y - state['*'].y + H//2
             scr.addstr(y + (dy % H), x + (dx % W), str(id_))
         scr.refresh()
         await ac.sleep(0.005)
@@ -2683,7 +2682,7 @@ import numpy as np
 
 ### Indexing
 ```perl
-<element>  = <2d>[row_index, col_index]             # Or <3d>[<int>, <int>, <int>].
+<object>   = <2d>[row_index, col_index]             # Or <3d>[<int>, <int>, <int>].
 <1d_view>  = <2d>[row_index]                        # Or <3d>[<int>, <int>, <slice>].
 <1d_view>  = <2d>[:, col_index]                     # Or <3d>[<int>, <slice>, <int>].
 <2d_view>  = <2d>[row_i:to_exc, col_i:to_exc]       # Or <3d>[<int>, <slice>, <slice>].
@@ -3545,7 +3544,7 @@ cdef class <class_name>:                             # Also `cdef struct <struct
 ```perl
 $ python3 -m venv NAME         # Creates virtual environment in current directory.
 $ source NAME/bin/activate     # Activates it. On Windows run `NAME\Scripts\activate`.
-$ pip3 install LIBRARY         # Installs the library into active environment.
+$ pip3 install LIBRARY         # Installs the library into the active environment.
 $ python3 FILE                 # Runs the script in active environment. Also `./FILE`.
 $ deactivate                   # Deactivates the active virtual environment.
 ```

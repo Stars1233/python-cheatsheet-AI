@@ -55,8 +55,9 @@
 </head>
 
 <body style="margin-top: 17.1px">
+  <div class="pagebreak"></div>
   <header>
-    <aside>July 18, 2026</aside>
+    <aside>July 22, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </header>
 
@@ -111,22 +112,22 @@ const browser_prefers_dark = window.matchMedia('(prefers-color-scheme: dark)').m
     main()                      <span class="hljs-comment"># Executes user-defined `def main(): ...` function.</span>
 </code></pre></div>
 
-<div><h2 id="list"><a href="#list" name="list">#</a>List</h2><pre><code class="python language-python hljs">&lt;list&gt; = [&lt;el_1&gt;, &lt;el_2&gt;, ...]  <span class="hljs-comment"># Creates new list object. E.g. `list_a = [1, 2, 3]`.</span>
+<div><h2 id="list"><a href="#list" name="list">#</a>List</h2><pre><code class="python language-python hljs">&lt;list&gt; = [&lt;el&gt;, &lt;el&gt;, ...]      <span class="hljs-comment"># Creates new list object. E.g. `list_a = [1, 2, 3]`.</span>
 </code></pre></div>
 
 <pre><code class="python language-python hljs">&lt;el&gt;   = &lt;list&gt;[index]          <span class="hljs-comment"># First index is 0, last -1. Also `&lt;list&gt;[i] = &lt;el&gt;`.</span>
 &lt;list&gt; = &lt;list&gt;[&lt;slice&gt;]        <span class="hljs-comment"># Also &lt;list&gt;[from_inclusive : to_exclusive : ±step].</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;list&gt;.append(&lt;el&gt;)             <span class="hljs-comment"># Appends element to the end. Also `&lt;list&gt; += [&lt;el&gt;]`.</span>
-&lt;list&gt;.extend(&lt;collection&gt;)     <span class="hljs-comment"># Appends multiple elements. Also `&lt;list&gt; += &lt;coll&gt;`.</span>
+<pre><code class="python language-python hljs">&lt;list&gt;.append(&lt;el&gt;)             <span class="hljs-comment"># Appends element to the end. Or `&lt;list&gt; += [&lt;el&gt;]`.</span>
+&lt;list&gt;.extend(&lt;coll&gt;)           <span class="hljs-comment"># Appends collection's items. Or `&lt;list&gt; += &lt;coll&gt;`.</span>
 </code></pre>
 <pre><code class="python language-python hljs">&lt;list&gt;.sort()                   <span class="hljs-comment"># Sorts in ascending order. Accepts `reverse=True`.</span>
 &lt;list&gt;.reverse()                <span class="hljs-comment"># Reverses the order of elements. Takes linear time.</span>
 &lt;list&gt; = sorted(&lt;coll&gt;)         <span class="hljs-comment"># Returns a new sorted list. Accepts `reverse=True`.</span>
 &lt;iter&gt; = reversed(&lt;list&gt;)       <span class="hljs-comment"># Returns reversed iterator. Also list(&lt;iterator&gt;).</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;el&gt;  = max(&lt;collection&gt;)       <span class="hljs-comment"># Returns the largest element. Also min(&lt;el_1&gt;, ...).</span>
-&lt;num&gt; = sum(&lt;collection&gt;)       <span class="hljs-comment"># Returns a sum of elements. Also math.prod(&lt;coll&gt;).</span>
+<pre><code class="python language-python hljs">&lt;el&gt;  = max(&lt;coll&gt;)             <span class="hljs-comment"># Returns the largest element. Also min(&lt;el&gt;, &lt;el&gt;).</span>
+&lt;num&gt; = sum(&lt;coll&gt;)             <span class="hljs-comment"># Returns a sum of elements. Also math.prod(&lt;coll&gt;).</span>
 </code></pre>
 <pre><code class="python language-python hljs">elementwise_sum  = [sum(pair) <span class="hljs-keyword">for</span> pair <span class="hljs-keyword">in</span> zip(list_a, list_b)]
 sorted_by_second = sorted(&lt;coll&gt;, key=<span class="hljs-keyword">lambda</span> pair: pair[<span class="hljs-number">1</span>])
@@ -146,7 +147,7 @@ flatter_list     = list(itertools.chain.from_iterable(&lt;list&gt;))
 &lt;list&gt;.remove(&lt;el&gt;)             <span class="hljs-comment"># Removes the first occurrence or raises ValueError.</span>
 &lt;list&gt;.clear()                  <span class="hljs-comment"># Removes all items. Also provided by dict and set.</span>
 </code></pre>
-<div><h2 id="dictionary"><a href="#dictionary" name="dictionary">#</a>Dictionary</h2><pre><code class="python language-python hljs">&lt;dict&gt; = {key_1: val, key_2: val, ...}        <span class="hljs-comment"># Use `&lt;dict&gt;[key]` to get or assign the value.</span>
+<div><h2 id="dictionary"><a href="#dictionary" name="dictionary">#</a>Dictionary</h2><pre><code class="python language-python hljs">&lt;dict&gt; = {key: val, key: val, ...}            <span class="hljs-comment"># Use `&lt;dict&gt;[key]` to get or assign the value.</span>
 </code></pre></div>
 
 <pre><code class="python language-python hljs">&lt;view&gt; = &lt;dict&gt;.keys()                        <span class="hljs-comment"># A collection of keys reflecting all changes.</span>
@@ -173,7 +174,7 @@ value = &lt;dict&gt;.pop(key)                       <span class="hljs-comment">#
 [(<span class="hljs-string">'yellow'</span>, <span class="hljs-number">3</span>), (<span class="hljs-string">'blue'</span>, <span class="hljs-number">2</span>), (<span class="hljs-string">'red'</span>, <span class="hljs-number">1</span>)]
 </code></pre></div>
 
-<div><h2 id="set"><a href="#set" name="set">#</a>Set</h2><pre><code class="python language-python hljs">&lt;set&gt; = {&lt;el_1&gt;, &lt;el_2&gt;, ...}       <span class="hljs-comment"># Coll. of unique items. Also set(), set(&lt;coll&gt;).</span>
+<div><h2 id="set"><a href="#set" name="set">#</a>Set</h2><pre><code class="python language-python hljs">&lt;set&gt; = {&lt;el&gt;, &lt;el&gt;, ...}           <span class="hljs-comment"># Coll. of unique items. Also set(), set(&lt;coll&gt;).</span>
 </code></pre></div>
 
 <pre><code class="python language-python hljs">&lt;set&gt;.add(&lt;el&gt;)                     <span class="hljs-comment"># Adds item to the set. Same as `&lt;set&gt; |= {&lt;el&gt;}`.</span>
@@ -197,9 +198,9 @@ value = &lt;dict&gt;.pop(key)                       <span class="hljs-comment">#
 </code></pre></div>
 
 
-<div><h2 id="tuple"><a href="#tuple" name="tuple">#</a>Tuple</h2><p><strong>Tuple is an immutable and hashable list.</strong></p><pre><code class="python language-python hljs">&lt;tuple&gt; = ()                        <span class="hljs-comment"># Returns empty tuple. Also tuple(), tuple(&lt;coll&gt;).</span>
-&lt;tuple&gt; = (&lt;el&gt;,)                   <span class="hljs-comment"># Returns tuple with one element. Same as `&lt;el&gt;,`.</span>
-&lt;tuple&gt; = (&lt;el_1&gt;, &lt;el_2&gt; [, ...])  <span class="hljs-comment"># Returns tuple. Same as `&lt;el_1&gt;, &lt;el_2&gt; [, ...]`.</span>
+<div><h2 id="tuple"><a href="#tuple" name="tuple">#</a>Tuple</h2><p><strong>Tuple is an immutable and hashable list.</strong></p><pre><code class="python language-python hljs">&lt;tuple&gt; = ()                        <span class="hljs-comment"># Returns an empty tuple. Also tuple(), tuple(&lt;coll&gt;).</span>
+&lt;tuple&gt; = (&lt;el&gt;,)                   <span class="hljs-comment"># Returns tuple with one element. Or `&lt;tup.&gt; = &lt;el&gt;,`.</span>
+&lt;tuple&gt; = (&lt;el&gt;, &lt;el&gt; [, ...])      <span class="hljs-comment"># Returns a tuple. Or `&lt;tuple&gt; = &lt;el&gt;, &lt;el&gt; [, ...]`.</span>
 </code></pre></div>
 
 
@@ -376,10 +377,11 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 <li><strong>By default, decimal characters and alphanumerics from all alphabets are matched unless <code class="python hljs"><span class="hljs-string">'flags=re.ASCII'</span></code> is used. It restricts special sequence matches to the first 128 Unicode characters and also prevents <code class="python hljs"><span class="hljs-string">'\s'</span></code> from accepting <code class="python hljs"><span class="hljs-string">'\x1c'</span></code>, <code class="python hljs"><span class="hljs-string">'\x1d'</span></code>, <code class="python hljs"><span class="hljs-string">'\x1e'</span></code> and <code class="python hljs"><span class="hljs-string">'\x1f'</span></code> (non-printable characters that divide text into files, tables, rows and fields, respectively).</strong></li>
 <li><strong>Use a capital letter, i.e. <code class="python hljs"><span class="hljs-string">'\D'</span></code>, <code class="python hljs"><span class="hljs-string">'\W'</span></code> or <code class="python hljs"><span class="hljs-string">'\S'</span></code>, for negation. All non-ASCII characters are matched if ASCII flag is used in conjunction with a capital letter.</strong></li>
 </ul>
-<div><h2 id="format"><a href="#format" name="format">#</a>Format</h2><pre><code class="python hljs">&lt;str&gt; = <span class="hljs-string">f'<span class="hljs-subst">{&lt;obj&gt;}</span>, <span class="hljs-subst">{&lt;obj&gt;}</span>'</span>            <span class="hljs-comment"># Braces can also contain expressions.</span>
+<div><h2 id="format"><a href="#format" name="format">#</a>Format</h2><p><strong>String formatting methods.</strong></p><pre><code class="python hljs">&lt;str&gt; = <span class="hljs-string">f'<span class="hljs-subst">{&lt;obj&gt;}</span>, <span class="hljs-subst">{&lt;obj&gt;}</span>'</span>            <span class="hljs-comment"># Braces can also contain expressions.</span>
 &lt;str&gt; = <span class="hljs-string">'{}, {}'</span>.format(&lt;obj&gt;, &lt;obj&gt;)  <span class="hljs-comment"># Or '{0}, {a}'.format(&lt;obj&gt;, a=&lt;obj&gt;).</span>
 &lt;str&gt; = <span class="hljs-string">'%s, %s'</span> % (&lt;obj&gt;, &lt;obj&gt;)      <span class="hljs-comment"># Old and redundant formatting method.</span>
 </code></pre></div>
+
 
 <div><h3 id="example">Example</h3><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>Person = collections.namedtuple(<span class="hljs-string">'Person'</span>, <span class="hljs-string">'name height'</span>)
 <span class="hljs-meta">&gt;&gt;&gt; </span>jean = Person(<span class="hljs-string">'Jean-Luc'</span>, <span class="hljs-number">187</span>)
@@ -411,8 +413,6 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 {<span class="hljs-number">123456</span>:<span class="hljs-number">10</span>_}                           <span class="hljs-comment"># '   123_456'.</span>
 {<span class="hljs-number">123456</span>:+<span class="hljs-number">10</span>}                           <span class="hljs-comment"># '   +123456'.</span>
 {<span class="hljs-number">123456</span>:=+<span class="hljs-number">10</span>}                          <span class="hljs-comment"># '+   123456'.</span>
-{<span class="hljs-number">123456</span>: }                             <span class="hljs-comment"># ' 123456'.</span>
-{<span class="hljs-number">-123456</span>: }                            <span class="hljs-comment"># '-123456'.</span>
 </code></pre></div>
 
 <div><h3 id="floats">Floats</h3><pre><code class="python language-python hljs">{<span class="hljs-number">1.23456</span>:<span class="hljs-number">10.3</span>}                         <span class="hljs-comment"># '      1.23'.</span>
@@ -478,24 +478,25 @@ Point(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>
 &lt;num&gt; = sum(&lt;coll_of_nums&gt;)                   <span class="hljs-comment"># Also `math.prod(&lt;coll_of_nums&gt;)`.</span>
 </code></pre></div>
 
-<div><h3 id="math">Math</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> floor, ceil, trunc           <span class="hljs-comment"># Funcs that convert float into int.</span>
-<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> pi, inf, nan, isnan          <span class="hljs-comment"># `inf*0` and `nan+1` return `nan`.</span>
-<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> sqrt, factorial              <span class="hljs-comment"># `sqrt(-1)` will raise ValueError.</span>
-<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> sin, cos, tan                <span class="hljs-comment"># Also: degrees, radians, asin, etc.</span>
-<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> log, log10, log2             <span class="hljs-comment"># Log() can accept 'base' argument.</span>
+<div><h3 id="math">Math</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> math
+&lt;num&gt; = math.pi/inf/nan                       <span class="hljs-comment"># `inf*0` and `nan+1` return `nan`.</span>
+&lt;num&gt; = math.sqrt/factorial(&lt;num&gt;)            <span class="hljs-comment"># `sqrt(-1)` will raise ValueError.</span>
+&lt;num&gt; = math.sin/cos/tan(&lt;num&gt;)               <span class="hljs-comment"># Also degrees, radians, asin, etc.</span>
+&lt;num&gt; = math.log/log10/log2(&lt;num&gt;)            <span class="hljs-comment"># Log() can accept 'base' argument.</span>
 </code></pre></div>
 
-<div><h3 id="statistics">Statistics</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> statistics <span class="hljs-keyword">import</span> mean, median, mode     <span class="hljs-comment"># Mode returns most common element.</span>
-<span class="hljs-keyword">from</span> statistics <span class="hljs-keyword">import</span> variance, stdev        <span class="hljs-comment"># I.e. `&lt;float&gt; = variance(&lt;coll&gt;)`.</span>
-<span class="hljs-keyword">from</span> statistics <span class="hljs-keyword">import</span> quantiles              <span class="hljs-comment"># I.e. `cuts = quantiles(data, n)`.</span>
+<div><h3 id="statistics">Statistics</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> statistics <span class="hljs-keyword">as</span> st
+&lt;obj&gt;  = st.mean/median(&lt;coll&gt;)               <span class="hljs-comment"># Mode returns most common element.</span>
+&lt;num&gt;  = st.variance/stdev(&lt;coll&gt;)            <span class="hljs-comment"># Estimates values from the sample.</span>
+&lt;list&gt; = st.quantiles(&lt;coll&gt;, n=<span class="hljs-number">4</span>)            <span class="hljs-comment"># Estimates cut points from sample.</span>
 </code></pre></div>
 
-<div><h3 id="random">Random</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> random <span class="hljs-keyword">as</span> ra
-&lt;float&gt; = ra.random()                         <span class="hljs-comment"># Selects random float from [0, 1).</span>
-&lt;num&gt;   = ra.randint/uniform(a, b)            <span class="hljs-comment"># Selects an int/float from [a, b].</span>
-&lt;float&gt; = ra.gauss(mean, stdev)               <span class="hljs-comment"># Also triangular(low, high, mode).</span>
-&lt;obj&gt;   = ra.choice(&lt;sequence&gt;)               <span class="hljs-comment"># Doesn't mutate. Also sample(p, n).</span>
-ra.shuffle(&lt;list&gt;)                            <span class="hljs-comment"># Works with all mutable sequences.</span>
+<div><h3 id="random">Random</h3><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> random <span class="hljs-keyword">as</span> rd
+&lt;num&gt; = rd.random()                           <span class="hljs-comment"># Selects random float from [0, 1).</span>
+&lt;num&gt; = rd.randint/uniform(a, b)              <span class="hljs-comment"># Selects an int/float from [a, b].</span>
+&lt;num&gt; = rd.gauss(mean, stdev)                 <span class="hljs-comment"># Also triangular(low, high, mode).</span>
+&lt;obj&gt; = rd.choice(&lt;sequence&gt;)                 <span class="hljs-comment"># Doesn't mutate. Also sample(p, n).</span>
+rd.shuffle(&lt;list&gt;)                            <span class="hljs-comment"># Works with all mutable sequences.</span>
 </code></pre></div>
 
 <div><h3 id="hexadecimalnumbers">Hexadecimal Numbers</h3><pre><code class="python language-python hljs">&lt;int&gt; = <span class="hljs-number">0x</span>&lt;hex&gt;                               <span class="hljs-comment"># E.g. `0xFf == 255`. Also 0b&lt;bin&gt;.</span>
@@ -625,33 +626,33 @@ func(*args, **kwargs)
 <div><h4 id="isthesameas">Is the same as:</h4><pre><code class="python language-python hljs">func(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, z=<span class="hljs-number">3</span>)
 </code></pre></div>
 
-<div><h3 id="insidefunctiondefinition">Inside Function Definition</h3><p><strong>Splat combines zero or more positional arguments into a tuple, while splatty-splat combines zero or more keyword arguments into a dictionary.</strong></p><pre><code class="python language-python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(*a)</span>:</span>
-    <span class="hljs-keyword">return</span> sum(a)
+<div><h3 id="insidefunctiondefinition">Inside Function Definition</h3><p><strong>Splat combines zero or more positional arguments into a tuple, while splatty-splat combines zero or more keyword arguments into a dictionary.</strong></p><pre><code class="python language-python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(*args)</span>:</span>
+    <span class="hljs-keyword">return</span> sum(args)
 </code></pre></div>
 
 
 <pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
 <span class="hljs-number">6</span>
 </code></pre>
-<div><h4 id="allowedcompositionsofarguments">Allowed compositions of arguments:</h4><pre><code class="text language-text">┏━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━┓
+<pre><code class="text language-text">┏━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━┓
 ┃                         │ fn(x=<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>) │  fn(<span class="hljs-number">1</span>, y=<span class="hljs-number">2</span>)  │  fn(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)  ┃
 ┠─────────────────────────┼──────────────┼──────────────┼────────────┨
 ┃ <span class="hljs-title">fn</span>(x, *args, **kwargs): │      ✓       │      ✓       │     ✓      ┃
 ┃ <span class="hljs-title">fn</span>(*args, y, **kwargs): │      ✓       │      ✓       │            ┃
 ┃ <span class="hljs-title">fn</span>(*, x, **kwargs):     │      ✓       │              │            ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━┛
-</code></pre></div>
-
-<div><h3 id="otheruses">Other Uses</h3><pre><code class="python language-python hljs">&lt;list&gt;  = [*&lt;collection&gt; [, ...]]  <span class="hljs-comment"># Same as `list(&lt;coll&gt;) [+ ...]`.</span>
-&lt;tuple&gt; = (*&lt;collection&gt;, [...])   <span class="hljs-comment"># Same as `tuple(&lt;coll&gt;) [+ ...]`.</span>
-&lt;set&gt;   = {*&lt;collection&gt; [, ...]}  <span class="hljs-comment"># Same as `set(&lt;coll&gt;) [| ...]`.</span>
-&lt;dict&gt;  = {**&lt;dict&gt; [, ...]}       <span class="hljs-comment"># Last dict has priority. Also |.</span>
-</code></pre></div>
-
-<pre><code class="python language-python hljs">head, *body, tail = &lt;collection&gt;   <span class="hljs-comment"># Head or tail can be omitted.</span>
 </code></pre>
+<div><h3 id="collectionunpacking">Collection Unpacking</h3><pre><code class="python language-python hljs">head, *body, tail = &lt;collection&gt;    <span class="hljs-comment"># Head or tail can be omitted.</span>
+</code></pre></div>
+
+<div><h3 id="insidecollectionliterals">Inside Collection Literals</h3><pre><code class="python language-python hljs">&lt;list&gt;  = [*&lt;coll&gt; [, ...]]         <span class="hljs-comment"># Same as `list(&lt;coll&gt;) [+ ...]`.</span>
+&lt;tuple&gt; = (*&lt;coll&gt;, [...])          <span class="hljs-comment"># Same as `tuple(&lt;coll&gt;) [+ ...]`.</span>
+&lt;set&gt;   = {*&lt;coll&gt; [, ...]}         <span class="hljs-comment"># Same as `set(&lt;coll&gt;) [| ...]`.</span>
+&lt;dict&gt;  = {**&lt;dict&gt; [, ...]}        <span class="hljs-comment"># Last dict has priority. Also |.</span>
+</code></pre></div>
+
 <div><h2 id="inline"><a href="#inline" name="inline">#</a>Inline</h2><div><h3 id="lambda">Lambda</h3><pre><code class="python language-python hljs">&lt;func&gt; = <span class="hljs-keyword">lambda</span>: &lt;return_val&gt;                     <span class="hljs-comment"># A single statement function.</span>
-&lt;func&gt; = <span class="hljs-keyword">lambda</span> &lt;arg_1&gt; [, ...]: &lt;return_val&gt;     <span class="hljs-comment"># Also allows default arguments.</span>
+&lt;func&gt; = <span class="hljs-keyword">lambda</span> &lt;arg&gt; [, ...]: &lt;return_val&gt;       <span class="hljs-comment"># Also allows default arguments.</span>
 </code></pre></div></div>
 
 
@@ -685,7 +686,7 @@ func(*args, **kwargs)
 &lt;obj&gt; = &lt;exp&gt; <span class="hljs-keyword">or</span> &lt;exp&gt; [<span class="hljs-keyword">or</span> ...]                   <span class="hljs-comment"># Returns first true or last obj.</span>
 </code></pre></div>
 
-<div><h3 id="walrusoperator">Walrus Operator</h3><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>[i <span class="hljs-keyword">for</span> ch <span class="hljs-keyword">in</span> <span class="hljs-string">'0123'</span> <span class="hljs-keyword">if</span> (i := int(ch)) &gt; <span class="hljs-number">0</span>]    <span class="hljs-comment"># Assigns to var in mid-sentence.</span>
+<div><h3 id="walrusoperator">Walrus Operator</h3><pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span>[i <span class="hljs-keyword">for</span> ch <span class="hljs-keyword">in</span> <span class="hljs-string">'0123'</span> <span class="hljs-keyword">if</span> (i := int(ch))]        <span class="hljs-comment"># Assigns to var in mid-sentence.</span>
 [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
 </code></pre></div>
 
@@ -726,14 +727,13 @@ player = Player(point, direction)                 <span class="hljs-comment"># R
 <span class="hljs-meta">&gt;&gt;&gt; </span>mul_by_3(<span class="hljs-number">10</span>)
 <span class="hljs-number">30</span>
 </code></pre>
-<div><h3 id="partial">Partial</h3><p><strong>Partial transforms a function by storing some (or all) of its arguments. It is useful when a function needs to be passed as an argument, e.g. <code class="python hljs"><span class="hljs-string">'collections.defaultdict(&lt;func&gt;)'</span></code>, <code class="python hljs"><span class="hljs-string">'iter(&lt;func&gt;, to_exc)'</span></code> and <code class="python hljs"><span class="hljs-string">'dataclasses.field(default_factory=&lt;func&gt;)'</span></code>.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> partial
-&lt;func&gt; = partial(&lt;func&gt;, &lt;arg_1&gt;, ...)
+<div><h3 id="partial">Partial</h3><p><strong>Partial transforms a function by storing some (or all) of its arguments. It is useful when a function needs to be passed as an argument, e.g. <code class="python hljs"><span class="hljs-string">'collections.defaultdict(&lt;func&gt;)'</span></code>, <code class="python hljs"><span class="hljs-string">'iter(&lt;func&gt;, to_exc)'</span></code> and <code class="python hljs"><span class="hljs-string">'dataclasses.field(default_factory=&lt;func&gt;)'</span></code>.</strong></p><pre><code class="python language-python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mul</span><span class="hljs-params">(a, b)</span>:</span>
+    <span class="hljs-keyword">return</span> a * b
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mul</span><span class="hljs-params">(a, b)</span>:</span>
-<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> a * b
-<span class="hljs-meta">&gt;&gt;&gt; </span>mul_by_3 = partial(mul, <span class="hljs-number">3</span>)
+<pre><code class="python language-python hljs"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> functools <span class="hljs-keyword">as</span> ft
+<span class="hljs-meta">&gt;&gt;&gt; </span>mul_by_3 = ft.partial(mul, <span class="hljs-number">3</span>)
 <span class="hljs-meta">&gt;&gt;&gt; </span>mul_by_3(<span class="hljs-number">10</span>)
 <span class="hljs-number">30</span>
 </code></pre>
@@ -961,7 +961,7 @@ P = dc.make_dataclass(<span class="hljs-string">'P'</span>, [(<span class="hljs-
 
 <div><h3 id="sortable">Sortable</h3><ul>
 <li><strong>With 'total_ordering' decorator, you only need to provide eq() and one of lt(), gt(), le() or ge() special methods (called by &lt;, &gt;, &lt;=, &gt;=) and the rest will be automatically generated.</strong></li>
-<li><strong>Built-in functions sorted() and min() only require lt() method, while max() only requires gt(). However, it's best to define them all so that confusion doesn't arise in other contexts.</strong></li>
+<li><strong>Built-in functions sorted() and min() only require lt() method, while max() only requires gt(). However, it's best to define them all so that confusion doesn't arise in other context.</strong></li>
 <li><strong>When two lists, strings, or data classes are compared, their values get compared one by one until a pair of unequal values is found. The comparison of this two values is then re­turned. The shorter sequence is considered smaller in case of all their values being equal.</strong></li>
 <li><strong>To sort collection of strings in proper alphabetical order pass <code class="python hljs"><span class="hljs-string">'key=locale.strxfrm'</span></code> to sorted() after running <code class="python hljs"><span class="hljs-string">'locale.setlocale(locale.LC_COLLATE, "en_US.UTF-8")'</span></code>.</strong></li>
 </ul><pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> total_ordering
@@ -1528,7 +1528,7 @@ CompletedProcess(args=<span class="hljs-string">'bc'</span>, returncode=<span cl
 </code></pre></div>
 
 <ul>
-<li><strong>Always pass <code class="python hljs"><span class="hljs-string">'newline=""'</span></code> argument to open(), or newlines embedded inside quoted fields will flip between '\n' and '\r\n' (in some cases '\r\n' may even change to '\r\r\n'). Also rows won't be terminated with passed or dialect's <code class="python hljs"><span class="hljs-string">'lineterminator'</span></code> parameter.</strong></li>
+<li><strong>Always pass <code class="python hljs"><span class="hljs-string">'newline=""'</span></code> argument to open(), or newlines embedded inside quoted fields will flip between '\n' and '\r\n' (in some cases '\r\n' may even change to '\r\r\n'). Also&nbsp;rows won't be terminated with passed or dialect's <code class="python hljs"><span class="hljs-string">'lineterminator'</span></code> parameter.</strong></li>
 <li><strong>Open existing file with <code class="python hljs"><span class="hljs-string">'mode="a"'</span></code> to append to it or <code class="python hljs"><span class="hljs-string">'mode="w"'</span></code> to overwrite it.</strong></li>
 </ul>
 <div><h3 id="parameters">Parameters</h3><ul>
@@ -1846,51 +1846,51 @@ value  = getattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)  
 setattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>, value)      <span class="hljs-comment"># Only works on objects with `__dict__` attribute.</span>
 delattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)             <span class="hljs-comment"># Deletes from __dict__. Also `del &lt;obj&gt;.&lt;name&gt;`.</span>
 </code></pre>
-<div><h2 id="threading"><a href="#threading" name="threading">#</a>Threading</h2><p><strong>Threads are functions that run concurrently. Things can get messy when they share objects. <code class="python hljs"><span class="hljs-string">'$ uv init --python 3.15t'</span></code> installs interpreter that can run threads on multiple cores.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> threading <span class="hljs-keyword">as</span> thr, queue <span class="hljs-keyword">as</span> qu
+<div><h2 id="threading"><a href="#threading" name="threading">#</a>Threading</h2><p><strong>Threads are functions that run concurrently. Things can get messy when they share objects. <code class="python hljs"><span class="hljs-string">'$ uv init --python 3.15t'</span></code> installs interpreter that can run threads on multiple cores.</strong></p><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> threading <span class="hljs-keyword">as</span> th, queue <span class="hljs-keyword">as</span> qu
 <span class="hljs-keyword">import</span> concurrent.futures <span class="hljs-keyword">as</span> cf
 </code></pre></div>
 
 
-<div><h3 id="thread">Thread</h3><pre><code class="python language-python hljs">&lt;Thread&gt; = thr.Thread(target=&lt;func&gt;)      <span class="hljs-comment"># Use `args=&lt;coll&gt;` to set function's arguments.</span>
-&lt;Thread&gt;.start()                          <span class="hljs-comment"># Runs function in background. Also is_alive().</span>
-&lt;Thread&gt;.join()                           <span class="hljs-comment"># Waits until the function finishes executing.</span>
+<div><h3 id="thread">Thread</h3><pre><code class="python language-python hljs">&lt;Thread&gt; = th.Thread(target=&lt;func&gt;)     <span class="hljs-comment"># Use `args=&lt;coll&gt;` to set function's arguments.</span>
+&lt;Thread&gt;.start()                        <span class="hljs-comment"># Runs function in background. Also is_alive().</span>
+&lt;Thread&gt;.join()                         <span class="hljs-comment"># Waits until the function finishes executing.</span>
 </code></pre></div>
 
 <ul>
 <li><strong>Use <code class="python hljs"><span class="hljs-string">'kwargs=&lt;dict&gt;'</span></code> to pass keyword arguments to the function, i.e. thread.</strong></li>
 <li><strong>Use <code class="python hljs"><span class="hljs-string">'daemon=True'</span></code>, or the program won't be able to exit while thread is alive.</strong></li>
 </ul>
-<div><h3 id="lock">Lock</h3><pre><code class="python language-python hljs">&lt;lock&gt; = thr.Lock/RLock()                 <span class="hljs-comment"># RLock can only be released by acquirer thread.</span>
-&lt;lock&gt;.acquire()                          <span class="hljs-comment"># Waits/blocks until the lock becomes available.</span>
-&lt;lock&gt;.release()                          <span class="hljs-comment"># Releases the lock so it can be acquired again.</span>
+<div><h3 id="lock">Lock</h3><pre><code class="python language-python hljs">&lt;lock&gt; = th.Lock/RLock()                <span class="hljs-comment"># RLock can only be released by acquirer thread.</span>
+&lt;lock&gt;.acquire()                        <span class="hljs-comment"># Waits/blocks until the lock becomes available.</span>
+&lt;lock&gt;.release()                        <span class="hljs-comment"># Releases the lock so it can be acquired again.</span>
 </code></pre></div>
 
-<div><h4 id="or-1">Or:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">with</span> &lt;lock&gt;:                              <span class="hljs-comment"># Enters the block by calling method acquire().</span>
-    ...                                   <span class="hljs-comment"># Exits it by calling release(), even on error.</span>
+<div><h4 id="or-1">Or:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">with</span> &lt;lock&gt;:                            <span class="hljs-comment"># Enters the block by calling method acquire().</span>
+    ...                                 <span class="hljs-comment"># Exits it by calling release(), even on error.</span>
 </code></pre></div>
 
-<div><h3 id="semaphoreeventbarrier">Semaphore, Event, Barrier</h3><pre><code class="python language-python hljs">&lt;Semaphr&gt; = thr.Semaphore(value=<span class="hljs-number">1</span>)        <span class="hljs-comment"># A lock that can be acquired by value threads.</span>
-&lt;Event&gt;   = thr.Event()                   <span class="hljs-comment"># `&lt;Event&gt;.wait()` blocks until set() is called.</span>
-&lt;Barrier&gt; = thr.Barrier(parties)          <span class="hljs-comment"># Wait() blocks until it's called parties times.</span>
+<div><h3 id="semaphoreeventbarrier">Semaphore, Event, Barrier</h3><pre><code class="python language-python hljs">&lt;Semaphr&gt; = th.Semaphore(value=<span class="hljs-number">1</span>)       <span class="hljs-comment"># A lock that can be acquired by value threads.</span>
+&lt;Event&gt;   = th.Event()                  <span class="hljs-comment"># `&lt;Event&gt;.wait()` blocks until set() is called.</span>
+&lt;Barrier&gt; = th.Barrier(parties)         <span class="hljs-comment"># Wait() blocks until it's called parties times.</span>
 </code></pre></div>
 
-<div><h3 id="queue">Queue</h3><pre><code class="python language-python hljs">&lt;Queue&gt; = qu.Queue(maxsize=<span class="hljs-number">0</span>)             <span class="hljs-comment"># A first-in-first-out queue. It's thread safe.</span>
-&lt;Queue&gt;.put(&lt;obj&gt;)                        <span class="hljs-comment"># The call blocks until queue stops being full.</span>
-&lt;Queue&gt;.put_nowait(&lt;obj&gt;)                 <span class="hljs-comment"># Raises the qu.Full exception if queue is full.</span>
-&lt;obj&gt; = &lt;Queue&gt;.get()                     <span class="hljs-comment"># The call blocks until queue stops being empty.</span>
-&lt;obj&gt; = &lt;Queue&gt;.get_nowait()              <span class="hljs-comment"># Raises the qu.Empty exception if it is empty.</span>
+<div><h3 id="queue">Queue</h3><pre><code class="python language-python hljs">&lt;Queue&gt; = qu.Queue(maxsize=<span class="hljs-number">0</span>)           <span class="hljs-comment"># A first-in-first-out queue. It's thread safe.</span>
+&lt;Queue&gt;.put(&lt;obj&gt;)                      <span class="hljs-comment"># The call blocks until queue stops being full.</span>
+&lt;Queue&gt;.put_nowait(&lt;obj&gt;)               <span class="hljs-comment"># Raises the qu.Full exception if queue is full.</span>
+&lt;obj&gt; = &lt;Queue&gt;.get()                   <span class="hljs-comment"># The call blocks until queue stops being empty.</span>
+&lt;obj&gt; = &lt;Queue&gt;.get_nowait()            <span class="hljs-comment"># Raises the qu.Empty exception if it is empty.</span>
 </code></pre></div>
 
-<div><h3 id="executorfuture">Executor, Future</h3><pre><code class="python language-python hljs">&lt;Exec&gt; = cf.ThreadPoolExecutor()          <span class="hljs-comment"># Or use `with ThreadPoolExecutor() as &lt;name&gt;:`.</span>
-&lt;iter&gt; = &lt;Exec&gt;.map(&lt;fn&gt;, &lt;args_1&gt;, …)    <span class="hljs-comment"># Multithreaded and non-lazy map(). Keeps order.</span>
-&lt;Futr&gt; = &lt;Exec&gt;.submit(&lt;fn&gt;, &lt;arg_1&gt;, …)  <span class="hljs-comment"># Queues function for execution. Returns Future.</span>
-&lt;Exec&gt;.shutdown()                         <span class="hljs-comment"># Waits until all submitted tasks are completed.</span>
+<div><h3 id="executorfuture">Executor, Future</h3><pre><code class="python language-python hljs">&lt;Exec&gt; = cf.ThreadPoolExecutor()        <span class="hljs-comment"># Or use `with ThreadPoolExecutor() as &lt;name&gt;:`.</span>
+&lt;iter&gt; = &lt;Exec&gt;.map(&lt;fn&gt;, &lt;args&gt;, …)    <span class="hljs-comment"># Multithreaded and non-lazy map(). Keeps order.</span>
+&lt;Futr&gt; = &lt;Exec&gt;.submit(&lt;fn&gt;, &lt;arg&gt;, …)  <span class="hljs-comment"># Queues function for execution. Returns Future.</span>
+&lt;Exec&gt;.shutdown()                       <span class="hljs-comment"># Waits until all submitted tasks are completed.</span>
 </code></pre></div>
 
-<pre><code class="python language-python hljs">&lt;iter&gt; = cf.as_completed(&lt;Futrs&gt;)         <span class="hljs-comment"># `next(&lt;iter&gt;)` returns next completed Future.</span>
-&lt;obj&gt;  = &lt;Future&gt;.result()                <span class="hljs-comment"># Raises TimeoutError if `timeout=&lt;fl&gt;` is used.</span>
-&lt;bool&gt; = &lt;Future&gt;.done()                  <span class="hljs-comment"># Returns True if function has finished running.</span>
-&lt;bool&gt; = &lt;Future&gt;.cancel()                <span class="hljs-comment"># Just returns False if func is already running.</span>
+<pre><code class="python language-python hljs">&lt;iter&gt; = cf.as_completed(&lt;Futrs&gt;)       <span class="hljs-comment"># `next(&lt;iter&gt;)` returns next completed Future.</span>
+&lt;obj&gt;  = &lt;Future&gt;.result()              <span class="hljs-comment"># Raises TimeoutError if `timeout=&lt;fl&gt;` is used.</span>
+&lt;bool&gt; = &lt;Future&gt;.done()                <span class="hljs-comment"># Returns True if function has finished running.</span>
+&lt;bool&gt; = &lt;Future&gt;.cancel()              <span class="hljs-comment"># Just returns False if func is already running.</span>
 </code></pre>
 <ul>
 <li><strong>Map() and as_completed() also accept 'timeout' arg. It causes <em>futures.TimeoutError</em> when next() is called or blocking. Map() times from original call and as_completed() from first call to next(). As_completed() fails if next() is called too late, even if all tasks are done.</strong></li>
@@ -1905,25 +1905,25 @@ delattr(&lt;obj&gt;, <span class="hljs-string">'&lt;name&gt;'</span>)           
 </code></pre></div>
 
 
-<pre><code class="python language-python hljs">&lt;coro&gt; = &lt;async_function&gt;(&lt;args&gt;)         <span class="hljs-comment"># Creates a coroutine by calling async func.</span>
-&lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;coroutine&gt;                <span class="hljs-comment"># Starts coroutine. Returns result or None.</span>
-&lt;task&gt; = ac.create_task(&lt;coroutine&gt;)      <span class="hljs-comment"># Schedules coroutine. Always keep the task.</span>
-&lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;task&gt;                     <span class="hljs-comment"># Returns the result. Also &lt;task&gt;.cancel().</span>
+<pre><code class="python language-python hljs">&lt;coro&gt; = &lt;async_function&gt;(&lt;args&gt;)        <span class="hljs-comment"># Creates a coroutine by calling async func.</span>
+&lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;coroutine&gt;               <span class="hljs-comment"># Starts coroutine. Returns result or None.</span>
+&lt;task&gt; = ac.create_task(&lt;coroutine&gt;)     <span class="hljs-comment"># Schedules coroutine. Always keep the task.</span>
+&lt;obj&gt;  = <span class="hljs-keyword">await</span> &lt;task&gt;                    <span class="hljs-comment"># Returns the result. Also &lt;task&gt;.cancel().</span>
 </code></pre>
-<pre><code class="python language-python hljs">&lt;coro&gt; = ac.gather(&lt;coro/task&gt;, ...)      <span class="hljs-comment"># Schedules coros. Returns list of results.</span>
-&lt;iter&gt; = ac.as_completed(&lt;coros/tasks&gt;)   <span class="hljs-comment"># `await next(&lt;iter&gt;)` returns next result.</span>
-&lt;coro&gt; = ac.wait(&lt;tasks&gt;)                 <span class="hljs-comment"># Accepts `return_when=ac.FIRST_COMPLETED`.</span>
+<pre><code class="python language-python hljs">&lt;coro&gt; = ac.gather(&lt;coro/task&gt;, ...)     <span class="hljs-comment"># Schedules coros. Returns list of results.</span>
+&lt;iter&gt; = ac.as_completed(&lt;coros/tasks&gt;)  <span class="hljs-comment"># `await next(&lt;iter&gt;)` returns next result.</span>
+&lt;coro&gt; = ac.wait(&lt;tasks&gt;)                <span class="hljs-comment"># Accepts `return_when=ac.FIRST_COMPLETED`.</span>
 </code></pre>
-<div><h4 id="runsaterminalgamewhereyoucontrolanasteriskthatmustavoidnumbers">Runs a terminal game where you control an asterisk that must avoid numbers:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> ac, collections, curses, curses.textpad, enum, random
+<div><h4 id="runsaterminalgamewhereyoucontrolanasteriskthatmustavoidnumbers">Runs a terminal game where you control an asterisk that must avoid numbers:</h4><pre><code class="python language-python hljs"><span class="hljs-keyword">import</span> asyncio <span class="hljs-keyword">as</span> ac, collections <span class="hljs-keyword">as</span> co, curses, curses.textpad, enum, random
 
-P = collections.namedtuple(<span class="hljs-string">'P'</span>, <span class="hljs-string">'x y'</span>)    <span class="hljs-comment"># Position (x and y coordinates).</span>
-D = enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)             <span class="hljs-comment"># Direction (north, east, etc.).</span>
-W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>                              <span class="hljs-comment"># Width and height of the field.</span>
+P = co.namedtuple(<span class="hljs-string">'P'</span>, <span class="hljs-string">'x y'</span>)            <span class="hljs-comment"># Position (x and y coordinates).</span>
+D = enum.Enum(<span class="hljs-string">'D'</span>, <span class="hljs-string">'n e s w'</span>)            <span class="hljs-comment"># Direction (north, east, etc.).</span>
+W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>                             <span class="hljs-comment"># Width and height of the field.</span>
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(screen)</span>:</span>
-    curses.curs_set(<span class="hljs-number">0</span>)                    <span class="hljs-comment"># Makes the cursor invisible.</span>
-    screen.nodelay(<span class="hljs-keyword">True</span>)                  <span class="hljs-comment"># Makes getch() non-blocking.</span>
-    ac.run(main_coroutine(screen))        <span class="hljs-comment"># Starts running asyncio code.</span>
+    curses.curs_set(<span class="hljs-number">0</span>)                   <span class="hljs-comment"># Makes the cursor invisible.</span>
+    screen.nodelay(<span class="hljs-keyword">True</span>)                 <span class="hljs-comment"># Makes getch() non-blocking.</span>
+    ac.run(main_coroutine(screen))       <span class="hljs-comment"># Starts running asyncio code.</span>
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main_coroutine</span><span class="hljs-params">(scr)</span>:</span>
     moves = ac.Queue()
@@ -1953,12 +1953,12 @@ W, H = <span class="hljs-number">15</span>, <span class="hljs-number">7</span>  
         state[id_] = P((state[id_].x + dx) % W, (state[id_].y + dy) % H)
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">view</span><span class="hljs-params">(state, scr)</span>:</span>
-    y, x = curses.LINES//<span class="hljs-number">2</span> - H//<span class="hljs-number">2</span>, curses.COLS//<span class="hljs-number">2</span> - W//<span class="hljs-number">2</span>
+    x, y = curses.COLS//<span class="hljs-number">2</span> - W//<span class="hljs-number">2</span>, curses.LINES//<span class="hljs-number">2</span> - H//<span class="hljs-number">2</span>
     <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
         scr.erase()
         curses.textpad.rectangle(scr, y<span class="hljs-number">-1</span>, x<span class="hljs-number">-1</span>, y+H, x+W)
         <span class="hljs-keyword">for</span> id_, p <span class="hljs-keyword">in</span> state.items():
-            dy, dx = p.y - state[<span class="hljs-string">'*'</span>].y + H//<span class="hljs-number">2</span>, p.x - state[<span class="hljs-string">'*'</span>].x + W//<span class="hljs-number">2</span>
+            dx, dy = p.x - state[<span class="hljs-string">'*'</span>].x + W//<span class="hljs-number">2</span>, p.y - state[<span class="hljs-string">'*'</span>].y + H//<span class="hljs-number">2</span>
             scr.addstr(y + (dy % H), x + (dx % W), str(id_))
         scr.refresh()
         <span class="hljs-keyword">await</span> ac.sleep(<span class="hljs-number">0.005</span>)
@@ -2198,7 +2198,7 @@ $ snakeviz test.prof                                       <span class="hljs-com
 <li><strong>Shape is a tuple of dimension sizes. A 100x50 RGB image has shape (50, 100, 3).</strong></li>
 <li><strong>Axis is an index of a dimension. Leftmost dimension has index 0. Summing the RGB&nbsp;image along axis 2 will return a greyscale image with shape (50, 100).</strong></li>
 </ul>
-<div><h3 id="indexing">Indexing</h3><pre><code class="bash hljs">&lt;element&gt;  = &lt;2d&gt;[row_index, col_index]             <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int&gt;, &lt;int&gt;, &lt;int&gt;].</span>
+<div><h3 id="indexing">Indexing</h3><pre><code class="bash hljs">&lt;object&gt;   = &lt;2d&gt;[row_index, col_index]             <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int&gt;, &lt;int&gt;, &lt;int&gt;].</span>
 &lt;1d_view&gt;  = &lt;2d&gt;[row_index]                        <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int&gt;, &lt;int&gt;, &lt;slice&gt;].</span>
 &lt;1d_view&gt;  = &lt;2d&gt;[:, col_index]                     <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int&gt;, &lt;slice&gt;, &lt;int&gt;].</span>
 &lt;2d_view&gt;  = &lt;2d&gt;[row_i:to_exc, col_i:to_exc]       <span class="hljs-comment"># Or &lt;3d&gt;[&lt;int&gt;, &lt;slice&gt;, &lt;slice&gt;].</span>
@@ -2888,7 +2888,7 @@ px.line(df, x=<span class="hljs-string">'Date'</span>, y=<span class="hljs-strin
 </code></pre>
 <div><h3 id="virtualenvironments">Virtual Environments</h3><p><strong>System for installing libraries directly into project's directory.</strong></p><pre><code class="python hljs">$ python3 -m venv NAME         <span class="hljs-comment"># Creates virtual environment in current directory.</span>
 $ source NAME/bin/activate     <span class="hljs-comment"># Activates it. On Windows run `NAME\Scripts\activate`.</span>
-$ pip3 install LIBRARY         <span class="hljs-comment"># Installs the library into active environment.</span>
+$ pip3 install LIBRARY         <span class="hljs-comment"># Installs the library into the active environment.</span>
 $ python3 FILE                 <span class="hljs-comment"># Runs the script in active environment. Also `./FILE`.</span>
 $ deactivate                   <span class="hljs-comment"># Deactivates the active virtual environment.</span>
 </code></pre></div>
@@ -2931,7 +2931,7 @@ $ deactivate                   <span class="hljs-comment"># Deactivates the acti
  
 
   <footer>
-    <aside>July 18, 2026</aside>
+    <aside>July 22, 2026</aside>
     <a href="https://gto76.github.io" rel="author">Jure Šorn</a>
   </footer>
 
